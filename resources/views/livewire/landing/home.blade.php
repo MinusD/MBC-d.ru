@@ -29,7 +29,7 @@
         <div class="text-white relative mt-2 md:mt-20">
             <h3 class="text-uppercase font-semibold">Страницы & Действия</h3>
             <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-5 mb-12 ">
-                <a href="">
+                <a href="{{ route('guest.schedule') }}">
                     <div
                         class="group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24"

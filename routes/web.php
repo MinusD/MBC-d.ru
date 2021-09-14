@@ -74,6 +74,8 @@ Route::group([
         });
     });
 });
+Route::get('schedule', \App\Http\Livewire\Guest\Schedule::class)->name('guest.schedule');
+
 
 Route::get('/', \App\Http\Livewire\Landing\Home::class)->name('landing.home');
 Route::get('about', \App\Http\Livewire\Landing\About::class)->name('landing.about');
@@ -81,6 +83,7 @@ Route::get('contacts', \App\Http\Livewire\Landing\Contacts::class)->name('landin
 Route::get('team', \App\Http\Livewire\Landing\Home::class)->name('landing.team');
 Route::get('fs', \App\Http\Livewire\Landing\Fastshare::class)->name('landing.fastshare');
 Route::get('registration', \App\Http\Livewire\Landing\Registration::class)->name('landing.registration');
+
 
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Controllers\MainController::class, 'DashboardRedirect'])->name('dashboard');
 //Route::get('/', \App\Http\Livewire\Landing\Home::class)->name('landing.home');
