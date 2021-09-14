@@ -40,7 +40,11 @@ Route::group([
         'prefix' => 'student',
         'middleware' => ['can:user-panel-access'],
     ], function () {
-//        Route::get('/', \App\Http\Livewire\Member\Dashboard::class)->name('member.dashboard');
+        Route::get('/', \App\Http\Livewire\Student\Dashboard::class)->name('student.dashboard');
+        Route::get('schedule', \App\Http\Livewire\Student\Schedule::class)->name('student.schedule');
+        Route::get('homework', \App\Http\Livewire\Student\Homework::class)->name('student.homework');
+
+
     });
     Route::group([
         'prefix' => 'headman',
