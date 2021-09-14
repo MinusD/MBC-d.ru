@@ -1,7 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"/>
-
 <div class="bg-gradient-to-br from-indigo-900 to-green-900 min-h-screen overflow-auto">
     <div class="hidden sm:block sm:absolute right-3 bottom-1 font-semibold text-blue-400">For students by students
     </div>
@@ -13,7 +9,7 @@
             <div class="shadow-xl w-80 h-80 rounded-full ml-8 -mt-96"></div>
         </div>
 
-        <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css')</style>
+        <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css');</style>
 
         <div class=" flex items-center justify-center px-5 py-5">
             <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden"
@@ -101,33 +97,64 @@
                                   transform="translate(-227.576 -76.46149)" fill="#2f2e41"/>
                         </svg>
                     </div>
-                    <div class="w-full md:w-1/2 py-10 px-5 md:px-10">
+                    <div class="w-full md:w-1/2 py-10 px-5 md:px-10 relative">
                         <div class="text-center mb-10">
                             <h1 class="font-bold text-3xl text-gray-900">Регистрация</h1>
                             <p>Уже зарегистрированы? <a class="text-blue-700" href="{{ route('login') }}">Заходи!</a>
                             </p>
                         </div>
 
-                        <div x-data="{ step: {{ $step }} }">
+                        <div x-data="{ step: {{ $step }}, student: true }">
                             <div>
                                 <div x-show="step === 1"
                                      x-transition:enter="transition ease-out duration-200"
                                      x-transition:enter-start="transform opacity-0 scale-95"
                                      x-transition:enter-end="transform opacity-100 scale-100"
                                 >
-                                    <div>
-                                        <x-button positive label="Positive" />
-                                        <x-button positive label="Positive" />
-<x-input></x-input>
+                                    <div class="mb-6">
+                                        <h2 class="text-center">Для начала нужно выбрать кто вы. Если староста, то вам
+                                            придётся постараться!</h2>
+
+                                        <x-button lg outline secondary class="w-full mt-3" x-show="!student" @click="student = true" label="Я Студент"
+                                                  />
+                                        <x-button lg positive class="w-full mt-3" x-show="student" label="Я Студент" x-transition:enter="transition ease-out duration-300"
+                                                  x-transition:enter-start="transform opacity-75"
+                                                  x-transition:enter-end="transform opacity-100"/>
+
+                                        <div class="text-center py-3"> или </div>
+                                        <x-button lg outline secondary class="w-full mb-2" x-show="student" @click="student = false" label="Я староста" />
+                                        <x-button lg positive class="w-full mb-2" x-show="!student"  label="Я староста"
+                                                  x-transition:enter="transition ease-out duration-300"
+                                                  x-transition:enter-start="transform opacity-75"
+                                                  x-transition:enter-end="transform opacity-100" />
 
 
                                     </div>
                                 </div>
                                 <div x-show="step === 2"
+                                     class="mb-12"
                                      x-transition:enter="transition ease-out duration-200"
                                      x-transition:enter-start="transform opacity-0 scale-95"
-                                     x-transition:enter-end="transform opacity-100 scale-100" x-cloak>
-                                    Шаг 2
+                                     x-transition:enter-end="transform opacity-100 scale-100" >
+                                    <x-input label="Группа" wire:model.lazy="group_slug" placeholder="Например: ИКБО-21-21"
+                                    wire:keydown.enter="search_group"
+                                    >
+                                        <x-slot name="append">
+                                            <div class="absolute inset-y-0 right-0 flex items-center p-0.5">
+                                                <x-button
+                                                    class="rounded-r-md h-full"
+                                                    icon="search"
+                                                    primary
+                                                    flat
+                                                    squared
+                                                    wire:click="search_group"
+                                                />
+                                            </div>
+                                        </x-slot>
+                                    </x-input>
+
+                                    <div x-show="student"></div>
+                                    <div x-show="!student">321323333333333333333</div>
                                 </div>
                                 <div x-show="step === 3"
                                      x-transition:enter="transition ease-out duration-200"
@@ -136,11 +163,23 @@
                                     Шаг 3
                                 </div>
                             </div>
-                            <div class="" x-show="step != 'complete'">
-                                <button x-show="step > 1" @click="step--" x-cloak>Назад</button>
-                                <button x-show="step < 3" @click="step++">Вперёд</button>
-                                <button x-show="step === 3" @click="step = 'complete'" x-cloak>Выполнить</button>
+                            <div class="absolute bottom-0 mb-5 w-full" x-show="step != 'complete'">
+                                <div class="flex space-x-4 w-10/12">
+                                    <x-button md primary class="w-1/4 flex-1 transform transition">На главную</x-button>
+                                    <x-button md warning class="w-1/4 flex-1 transform transition" x-show="step > 1"
+                                              @click="step--" x-cloak>Назад
+                                    </x-button>
+                                    <x-button md positive class="w-1/4 flex-1 transform transition" @click="step++">
+                                        Далее
+                                    </x-button>
+                                </div>
+                                {{--                                <x-button md primary class="w-1/3 inline">На главную</x-button>--}}
+
+                                {{--                                <button x-show="step > 1" @click="step--" x-cloak>Назад</button>--}}
+                                {{--                                <button x-show="step < 3" @click="step++">Вперёд</button>--}}
+                                {{--                                <button x-show="step === 3" @click="step = 'complete'" x-cloak>Выполнить</button>--}}
                             </div>
+
                         </div>
                     </div>
                     {{--                        <div>--}}
