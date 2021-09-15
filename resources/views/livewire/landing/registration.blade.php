@@ -1,7 +1,7 @@
-<div class="bg-gradient-to-br from-indigo-900 to-green-900 min-h-screen overflow-auto">
+<div class="bg-gradient-to-br from-indigo-900 to-green-900 min-h-screen overflow-auto flex items-center justify-center">
     <div class="hidden sm:block sm:absolute right-3 bottom-1 font-semibold text-blue-400">For students by students
     </div>
-    <div class="container max-w-5xl mx-auto px-4">
+    <div class="container h-full max-w-5xl mx-auto px-4">
 
         <div class="hidden sm:block opacity-50 z-0">
             <div class="shadow-2xl w-96 h-96 rounded-full -mt-72"></div>
@@ -131,6 +131,7 @@
 
                                     </div>
                                 </div>
+
                                 <div x-show="step === 2"
                                      class="mb-12"
                                      x-transition:enter="transition ease-out duration-200"
@@ -153,7 +154,7 @@
                                         </x-slot>
                                     </x-input>
 
-                                    <div x-show="student"></div>
+                                    <div x-show="student">321</div>
                                     <div x-show="!student">321323333333333333333</div>
                                 </div>
                                 <div x-show="step === 3"
@@ -163,6 +164,8 @@
                                     Шаг 3
                                 </div>
                             </div>
+
+                            {{-- Кнопки  Далее,  На главную,  Назад --}}
                             <div class="absolute bottom-0 mb-5 w-full" x-show="step != 'complete'">
                                 <div class="flex space-x-4 w-10/12">
                                     <x-button md primary class="w-1/4 flex-1 transform transition">На главную</x-button>
