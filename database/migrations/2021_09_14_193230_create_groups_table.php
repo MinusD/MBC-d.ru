@@ -17,6 +17,11 @@ class CreateGroupsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('headman_id');
             $table->foreign('headman_id')->references('id')->on('users');
+            $table->unsignedBigInteger('zam_id')->nullable();
+            $table->foreign('zam_id')->references('id')->on('users');
+            $table->string('group_name');
+            $table->integer('fs_code')->nullable();
+            $table->integer('fs_pass')->nullable();
             $table->timestamps();
         });
     }

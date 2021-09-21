@@ -1,9 +1,11 @@
 <div>
-    <div class="h-screen w-full flex items-center justify-center">
-        <div class="bg-gray-400">
-            123
-        </div>
+    <div class="flex justify-center bg-gradient-to-br from-indigo-900 to-green-900 min-h-screen overflow-auto">
     </div>
+{{--    <div class="h-screen w-full flex items-center justify-center">--}}
+{{--        <div class="bg-gray-400">--}}
+{{--            123--}}
+{{--        </div>--}}
+{{--    </div>--}}
 {{--    <div x-data="{ show: false }" class="transition ">--}}
 {{--        <button x-on:click="show= ! show" x-text="show ? 'Скрыть': 'Показать' ">--}}
 {{--        </button>--}}

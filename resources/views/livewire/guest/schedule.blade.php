@@ -1,7 +1,6 @@
 <div class="bg-gradient-to-br from-indigo-900 to-green-900 min-h-screen overflow-auto">
 
-
-    <div class="px-10 mt-4">
+    <div class="px-2 md:px-10 mt-4">
         <x-modal.card title="Выбор группы" class="z-50" blur wire:model="modal_set">
             <div class="grid grid-cols-1  gap-4">
 
@@ -27,7 +26,7 @@
             </x-slot>
         </x-modal.card>
         <header
-            class="hidden lg:block w-full shadow-lg bg-indigo-900 bg-opacity-40 items-center h-16 rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700">
+            class="block w-full shadow-lg bg-indigo-900 bg-opacity-40 items-center h-16 rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700">
             <div class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
                 <div class="relative items-center pl-1 flex w-full lg:max-w-68 sm:pr-2 sm:ml-0">
                     <div class="container relative left-0 z-50 flex w-3/4 h-auto h-full">
@@ -42,8 +41,8 @@
 
                     {{-- ШЕСТЕРЁНКА--}}
                     <div
-                        class="hidden sm:flex relative p-1  items-center justify-end w-1/4 ml-5 mr-4 sm:mr-0 sm:right-auto">
-                        <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        class="flex relative p-1  items-center justify-end w-1/4 ml-5 mr-4 sm:mr-0 sm:right-auto">
+                        <div class="flex sm:items-center sm:ml-6">
                             <div class="relative">
                                 <div class="relative">
 
@@ -98,10 +97,15 @@
                             class="flex-no-shrink bg-green-500 hover:bg-green-500 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
                             <span class="font-normal md:font-bold md:uppercase">пр</span>
                         </button>
-                        @else
+                        @elseif($day['type'] == 'лк')
                             <button
                                 class="flex-no-shrink bg-red-500 hover:bg-red-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-red-400 hover:border-red-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
                                 <span class="font-normal md:font-bold md:uppercase">лк</span>
+                            </button>
+                        @else
+                            <button
+                                class="flex-no-shrink bg-indigo-500 hover:bg-indigo-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-indigo-400 hover:border-indigo-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
+                                <span class="font-normal md:font-bold md:uppercase">лаб</span>
                             </button>
                         @endif
                     </div>

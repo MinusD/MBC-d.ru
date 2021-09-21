@@ -27,7 +27,7 @@ Route::get('/test', function () {
 Route::group([
     'prefix' => 'guest',
 ], function () {
-    Route::get('/dashboard', \App\Http\Livewire\guest\Dashboard::class)->name('guest.dashboard');
+//    Route::get('/dashboard', \App\Http\Livewire\guest\Dashboard::class)->name('guest.dashboard');
 });
 
 
@@ -50,6 +50,7 @@ Route::group([
         'middleware' => ['can:headman-panel-access'],
     ], function () {
         Route::get('/', \App\Http\Livewire\Headman\Dashboard::class)->name('headman.dashboard');
+        Route::get('pins', \App\Http\Livewire\Headman\Pins::class)->name('headman.pins');
     });
 
     Route::group([
@@ -77,8 +78,8 @@ Route::group([
         });
     });
 });
-Route::get('schedule', \App\Http\Livewire\Guest\Schedule::class)->name('guest.schedule');
 
+Route::get('schedule', \App\Http\Livewire\Guest\Schedule::class)->name('guest.schedule');
 
 Route::get('/', \App\Http\Livewire\Landing\Home::class)->name('landing.home');
 Route::get('about', \App\Http\Livewire\Landing\About::class)->name('landing.about');

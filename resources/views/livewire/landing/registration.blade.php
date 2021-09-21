@@ -115,18 +115,21 @@
                                         <h2 class="text-center">Для начала нужно выбрать кто вы. Если староста, то вам
                                             придётся постараться!</h2>
 
-                                        <x-button lg outline secondary class="w-full mt-3" x-show="!student" @click="student = true" label="Я Студент"
-                                                  />
-                                        <x-button lg positive class="w-full mt-3" x-show="student" label="Я Студент" x-transition:enter="transition ease-out duration-300"
+                                        <x-button lg outline secondary class="w-full mt-3" x-show="!student"
+                                                  @click="student = true" label="Я Студент"
+                                        />
+                                        <x-button lg positive class="w-full mt-3" x-show="student" label="Я Студент"
+                                                  x-transition:enter="transition ease-out duration-300"
                                                   x-transition:enter-start="transform opacity-75"
                                                   x-transition:enter-end="transform opacity-100"/>
 
-                                        <div class="text-center py-3"> или </div>
-                                        <x-button lg outline secondary class="w-full mb-2" x-show="student" @click="student = false" label="Я староста" />
-                                        <x-button lg positive class="w-full mb-2" x-show="!student"  label="Я староста"
+                                        <div class="text-center py-3"> или</div>
+                                        <x-button lg outline secondary class="w-full mb-2" x-show="student"
+                                                  @click="student = false" label="Я Cтароста"/>
+                                        <x-button lg positive class="w-full mb-2" x-show="!student" label="Я Cтароста"
                                                   x-transition:enter="transition ease-out duration-300"
                                                   x-transition:enter-start="transform opacity-75"
-                                                  x-transition:enter-end="transform opacity-100" />
+                                                  x-transition:enter-end="transform opacity-100"/>
 
 
                                     </div>
@@ -136,9 +139,10 @@
                                      class="mb-12"
                                      x-transition:enter="transition ease-out duration-200"
                                      x-transition:enter-start="transform opacity-0 scale-95"
-                                     x-transition:enter-end="transform opacity-100 scale-100" >
-                                    <x-input label="Группа" wire:model.lazy="group_slug" placeholder="Например: ИКБО-21-21"
-                                    wire:keydown.enter="search_group"
+                                     x-transition:enter-end="transform opacity-100 scale-100">
+                                    <x-input label="Группа" wire:model.lazy="group_slug"
+                                             placeholder="Например: ИКБО-21-21"
+                                        {{--                                    wire:keydown.enter="search_group"--}}
                                     >
                                         <x-slot name="append">
                                             <div class="absolute inset-y-0 right-0 flex items-center p-0.5">
@@ -148,31 +152,138 @@
                                                     primary
                                                     flat
                                                     squared
-                                                    wire:click="search_group"
+                                                    {{--                                                    wire:click="search_group"--}}
                                                 />
                                             </div>
                                         </x-slot>
                                     </x-input>
+                                    {{--                                    Поиск для студента--}}
+                                    <div x-show="student">
+                                        <x-button md primary class="w-full mt-2" wire:click="search_group_by_student">
+                                            Найти
+                                        </x-button>
+                                        @if($group_search_error)
+                                            <div>
+                                                <div class="text-red-600">Ошибка поиска группы</div>
+                                            </div>
+                                        @endif
 
-                                    <div x-show="student">321</div>
-                                    <div x-show="!student">321323333333333333333</div>
+                                        @forelse($isset_groups_list as $key => $group)
+                                            <div
+                                                class="p-3 mt-2 border rounded-2xl shadow-lg @if($group['id'] == $confirm_group_id) bg-green-200 @endif">
+                                                <div class="text-md">Группа: <span
+                                                        class="font-semibold">{{ $group['group_name'] ?? 'не найдено' }}</span>
+                                                </div>
+                                                <div class="text-md">Староста: <span
+                                                        class="font-semibold">{{ $group['headman'] ?? 'не найдено' }}</span>
+                                                </div>
+                                            </div>
+                                        @empty
+                                        @endforelse
+                                    </div>
+                                    {{--                                    Поиск для старосты--}}
+                                    <div x-show="!student">
+                                        <x-button md primary class="w-full mt-2" wire:click="search_group_by_headman">
+                                            Найти
+                                        </x-button>
+                                        @if($group_search_error)
+                                            <div>
+                                                <div class="text-red-600">Ошибка поиска группы</div>
+                                            </div>
+                                        @elseif(isset($confirm_group['groupName']))
+                                            <div class="p-4 mt-2 border rounded-2xl shadow-lg" x-show="!student">
+                                                <h1 class="text-xl font-bold">Найденная группа</h1>
+                                                <div class="text-md">Группа: <span
+                                                        class="font-semibold">{{ $confirm_group['groupName'] ?? 'не найдено' }}</span>
+                                                </div>
+                                                <div class="text-md">Кафедра: <span
+                                                        class="font-semibold">{{ $confirm_group['groupSuffix'] ?? 'не найдено' }}</span>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
                                 </div>
                                 <div x-show="step === 3"
                                      x-transition:enter="transition ease-out duration-200"
                                      x-transition:enter-start="transform opacity-0 scale-95"
                                      x-transition:enter-end="transform opacity-100 scale-100" x-cloak>
-                                    Шаг 3
+
+                                    <div x-show="student">
+                                        <x-button md primary class="w-full mt-2" wire:click="search_group_by_student">
+                                            Найти
+                                        </x-button>
+                                        @if($group_search_error)
+                                            <div>
+                                                <div class="text-red-600">Ошибка поиска группы</div>
+                                            </div>
+                                        @endif
+
+                                        @forelse($isset_groups_list as $key => $group)
+                                            <div
+                                                class="p-3 mt-2 border rounded-2xl shadow-lg @if($group['id'] == $confirm_group_id) bg-green-200 @endif">
+                                                <div class="text-md">Группа: <span
+                                                        class="font-semibold">{{ $group['group_name'] ?? 'не найдено' }}</span>
+                                                </div>
+                                                <div class="text-md">Староста: <span
+                                                        class="font-semibold">{{ $group['headman'] ?? 'не найдено' }}</span>
+                                                </div>
+                                            </div>
+                                        @empty
+                                        @endforelse
+                                    </div>
+                                    {{-- Регистрация для старост --}}
+                                    @if(isset($confirm_group['groupName']))
+                                        <div x-show="!student">
+                                            <x-input label="Фамилия" class="mb-2" wire:model.lazy="sname"></x-input>
+                                            <x-input label="Имя" class="mb-2" wire:model.lazy="name"></x-input>
+                                            <x-input label="Отчество" wire:model.lazy="pname"></x-input>
+
+                                            {{--                                            <x-button md primary class="w-full mt-2 mb-12 md:mb-1"--}}
+                                            {{--                                                      wire:click="reg_by_headman">--}}
+                                            {{--                                                Зарегестрироваться--}}
+                                            {{--                                            </x-button>--}}
+                                        </div>
+                                    @else
+                                        <div class="mb-20 md:mb-0 text-center font-bold">
+                                            Для начала укажите группу!
+                                        </div>
+                                    @endif
+
+
+                                </div>
+
+                                <div x-show="step === 4"
+                                     x-transition:enter="transition ease-out duration-200"
+                                     x-transition:enter-start="transform opacity-0 scale-95"
+                                     x-transition:enter-end="transform opacity-100 scale-100" x-cloak>
+
+                                    @if(isset($confirm_group['groupName']))
+                                    <x-input label="Email" class="mb-2" wire:model.lazy="email" type="email"></x-input>
+                                    <x-input label="Пароль" class="mb-2" wire:model.lazy="pass" type="password"></x-input>
+                                    <x-input label="Повтор пароля" class="mb-2" wire:model.lazy="pass_2" type="password"></x-input>
+
+                                    <x-button md primary class="w-full mt-2 mb-12 md:mb-1" x-show="!student"
+                                              wire:click="reg_by_headman">
+                                        Зарегестрироваться
+                                    </x-button>
+                                    @else
+                                        <div class="mb-20 md:mb-0 text-center font-bold">
+                                            Для начала укажите группу!
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
 
                             {{-- Кнопки  Далее,  На главную,  Назад --}}
                             <div class="absolute bottom-0 mb-5 w-full" x-show="step != 'complete'">
                                 <div class="flex space-x-4 w-10/12">
-                                    <x-button md primary class="w-1/4 flex-1 transform transition">На главную</x-button>
+                                    <x-button md primary class="w-1/4 flex-1 transform transition"
+                                              @click="document.location.href = '{{ route('landing.home') }}'">На главную
+                                    </x-button>
                                     <x-button md warning class="w-1/4 flex-1 transform transition" x-show="step > 1"
                                               @click="step--" x-cloak>Назад
                                     </x-button>
-                                    <x-button md positive class="w-1/4 flex-1 transform transition" @click="step++">
+                                    <x-button md positive class="w-1/4 flex-1 transform transition" @click="step++" x-show="step < 4">
                                         Далее
                                     </x-button>
                                 </div>

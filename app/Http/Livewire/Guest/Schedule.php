@@ -33,6 +33,7 @@ class Schedule extends Component
 
     public function save()
     {
+
         $this->get_groups();
         $tmp = $this->groups_list;
         $key = array_search(
@@ -45,6 +46,8 @@ class Schedule extends Component
             $this->search_error = false;
             $this->modal_set = false;
             $this->group_name = $this->groups_list[$key]['groupName'];
+            unset($this->lessons);
+            $this->lessons = [];
             Cookie::queue(Cookie::forever('schedule-group-name', $this->group_name));
             $this->get_group_data();
         }
@@ -52,14 +55,12 @@ class Schedule extends Component
 
     public function get_group_data()
     {
+
         $path = env('API_SERVER') . 'groups/certain?name=' . urlencode($this->group_name);
         $path2 = env('API_SERVER') . 'time/week';
-
         $timetable = json_decode(file_get_contents($path), true)[0];
         $this->current_week = json_decode(file_get_contents($path2), true);
-
         $this->lessons_time = $timetable['lessonsTimes'][0];
-
         if ($this->current_week % 2 == 1) {
             $c = 'odd';
         } else {
@@ -71,19 +72,15 @@ class Schedule extends Component
             $data = array();
             foreach ($day as $key2 => $para) {
                 foreach ($para as $key3 => $lesson) {
-//                    if (isset($lesson['weeks'])) {
                     if (is_null($lesson['weeks']) or in_array($this->current_week, $lesson['weeks'])) {
                         array_push($data, ['n' => $key2, 'name' => $lesson['name'], 'tuter' => $lesson['tutor'],
                             'place' => $lesson['place'], 'type' => $lesson['type']]);
-//                        echo $d . ' ' . var_dump($lesson) . ' ';
                     }
                 }
                 if ($key2 == 5 and !isset($p_list['day_name'])) {
                     array_push($this->lessons, ['day_name' => $d, 'data' => $data]);
                     unset($data);
-
                 }
-
             }
         }
     }
@@ -91,6 +88,7 @@ class Schedule extends Component
     public function get_groups()
     {
         if (!isset($this->groups_list[1])) {
+            header('Content-Type: application/json');
             $path = env('API_SERVER') . 'groups/all';
             $this->groups_list = json_decode(file_get_contents($path), true);
         }
@@ -98,19 +96,12 @@ class Schedule extends Component
 
     public function mount()
     {
-//        dd(Cookie::get());
         if (Cookie::has('schedule-group-name')) {
             $this->group_name =  Cookie::get('schedule-group-name');
             $this->modal_group_name =  $this->group_name;
             $this->get_group_data();
         } else {
             $this->modal_set = true;
-//            $this->view_groups[0] = $this->groups_list[0];
-//            $this->view_groups[1] = $this->groups_list[1];
-//            $this->view_groups[2] = $this->groups_list[2];
-//            $this->view_groups[3] = $this->groups_list[3];
-//            $this->view_groups[4] = $this->groups_list[4];
-//            dd($this->group_list);
         }
     }
 
