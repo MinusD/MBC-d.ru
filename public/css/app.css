@@ -2365,6 +2365,18 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(167, 243, 208, var(--tw-bg-opacity));
 }
+.bg-yellow-600 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(217, 119, 6, var(--tw-bg-opacity));
+}
+.bg-yellow-300 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(252, 211, 77, var(--tw-bg-opacity));
+}
+.bg-yellow-50 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 251, 235, var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
@@ -3065,6 +3077,9 @@ select {
 }
 .ring-offset-blue-800 {
 	--tw-ring-offset-color: #1e40af;
+}
+.ring-offset-yellow-800 {
+	--tw-ring-offset-color: #92400e;
 }
 .blur {
 	--tw-blur: blur(8px);

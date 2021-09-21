@@ -1,5 +1,4 @@
 <div class="bg-gradient-to-br from-indigo-900 to-green-900 min-h-screen overflow-auto">
-
     <div class="px-2 md:px-10 mt-4">
         <x-modal.card title="Выбор группы" class="z-50" blur wire:model="modal_set">
             <div class="grid grid-cols-1  gap-4">
@@ -70,9 +69,9 @@
     </div>
     <div class="mx-2 md:mx-10 my-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-4 gap-y-4">
 
-        @forelse($lessons as $les)
+        @forelse($lessons as $key => $les)
         <div
-            class="block w-full shadow-lg bg-indigo-900 bg-opacity-40 items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full">
+            class="block w-full shadow-lg  items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full @if($key == $current_day) bg-green-400 bg-opacity-60 @else bg-indigo-900 bg-opacity-40 @endif">
             <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center">
                     <div class="flex flex-col">

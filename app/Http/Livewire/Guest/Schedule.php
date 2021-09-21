@@ -19,6 +19,7 @@ class Schedule extends Component
     public $lessons_time;
     public $current_week;
     public $lessons = [];
+    public $current_day ;
 
     protected $groups_list = [];
 
@@ -96,6 +97,7 @@ class Schedule extends Component
 
     public function mount()
     {
+        $this->current_day = getdate()['wday'] - 1;
         if (Cookie::has('schedule-group-name')) {
             $this->group_name =  Cookie::get('schedule-group-name');
             $this->modal_group_name =  $this->group_name;
