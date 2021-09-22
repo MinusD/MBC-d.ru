@@ -71,7 +71,7 @@
 
         @forelse($lessons as $key => $les)
         <div
-            class="block w-full shadow-lg  items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full @if($key == $current_day) bg-green-400 bg-opacity-60 @else bg-indigo-900 bg-opacity-40 @endif">
+            class="block w-full shadow-lg  items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full @if($key == $current_day) bg-gradient-to-br from-indigo-700 to-green-600 @else bg-indigo-900 bg-opacity-40 @endif">
             <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center">
                     <div class="flex flex-col">
