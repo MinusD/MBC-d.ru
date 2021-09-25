@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Landing;
 use App\Models\Group;
 use App\Models\User;
 use Livewire\Component;
+use Auth;
 
 class Registration extends Component
 {
@@ -25,22 +26,61 @@ class Registration extends Component
     public $pass;
     public $pass_2;
 
+
+    protected $rules = [
+        'name' => 'required|min:2|max:20',
+        'sname' => 'required|min:2|max:20',
+        'pname' => 'max:20',
+        'email' => 'required|unique:users|email',
+        'pass' => 'required|min:8|max:50|required_with:pass_2',
+        'pass_2' => 'required|same:pass',
+
+    ];
+
+    protected $messages = [
+        'name.required' => 'Введите Имя',
+        'name.min' => 'Слишком короткое имя',
+        'name.max' => 'Слишком длинное имя',
+        'sname.required' => 'Введите фамилию',
+        'sname.min' => 'Слишком короткая фамилия',
+        'sname.max' => 'Слишком длинная фамилия',
+        'pname.min' => 'Слишком короткое отчество',
+        'pname.max' => 'Слишком длинное отчество',
+        'email.required' => 'Введите Email',
+        'email.email' => 'Введите Email, а не абракадабру ',
+        'email.unique' => 'Данные Email уже зарегистрирован',
+        'pass.required' => 'Введите пароль',
+        'pass.min' => 'Слишком короткий пароль! Минимальная длинна 8 символов',
+        'pass.max' => 'Слишком длинный пароль!!!',
+        'pass.required_with' => 'Пароли не совпадают',
+        'pass_2.required' => 'Подтвердите пароль',
+        'pass_2.same' => 'Пароли не совпадают',
+    ];
+
     protected $queryString = [
         'redirect_data' => ['except' => ''],
     ];
 
-
-    public function test()
-    {
-        dd(13);
-    }
-
     public function reg_by_headman(){
+        $this->validate();
         $user = new User();
         $user->name = $this->name;
         $user->sname = $this->sname;
         $user->pname = $this->pname;
+        $user->email = $this->email;
+        $user->password = \Hash::make($this->pass);
+        $user->assignRole('student');
+        $user->assignRole('headman');
+        $user->save();
+        auth()->login($user);
 
+        $group = new Group();
+        $group->headman_id = $user->id;
+        $group->group_name = $this->confirm_group['groupName'];
+        $group->save();
+
+
+        return redirect(route('headman.dashboard'));
     }
 
     public function search_group()
@@ -83,6 +123,7 @@ class Registration extends Component
             $this->group_search_error = false;
             $this->confirm_group = ['groupName' => $this->groups[$key]->groupName, 'groupSuffix' => $this->groups[$key]->groupSuffix];
         } else {
+            $this->confirm_group = [];
             $this->group_search_error = true;
         }
     }

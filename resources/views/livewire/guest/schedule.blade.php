@@ -67,140 +67,143 @@
             </div>
         </header>
     </div>
-    <div class="mx-2 md:mx-10 my-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-4 gap-y-4">
+    <div class="mx-2 md:mx-10 mb-10 mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-4 gap-y-4">
 
         @forelse($lessons as $key => $les)
-        <div
-            class="block w-full shadow-lg  items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full @if($key == $current_day) bg-gradient-to-br from-indigo-700 to-green-600 @else bg-indigo-900 bg-opacity-40 @endif">
-            <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center">
-                    <div class="flex flex-col">
-                        <span class="font-bold text-2xl text-white ml-2 capitalize">{{ $les['day_name'] }}</span>
+            <div
+                class="block w-full shadow-lg  items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full @if($key == $current_day) bg-gradient-to-br from-indigo-700 to-green-600 @else bg-indigo-900 bg-opacity-40 @endif">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center">
+                        <div class="flex flex-col">
+                            <span class="font-bold text-2xl text-white ml-2 capitalize">{{ $les['day_name'] }}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            @forelse($les['data'] as $day)
-                <div
-                    class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">
+                @forelse($les['data'] as $day)
                     <div
-                        class="flex-initial text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 px-3 font-semibold">
-                        {{ $lessons_time[$day['n']] }}
+                        class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">
+                        <div
+                            class="flex-initial text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 px-3 font-semibold">
+                            {{ $lessons_time[$day['n']] }}
+                        </div>
+                        <div class="flex-grow"><span
+                                class="text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}{{ ', ' . $day['place'] ?? '' }}</span>
+                            <br>
+                            <span class="text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>
+                        </div>
+                        <div class="flex-initial order-last flex items-center justify-center">
+                            @if($day['type'] == 'пр')
+                                <button
+                                    class="flex-no-shrink bg-green-500 hover:bg-green-500 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
+                                    <span class="font-normal md:font-bold md:uppercase">пр</span>
+                                </button>
+                            @elseif($day['type'] == 'лк')
+                                <button
+                                    class="flex-no-shrink bg-red-500 hover:bg-red-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-red-400 hover:border-red-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
+                                    <span class="font-normal md:font-bold md:uppercase">лк</span>
+                                </button>
+                            @else
+                                <button
+                                    class="flex-no-shrink bg-indigo-500 hover:bg-indigo-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-indigo-400 hover:border-indigo-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
+                                    <span class="font-normal md:font-bold md:uppercase">лаб</span>
+                                </button>
+                            @endif
+                        </div>
                     </div>
-                    <div class="flex-grow"><span class="text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}{{ ', ' . $day['place'] ?? '' }}</span>
-                        <br>
-                        <span class="text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>
+                @empty
+                    <div class="flex items-center justify-center text-center bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between h-auto">
+                        <div class=" ">В этот день пар нет :)</div>
                     </div>
-                    <div class="flex-initial order-last flex items-center justify-center">
-                        @if($day['type'] == 'пр')
-                        <button
-                            class="flex-no-shrink bg-green-500 hover:bg-green-500 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
-                            <span class="font-normal md:font-bold md:uppercase">пр</span>
-                        </button>
-                        @elseif($day['type'] == 'лк')
-                            <button
-                                class="flex-no-shrink bg-red-500 hover:bg-red-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-red-400 hover:border-red-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
-                                <span class="font-normal md:font-bold md:uppercase">лк</span>
-                            </button>
-                        @else
-                            <button
-                                class="flex-no-shrink bg-indigo-500 hover:bg-indigo-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-indigo-400 hover:border-indigo-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
-                                <span class="font-normal md:font-bold md:uppercase">лаб</span>
-                            </button>
-                        @endif
-                    </div>
-                </div>
-            @empty
+                @endforelse
 
-            @endforelse
-
-{{--            <div--}}
-{{--                class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">--}}
-{{--                <div--}}
-{{--                    class="flex-initial text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 px-3 font-semibold">--}}
-{{--                    14:20 – 15:50--}}
-{{--                </div>--}}
-{{--                <div class="flex-grow"><span--}}
-{{--                        class="text-white text-xs md:text-base space-y-1 md:space-y-2">Физика, Д</span>--}}
-{{--                    <br>--}}
-{{--                    <span class="text-gray-200 text-xs md:text-sm text-sm underline">Сафронов А.А.</span>--}}
-{{--                </div>--}}
-{{--                <div class="flex-initial order-last flex items-center justify-center">--}}
-{{--                    <button--}}
-{{--                        class="flex-no-shrink bg-green-500 hover:bg-green-500 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">--}}
-{{--                        <span class="font-normal md:font-bold md:uppercase">пр</span>--}}
-{{--                    </button>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-        </div>
+                {{--            <div--}}
+                {{--                class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">--}}
+                {{--                <div--}}
+                {{--                    class="flex-initial text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 px-3 font-semibold">--}}
+                {{--                    14:20 – 15:50--}}
+                {{--                </div>--}}
+                {{--                <div class="flex-grow"><span--}}
+                {{--                        class="text-white text-xs md:text-base space-y-1 md:space-y-2">Физика, Д</span>--}}
+                {{--                    <br>--}}
+                {{--                    <span class="text-gray-200 text-xs md:text-sm text-sm underline">Сафронов А.А.</span>--}}
+                {{--                </div>--}}
+                {{--                <div class="flex-initial order-last flex items-center justify-center">--}}
+                {{--                    <button--}}
+                {{--                        class="flex-no-shrink bg-green-500 hover:bg-green-500 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">--}}
+                {{--                        <span class="font-normal md:font-bold md:uppercase">пр</span>--}}
+                {{--                    </button>--}}
+                {{--                </div>--}}
+                {{--            </div>--}}
+            </div>
         @empty
 
         @endforelse
 
-{{--        <div--}}
-{{--            class="block w-full shadow-lg bg-indigo-900 bg-opacity-40 items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full">--}}
-{{--            <div class="flex items-center justify-between mb-3">--}}
-{{--                <div class="flex items-center">--}}
-{{--                    <div class="flex flex-col">--}}
-{{--                        <span class="font-bold text-2xl text-white ml-2">Понедельник</span>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div--}}
-{{--                class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">--}}
-{{--                <div--}}
-{{--                    class="flex-initial text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 px-3 font-semibold">--}}
-{{--                    10:40 - 12:10--}}
-{{--                </div>--}}
-{{--                <div class="flex-grow"><span class="text-white text-xs md:text-base space-y-1 md:space-y-2">История (история России, всеобщая история), Д</span>--}}
-{{--                    <br>--}}
-{{--                    <span class="text-gray-200 text-xs md:text-sm text-sm underline">Назаров А.А.</span>--}}
-{{--                </div>--}}
-{{--                <div class="flex-initial order-last flex items-center justify-center">--}}
-{{--                    <button--}}
-{{--                        class="flex-no-shrink bg-green-500 hover:bg-green-500 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">--}}
-{{--                        <span class="font-normal md:font-bold md:uppercase">пр</span>--}}
-{{--                    </button>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div--}}
-{{--                class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">--}}
-{{--                <div--}}
-{{--                    class="flex-initial text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 px-3 font-semibold">--}}
-{{--                    14:20 – 15:50--}}
-{{--                </div>--}}
-{{--                <div class="flex-grow"><span--}}
-{{--                        class="text-white text-xs md:text-base space-y-1 md:space-y-2">Физика, Д</span>--}}
-{{--                    <br>--}}
-{{--                    <span class="text-gray-200 text-xs md:text-sm text-sm underline">Сафронов А.А.</span>--}}
-{{--                </div>--}}
-{{--                <div class="flex-initial order-last flex items-center justify-center">--}}
-{{--                    <button--}}
-{{--                        class="flex-no-shrink bg-green-500 hover:bg-green-500 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">--}}
-{{--                        <span class="font-normal md:font-bold md:uppercase">пр</span>--}}
-{{--                    </button>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+        {{--        <div--}}
+        {{--            class="block w-full shadow-lg bg-indigo-900 bg-opacity-40 items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full">--}}
+        {{--            <div class="flex items-center justify-between mb-3">--}}
+        {{--                <div class="flex items-center">--}}
+        {{--                    <div class="flex flex-col">--}}
+        {{--                        <span class="font-bold text-2xl text-white ml-2">Понедельник</span>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--            <div--}}
+        {{--                class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">--}}
+        {{--                <div--}}
+        {{--                    class="flex-initial text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 px-3 font-semibold">--}}
+        {{--                    10:40 - 12:10--}}
+        {{--                </div>--}}
+        {{--                <div class="flex-grow"><span class="text-white text-xs md:text-base space-y-1 md:space-y-2">История (история России, всеобщая история), Д</span>--}}
+        {{--                    <br>--}}
+        {{--                    <span class="text-gray-200 text-xs md:text-sm text-sm underline">Назаров А.А.</span>--}}
+        {{--                </div>--}}
+        {{--                <div class="flex-initial order-last flex items-center justify-center">--}}
+        {{--                    <button--}}
+        {{--                        class="flex-no-shrink bg-green-500 hover:bg-green-500 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">--}}
+        {{--                        <span class="font-normal md:font-bold md:uppercase">пр</span>--}}
+        {{--                    </button>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--            <div--}}
+        {{--                class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">--}}
+        {{--                <div--}}
+        {{--                    class="flex-initial text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 px-3 font-semibold">--}}
+        {{--                    14:20 – 15:50--}}
+        {{--                </div>--}}
+        {{--                <div class="flex-grow"><span--}}
+        {{--                        class="text-white text-xs md:text-base space-y-1 md:space-y-2">Физика, Д</span>--}}
+        {{--                    <br>--}}
+        {{--                    <span class="text-gray-200 text-xs md:text-sm text-sm underline">Сафронов А.А.</span>--}}
+        {{--                </div>--}}
+        {{--                <div class="flex-initial order-last flex items-center justify-center">--}}
+        {{--                    <button--}}
+        {{--                        class="flex-no-shrink bg-green-500 hover:bg-green-500 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">--}}
+        {{--                        <span class="font-normal md:font-bold md:uppercase">пр</span>--}}
+        {{--                    </button>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
 
-{{--            --}}{{--            <div--}}
-{{--            --}}{{--                class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">--}}
-{{--            --}}{{--                <div--}}
-{{--            --}}{{--                    class="flex-initial text-gray-200 text-sm flex items-center justify-center py-1 px-3 font-semibold">--}}
-{{--            --}}{{--                    12:40 – 14:10--}}
-{{--            --}}{{--                </div>--}}
-{{--            --}}{{--                <div class="flex-grow"><span class="text-white">Физика</span>--}}
-{{--            --}}{{--                    <br>--}}
-{{--            --}}{{--                    <span class="text-gray-200 text-sm underline">Сафронов А.А.</span>--}}
-{{--            --}}{{--                </div>--}}
-{{--            --}}{{--                <div class="flex-initial flex items-center justify-center">--}}
-{{--            --}}{{--                    <button--}}
-{{--            --}}{{--                        class="order-last flex-no-shrink bg-green-500 hover:bg-green-500 px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">--}}
-{{--            --}}{{--                       <span class="font-bold">ПР</span>--}}
-{{--            --}}{{--                    </button>--}}
-{{--            --}}{{--                </div>--}}
-{{--            --}}{{--            </div>--}}
+        {{--            --}}{{--            <div--}}
+        {{--            --}}{{--                class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">--}}
+        {{--            --}}{{--                <div--}}
+        {{--            --}}{{--                    class="flex-initial text-gray-200 text-sm flex items-center justify-center py-1 px-3 font-semibold">--}}
+        {{--            --}}{{--                    12:40 – 14:10--}}
+        {{--            --}}{{--                </div>--}}
+        {{--            --}}{{--                <div class="flex-grow"><span class="text-white">Физика</span>--}}
+        {{--            --}}{{--                    <br>--}}
+        {{--            --}}{{--                    <span class="text-gray-200 text-sm underline">Сафронов А.А.</span>--}}
+        {{--            --}}{{--                </div>--}}
+        {{--            --}}{{--                <div class="flex-initial flex items-center justify-center">--}}
+        {{--            --}}{{--                    <button--}}
+        {{--            --}}{{--                        class="order-last flex-no-shrink bg-green-500 hover:bg-green-500 px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">--}}
+        {{--            --}}{{--                       <span class="font-bold">ПР</span>--}}
+        {{--            --}}{{--                    </button>--}}
+        {{--            --}}{{--                </div>--}}
+        {{--            --}}{{--            </div>--}}
 
 
-{{--        </div>--}}
+        {{--        </div>--}}
 
     </div>
 
