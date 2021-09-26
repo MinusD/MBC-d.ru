@@ -1429,6 +1429,14 @@ select {
 	margin-top: 1.25rem;
 	margin-bottom: 1.25rem;
 }
+.mx-1 {
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
+}
+.mx-3 {
+	margin-left: 0.75rem;
+	margin-right: 0.75rem;
+}
 .ml-3 {
 	margin-left: 0.75rem;
 }
@@ -2080,6 +2088,9 @@ select {
 .whitespace-normal {
 	white-space: normal;
 }
+.whitespace-nowrap {
+	white-space: nowrap;
+}
 .break-normal {
 	overflow-wrap: normal;
 	word-break: normal;
@@ -2450,6 +2461,10 @@ select {
 .bg-yellow-500 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
+}
+.bg-gray-900 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -3167,6 +3182,14 @@ select {
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(239, 68, 68, var(--tw-ring-opacity));
 }
+.ring-gray-700 {
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgba(55, 65, 81, var(--tw-ring-opacity));
+}
+.ring-gray-500 {
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgba(107, 114, 128, var(--tw-ring-opacity));
+}
 .ring-opacity-5 {
 	--tw-ring-opacity: 0.05;
 }
@@ -3176,8 +3199,20 @@ select {
 .ring-offset-2 {
 	--tw-ring-offset-width: 2px;
 }
+.ring-offset-1 {
+	--tw-ring-offset-width: 1px;
+}
 .ring-offset-blue-800 {
 	--tw-ring-offset-color: #1e40af;
+}
+.ring-offset-gray-800 {
+	--tw-ring-offset-color: #1f2937;
+}
+.ring-offset-gray-600 {
+	--tw-ring-offset-color: #4b5563;
+}
+.ring-offset-gray-300 {
+	--tw-ring-offset-color: #d1d5db;
 }
 .blur {
 	--tw-blur: blur(8px);
@@ -3890,6 +3925,9 @@ select {
 .dark .dark\:bg-opacity-60 {
 	--tw-bg-opacity: 0.6;
 }
+.dark .dark\:bg-opacity-40 {
+	--tw-bg-opacity: 0.4;
+}
 .dark .dark\:text-gray-400 {
 	--tw-text-opacity: 1;
 	color: rgba(156, 163, 175, var(--tw-text-opacity));
@@ -3994,8 +4032,18 @@ select {
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(220, 38, 38, var(--tw-ring-opacity));
 }
+.dark .dark\:ring-gray-700 {
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgba(55, 65, 81, var(--tw-ring-opacity));
+}
+.dark .dark\:ring-offset-2 {
+	--tw-ring-offset-width: 2px;
+}
 .dark .dark\:ring-offset-secondary-800 {
 	--tw-ring-offset-color: #27272a;
+}
+.dark .dark\:ring-offset-gray-800 {
+	--tw-ring-offset-color: #1f2937;
 }
 .dark .dark\:checked\:border-secondary-600:checked {
 	--tw-border-opacity: 1;
@@ -4197,6 +4245,10 @@ select {
 
 	.sm\:mb-0 {
 		margin-bottom: 0px;
+	}
+
+	.sm\:ml-1 {
+		margin-left: 0.25rem;
 	}
 
 	.sm\:block {
@@ -4588,6 +4640,10 @@ select {
 		gap: 1rem;
 	}
 
+	.md\:gap-2 {
+		gap: 0.5rem;
+	}
+
 	.md\:space-y-2 > :not([hidden]) ~ :not([hidden]) {
 		--tw-space-y-reverse: 0;
 		margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -4602,6 +4658,10 @@ select {
 
 	.md\:overflow-y-auto {
 		overflow-y: auto;
+	}
+
+	.md\:whitespace-nowrap {
+		white-space: nowrap;
 	}
 
 	.md\:rounded-full {
@@ -4701,6 +4761,10 @@ select {
 		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 
+	.lg\:grid-cols-3 {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
 	.lg\:bg-white {
 		--tw-bg-opacity: 1;
 		background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -4732,6 +4796,12 @@ select {
 	}
 
 	.xl\:grid-cols-3 {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+@media (min-width: 1536px) {
+
+	.\32xl\:grid-cols-3 {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 }
