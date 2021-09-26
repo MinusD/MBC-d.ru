@@ -13,8 +13,9 @@ class Pins extends Component
     public $new_pincode;
     public $data = [];
     public $pin_error = false;
+    public $f = 0;
 
-    public function mount(){
+    public function mount() {
         $this->data = Group::where('headman_id', \Auth::id())->first();
     }
 

@@ -51,6 +51,7 @@ Route::group([
     ], function () {
         Route::get('/', \App\Http\Livewire\Headman\Dashboard::class)->name('headman.dashboard');
         Route::get('pins', \App\Http\Livewire\Headman\Pins::class)->name('headman.pins');
+        Route::get('homework', \App\Http\Livewire\Headman\Homework::class)->name('headman.homework');
     });
 
     Route::group([

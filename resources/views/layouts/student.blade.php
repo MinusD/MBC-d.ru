@@ -25,6 +25,24 @@
             document.documentElement.classList.remove('dark')
         }
     </script>
+    <style>
+        #journal-scroll::-webkit-scrollbar {
+            width: 4px;
+            cursor: pointer;
+            /*background-color: rgba(229, 231, 235, var(--bg-opacity));*/
+
+        }
+        #journal-scroll::-webkit-scrollbar-track {
+            background-color: rgba(229, 231, 235, var(--bg-opacity));
+            cursor: pointer;
+            /*background: red;*/
+        }
+        #journal-scroll::-webkit-scrollbar-thumb {
+            cursor: pointer;
+            background-color: #a0aec0;
+            /*outline: 1px solid slategrey;*/
+        }
+    </style>
 
 </head>
 <body class="font-sans antialiased">
@@ -673,8 +691,8 @@
 
                 </div>
             </header>
-            <div class="overflow-auto h-screen pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0">
-                <main>
+            <div class="overflow-auto h-screen pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0" id="journal-scroll">
+                <main class="mr-2">
                     {{ $slot }}
                 </main>
             </div>

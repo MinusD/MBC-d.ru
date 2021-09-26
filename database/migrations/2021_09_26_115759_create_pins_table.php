@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFoldersTable extends Migration
+class CreatePinsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateFoldersTable extends Migration
      */
     public function up()
     {
-        Schema::create('folders', function (Blueprint $table) {
+        Schema::create('pins', function (Blueprint $table) {
             $table->id();
             $table->string('name')->default('Без имени');
+            $table->text('text')->default('Без содержания');
             $table->enum('type', ['group', 'user', 'folder']);
             $table->unsignedBigInteger('parent_id');
         });
@@ -28,6 +29,6 @@ class CreateFoldersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('folders');
+        Schema::dropIfExists('pins');
     }
 }

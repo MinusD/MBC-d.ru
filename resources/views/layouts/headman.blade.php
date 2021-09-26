@@ -25,11 +25,29 @@
             document.documentElement.classList.remove('dark')
         }
     </script>
+    <style>
+        #journal-scroll::-webkit-scrollbar {
+            width: 4px;
+            cursor: pointer;
+            /*background-color: rgba(229, 231, 235, var(--bg-opacity));*/
+
+        }
+        #journal-scroll::-webkit-scrollbar-track {
+            background-color: rgba(229, 231, 235, var(--bg-opacity));
+            cursor: pointer;
+            /*background: red;*/
+        }
+        #journal-scroll::-webkit-scrollbar-thumb {
+            cursor: pointer;
+            background-color: #a0aec0;
+            /*outline: 1px solid slategrey;*/
+        }
+    </style>
 
 </head>
 <body class="font-sans antialiased">
 <x-dialog z-index="z-50" blur="md" align="center"/>
-<main class="bg-gray-100 dark:bg-gray-800 relative h-screen overflow-hidden ">
+<main class="bg-gray-100 dark:bg-gray-800 relative h-screen overflow-hidden">
     <div class="flex items-start justify-between">
         <div class="h-screen hidden lg:block my-4 ml-4 shadow-lg relative w-80">
             <div class="bg-white h-full rounded-2xl  dark:bg-gray-700">
@@ -70,8 +88,8 @@
                         </a>
                     </div>
                     <div class="mb-2">
-                        <a href="{{ route('student.homework') }}"
-                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-gray-100  {{ (request()->routeIs('student.homework')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-gray-400" }}">
+                        <a href="{{ route('headman.homework') }}"
+                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-gray-100  {{ (request()->routeIs('headman.homework')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-gray-400" }}">
 						<span class="flex items-center justify-center text-lg text-gray-500 dark:text-gray-400">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -655,8 +673,8 @@
 
                 </div>
             </header>
-            <div class="overflow-auto h-screen pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0">
-                <main>
+            <div class="overflow-auto h-screen pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0 "  id="journal-scroll">
+                <main class="pr-3">
                     {{ $slot }}
                 </main>
             </div>
