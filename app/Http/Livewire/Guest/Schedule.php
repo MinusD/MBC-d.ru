@@ -20,9 +20,13 @@ class Schedule extends Component
     public $current_week;
     public $lessons = [];
     public $current_day ;
+    public $g;
 
     protected $groups_list = [];
 
+    protected $queryString = [
+        'g' => ['except' => ''],
+    ];
 
     public function openSetModal()
     {
@@ -98,6 +102,16 @@ class Schedule extends Component
     public function mount()
     {
         $this->current_day = getdate()['wday'] - 1;
+        if (!is_null($this->g)) {
+            $this->modal_group_name = $this->g;
+            $this->save();
+            $this->g = '';
+            if ($this->search_error){
+                $this->modal_set = true;
+            }
+            return;
+        }
+
         if (Cookie::has('schedule-group-name')) {
             $this->group_name =  Cookie::get('schedule-group-name');
             $this->modal_group_name =  $this->group_name;
