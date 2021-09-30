@@ -56,8 +56,8 @@
     <div class="mx-0 mb-10 mt-1 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 md:gap-4 gap-y-4">
 
         @forelse($lessons as $key => $les)
-            <div class="mb-4 mx-0  xl:mr-4 block w-full shadow-lg  items-center rounded-2xl bg-white dark:bg-gray-700">
-                <div class="shadow-lg rounded-2xl  w-full ">
+            <div class="mb-4 mx-0  xl:mr-4 block w-full shadow-lg items-center rounded-2xl bg-white dark:bg-gray-700">
+                <div class="rounded-2xl w-full">
                     <p class="font-bold text-md pl-4 pt-2 text-black dark:text-white capitalize">
                         {{ $les['day_name'] }}
                     </p>

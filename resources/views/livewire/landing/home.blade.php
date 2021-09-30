@@ -151,7 +151,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{ route('landing.registration') }}">
+                <a href="{{ route('landing.register') }}">
                     <div
                         class="group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -160,7 +160,7 @@
                         <div>
                             <span>Регистрация</span>
                             {{--                            <span class="text-xs text-blue-300 block">Заходи быстрее</span>--}}
-                            <span class="text-xs text-blue-300 block">/registration</span>
+                            <span class="text-xs text-blue-300 block">/register</span>
                         </div>
                         <div>
                             <i class="fa fa-chevron-right opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-0 block transition mt-5 sm:mt-2"></i>

@@ -87,7 +87,7 @@ Route::get('about', \App\Http\Livewire\Landing\About::class)->name('landing.abou
 Route::get('contacts', \App\Http\Livewire\Landing\Contacts::class)->name('landing.contacts');
 Route::get('team', \App\Http\Livewire\Landing\Team::class)->name('landing.team');
 Route::get('fs', \App\Http\Livewire\Landing\Fastshare::class)->name('landing.fastshare');
-Route::get('registration', \App\Http\Livewire\Landing\Registration::class)->name('landing.registration');
+Route::get('register', \App\Http\Livewire\Landing\Registration::class)->name('landing.register');
 
 
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Controllers\MainController::class, 'DashboardRedirect'])->name('dashboard');
