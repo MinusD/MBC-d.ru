@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Folder;
 use App\Models\Group;
 use App\Models\User;
 use Hash;
@@ -32,9 +33,14 @@ class UserSeeder extends Seeder
         $group->headman_id = $user->id;
         $group->group_name = 'ИКБО-30-21';
         $group->fs_code = '013021';
-        $group->fs_pass = '1663';
+        $group->fs_pass = '16631';
         $group->save();
 
-
+        $folder = new Folder();
+        $folder->name = "Информатика";
+        $folder->desc = "Методичка, задания и тд";
+        $folder->type = "group";
+        $folder->parent_id = $group->id;
+        $folder->save();
     }
 }
