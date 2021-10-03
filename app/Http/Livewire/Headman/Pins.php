@@ -21,6 +21,7 @@ class Pins extends Component
     public $new_folder_modal = false;
     public $new_pin_modal = false;
     public $folders = [];
+    public $folders_lines = [];
 
     protected $rules = [
         'new_folder_name' => 'required|min:2|max:120',
@@ -47,11 +48,27 @@ class Pins extends Component
 
     public function get_data()
     {
+        $f = $this->f;
         if ($this->f == 0) {
+            $this->folders_lines = [];
             $this->folders = Folder::where('type', 'group')->where('parent_id', $this->data->id)->get();
         } else {
             $this->folders = Folder::where('type', 'folder')->where('parent_id', $this->f)->get();
         }
+        $this->folders_lines = [];
+        while ($f != 0){
+            $c = Folder::find($f, ['name', 'parent_id', 'type']);
+            array_push($this->folders_lines, ['name' => $c->name, 'id' => $f]);
+            if ($c['type'] == 'group'){
+                if ($c->parent_id != $this->data->id){
+                    return $this->redirect(route('headman.pins'));
+                }
+                $f = 0;
+            } else {
+                $f = $c->parent_id;
+            }
+        }
+        $this->folders_lines = array_reverse($this->folders_lines);
     }
 
     public function go_folder($id)
@@ -116,7 +133,7 @@ class Pins extends Component
         $this->get_data();
         $this->new_folder_name = '';
         $this->new_folder_desc = '';
-        
+
     }
 
     public function save_new_pincode()

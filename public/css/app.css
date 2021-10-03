@@ -1319,6 +1319,12 @@ select {
 .right-0 {
 	right: 0px;
 }
+.bottom-5 {
+	bottom: 1.25rem;
+}
+.right-5 {
+	right: 1.25rem;
+}
 .right-3 {
 	right: 0.75rem;
 }
@@ -1345,18 +1351,6 @@ select {
 }
 .left-0\.5 {
 	left: 0.125rem;
-}
-.bottom-10 {
-	bottom: 2.5rem;
-}
-.right-10 {
-	right: 2.5rem;
-}
-.bottom-5 {
-	bottom: 1.25rem;
-}
-.right-5 {
-	right: 1.25rem;
 }
 .z-0 {
 	z-index: 0;
@@ -1385,6 +1379,10 @@ select {
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
+}
+.mx-1 {
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
 }
 .mx-2 {
 	margin-left: 0.5rem;
@@ -1449,10 +1447,6 @@ select {
 .mx-0\.5 {
 	margin-left: 0.125rem;
 	margin-right: 0.125rem;
-}
-.mx-1 {
-	margin-left: 0.25rem;
-	margin-right: 0.25rem;
 }
 .ml-3 {
 	margin-left: 0.75rem;
@@ -1916,38 +1910,6 @@ select {
 	-webkit-animation: spin 1s linear infinite;
 	        animation: spin 1s linear infinite;
 }
-@-webkit-keyframes bounce {
-
-	0%, 100% {
-		transform: translateY(-25%);
-		-webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);
-		        animation-timing-function: cubic-bezier(0.8,0,1,1);
-	}
-
-	50% {
-		transform: none;
-		-webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);
-		        animation-timing-function: cubic-bezier(0,0,0.2,1);
-	}
-}
-@keyframes bounce {
-
-	0%, 100% {
-		transform: translateY(-25%);
-		-webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);
-		        animation-timing-function: cubic-bezier(0.8,0,1,1);
-	}
-
-	50% {
-		transform: none;
-		-webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);
-		        animation-timing-function: cubic-bezier(0,0,0.2,1);
-	}
-}
-.animate-bounce {
-	-webkit-animation: bounce 1s infinite;
-	        animation: bounce 1s infinite;
-}
 .cursor-default {
 	cursor: default;
 }
@@ -1980,11 +1942,11 @@ select {
 .grid-cols-1 {
 	grid-template-columns: repeat(1, minmax(0, 1fr));
 }
-.grid-cols-2 {
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-}
 .grid-cols-3 {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .grid-cols-7 {
 	grid-template-columns: repeat(7, minmax(0, 1fr));
@@ -2517,10 +2479,6 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(220, 38, 38, var(--tw-bg-opacity));
 }
-.bg-indigo-700 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(67, 56, 202, var(--tw-bg-opacity));
-}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
@@ -2752,6 +2710,9 @@ select {
 .pl-1 {
 	padding-left: 0.25rem;
 }
+.pr-3 {
+	padding-right: 0.75rem;
+}
 .pb-12 {
 	padding-bottom: 3rem;
 }
@@ -2784,9 +2745,6 @@ select {
 }
 .pl-10 {
 	padding-left: 2.5rem;
-}
-.pr-3 {
-	padding-right: 0.75rem;
 }
 .pt-16 {
 	padding-top: 4rem;
@@ -3008,6 +2966,10 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(79, 70, 229, var(--tw-text-opacity));
 }
+.text-gray-300 {
+	--tw-text-opacity: 1;
+	color: rgba(209, 213, 219, var(--tw-text-opacity));
+}
 .text-gray-200 {
 	--tw-text-opacity: 1;
 	color: rgba(229, 231, 235, var(--tw-text-opacity));
@@ -3035,10 +2997,6 @@ select {
 .text-blue-700 {
 	--tw-text-opacity: 1;
 	color: rgba(29, 78, 216, var(--tw-text-opacity));
-}
-.text-gray-300 {
-	--tw-text-opacity: 1;
-	color: rgba(209, 213, 219, var(--tw-text-opacity));
 }
 .text-secondary-300 {
 	--tw-text-opacity: 1;
@@ -3588,6 +3546,10 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(59, 130, 246, var(--tw-text-opacity));
 }
+.hover\:text-gray-200:hover {
+	--tw-text-opacity: 1;
+	color: rgba(229, 231, 235, var(--tw-text-opacity));
+}
 .hover\:text-negative-500:hover {
 	--tw-text-opacity: 1;
 	color: rgba(239, 68, 68, var(--tw-text-opacity));
@@ -3615,10 +3577,6 @@ select {
 .hover\:text-secondary-900:hover {
 	--tw-text-opacity: 1;
 	color: rgba(24, 24, 27, var(--tw-text-opacity));
-}
-.hover\:text-gray-200:hover {
-	--tw-text-opacity: 1;
-	color: rgba(229, 231, 235, var(--tw-text-opacity));
 }
 .hover\:shadow-sm:hover {
 	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -4699,12 +4657,12 @@ select {
 		height: 2rem;
 	}
 
-	.md\:w-1\/2 {
-		width: 50%;
-	}
-
 	.md\:w-8 {
 		width: 2rem;
+	}
+
+	.md\:w-1\/2 {
+		width: 50%;
 	}
 
 	.md\:grid-cols-3 {
@@ -4876,6 +4834,11 @@ select {
 	.lg\:text-5xl {
 		font-size: 3rem;
 		line-height: 1;
+	}
+
+	.lg\:text-base {
+		font-size: 1rem;
+		line-height: 1.5rem;
 	}
 
 	.dark .lg\:dark\:bg-gray-900 {

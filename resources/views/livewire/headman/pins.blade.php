@@ -143,6 +143,53 @@
             </div>
         </div>
     </header>
+    @if(isset($folders_lines[0]))
+    <header class="w-full shadow-lg bg-white dark:bg-gray-700 items-center h-10 rounded-xl z-40 mb-2">
+        <div class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
+            <div class="relative items-center pl-1 flex w-full lg:max-w-68 sm:pr-2 sm:ml-0">
+                <ul class="flex text-gray-400 text-sm lg:text-base">
+                    <li class="inline-flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cursor-pointer" wire:click="go_folder(0)" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                        </svg>
+                        <svg
+                            class="h-5 w-auto text-gray-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"
+                            ></path>
+                        </svg>
+                    </li>
+                    @forelse($folders_lines as $f)
+                    <li class="inline-flex items-center cursor-pointer" wire:click="go_folder({{ $f['id'] }})">
+                        <span class="">{{ $f['name'] }}</span>
+                        <svg
+                            class="h-5 w-auto text-gray-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"
+                            ></path>
+                        </svg>
+                    </li>
+                        @empty
+                    @endforelse
+{{--                    <li class="inline-flex items-center">--}}
+{{--                        <a href="#" class="text-teal-400">Breadcrumb</a>--}}
+{{--                    </li>--}}
+                </ul>
+
+            </div>
+        </div>
+    </header>
+    @endif
     <div class="w-full flex flex-wrap mb-2">
         @forelse($folders as $folder)
             <div class="flex-auto w-full md:w-1/2 lg:w-1/4 px-3 py-2 ">
