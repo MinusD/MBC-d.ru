@@ -92,6 +92,46 @@
         </x-slot>
 
     </x-modal.card>
+    <x-modal.card title="Редактирование папки" blur wire:model.defer="edit_folder_modal">
+        <div class="grid grid-cols-1 gap-4">
+
+            <x-input label="Название" wire:model.defer="edit_folder_name"></x-input>
+            <x-input label="Описание" wire:model.defer="edit_folder_desc"></x-input>
+{{--            <div>--}}
+{{--                <div class="flex justify-between mb-1">--}}
+{{--                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">--}}
+{{--                        Название папки<span class="text-xs text-gray-500"></span>--}}
+{{--                    </label>--}}
+{{--                </div>--}}
+{{--                <div class="relative rounded-md shadow-sm">--}}
+{{--                    <x-input wire:model.defer="new_pincode"/>--}}
+{{--                    @if($pin_error)--}}
+{{--                        <div class="text-red-600 text-sm">Неверный формат пин кода</div>--}}
+{{--                    @endif--}}
+{{--                </div>--}}
+{{--            </div>--}}
+        </div>
+        <x-slot name="footer">
+            <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
+                <div class="flex">
+{{--                    <x-button flat negative class="mr-2" @click="confirm = !confirm" label="Деактивировать FS"/>--}}
+{{--                    <x-button negative--}}
+{{--                              x-show="confirm"--}}
+{{--                              class="transition"--}}
+{{--                              label="Я уверен"--}}
+{{--                              wire:click="deactivate_fs"--}}
+{{--                              x-transition:enter="transition ease-out duration-200"--}}
+{{--                              x-transition:enter-start="transform opacity-0 scale-95"--}}
+{{--                              x-transition:enter-end="transform opacity-100 scale-100"/>--}}
+                </div>
+                <div class="flex">
+                    <x-button flat label="Отменить" x-on:click="close"/>
+                    <x-button primary label="Создать" wire:click="edit_folder_confirm"/>
+                </div>
+            </div>
+        </x-slot>
+
+    </x-modal.card>
 
 
     <header class="w-full shadow-lg bg-white dark:bg-gray-700 items-center h-16 rounded-2xl z-40 mb-2">
@@ -191,7 +231,7 @@
     </header>
     @endif
     <div class="w-full flex flex-wrap mb-2">
-        @forelse($folders as $folder)
+        @forelse($folders as $key => $folder)
             <div class="flex-auto w-full md:w-1/2 lg:w-1/4 px-3 py-2 ">
                 <div
 
@@ -226,14 +266,14 @@
                              x-transition:leave-start="transform opacity-100 scale-100"
                              x-transition:leave-end="transform opacity-0 scale-95"
                              class="options absolute bg-white text-gray-600 origin-top-right right-0 mt-2 w-56 rounded-md shadow-lg overflow-hidden">
-                            <a href="javascript:;" class="flex py-3 px-2 text-sm font-bold hover:bg-gray-100 ">
+                            <div class="flex py-3 px-2 text-sm font-bold hover:bg-gray-100" wire:click="edit_folder({{$key}})">
                                 <span class="mr-auto">Редактировать</span>
                                 <svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" style="">
                                     <path
                                         d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
                                 </svg>
 
-                            </a>
+                            </div>
                             <a href="javascript:;" class="flex py-3 px-2 text-sm font-bold hover:bg-gray-100">
                                 <span class="mr-auto">Скачать</span>
                                 <svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" style="">

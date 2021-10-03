@@ -23,9 +23,17 @@ class Pins extends Component
     public $folders = [];
     public $folders_lines = [];
 
+    public $edit_folder_modal = false;
+    public $edit_folder_name;
+    public $edit_folder_desc;
+    public $edit_folder_id;
+
     protected $rules = [
         'new_folder_name' => 'required|min:2|max:120',
         'new_folder_desc' => 'max:180',
+
+        'edit_folder_name' => 'required|min:2|max:120',
+        'edit_folder_desc' => 'max:180',
     ];
 
     protected $messages = [
@@ -33,6 +41,11 @@ class Pins extends Component
         'new_folder_name.min' => 'Слишком короткое название',
         'new_folder_name.max' => 'Слишком длинное название',
         'new_folder_desc.max' => 'Слишком длинное описание',
+
+        'edit_folder_name.required' => 'Введите название.',
+        'edit_folder_name.min' => 'Слишком короткое название',
+        'edit_folder_name.max' => 'Слишком длинное название',
+        'edit_folder_desc.max' => 'Слишком длинное описание',
     ];
 
 //    protected $queryString = [
@@ -43,6 +56,25 @@ class Pins extends Component
     public function mount()
     {
         $this->data = Group::where('headman_id', \Auth::id())->first();
+        $this->get_data();
+    }
+
+    public function edit_folder($key){
+        $this->edit_folder_modal = true;
+        $this->edit_folder_name = $this->folders[$key]['name'];
+        $this->edit_folder_desc = $this->folders[$key]['desc'];
+        $this->edit_folder_id = $this->folders[$key]['id'];
+    }
+
+    public function edit_folder_confirm(){
+        $this->validateOnly('edit_folder_name');
+        $this->validateOnly('edit_folder_desc');
+        $this->edit_folder_modal = false;
+
+        $f = Folder::find($this->edit_folder_id);
+        $f->name = $this->edit_folder_name;
+        $f->desc = $this->edit_folder_desc;
+        $f->save();
         $this->get_data();
     }
 
