@@ -1,4 +1,11 @@
 <div class="h-full overflow-auto"  id="journal-scroll">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+
     <div class="flex justify-center bg-gradient-to-br from-indigo-900 min-h-screen to-green-900">
 
 
@@ -155,11 +162,16 @@
         {{--            </div>--}}
         {{--        </div>--}}
 
-
+        <a href="#footer" class="fixed z-10 p-3 bg-indigo-600 bg-opacity-40 rounded-full shadow-md bottom-5 right-5 md:bottom-10 md:right-10 rotate-180">
+            <svg class="w-4 h-4 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18">
+                </path>
+            </svg>
+        </a>
     </div>
 
     <!-- Foooter -->
-    <section class="">
+    <section class="" id="footer">
         <div class=" px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
             <nav class="flex flex-wrap justify-center -mx-5 -my-2">
                 <div class="px-5 py-2">
