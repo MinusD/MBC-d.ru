@@ -18,6 +18,25 @@
 
 <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+
+    <style>
+        #journal-scroll::-webkit-scrollbar {
+            width: 4px;
+            cursor: pointer;
+            /*background-color: rgba(229, 231, 235, var(--bg-opacity));*/
+
+        }
+        #journal-scroll::-webkit-scrollbar-track {
+            background-color: rgba(229, 231, 235, var(--bg-opacity));
+            cursor: pointer;
+            /*background: red;*/
+        }
+        #journal-scroll::-webkit-scrollbar-thumb {
+            cursor: pointer;
+            background-color: #a0aec0;
+            /*outline: 1px solid slategrey;*/
+        }
+    </style>
     {{--    <script>--}}
     {{--        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {--}}
     {{--            document.documentElement.classList.add('dark')--}}
@@ -30,7 +49,7 @@
 <body class="font-sans antialiased">
 <x-dialog z-index="z-50" blur="md" align="center"/>
 
-<div class="font-sans text-gray-900 antialiased">
+<div class="font-sans text-gray-900 antialiased " >
     {{ $slot }}
 </div>
 
