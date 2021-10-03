@@ -43,29 +43,71 @@
                         class="flex relative p-1  items-center justify-end w-1/4 ml-5 mr-4 sm:mr-0 sm:right-auto">
 
 
-                        <div class="flex sm:items-center sm:ml-6">
+                        {{--                        <div class="flex sm:items-center sm:ml-6">--}}
+                        {{--                            <div class="relative">--}}
+                        {{--                                <div class="relative">--}}
+
+                        {{--                                    <div>--}}
+                        {{--                                        <button type="button" wire:click="openSetModal"--}}
+                        {{--                                                class="flex justify-center p-2  transition duration-150 ease-in-out border border-transparent rounded-md text-gray-200 lg:dark:bg-gray-900 dark:text-gray-200 dark:bg-gray-800 hover:bg-gray-50  hover:text-gray-700 dark:focus:bg-gray-700 ">--}}
+                        {{--                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"--}}
+                        {{--                                                 viewBox="0 0 24 24" stroke="currentColor">--}}
+                        {{--                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
+                        {{--                                                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>--}}
+                        {{--                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
+                        {{--                                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>--}}
+                        {{--                                            </svg>--}}
+                        {{--                                        </button>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
+                        <div class="hidden sm:flex sm:items-center sm:ml-6">
                             <div class="relative">
                                 <div class="relative">
-
                                     <div>
-                                        <button type="button" wire:click="openSetModal"
-                                                class="flex justify-center p-2  transition duration-150 ease-in-out border border-transparent rounded-md text-gray-200 lg:dark:bg-gray-900 dark:text-gray-200 dark:bg-gray-800 hover:bg-gray-50  hover:text-gray-700 dark:focus:bg-gray-700 ">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                 viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                            </svg>
-                                        </button>
+                                        <span
+                                            class="inline-flex rounded-md shadow-lg bg-indigo-900 bg-opacity-40 items-center rounded-2xl  ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700">
+                                            <ul class="flex">
+
+                                <li class="mx-1 ml-3 py-1 cursor-pointer" wire:click="previous_week">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300"
+                                             fill="none"
+                                             viewBox="0 0 24 24" stroke="currentColor">
+                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M11 17l-5-5m0 0l5-5m-5 5h12"/>
+                                        </svg>
+                                </li>
+                                <li class="mx-1 px-3 py-1 rounded-lg cursor-pointer" wire:click="current_week">
+                                    <a class="flex items-center font-bold" href="#">
+                                        <span class="mx-1 text-gray-300">Неделя {{ $show_week }}</span>
+                                    </a>
+                                </li>
+                                <li class="mx-1 pr-3 py-1 cursor-pointer" wire:click="next_week">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300 rotate-180"
+                                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M11 17l-5-5m0 0l5-5m-5 5h12"/>
+                                    </svg>
+                                </li>
+{{--                                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">--}}
+                                                {{--                                    <a class="font-bold" href="#">3</a>--}}
+                                                {{--                                </li>--}}
+                                                {{--                                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">--}}
+                                                {{--                                    <a class="flex items-center font-bold" href="#">--}}
+                                                {{--                                        <span class="mx-1">Next</span>--}}
+                                                {{--                                    </a>--}}
+                                                {{--                                </li>--}}
+                            </ul>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="flex sm:items-center sm:ml-6">
                             <div class="relative">
                                 <div class="relative">
-
                                     <div>
                                         <button type="button" wire:click="openSetModal"
                                                 class="flex justify-center p-2  transition duration-150 ease-in-out border border-transparent rounded-md text-gray-200 lg:dark:bg-gray-900 dark:text-gray-200 dark:bg-gray-800 hover:bg-gray-50  hover:text-gray-700 dark:focus:bg-gray-700 ">
@@ -87,6 +129,33 @@
                 </div>
             </div>
         </header>
+    </div>
+    <div
+        class="block sm:hidden shadow-lg bg-indigo-900 bg-opacity-40 items-center  rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mx-2 mt-4">
+        <div class="relative">
+            <div class="grid grid-cols-3 ">
+                <div class="mx-1 ml-3 py-1 cursor-pointer flex items-center justify-center" wire:click="previous_week">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300"
+                         fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M11 17l-5-5m0 0l5-5m-5 5h12"/>
+                    </svg>
+                </div>
+                <div class="mx-1 px-3 py-1 rounded-lg cursor-pointer flex items-center justify-center" wire:click="current_week">
+                    <a class="flex items-center font-bold" href="#">
+                        <span class="mx-1 text-gray-300">Неделя {{ $show_week }}</span>
+                    </a>
+                </div>
+                <div class="mx-1 pr-3 py-1 cursor-pointer flex items-center justify-center" wire:click="next_week">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300 rotate-180"
+                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M11 17l-5-5m0 0l5-5m-5 5h12"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="mx-2 md:mx-10 mb-10 mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-4 gap-y-4">
 
@@ -132,7 +201,8 @@
                         </div>
                     </div>
                 @empty
-                    <div class="flex items-center justify-center text-center bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between h-auto">
+                    <div
+                        class="flex items-center justify-center text-center bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between h-auto">
                         <div class=" ">В этот день пар нет :)</div>
                     </div>
                 @endforelse

@@ -19,8 +19,10 @@ class Schedule extends Component
     public $lessons_time;
     public $current_week;
     public $lessons = [];
-    public $current_day ;
+    public $current_day;
     public $g;
+    public $show_week;
+    public $timetable = [];
 
     protected $groups_list = [];
 
@@ -34,6 +36,24 @@ class Schedule extends Component
             $this->modal_set = false;
         }
         $this->modal_set = true;
+    }
+
+    public function next_week(){
+        $this->show_week++;
+        $this->load_data();
+    }
+    public function current_week(){
+        $this->show_week = $this->current_week;
+        $this->load_data();
+    }
+    public function previous_week(){
+        if ($this->show_week != 1){
+            $this->show_week--;
+        } else {
+            return;
+        }
+
+        $this->load_data();
     }
 
     public function save()
@@ -64,7 +84,10 @@ class Schedule extends Component
         $path = env('API_SERVER') . 'groups/certain?name=' . urlencode($this->group_name);
         $path2 = env('API_SERVER') . 'time/week';
         $timetable = json_decode(file_get_contents($path), true)[0];
+        $this->timetable = $timetable;
         $this->current_week = json_decode(file_get_contents($path2), true);
+        $this->show_week = $this->current_week;
+
         $this->lessons_time = $timetable['lessonsTimes'][0];
         if ($this->current_week % 2 == 1) {
             $c = 'odd';
@@ -78,6 +101,33 @@ class Schedule extends Component
             foreach ($day as $key2 => $para) {
                 foreach ($para as $key3 => $lesson) {
                     if (is_null($lesson['weeks']) or in_array($this->current_week, $lesson['weeks'])) {
+                        array_push($data, ['n' => $key2, 'name' => $lesson['name'], 'tuter' => $lesson['tutor'],
+                            'place' => $lesson['place'], 'type' => $lesson['type']]);
+                    }
+                }
+                if ($key2 == 5 and !isset($p_list['day_name'])) {
+                    array_push($this->lessons, ['day_name' => $d, 'data' => $data]);
+                    unset($data);
+                }
+            }
+        }
+    }
+    public function load_data(){
+        $this->lessons = [];
+        $timetable = $this->timetable;
+        $this->lessons_time = $timetable['lessonsTimes'][0];
+        if ($this->show_week % 2 == 1) {
+            $c = 'odd';
+        } else {
+            $c = 'even';
+        }
+        foreach ($timetable['schedule'] as $key => $day) {
+            $d = ucfirst($day['day']);
+            $day = $day[$c];
+            $data = array();
+            foreach ($day as $key2 => $para) {
+                foreach ($para as $key3 => $lesson) {
+                    if (is_null($lesson['weeks']) or in_array($this->show_week, $lesson['weeks'])) {
                         array_push($data, ['n' => $key2, 'name' => $lesson['name'], 'tuter' => $lesson['tutor'],
                             'place' => $lesson['place'], 'type' => $lesson['type']]);
                     }
