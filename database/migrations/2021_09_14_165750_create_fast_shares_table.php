@@ -15,7 +15,10 @@ class CreateFastSharesTable extends Migration
     {
         Schema::create('fast_shares', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('code');
+            $table->enum('type', ['pin', 'folder', 'user']);
+            $table->unsignedBigInteger('parent_id');
+            $table->timestamp('created_at');
         });
     }
 

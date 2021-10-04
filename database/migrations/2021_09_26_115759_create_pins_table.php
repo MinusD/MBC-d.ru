@@ -16,6 +16,7 @@ class CreatePinsTable extends Migration
         Schema::create('pins', function (Blueprint $table) {
             $table->id();
             $table->string('name')->default('Без имени');
+            $table->enum('pin_type', ['text', 'file', 'link', 'img', 'type', 'type2', 'type3'])->default('text');
             $table->text('text')->nullable();
             $table->enum('type', ['group', 'user', 'folder']);
             $table->unsignedBigInteger('parent_id');
