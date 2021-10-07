@@ -7,20 +7,70 @@
     </div>
     <div class="container max-w-5xl mx-auto px-4">
 
+        <style>
+            .typing {
+                margin-top: 5rem;
+                --tw-text-opacity: 1;
+                color: rgba(255, 255, 255, var(--tw-text-opacity));
+                font-size: 3.75rem;
+                line-height: 1;
+                font-weight: 700;
+            }
+            .text {
+                margin-top: 5rem;
+                --tw-text-opacity: 1;
+                color: rgba(255, 255, 255, var(--tw-text-opacity));
+                font-size: 3.75rem;
+                line-height: 1;
+                font-weight: 700;
+            }
+            .typing span {
+
+                animation: 0.5s typing-color infinite;
+            }
+        </style>
         <div class="w-4/5">
-            <h1 class="mt-20 text-white text-6xl font-bold">Тут какой-то текст о том, для чего это сделано.
-                <br/><span class="text-blue-400">MayBe Company</span></h1>
+            <h1 class="mt-20 text-white text-6xl font-bold">Проект для облегчения жизни студентов
+                <br/><span class="text-blue-400">РТУ МИРЭА</span></h1>
         </div>
 
-{{--        <div class="my-10"></div>--}}
-{{--        <div class="w-5/6 my-10 ml-6 z-20">--}}
-{{--            <h3 class="text-gray-200 text-2xl">--}}
-{{--                Проект на стадии празработки! По возникшем проблемам обращайтесь  <a href="{{ route('landing.contacts') }}" class="underline positive">по данным контактам.</a>--}}
-{{--                --}}{{--                <span class="text-blue-500">For </span> students<span--}}
-{{--                    class="text-blue-500"> by </span>students--}}
-{{--                <br/>--}}
-{{--            </h3>--}}
+
+{{--        <div class="w-4/5 typing md:h-40">--}}
+{{--            <h1 class="mt-20 text-white text-6xl font-bold text">Проект для облегчения жизни студентов МИРЭА--}}
+{{--            </h1>--}}
 {{--        </div>--}}
+{{--        <script>--}}
+{{--            const screenWidth = window.screen.width;--}}
+{{--            const screenHeight = window.screen.height;--}}
+{{--            console.log(screenWidth);--}}
+
+{{--            if (screenWidth > 980){--}}
+{{--                var wrapper = document.querySelector(".typing");--}}
+{{--                var text = document.querySelector(".typing .text");--}}
+{{--                var textCont = text.textContent;--}}
+{{--                text.style.display = "none";--}}
+{{--                for (var i = 0; i < textCont.length; i++) {--}}
+{{--                    (function (i) {--}}
+{{--                        setTimeout(function () {--}}
+{{--                            var texts = document.createTextNode(textCont[i])--}}
+{{--                            var span = document.createElement('span');--}}
+{{--                            span.appendChild(texts);--}}
+{{--                            wrapper.appendChild(span);--}}
+{{--                        }, 65 * i);--}}
+{{--                    }(i));--}}
+{{--                }--}}
+{{--            }--}}
+
+{{--        </script>--}}
+        {{--        <div class="my-10"></div>--}}
+        {{--        <div class="w-5/6 my-10 ml-6 z-20">--}}
+        {{--            <h3 class="text-gray-200 text-2xl">--}}
+        {{--                Проект на стадии празработки! По возникшем проблемам обращайтесь  <a href="{{ route('landing.contacts') }}" class="underline positive">по данным контактам.</a>--}}
+        {{--                --}}{{--                <span class="text-blue-500">For </span> students<span--}}
+        {{--                    class="text-blue-500"> by </span>students--}}
+        {{--                <br/>--}}
+        {{--            </h3>--}}
+        {{--        </div>--}}
 
         <div class="hidden sm:block opacity-50 z-0">
             <div class="shadow-2xl w-96 h-96 rounded-full -mt-72"></div>
@@ -52,8 +102,10 @@
 
                     <div
                         class="relative group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
                         </svg>
                         <div>
                             <span>Сервисы</span>
@@ -70,8 +122,10 @@
                 <a href="{{ route('landing.fastshare') }}">
                     <div
                         class="relative group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
                         </svg>
                         <div>
                             <span>FastShare</span>
@@ -108,8 +162,10 @@
                 <a href="{{ route('landing.contacts') }}">
                     <div
                         class="relative group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                         </svg>
                         <div>
                             <span>Контакты</span>
@@ -161,8 +217,10 @@
                 <a href="{{ route('landing.register') }}">
                     <div
                         class="group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
                         </svg>
                         <div>
                             <span>Регистрация</span>
