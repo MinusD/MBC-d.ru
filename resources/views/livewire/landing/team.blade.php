@@ -191,7 +191,7 @@
                 </div>
                 <div class="px-5 py-2">
                     <a href="{{ route('guest.schedule') }}" class="text-base leading-6 text-gray-500 hover:text-gray-900">
-                        Раписание
+                        Раcписание
                     </a>
                 </div>
             </nav>

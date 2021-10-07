@@ -165,7 +165,6 @@ class Pins extends Component
         $this->get_data();
         $this->new_folder_name = '';
         $this->new_folder_desc = '';
-
     }
 
     public function save_new_pincode()
