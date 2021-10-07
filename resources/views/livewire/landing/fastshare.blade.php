@@ -54,8 +54,7 @@
         </style>
         <div class="flex items-center justify-center h-screen w-full">
             <div class="flex">
-                <input placeholder="FS code" wire:model="fs_code" wire:keydown.enter="go" maxlength="6"/>
-
+                <input placeholder="FS code" wire:model.defer="fs_code" wire:change="checker" wire:keydown.enter="go" maxlength="6"/>
 {{--                <a href="#test" class="btn btn-block btn-warning">Go to form</a>--}}
             </div>
             <a href="#footer" class="fixed z-10 p-3 bg-indigo-600 bg-opacity-40 rounded-full shadow-md bottom-5 right-5 md:bottom-10 md:right-10 rotate-180">
@@ -67,7 +66,7 @@
         </div>
     </div>
     <!-- Foooter -->
-    <section class=""  id="footer">
+    <section class="" id="footer">
         <div class=" px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
             <nav class="flex flex-wrap justify-center -mx-5 -my-2">
                 <div class="px-5 py-2">
