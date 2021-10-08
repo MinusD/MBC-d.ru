@@ -62,6 +62,7 @@
 {{--            }--}}
 
 {{--        </script>--}}
+
         {{--        <div class="my-10"></div>--}}
         {{--        <div class="w-5/6 my-10 ml-6 z-20">--}}
         {{--            <h3 class="text-gray-200 text-2xl">--}}

@@ -74,19 +74,7 @@
                             <span class="ml-3">Главная</span>
                         </a>
                     </div>
-                    <div class="mb-2">
-                        <a href="{{ route('student.schedule') }}"
-                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-gray-100 {{ (request()->routeIs('student.schedule')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-gray-400" }}">
-						<span class="flex items-center justify-center text-lg text-gray-500 dark:text-gray-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                 stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                            </svg>
-						</span>
-                            <span class="ml-3">Расписание</span>
-                        </a>
-                    </div>
+
                     <div class="mb-2">
                         <a href="{{ route('headman.homework') }}"
                            class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-gray-100  {{ (request()->routeIs('headman.homework')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-gray-400" }}">
