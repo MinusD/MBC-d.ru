@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Guest;
 
+use App\Models\logLandingSaveGroupSchedule;
 use Livewire\Component;
 use Illuminate\Support\Facades\Cookie;
 use WireUi\Traits\Actions;
@@ -32,22 +33,27 @@ class Schedule extends Component
 
     public function openSetModal()
     {
-        if($this->modal_set){
+        if ($this->modal_set) {
             $this->modal_set = false;
         }
         $this->modal_set = true;
     }
 
-    public function next_week(){
+    public function next_week()
+    {
         $this->show_week++;
         $this->load_data();
     }
-    public function current_week(){
+
+    public function current_week()
+    {
         $this->show_week = $this->current_week;
         $this->load_data();
     }
-    public function previous_week(){
-        if ($this->show_week != 1){
+
+    public function previous_week()
+    {
+        if ($this->show_week != 1) {
             $this->show_week--;
         } else {
             return;
@@ -58,7 +64,12 @@ class Schedule extends Component
 
     public function save()
     {
-
+        $this->modal_group_name = trim($this->modal_group_name);
+        if ($this->modal_group_name == $this->group_name) {
+            $this->search_error = false;
+            $this->modal_set = false;
+            return;
+        }
         $this->get_groups();
         $tmp = $this->groups_list;
         $key = array_search(
@@ -73,8 +84,18 @@ class Schedule extends Component
             $this->group_name = $this->groups_list[$key]['groupName'];
             unset($this->lessons);
             $this->lessons = [];
+            if (Cookie::has('schedule-group-name')) {
+                $n = false;
+            } else {
+                $n = true;
+            }
             Cookie::queue(Cookie::forever('schedule-group-name', $this->group_name));
             $this->get_group_data();
+            $log = new logLandingSaveGroupSchedule();
+            $log->group_slug = $this->group_name;
+            $log->is_new = $n;
+            $log->is_authorize = \Auth::check();
+            $log->save();
         }
     }
 
@@ -112,7 +133,9 @@ class Schedule extends Component
             }
         }
     }
-    public function load_data(){
+
+    public function load_data()
+    {
         $this->lessons = [];
         $timetable = $this->timetable;
         $this->lessons_time = $timetable['lessonsTimes'][0];
@@ -156,15 +179,15 @@ class Schedule extends Component
             $this->modal_group_name = $this->g;
             $this->save();
             $this->g = '';
-            if ($this->search_error){
+            if ($this->search_error) {
                 $this->modal_set = true;
             }
             return;
         }
 
         if (Cookie::has('schedule-group-name')) {
-            $this->group_name =  Cookie::get('schedule-group-name');
-            $this->modal_group_name =  $this->group_name;
+            $this->group_name = Cookie::get('schedule-group-name');
+            $this->modal_group_name = $this->group_name;
             $this->get_group_data();
         } else {
             $this->modal_set = true;
