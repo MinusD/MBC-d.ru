@@ -26,7 +26,7 @@
                         <div class="pb-2 border-double border-b-2 border-light-blue-500 mb-5">
                             <div class="mb-8">
                                 <img class="object-center object-cover rounded-2xl h-36 w-36"
-                                     src="https://cdn.discordapp.com/attachments/882642110153637919/887785148626661396/LogoEmpire2.png"
+                                     src="{{ asset('storage/site-images/minusd-logo.webp') }}"
                                      alt="MinusD">
                             </div>
                             <div class="text-center">
@@ -40,7 +40,7 @@
                         <div class="pb-2 border-double border-b-2 border-light-blue-500 mb-5">
                             <div class="mb-8">
                                 <img class="object-center object-cover rounded-2xl h-36 w-36"
-                                     src="https://cdn.discordapp.com/attachments/765261897716334633/887996167265341450/vFMhT2iCkV0.jpg"
+                                     src="{{ asset('storage/site-images/kkudlinkov-logo.webp') }}"
                                      alt="MinusD">
                             </div>
                             <div class="text-center">

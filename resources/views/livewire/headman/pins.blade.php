@@ -17,9 +17,9 @@
                         </label>
                     </div>
                     <div class="relative rounded-md shadow-sm">
-                        <x-inputs.maskable mask="#####" wire:model.defer="new_pincode"/>
+                        <x-inputs.maskable mask="#####" wire:keydown.enter="save_new_pincode" wire:model.defer="new_pincode"/>
                         @if($pin_error)
-                            <div class="text-red-600 text-sm">Неверный формат пин кода</div>
+                            <div class="text-red-600 text-sm mt-1">Неверный формат пин кода</div>
                         @endif
                     </div>
                 </div>
