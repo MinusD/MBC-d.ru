@@ -4,7 +4,7 @@
             <div class="grid grid-cols-1  gap-4">
 
 
-                <x-input label="Имя группы" wire:model.lazy="modal_group_name"/>
+                <x-input label="Имя группы" wire:model.lazy="modal_group_name" wire:keydown.enter="save"/>
                 @if($search_error)
                     <span class="text-red-600">Ошибка поиска группы</span>
                 @endif
