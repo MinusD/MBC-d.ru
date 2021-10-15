@@ -2,24 +2,46 @@
 
 namespace App\Http\Livewire\Landing;
 
+use App\Models\Group;
 use Livewire\Component;
 
 class Fastshare extends Component
 {
 
     public $fs_code;
-    public $len = 0;
+    public $fs_pass;
+    public $fs_is_correct = false;
 
 
     public function checker()
     {
-        $this->len = strlen($this->fs_code);
+        if (strlen($this->fs_code) == 6 ){
+            $this->fs_is_correct = false;
+
+        } elseif (strlen($this->fs_code) == 5){
+            $fs = Group::where('fs_code', $this->fs_code)->first(['id', 'fs_code', 'fs_pass']);
+            if (isset($fs->fs_pass)){
+                $this->fs_is_correct = true;
+                if ($this->fs_pass == $fs->fs_pass){
+
+                    dd(123);
+                }
+            } else {
+                $this->fs_is_correct = false;
+            }
+        }
+    }
+//    public function load_group_fs(){
+//
+//    }
+
+    public function go(){
         if (strlen($this->fs_code) == 6){
-            $this->go();
+            return;
         }
     }
 
-    public function go()
+    public function go1()
     {
         if ($this->fs_code == 16479) {
             $data = ['fs_code' => $this->fs_code, 'association' => ['y_disk' => 'https://disk.yandex.ru/d/U6qKYq25NOBm8w'],

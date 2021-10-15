@@ -29,6 +29,18 @@ class UserSeeder extends Seeder
         $user->assignRole('admin');
         $user->save();
 
+        $user1 = new User();
+        $user1->name = 'Кудлинков';
+        $user1->sname = 'Николай';
+        $user1->pname = 'Александрович';
+        $user1->email = 'v@v.v';
+        $user1->password = Hash::make(12345678);
+        $user1->assignRole('student');
+//        $user1->assignRole('headman');
+//        $user1->assignRole('moderator');
+//        $user1->assignRole('admin');
+        $user1->save();
+
         $group = new Group();
         $group->headman_id = $user->id;
         $group->group_name = 'ИКБО-30-21';
@@ -42,5 +54,10 @@ class UserSeeder extends Seeder
         $folder->type = "group";
         $folder->parent_id = $group->id;
         $folder->save();
+
+        $user->group_id = $group->id;
+        $user->save();
+        $user1->group_id = $group->id;
+        $user1->save();
     }
 }

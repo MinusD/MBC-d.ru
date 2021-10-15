@@ -83,106 +83,106 @@
                             <span class="ml-3">Главная</span>
                         </a>
                     </div>
-                    <div class="mb-2">
-                        <a href=""
-                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-indigo-100  {{ (request()->routeIs('admin.boxes')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-gray-400" }}">
-						<span class="flex items-center justify-center text-lg text-gray-500 dark:text-gray-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                              <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"/>
-                              <path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"
-                                    clip-rule="evenodd"/>
-                            </svg>
-						</span>
-                            <span class="ml-3">Боксы</span>
-                        </a>
-                    </div>
+{{--                    <div class="mb-2">--}}
+{{--                        <a href=""--}}
+{{--                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-indigo-100  {{ (request()->routeIs('admin.boxes')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-gray-400" }}">--}}
+{{--						<span class="flex items-center justify-center text-lg text-gray-500 dark:text-gray-400">--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">--}}
+{{--                              <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"/>--}}
+{{--                              <path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"--}}
+{{--                                    clip-rule="evenodd"/>--}}
+{{--                            </svg>--}}
+{{--						</span>--}}
+{{--                            <span class="ml-3">Боксы</span>--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
 
 
-                    <div x-data="{ open: false }" class="mb-2">
-                        <a role="button"
-                           @click="$event.preventDefault(); open = !open"
-                           aria-haspopup="true" :aria-expanded="open ? 'true' : 'false'"
-                           class="flex flex-row items-center h-12 px-4 rounded-lg bg-gray-50 text-gray-600 dark:bg-gray-700 dark:text-gray-400 hover:bg-indigo-200 dark:hover:text-gray-600 dark:hover:bg-indigo-400"
-                           :class="{ 'bg-indigo-200 dark:bg-indigo-400 dark:text-gray-600': open }">
-						<span class="flex items-center justify-center text-lg text-gray-500 dark:text-gray-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                 stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                            </svg>
-                        </span>
-                            <span class="ml-3">Бустеры</span>
-                            <span aria-hidden="true" class="ml-auto">
-                <!-- active class 'rotate-180' -->
-                <svg class="w-4 h-4 transition-transform transform" :class="{ 'rotate-180': open }"
-                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-                </span>
-                        </a>
-                        <div x-show="open" class="mt-2 space-y-2 px-7" role="menu">
-                            <a href="" role="menuitem"
-                               class="block p-2 text-sm text-gray-400 transition-colors duration-200  rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">
-                                Все
-                            </a>
-                            <a href="" role="menuitem"
-                               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">
-                                Активные
-                            </a>
-                            <a href="" role="menuitem"
-                               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">
-                                Добавить
-                            </a>
-                            {{--                            <a href="{{ route('admin.users.exits') }}" role="menuitem"--}}
-                            {{--                               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">--}}
-                            {{--                                Вышедшие пользователи--}}
-                            {{--                            </a>--}}
-                        </div>
-                    </div>
-                    <div x-data="{ open: false }" class="mb-2">
-                        <a role="button"
-                           @click="$event.preventDefault(); open = !open"
-                           aria-haspopup="true" :aria-expanded="open ? 'true' : 'false'"
-                           class="flex flex-row items-center h-12 px-4 rounded-lg bg-gray-50 text-gray-600 dark:bg-gray-700 dark:text-gray-400 hover:bg-indigo-200 dark:hover:text-gray-600 dark:hover:bg-indigo-400"
-                           :class="{ 'bg-indigo-200 dark:bg-indigo-400 dark:text-gray-600': open }">
-						<span class="flex items-center justify-center text-lg text-gray-500 dark:text-gray-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                 stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
-                                </svg></span>
-                            <span class="ml-3">Логи</span>
-                            <span aria-hidden="true" class="ml-auto">
-                <!-- active class 'rotate-180' -->
-                <svg class="w-4 h-4 transition-transform transform" :class="{ 'rotate-180': open }"
-                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-                </span>
-                        </a>
-                        <div x-show="open" class="mt-2 space-y-2 px-7" role="menu">
-                            <a href="" role="menuitem"
-                               class="block p-2 text-sm text-gray-400 transition-colors duration-200  rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">
-                                Открытие боксов
-                            </a>
-                            <a href="" role="menuitem"
-                               class="block p-2 text-sm text-gray-400 transition-colors duration-200  rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">
-                                Удалённые сообщения
-                            </a>
-                            <a href="" role="menuitem"
-                               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">
-                                Изменённые сообщения
-                            </a>
-                            <a href="" role="menuitem"
-                               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">
-                                Новые пользователи
-                            </a>
-                            <a href="" role="menuitem"
-                               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">
-                                Вышедшие пользователи
-                            </a>
-                        </div>
-                    </div>
+{{--                    <div x-data="{ open: false }" class="mb-2">--}}
+{{--                        <a role="button"--}}
+{{--                           @click="$event.preventDefault(); open = !open"--}}
+{{--                           aria-haspopup="true" :aria-expanded="open ? 'true' : 'false'"--}}
+{{--                           class="flex flex-row items-center h-12 px-4 rounded-lg bg-gray-50 text-gray-600 dark:bg-gray-700 dark:text-gray-400 hover:bg-indigo-200 dark:hover:text-gray-600 dark:hover:bg-indigo-400"--}}
+{{--                           :class="{ 'bg-indigo-200 dark:bg-indigo-400 dark:text-gray-600': open }">--}}
+{{--						<span class="flex items-center justify-center text-lg text-gray-500 dark:text-gray-400">--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"--}}
+{{--                                 stroke="currentColor">--}}
+{{--                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
+{{--                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>--}}
+{{--                            </svg>--}}
+{{--                        </span>--}}
+{{--                            <span class="ml-3">Бустеры</span>--}}
+{{--                            <span aria-hidden="true" class="ml-auto">--}}
+{{--                <!-- active class 'rotate-180' -->--}}
+{{--                <svg class="w-4 h-4 transition-transform transform" :class="{ 'rotate-180': open }"--}}
+{{--                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">--}}
+{{--                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>--}}
+{{--                </svg>--}}
+{{--                </span>--}}
+{{--                        </a>--}}
+{{--                        <div x-show="open" class="mt-2 space-y-2 px-7" role="menu">--}}
+{{--                            <a href="" role="menuitem"--}}
+{{--                               class="block p-2 text-sm text-gray-400 transition-colors duration-200  rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">--}}
+{{--                                Все--}}
+{{--                            </a>--}}
+{{--                            <a href="" role="menuitem"--}}
+{{--                               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">--}}
+{{--                                Активные--}}
+{{--                            </a>--}}
+{{--                            <a href="" role="menuitem"--}}
+{{--                               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">--}}
+{{--                                Добавить--}}
+{{--                            </a>--}}
+{{--                            --}}{{--                            <a href="{{ route('admin.users.exits') }}" role="menuitem"--}}
+{{--                            --}}{{--                               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">--}}
+{{--                            --}}{{--                                Вышедшие пользователи--}}
+{{--                            --}}{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div x-data="{ open: false }" class="mb-2">--}}
+{{--                        <a role="button"--}}
+{{--                           @click="$event.preventDefault(); open = !open"--}}
+{{--                           aria-haspopup="true" :aria-expanded="open ? 'true' : 'false'"--}}
+{{--                           class="flex flex-row items-center h-12 px-4 rounded-lg bg-gray-50 text-gray-600 dark:bg-gray-700 dark:text-gray-400 hover:bg-indigo-200 dark:hover:text-gray-600 dark:hover:bg-indigo-400"--}}
+{{--                           :class="{ 'bg-indigo-200 dark:bg-indigo-400 dark:text-gray-600': open }">--}}
+{{--						<span class="flex items-center justify-center text-lg text-gray-500 dark:text-gray-400">--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"--}}
+{{--                                 stroke="currentColor">--}}
+{{--                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
+{{--                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>--}}
+{{--                                </svg></span>--}}
+{{--                            <span class="ml-3">Логи</span>--}}
+{{--                            <span aria-hidden="true" class="ml-auto">--}}
+{{--                <!-- active class 'rotate-180' -->--}}
+{{--                <svg class="w-4 h-4 transition-transform transform" :class="{ 'rotate-180': open }"--}}
+{{--                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">--}}
+{{--                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>--}}
+{{--                </svg>--}}
+{{--                </span>--}}
+{{--                        </a>--}}
+{{--                        <div x-show="open" class="mt-2 space-y-2 px-7" role="menu">--}}
+{{--                            <a href="" role="menuitem"--}}
+{{--                               class="block p-2 text-sm text-gray-400 transition-colors duration-200  rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">--}}
+{{--                                Открытие боксов--}}
+{{--                            </a>--}}
+{{--                            <a href="" role="menuitem"--}}
+{{--                               class="block p-2 text-sm text-gray-400 transition-colors duration-200  rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">--}}
+{{--                                Удалённые сообщения--}}
+{{--                            </a>--}}
+{{--                            <a href="" role="menuitem"--}}
+{{--                               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">--}}
+{{--                                Изменённые сообщения--}}
+{{--                            </a>--}}
+{{--                            <a href="" role="menuitem"--}}
+{{--                               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">--}}
+{{--                                Новые пользователи--}}
+{{--                            </a>--}}
+{{--                            <a href="" role="menuitem"--}}
+{{--                               class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100">--}}
+{{--                                Вышедшие пользователи--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                     <div class="mb-2">
                         <a href="{{ route('student.dashboard') }}"
                            class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-gray-400">

@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Landing;
 
+use App\Models\Group;
+use Auth;
 use Livewire\Component;
 
 class Test extends Component
@@ -9,9 +11,11 @@ class Test extends Component
     public $fs_code;
 
 
-    public function checker()
+    public function add()
     {
-
+        $group = Group::find(1);
+        $group->users()->attach(Auth::id());
+//        Auth::user()->group()->atta
     }
 
     public function go()

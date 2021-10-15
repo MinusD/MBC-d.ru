@@ -78,6 +78,8 @@ class Registration extends Component
         $group->headman_id = $user->id;
         $group->group_name = $this->confirm_group['groupName'];
         $group->save();
+        $user->group_id = $group->id;
+        $user->save();
 
 
         return redirect(route('headman.dashboard'));

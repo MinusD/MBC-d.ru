@@ -60,4 +60,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+//    public function group()
+//    {
+//        return $this->belongsTo(Group::class, 'group_id', 'user_id')->pivo;
+////        return $this->belongsTo(Group::class)->withDefault();
+////        return $this->belongsTo(Group::class, 'group_users', 'group_id', 'user_id');
+////            ->withPivot('description', 'balance')
+////            ->withPivot('id');
+////            ->withTimestamps();
+//    }
 }
