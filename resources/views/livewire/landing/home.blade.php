@@ -16,6 +16,7 @@
                 line-height: 1;
                 font-weight: 700;
             }
+
             .text {
                 margin-top: 5rem;
                 --tw-text-opacity: 1;
@@ -24,6 +25,7 @@
                 line-height: 1;
                 font-weight: 700;
             }
+
             .typing span {
 
                 animation: 0.5s typing-color infinite;
@@ -35,33 +37,33 @@
         </div>
 
 
-{{--        <div class="w-4/5 typing md:h-40">--}}
-{{--            <h1 class="mt-20 text-white text-6xl font-bold text">Проект для облегчения жизни студентов МИРЭА--}}
-{{--            </h1>--}}
-{{--        </div>--}}
-{{--        <script>--}}
-{{--            const screenWidth = window.screen.width;--}}
-{{--            const screenHeight = window.screen.height;--}}
-{{--            console.log(screenWidth);--}}
+        {{--        <div class="w-4/5 typing md:h-40">--}}
+        {{--            <h1 class="mt-20 text-white text-6xl font-bold text">Проект для облегчения жизни студентов МИРЭА--}}
+        {{--            </h1>--}}
+        {{--        </div>--}}
+        {{--        <script>--}}
+        {{--            const screenWidth = window.screen.width;--}}
+        {{--            const screenHeight = window.screen.height;--}}
+        {{--            console.log(screenWidth);--}}
 
-{{--            if (screenWidth > 980){--}}
-{{--                var wrapper = document.querySelector(".typing");--}}
-{{--                var text = document.querySelector(".typing .text");--}}
-{{--                var textCont = text.textContent;--}}
-{{--                text.style.display = "none";--}}
-{{--                for (var i = 0; i < textCont.length; i++) {--}}
-{{--                    (function (i) {--}}
-{{--                        setTimeout(function () {--}}
-{{--                            var texts = document.createTextNode(textCont[i])--}}
-{{--                            var span = document.createElement('span');--}}
-{{--                            span.appendChild(texts);--}}
-{{--                            wrapper.appendChild(span);--}}
-{{--                        }, 65 * i);--}}
-{{--                    }(i));--}}
-{{--                }--}}
-{{--            }--}}
+        {{--            if (screenWidth > 980){--}}
+        {{--                var wrapper = document.querySelector(".typing");--}}
+        {{--                var text = document.querySelector(".typing .text");--}}
+        {{--                var textCont = text.textContent;--}}
+        {{--                text.style.display = "none";--}}
+        {{--                for (var i = 0; i < textCont.length; i++) {--}}
+        {{--                    (function (i) {--}}
+        {{--                        setTimeout(function () {--}}
+        {{--                            var texts = document.createTextNode(textCont[i])--}}
+        {{--                            var span = document.createElement('span');--}}
+        {{--                            span.appendChild(texts);--}}
+        {{--                            wrapper.appendChild(span);--}}
+        {{--                        }, 65 * i);--}}
+        {{--                    }(i));--}}
+        {{--                }--}}
+        {{--            }--}}
 
-{{--        </script>--}}
+        {{--        </script>--}}
 
         {{--        <div class="my-10"></div>--}}
         {{--        <div class="w-5/6 my-10 ml-6 z-20">--}}
@@ -140,8 +142,25 @@
                     </div>
 
                 </a>
-
-                <a href="{{ route('login') }}">
+                @auth
+                    <a href="{{ route('dashboard') }}">
+                    <div
+                        class="group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <div>
+                            <span>Dashboard</span>
+                            {{--                            <span class="text-xs text-blue-300 block">Заходи быстрее</span>--}}
+                            <span class="text-xs text-blue-300 block">/dashboard</span>
+                        </div>
+                        <div>
+                            <i class="fa fa-chevron-right opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-0 block transition mt-5 sm:mt-2"></i>
+                        </div>
+                    </div>
+                </a>
+                @else
+                    <a href="{{ route('login') }}">
                     <div
                         class="group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 rotate-180" fill="none"
@@ -160,6 +179,8 @@
                         </div>
                     </div>
                 </a>
+                @endauth
+
                 <a href="{{ route('landing.contacts') }}">
                     <div
                         class="relative group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
