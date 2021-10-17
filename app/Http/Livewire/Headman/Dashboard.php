@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Headman;
 
 use App\Models\Group;
+use App\Models\GroupInvites;
 use App\Models\User;
 use Livewire\Component;
 
@@ -11,9 +12,11 @@ class Dashboard extends Component
     public $students = [];
     public $group;
     public $add_student_modal_is_open = false;
+    public $invite_link_edit_model_is_open = false;
     public $new_stunent_name = "";
     public $new_stunent_sname = "";
     public $new_stunent_pname = "";
+    public $invite;
 
     protected $rules = [
         'new_stunent_name' => 'required|min:2|max:25',
@@ -42,9 +45,16 @@ class Dashboard extends Component
     }
 
     public function open_add_student_modal(){
-        if (!$this->add_student_modal_is_open){
-            $this->add_student_modal_is_open = true;
+        $this->add_student_modal_is_open = true;
+    }
+    public function open_invite_link_edit_modal(){
+        if (!isset($this->invite)){
+            $this->invite = GroupInvites::whereGroup_id($this->group->id)->where('deleted_at', null)->first();
+            if(isset($this->invite)){
+
+            }
         }
+        $this->invite_link_edit_model_is_open = true;
     }
     public function act_add_student(){
         $this->validateOnly('new_stunent_sname');
@@ -61,6 +71,19 @@ class Dashboard extends Component
         $this->new_stunent_sname = "";
         $this->new_stunent_pname = "";
         $this->get_students();
+    }
+    public function generate_invite(){
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' . '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $i =  substr(str_shuffle($permitted_chars), 0, 8);
+        while (GroupInvites::where('token', $i)->where('deleted_at', !null)->exists()){
+            $i =  substr(str_shuffle($permitted_chars), 0, 8);
+        }
+        $inv = new GroupInvites();
+        $inv->token = $i;
+        $inv->group_id = $this->group->id;
+        $inv->save();
+        $this->invite = $inv;
+//        $this->invite_link_edit_model_is_open = false;
     }
 
 
