@@ -28,9 +28,9 @@ class Registration extends Component
 
 
     protected $rules = [
-        'name' => 'required|min:2|max:20',
-        'sname' => 'required|min:2|max:20',
-        'pname' => 'max:20',
+        'name' => 'required|min:2|max:25',
+        'sname' => 'required|min:2|max:25',
+        'pname' => 'max:25',
         'email' => 'required|unique:users|email',
         'pass' => 'required|min:8|max:50|required_with:pass_2',
         'pass_2' => 'required|same:pass',

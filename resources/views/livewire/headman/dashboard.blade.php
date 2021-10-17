@@ -5,6 +5,97 @@
 </x-slot>
 
 <div>
+    <x-modal.card title="Добавление студента в группу" blur wire:model.defer="add_student_modal_is_open">
+        <div class="my-2">
+            <span class="font-bold">Внимание!</span> Если вы до этого не добавляли новых студентов,
+            прочтите <a href="#" class="text-blue-500 underline">краткую инструкция</a> или посмотрите <a href="#"
+                                                                                                          class="text-blue-500 underline">видео</a>.
+        </div>
+        <div class="grid grid-cols-1 gap-4">
+            <div class="">
+                <div class="flex justify-between mb-1">
+                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                        Фамилия
+                    </label>
+                </div>
+                <div class="relative rounded-md shadow-sm">
+                    <x-input wire:model.defer="new_stunent_sname"/>
+                </div>
+            </div>
+            <div class="">
+                <div class="flex justify-between mb-1">
+                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                        Имя
+                    </label>
+                </div>
+                <div class="relative rounded-md shadow-sm">
+                    <x-input wire:model.defer="new_stunent_name"/>
+                </div>
+            </div>
+            <div class="">
+                <div class="flex justify-between mb-1">
+                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                        Отчество <span class="text-xs text-gray-500 ">(При наличии)</span>
+                    </label>
+                </div>
+                <div class="relative rounded-md shadow-sm">
+                    <x-input wire:model.defer="new_stunent_pname"/>
+                </div>
+            </div>
+
+
+            {{--                <div class="text-md ">Код досутпа: <code class="font-bold text-4xl"> 123</code></div>--}}
+            {{--                <div class="text-md ">Пин код: <code class="font-bold text-4xl"> 321</code></div>--}}
+            {{--                <div class="">--}}
+            {{--                    <div class="flex justify-between mb-1">--}}
+            {{--                        <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">--}}
+            {{--                            Новый пин код <span class="text-xs text-gray-500 ">(Строго 5 символов)</span>--}}
+            {{--                        </label>--}}
+            {{--                    </div>--}}
+            {{--                    <div class="relative rounded-md shadow-sm">--}}
+            {{--                        <x-inputs.maskable mask="#####" wire:keydown.enter="save_new_pincode" wire:model.defer="new_pincode"/>--}}
+            {{--                        @if($pin_error)--}}
+            {{--                            <div class="text-red-600 text-sm mt-1">Неверный формат пин кода</div>--}}
+            {{--                        @endif--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+        </div>
+        <x-slot name="footer">
+            <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
+                <div class="flex">
+                    <x-button flat primary class="mr-2" @click="confirm = !confirm" label=""/>
+{{--                    <div x-show="confirm"--}}
+{{--                         class="transition text-center py-1 select-all"--}}
+{{--                         x-transition:enter="transition ease-out duration-200"--}}
+{{--                         x-transition:enter-start="transform opacity-0 scale-95"--}}
+{{--                         x-transition:enter-end="transform opacity-100 scale-100">--}}
+
+{{--                        <span class="text-sm ml-2 text-gray-600 dark:text-gray-300">--}}
+{{--                            {{ route('landing.reg_by_code') . "?t=123" }}--}}
+{{--                        </span>--}}
+{{--                    </div>--}}
+{{--                    <x-button negative--}}
+{{--                              x-show="confirm"--}}
+{{--                              class="transition"--}}
+{{--                              label="{{ "213123" }}"--}}
+{{--                              wire:click="deactivate_fs"--}}
+{{--                              x-transition:enter="transition ease-out duration-200"--}}
+{{--                              x-transition:enter-start="transform opacity-0 scale-95"--}}
+{{--                              x-transition:enter-end="transform opacity-100 scale-100"/>--}}
+                </div>
+                <div class="flex">
+                    <x-button flat label="Отменить" x-on:click="close"/>
+                    <x-button primary label="Добавить" wire:click="act_add_student"/>
+                </div>
+            </div>
+        </x-slot>
+        {{--            <div--}}
+        {{--                class="shadow-lg rounded-2xl p-4 bg-gray-200 dark:bg-gray-800 w-full flex items-center justify-center h-64">--}}
+        {{--                <x-button md primary wire:click="activate_fs">Активировать FastShare</x-button>--}}
+        {{--            </div>--}}
+    </x-modal.card>
+
+
     <div class="overflow-auto pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0 flex flex-wrap items-stretch">
         <div class="flex-initial mb-4 w-full xl:w-2/3 xl:pr-3 self-auto ">
             <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-700 w-full">
@@ -194,12 +285,14 @@
                 <div class="grid grid-cols-2 ">
                     <div class="p-2">
                         <button type="button"
+
                                 class="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">
                             Добавить ДЗ
                         </button>
                     </div>
                     <div class="p-2">
                         <button type="button"
+                                wire:click="open_add_student_modal"
                                 class="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">
                             Добавить участника
                         </button>

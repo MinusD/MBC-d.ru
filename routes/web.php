@@ -88,7 +88,7 @@ Route::get('contacts', \App\Http\Livewire\Landing\Contacts::class)->name('landin
 Route::get('team', \App\Http\Livewire\Landing\Team::class)->name('landing.team');
 Route::get('fs', \App\Http\Livewire\Landing\Fastshare::class)->name('landing.fastshare');
 Route::get('register', \App\Http\Livewire\Landing\Registration::class)->name('landing.register');
-Route::get('register_by_invite', \App\Http\Livewire\Landing\RegByCode::class)->name('landing.reg_by_code');
+Route::get('rbi', \App\Http\Livewire\Landing\RegByCode::class)->name('landing.reg_by_code');
 Route::get('s', \App\Http\Livewire\Landing\Test::class)->name('landing.test');
 
 
