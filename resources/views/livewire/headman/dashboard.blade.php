@@ -183,7 +183,7 @@
                     </thead>
                     <tbody class="text-gray-600 text-sm font-light dark:text-gray-300">
                     @forelse($students as $key => $student)
-                        <tr class="border-b border-gray-200 hover:bg-gray-100 dark:border-gray-500 dark:hover:bg-gray-800 {{ $key%2 == 0 ? 'bg-gray-50 dark:bg-gray-800' : '' }}">
+                        <tr class="border-b border-gray-200 hover:bg-gray-100 dark:border-gray-500 dark:hover:bg-gray-800 {{ $key%2 ? 'bg-gray-50 dark:bg-gray-800' : '' }}">
                             <td class="py-3 px-6 text-left">
                                 <div class="flex items-center">
                                     <span class="font-medium">{{ $student->sname  }} </span>

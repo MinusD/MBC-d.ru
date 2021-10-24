@@ -71,7 +71,7 @@
 {{--                                <div class="w-full flex-none text-xs text-blue-700 font-medium ">--}}
 {{--                                    Shop--}}
 {{--                                </div>--}}
-{{--                                <h2 class="flex-auto text-lg font-medium">Massive Dynamic</h2>--}}
+{{--                                <h2 class="flex-auto text-lg font-medium text-gray-800 dark:text-gray-200">Massive Dynamic</h2>--}}
 {{--                            </div>--}}
 {{--                            <p class="mt-3"></p>--}}
 {{--                            <div class="flex py-4  text-sm text-gray-500">--}}

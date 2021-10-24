@@ -23,7 +23,7 @@ class Pins extends Component
     public $new_folder_desc = "";
 
     public $new_pin_name = "";
-    public $new_pin_type = "";
+    public $new_pin_type = "text";
     public $new_pin_desc = "";
 
 

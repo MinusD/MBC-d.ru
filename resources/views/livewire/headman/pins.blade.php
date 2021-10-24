@@ -147,7 +147,7 @@
                         dark:text-secondary-400 mb-2"
                     wire:model="new_pin_type"
                 >
-                    <option label="Текст" value="text"/>
+                    <option label="Текст" value="text" selected/>
                     <option label="Ссылка" value="link"/>
                     <option label="Файл" value="file"/>
                     <option label="Картинка" value="img"/>
