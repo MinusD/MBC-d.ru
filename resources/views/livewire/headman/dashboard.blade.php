@@ -64,24 +64,24 @@
             <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
                 <div class="flex">
                     <x-button flat primary class="mr-2" @click="confirm = !confirm" label=""/>
-{{--                    <div x-show="confirm"--}}
-{{--                         class="transition text-center py-1 select-all"--}}
-{{--                         x-transition:enter="transition ease-out duration-200"--}}
-{{--                         x-transition:enter-start="transform opacity-0 scale-95"--}}
-{{--                         x-transition:enter-end="transform opacity-100 scale-100">--}}
+                    {{--                    <div x-show="confirm"--}}
+                    {{--                         class="transition text-center py-1 select-all"--}}
+                    {{--                         x-transition:enter="transition ease-out duration-200"--}}
+                    {{--                         x-transition:enter-start="transform opacity-0 scale-95"--}}
+                    {{--                         x-transition:enter-end="transform opacity-100 scale-100">--}}
 
-{{--                        <span class="text-sm ml-2 text-gray-600 dark:text-gray-300">--}}
-{{--                            {{ route('landing.reg_by_code') . "?t=123" }}--}}
-{{--                        </span>--}}
-{{--                    </div>--}}
-{{--                    <x-button negative--}}
-{{--                              x-show="confirm"--}}
-{{--                              class="transition"--}}
-{{--                              label="{{ "213123" }}"--}}
-{{--                              wire:click="deactivate_fs"--}}
-{{--                              x-transition:enter="transition ease-out duration-200"--}}
-{{--                              x-transition:enter-start="transform opacity-0 scale-95"--}}
-{{--                              x-transition:enter-end="transform opacity-100 scale-100"/>--}}
+                    {{--                        <span class="text-sm ml-2 text-gray-600 dark:text-gray-300">--}}
+                    {{--                            {{ route('landing.reg_by_code') . "?t=123" }}--}}
+                    {{--                        </span>--}}
+                    {{--                    </div>--}}
+                    {{--                    <x-button negative--}}
+                    {{--                              x-show="confirm"--}}
+                    {{--                              class="transition"--}}
+                    {{--                              label="{{ "213123" }}"--}}
+                    {{--                              wire:click="deactivate_fs"--}}
+                    {{--                              x-transition:enter="transition ease-out duration-200"--}}
+                    {{--                              x-transition:enter-start="transform opacity-0 scale-95"--}}
+                    {{--                              x-transition:enter-end="transform opacity-100 scale-100"/>--}}
                 </div>
                 <div class="flex">
                     <x-button flat label="Отменить" x-on:click="close"/>
@@ -96,36 +96,40 @@
     </x-modal.card>
 
     <x-modal.card title="Настройки приглашений в группу" blur wire:model.defer="invite_link_edit_model_is_open">
-        @if(isset($invite))
-            <div class="grid grid-cols-1 gap-4">
-{{--                <div class="text-md ">Код досутпа: <code class="font-bold text-4xl"> {{ $data->fs_code }}</code></div>--}}
-{{--                <div class="text-md ">Пин код: <code class="font-bold text-4xl"> {{ $data->fs_pass }}</code></div>--}}
-                <div class="">
-                    <div class="flex justify-between mb-1">
-                        <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
-                            Новый пин код <span class="text-xs text-gray-500 ">(Строго 5 символов)</span>
-                        </label>
-                    </div>
-                    <div class="relative rounded-md shadow-sm">
-                        <x-inputs.maskable mask="#####" wire:keydown.enter="save_new_pincode" wire:model.defer="new_pincode"/>
-{{--                        @if($pin_error)--}}
-{{--                            <div class="text-red-600 text-sm mt-1">Неверный формат пин кода</div>--}}
-{{--                        @endif--}}
-                    </div>
-                </div>
+        @if(isset($invite->token) && is_null($invite->deleted_at))
+            <div class="grid grid-cols-1 gap-4" x-data="{show_link: false}">
+                <div class="text-md ">Ссылка-приглашение: <a target="_blank" class="underline text-blue-400" href="{{ route('landing.reg_by_code') . "?t=" . $invite->token }}">{{ mb_substr($invite->token, 0, 12) . "..." }}</a> </div>
+                <div x-show="show_link" x-transition:enter="transition ease-out duration-200"
+                     x-transition:enter-start="transform opacity-0 scale-95"
+                     x-transition:enter-end="transform opacity-100 scale-100" class="text-md select-all"><code>{{ route('landing.reg_by_code') . "?t=" . $invite->token }}</code> </div>
+                <x-button positive class="mr-2" @click="show_link = !show_link" label="Показать/скрыть ссылку"/>
+                <x-button primary class="mr-2" wire:click="generate_new_invite_link" label="Сгенерировать новую ссылку"/>
+                <x-button warning class="mr-2" wire:click="deactivate_invite_link" label="Деактивироовать ссылку"/>
+                {{--                <div class="text-md ">Код досутпа: <code class="font-bold text-4xl"> {{ $data->fs_code }}</code></div>--}}
+                {{--                <div class="text-md ">Пин код: <code class="font-bold text-4xl"> {{ $data->fs_pass }}</code></div>--}}
+                {{--                <div class="">--}}
+                {{--                    <div class="flex justify-between mb-1">--}}
+                {{--                        <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">--}}
+                {{--                            Новый пин код <span class="text-xs text-gray-500 ">(Строго 5 символов)</span>--}}
+                {{--                        </label>--}}
+                {{--                    </div>--}}
+                {{--                    <div class="relative rounded-md shadow-sm">--}}
+                {{--                        <x-inputs.maskable mask="#####" wire:keydown.enter="save_new_pincode" wire:model.defer="new_pincode"/>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
             </div>
             <x-slot name="footer">
                 <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
                     <div class="flex">
-                        <x-button flat negative class="mr-2" @click="confirm = !confirm" label="Деактивировать FS"/>
-                        <x-button negative
-                                  x-show="confirm"
-                                  class="transition"
-                                  label="Я уверен"
-                                  wire:click="deactivate_fs"
-                                  x-transition:enter="transition ease-out duration-200"
-                                  x-transition:enter-start="transform opacity-0 scale-95"
-                                  x-transition:enter-end="transform opacity-100 scale-100"/>
+{{--                        <x-button flat negative class="mr-2" @click="confirm = !confirm" label="Деактивировать FS"/>--}}
+{{--                        <x-button negative--}}
+{{--                                  x-show="confirm"--}}
+{{--                                  class="transition"--}}
+{{--                                  label="Я уверен"--}}
+{{--                                  wire:click="deactivate_fs"--}}
+{{--                                  x-transition:enter="transition ease-out duration-200"--}}
+{{--                                  x-transition:enter-start="transform opacity-0 scale-95"--}}
+{{--                                  x-transition:enter-end="transform opacity-100 scale-100"/>--}}
                     </div>
                     <div class="flex">
                         <x-button flat label="Отменить" x-on:click="close"/>
@@ -135,8 +139,9 @@
             </x-slot>
         @else
             <div
-                class="shadow-lg rounded-2xl p-4 bg-gray-200 dark:bg-gray-800 w-full flex items-center justify-center h-64">
+                class="relative shadow-lg rounded-2xl p-4 bg-gray-200 dark:bg-gray-800 w-full flex items-center justify-center h-64">
                 <x-button md primary wire:click="generate_invite">Сгенерировать приглашение</x-button>
+                <div class="absolute text-xs text-gray-200 bottom-1 right-2">Если кнопка не реагирует, перезагрузите страницу</div>
             </div>
         @endif
     </x-modal.card>
@@ -345,6 +350,8 @@
                     </div>
                     <div class="p-2">
                         <button type="button"
+{{--                                x-on:click="$openModal('invite_link_edit_model_is_open')"--}}
+
                                 wire:click="open_invite_link_edit_modal"
                                 class="w-full h-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">
                             Приглашения
