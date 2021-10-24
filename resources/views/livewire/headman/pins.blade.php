@@ -17,7 +17,8 @@
                         </label>
                     </div>
                     <div class="relative rounded-md shadow-sm">
-                        <x-inputs.maskable mask="#####" wire:keydown.enter="save_new_pincode" wire:model.defer="new_pincode"/>
+                        <x-inputs.maskable mask="#####" wire:keydown.enter="save_new_pincode"
+                                           wire:model.defer="new_pincode"/>
                         @if($pin_error)
                             <div class="text-red-600 text-sm mt-1">Неверный формат пин кода</div>
                         @endif
@@ -51,38 +52,37 @@
         @endif
     </x-modal.card>
 
-
     <x-modal.card title="Новая папка" blur wire:model.defer="new_folder_modal">
         <div class="grid grid-cols-1 gap-4">
 
             <x-input label="Название" wire:model="new_folder_name"></x-input>
             <x-input label="Описание" wire:model="new_folder_desc"></x-input>
-{{--            <div>--}}
-{{--                <div class="flex justify-between mb-1">--}}
-{{--                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">--}}
-{{--                        Название папки<span class="text-xs text-gray-500"></span>--}}
-{{--                    </label>--}}
-{{--                </div>--}}
-{{--                <div class="relative rounded-md shadow-sm">--}}
-{{--                    <x-input wire:model.defer="new_pincode"/>--}}
-{{--                    @if($pin_error)--}}
-{{--                        <div class="text-red-600 text-sm">Неверный формат пин кода</div>--}}
-{{--                    @endif--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            {{--            <div>--}}
+            {{--                <div class="flex justify-between mb-1">--}}
+            {{--                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">--}}
+            {{--                        Название папки<span class="text-xs text-gray-500"></span>--}}
+            {{--                    </label>--}}
+            {{--                </div>--}}
+            {{--                <div class="relative rounded-md shadow-sm">--}}
+            {{--                    <x-input wire:model.defer="new_pincode"/>--}}
+            {{--                    @if($pin_error)--}}
+            {{--                        <div class="text-red-600 text-sm">Неверный формат пин кода</div>--}}
+            {{--                    @endif--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
         </div>
         <x-slot name="footer">
             <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
                 <div class="flex">
-{{--                    <x-button flat negative class="mr-2" @click="confirm = !confirm" label="Деактивировать FS"/>--}}
-{{--                    <x-button negative--}}
-{{--                              x-show="confirm"--}}
-{{--                              class="transition"--}}
-{{--                              label="Я уверен"--}}
-{{--                              wire:click="deactivate_fs"--}}
-{{--                              x-transition:enter="transition ease-out duration-200"--}}
-{{--                              x-transition:enter-start="transform opacity-0 scale-95"--}}
-{{--                              x-transition:enter-end="transform opacity-100 scale-100"/>--}}
+                    {{--                    <x-button flat negative class="mr-2" @click="confirm = !confirm" label="Деактивировать FS"/>--}}
+                    {{--                    <x-button negative--}}
+                    {{--                              x-show="confirm"--}}
+                    {{--                              class="transition"--}}
+                    {{--                              label="Я уверен"--}}
+                    {{--                              wire:click="deactivate_fs"--}}
+                    {{--                              x-transition:enter="transition ease-out duration-200"--}}
+                    {{--                              x-transition:enter-start="transform opacity-0 scale-95"--}}
+                    {{--                              x-transition:enter-end="transform opacity-100 scale-100"/>--}}
                 </div>
                 <div class="flex">
                     <x-button flat label="Отменить" x-on:click="close"/>
@@ -92,37 +92,37 @@
         </x-slot>
 
     </x-modal.card>
+
     <x-modal.card title="Редактирование папки" blur wire:model.defer="edit_folder_modal">
         <div class="grid grid-cols-1 gap-4">
-
             <x-input label="Название" wire:model.defer="edit_folder_name"></x-input>
             <x-input label="Описание" wire:model.defer="edit_folder_desc"></x-input>
-{{--            <div>--}}
-{{--                <div class="flex justify-between mb-1">--}}
-{{--                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">--}}
-{{--                        Название папки<span class="text-xs text-gray-500"></span>--}}
-{{--                    </label>--}}
-{{--                </div>--}}
-{{--                <div class="relative rounded-md shadow-sm">--}}
-{{--                    <x-input wire:model.defer="new_pincode"/>--}}
-{{--                    @if($pin_error)--}}
-{{--                        <div class="text-red-600 text-sm">Неверный формат пин кода</div>--}}
-{{--                    @endif--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            {{--            <div>--}}
+            {{--                <div class="flex justify-between mb-1">--}}
+            {{--                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">--}}
+            {{--                        Название папки<span class="text-xs text-gray-500"></span>--}}
+            {{--                    </label>--}}
+            {{--                </div>--}}
+            {{--                <div class="relative rounded-md shadow-sm">--}}
+            {{--                    <x-input wire:model.defer="new_pincode"/>--}}
+            {{--                    @if($pin_error)--}}
+            {{--                        <div class="text-red-600 text-sm">Неверный формат пин кода</div>--}}
+            {{--                    @endif--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
         </div>
         <x-slot name="footer">
             <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
                 <div class="flex">
-{{--                    <x-button flat negative class="mr-2" @click="confirm = !confirm" label="Деактивировать FS"/>--}}
-{{--                    <x-button negative--}}
-{{--                              x-show="confirm"--}}
-{{--                              class="transition"--}}
-{{--                              label="Я уверен"--}}
-{{--                              wire:click="deactivate_fs"--}}
-{{--                              x-transition:enter="transition ease-out duration-200"--}}
-{{--                              x-transition:enter-start="transform opacity-0 scale-95"--}}
-{{--                              x-transition:enter-end="transform opacity-100 scale-100"/>--}}
+                    {{--                    <x-button flat negative class="mr-2" @click="confirm = !confirm" label="Деактивировать FS"/>--}}
+                    {{--                    <x-button negative--}}
+                    {{--                              x-show="confirm"--}}
+                    {{--                              class="transition"--}}
+                    {{--                              label="Я уверен"--}}
+                    {{--                              wire:click="deactivate_fs"--}}
+                    {{--                              x-transition:enter="transition ease-out duration-200"--}}
+                    {{--                              x-transition:enter-start="transform opacity-0 scale-95"--}}
+                    {{--                              x-transition:enter-end="transform opacity-100 scale-100"/>--}}
                 </div>
                 <div class="flex">
                     <x-button flat label="Отменить" x-on:click="close"/>
@@ -133,6 +133,39 @@
 
     </x-modal.card>
 
+    <x-modal.card title="Новый пин" blur wire:model.defer="new_pin_modal">
+        <div class="grid grid-cols-1 gap-4">
+            <x-input label="Название" wire:model="new_pin_name"></x-input>
+            <div class="">
+                <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400 mb-1">
+                    Тип <span class="text-gray-400 dark:text-gray-500 text-xs">Картинка и файл не работают</span>
+                </label>
+                <select
+                    class="placeholder-secondary-400 dark:bg-secondary-800 dark:text-secondary-400 dark:placeholder-secondary-500
+                        border border-secondary-300 focus:ring-primary-500 focus:border-primary-500 dark:border-secondary-600 block w-full
+                        sm:text-sm rounded-md transition ease-in-out duration-100 focus:outline-none shadow-sm cursor-pointer overflow-hidden
+                        dark:text-secondary-400 mb-2"
+                    wire:model="new_pin_type"
+                >
+                    <option label="Текст" value="text"/>
+                    <option label="Ссылка" value="link"/>
+                    <option label="Файл" value="file"/>
+                    <option label="Картинка" value="img"/>
+                </select>
+            </div>
+            <x-input label="Описание" wire:model="new_pin_desc"></x-input>
+        </div>
+        <x-slot name="footer">
+            <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
+                <div class=""></div>
+                <div class="flex">
+                    <x-button flat label="Отменить" x-on:click="close"/>
+                    <x-button primary label="Создать" wire:click="new_pin_confirm"/>
+                </div>
+            </div>
+        </x-slot>
+
+    </x-modal.card>
 
     <header class="w-full shadow-lg bg-white dark:bg-gray-700 items-center h-16 rounded-2xl z-40 mb-2">
         <div class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
@@ -162,6 +195,8 @@
                     {{--                            +--}}
                     {{--                        </div>--}}
                     {{--                    </div>--}}
+
+
                     <div class="grid grid-cols-2 gap-4 items-center">
                         <div class="hidden md:block">
                             <x-button icon="folder-add" primary label="Новая папка" wire:click="new_folder"/>
@@ -183,52 +218,55 @@
             </div>
         </div>
     </header>
-    @if(isset($folders_lines[0]))
-    <header class="w-full shadow-lg bg-white dark:bg-gray-700 items-center h-10 rounded-xl z-40 mb-2">
-        <div class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
-            <div class="relative items-center pl-1 flex w-full lg:max-w-68 sm:pr-2 sm:ml-0">
-                <ul class="flex text-gray-400 text-sm lg:text-base">
-                    <li class="inline-flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cursor-pointer" wire:click="go_folder(0)" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                        </svg>
-                        <svg
-                            class="h-5 w-auto text-gray-400"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"
-                            ></path>
-                        </svg>
-                    </li>
-                    @forelse($folders_lines as $f)
-                    <li class="inline-flex items-center cursor-pointer" wire:click="go_folder({{ $f['id'] }})">
-                        <span class="">{{ $f['name'] }}</span>
-                        <svg
-                            class="h-5 w-auto text-gray-400"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"
-                            ></path>
-                        </svg>
-                    </li>
-                        @empty
-                    @endforelse
-{{--                    <li class="inline-flex items-center">--}}
-{{--                        <a href="#" class="text-teal-400">Breadcrumb</a>--}}
-{{--                    </li>--}}
-                </ul>
 
+    @if(isset($folders_lines[0]))
+        <header class="w-full shadow-lg bg-white dark:bg-gray-700 items-center h-10 rounded-xl z-40 mb-2">
+            <div class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
+                <div class="relative items-center pl-1 flex w-full lg:max-w-68 sm:pr-2 sm:ml-0">
+                    <ul class="flex text-gray-400 text-sm lg:text-base">
+                        <li class="inline-flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cursor-pointer"
+                                 wire:click="go_folder(0)" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                    d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                            </svg>
+                            <svg
+                                class="h-5 w-auto text-gray-400"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd"
+                                ></path>
+                            </svg>
+                        </li>
+                        @forelse($folders_lines as $f)
+                            <li class="inline-flex items-center cursor-pointer" wire:click="go_folder({{ $f['id'] }})">
+                                <span class="">{{ $f['name'] }}</span>
+                                <svg
+                                    class="h-5 w-auto text-gray-400"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                        clip-rule="evenodd"
+                                    ></path>
+                                </svg>
+                            </li>
+                        @empty
+                        @endforelse
+                        {{--                    <li class="inline-flex items-center">--}}
+                        {{--                        <a href="#" class="text-teal-400">Breadcrumb</a>--}}
+                        {{--                    </li>--}}
+                    </ul>
+
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
     @endif
     <div class="w-full flex flex-wrap mb-2">
         @forelse($folders as $key => $folder)
@@ -238,7 +276,8 @@
                     class="flex items-center bg-indigo-500 rounded-md p-3 text-white cursor-pointer transition duration-500 ease-in-out hover:shadow hover:bg-indigo-600"
                     x-data="{ open: false, color: false }" @keydown.escape="open = false" @click.away="open = false">
 
-                    <div class="flex items-center transition duration-500 ease-in-out w-full" wire:click="go_folder({{$folder->id}})">
+                    <div class="flex items-center transition duration-500 ease-in-out w-full"
+                         wire:click="go_folder({{$folder->id}})">
                         <div>
                             <svg fill="currentColor" class="w-10 h-10" style="" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 20 20">
@@ -252,7 +291,7 @@
                         </div>
                     </div>
                     <div class="relative">
-                        <a href="javascript:;" @click="open = !open" >
+                        <a href="javascript:;" @click="open = !open">
                             <svg fill="currentColor" class="w-5 h-5" style="" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 20 20">
                                 <path
@@ -266,7 +305,8 @@
                              x-transition:leave-start="transform opacity-100 scale-100"
                              x-transition:leave-end="transform opacity-0 scale-95"
                              class="options absolute bg-white text-gray-600 origin-top-right right-0 mt-2 w-56 rounded-md shadow-lg overflow-hidden">
-                            <div class="flex py-3 px-2 text-sm font-bold hover:bg-gray-100" wire:click="edit_folder({{$key}})">
+                            <div class="flex py-3 px-2 text-sm font-bold hover:bg-gray-100"
+                                 wire:click="edit_folder({{$key}})">
                                 <span class="mr-auto">Редактировать</span>
                                 <svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" style="">
                                     <path

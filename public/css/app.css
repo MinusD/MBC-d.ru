@@ -1890,6 +1890,14 @@ select {
 	--tw-rotate: -45deg;
 	transform: var(--tw-transform);
 }
+.rotate-90 {
+	--tw-rotate: 90deg;
+	transform: var(--tw-transform);
+}
+.-rotate-90 {
+	--tw-rotate: -90deg;
+	transform: var(--tw-transform);
+}
 .scale-95 {
 	--tw-scale-x: .95;
 	--tw-scale-y: .95;
@@ -2807,6 +2815,9 @@ select {
 .pl-4 {
 	padding-left: 1rem;
 }
+.pr-0 {
+	padding-right: 0px;
+}
 .pt-8 {
 	padding-top: 2rem;
 }
@@ -2836,9 +2847,6 @@ select {
 }
 .pr-0\.5 {
 	padding-right: 0.125rem;
-}
-.pr-0 {
-	padding-right: 0px;
 }
 .pl-8 {
 	padding-left: 2rem;
@@ -4761,12 +4769,12 @@ select {
 		height: 2rem;
 	}
 
-	.md\:h-40 {
-		height: 10rem;
-	}
-
 	.md\:h-16 {
 		height: 4rem;
+	}
+
+	.md\:h-40 {
+		height: 10rem;
 	}
 
 	.md\:w-8 {

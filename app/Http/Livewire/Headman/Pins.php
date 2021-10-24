@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire\Headman;
 
+use App\Http\Livewire\Student\Pin;
 use App\Models\Folder;
 use App\Models\Group;
 use Livewire\Component;
 use WireUi\Traits\Actions;
+
 
 class Pins extends Component
 {
@@ -16,10 +18,18 @@ class Pins extends Component
     public $data = [];
     public $pin_error = false;
     public $f = 0;
+
     public $new_folder_name = "";
     public $new_folder_desc = "";
+
+    public $new_pin_name = "";
+    public $new_pin_type = "";
+    public $new_pin_desc = "";
+
+
     public $new_folder_modal = false;
     public $new_pin_modal = false;
+
     public $folders = [];
     public $folders_lines = [];
 
@@ -177,6 +187,40 @@ class Pins extends Component
         } else {
             $this->pin_error = true;
         }
+    }
+
+    public function new_pin_confirm(){
+
+
+        $this->validateOnly('new_pin_name');
+        $this->validateOnly('new_pin_desc');
+
+        $pin = new \App\Models\Pin();
+        $pin->name = $this->new_pin_name;
+        $pin->pin_type = $this->new_pin_type;
+        $pin->text = $this->new_pin_desc;
+        $pin->type = "group";
+        $pin->parent_id = $this->data->id;
+        $pin->save();
+        $this->new_pin_modal = false;
+        $this->new_pin_name = "";
+        $this->new_pin_type = "text";
+        $this->new_pin_desc = "";
+        $this->get_data();
+//        $folder->name = $this->new_folder_name;
+//        $folder->desc = $this->new_folder_desc;
+//        if ($this->f == 0){
+//            $folder->type = 'group';
+//            $folder->parent_id = $this->data->id;
+//        } else {
+//            $folder->type = 'folder';
+//            $folder->parent_id = $this->f;
+//        }
+//        $folder->save();
+//        $this->new_folder_modal = false;
+//        $this->get_data();
+//        $this->new_folder_name = '';
+//        $this->new_folder_desc = '';
     }
 
     public function render()
