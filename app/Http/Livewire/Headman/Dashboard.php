@@ -12,6 +12,7 @@ class Dashboard extends Component
     public $students = [];
     public $group;
     public $add_student_modal_is_open = false;
+    public $add_homework_modal_is_open = false;
     public $invite_link_edit_model_is_open = false;
     public $new_stunent_name = "";
     public $new_stunent_sname = "";
@@ -44,12 +45,16 @@ class Dashboard extends Component
 
     public function get_students()
     {
-        $this->students = User::where('group_id', $this->group->id)->get();
+        $this->students = User::where('group_id', $this->group->id)->get()->sortBy('sname');
     }
 
     public function open_add_student_modal()
     {
         $this->add_student_modal_is_open = true;
+    }
+    public function open_add_homework_modal()
+    {
+        $this->add_homework_modal_is_open = true;
     }
 
     public function open_invite_link_edit_modal()

@@ -5,6 +5,63 @@
 </x-slot>
 
 <div>
+
+
+    <x-modal.card title="Добавление домашнего задания" blur wire:model.defer="add_homework_modal_is_open">
+        <div class="my-2">
+            <span class="font-bold">Внимание!</span> Если вы до этого не добавляли новых студентов,
+            прочтите <a href="#" class="text-blue-500 underline">краткую инструкция</a> или посмотрите <a href="#"
+                                                                                                          class="text-blue-500 underline">видео</a>.
+        </div>
+        <div class="grid grid-cols-1 gap-4">
+            <div class="">
+                <div class="flex justify-between mb-1">
+                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                        Фамилия
+                    </label>
+                </div>
+                <div class="relative rounded-md shadow-sm">
+                    <x-input wire:model.defer="new_stunent_sname"/>
+                </div>
+            </div>
+            <div class="">
+                <div class="flex justify-between mb-1">
+                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                        Имя
+                    </label>
+                </div>
+                <div class="relative rounded-md shadow-sm">
+                    <x-input wire:model.defer="new_stunent_name"/>
+                </div>
+            </div>
+            <div class="">
+                <div class="flex justify-between mb-1">
+                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                        Отчество <span class="text-xs text-gray-500 ">(При наличии)</span>
+                    </label>
+                </div>
+                <div class="relative rounded-md shadow-sm">
+                    <x-input wire:model.defer="new_stunent_pname"/>
+                </div>
+            </div>
+        </div>
+        <x-slot name="footer">
+            <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
+                <div class="flex">
+                    <x-button flat primary class="mr-2" @click="confirm = !confirm" label=""/>
+                </div>
+                <div class="flex">
+                    <x-button flat label="Отменить" x-on:click="close"/>
+                    <x-button primary label="Добавить" wire:click="act_add_student"/>
+                </div>
+            </div>
+        </x-slot>
+        {{--            <div--}}
+        {{--                class="shadow-lg rounded-2xl p-4 bg-gray-200 dark:bg-gray-800 w-full flex items-center justify-center h-64">--}}
+        {{--                <x-button md primary wire:click="activate_fs">Активировать FastShare</x-button>--}}
+        {{--            </div>--}}
+    </x-modal.card>
+
     <x-modal.card title="Добавление студента в группу" blur wire:model.defer="add_student_modal_is_open">
         <div class="my-2">
             <span class="font-bold">Внимание!</span> Если вы до этого не добавляли новых студентов,
@@ -42,23 +99,6 @@
                     <x-input wire:model.defer="new_stunent_pname"/>
                 </div>
             </div>
-
-
-            {{--                <div class="text-md ">Код досутпа: <code class="font-bold text-4xl"> 123</code></div>--}}
-            {{--                <div class="text-md ">Пин код: <code class="font-bold text-4xl"> 321</code></div>--}}
-            {{--                <div class="">--}}
-            {{--                    <div class="flex justify-between mb-1">--}}
-            {{--                        <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">--}}
-            {{--                            Новый пин код <span class="text-xs text-gray-500 ">(Строго 5 символов)</span>--}}
-            {{--                        </label>--}}
-            {{--                    </div>--}}
-            {{--                    <div class="relative rounded-md shadow-sm">--}}
-            {{--                        <x-inputs.maskable mask="#####" wire:keydown.enter="save_new_pincode" wire:model.defer="new_pincode"/>--}}
-            {{--                        @if($pin_error)--}}
-            {{--                            <div class="text-red-600 text-sm mt-1">Неверный формат пин кода</div>--}}
-            {{--                        @endif--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
         </div>
         <x-slot name="footer">
             <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
@@ -336,7 +376,8 @@
                 <div class="grid grid-cols-2 ">
                     <div class="p-2">
                         <button type="button"
-
+{{--                                onclick="$openModal('add_homework_modal_is_open')"--}}
+                                wire:click="open_add_homework_modal"
                                 class="w-full h-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">
                             Добавить ДЗ
                         </button>
