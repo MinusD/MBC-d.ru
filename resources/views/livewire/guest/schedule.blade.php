@@ -41,8 +41,6 @@
                     {{-- ШЕСТЕРЁНКА--}}
                     <div
                         class="flex relative p-1  items-center justify-end w-1/4 ml-5 mr-4 sm:mr-0 sm:right-auto">
-
-
                         {{--                        <div class="flex sm:items-center sm:ml-6">--}}
                         {{--                            <div class="relative">--}}
                         {{--                                <div class="relative">--}}
@@ -62,10 +60,11 @@
                         {{--                                </div>--}}
                         {{--                            </div>--}}
                         {{--                        </div>--}}
-                        <div class="hidden sm:flex sm:items-center sm:ml-6">
-                            <div class="relative">
+                        @if($show_week > 0)
+                            <div class="hidden sm:flex sm:items-center sm:ml-6">
                                 <div class="relative">
-                                    <div>
+                                    <div class="relative">
+                                        <div>
                                         <span
                                             class="inline-flex rounded-md shadow-lg bg-indigo-900 bg-opacity-40 items-center rounded-2xl  ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700">
                                             <ul class="flex">
@@ -90,21 +89,13 @@
                                             d="M11 17l-5-5m0 0l5-5m-5 5h12"/>
                                     </svg>
                                 </li>
-{{--                                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">--}}
-                                                {{--                                    <a class="font-bold" href="#">3</a>--}}
-                                                {{--                                </li>--}}
-                                                {{--                                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">--}}
-                                                {{--                                    <a class="flex items-center font-bold" href="#">--}}
-                                                {{--                                        <span class="mx-1">Next</span>--}}
-                                                {{--                                    </a>--}}
-                                                {{--                                </li>--}}
                             </ul>
                                         </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
+                        @endif
                         <div class="flex sm:items-center sm:ml-6">
                             <div class="relative">
                                 <div class="relative">
@@ -130,33 +121,37 @@
             </div>
         </header>
     </div>
-    <div
-        class="block sm:hidden shadow-lg bg-indigo-900 bg-opacity-40 items-center  rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mx-2 mt-4">
-        <div class="relative">
-            <div class="grid grid-cols-3 ">
-                <div class="mx-1 ml-3 py-1 cursor-pointer flex items-center justify-center" wire:click="previous_week">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300"
-                         fill="none"
-                         viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M11 17l-5-5m0 0l5-5m-5 5h12"/>
-                    </svg>
-                </div>
-                <div class="mx-1 px-3 py-1 rounded-lg cursor-pointer flex items-center justify-center" wire:click="current_week">
-                    <a class="flex items-center font-bold" href="#">
-                        <span class="mx-1 text-gray-300">Неделя {{ $show_week }}</span>
-                    </a>
-                </div>
-                <div class="mx-1 pr-3 py-1 cursor-pointer flex items-center justify-center" wire:click="next_week">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300 rotate-180"
-                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M11 17l-5-5m0 0l5-5m-5 5h12"/>
-                    </svg>
+    @if($show_week > 0)
+        <div
+            class="block sm:hidden shadow-lg bg-indigo-900 bg-opacity-40 items-center  rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mx-2 mt-4">
+            <div class="relative">
+                <div class="grid grid-cols-3 ">
+                    <div class="mx-1 ml-3 py-1 cursor-pointer flex items-center justify-center"
+                         wire:click="previous_week">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300"
+                             fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M11 17l-5-5m0 0l5-5m-5 5h12"/>
+                        </svg>
+                    </div>
+                    <div class="mx-1 px-3 py-1 rounded-lg cursor-pointer flex items-center justify-center"
+                         wire:click="current_week">
+                        <a class="flex items-center font-bold" href="#">
+                            <span class="mx-1 text-gray-300">Неделя {{ $show_week }}</span>
+                        </a>
+                    </div>
+                    <div class="mx-1 pr-3 py-1 cursor-pointer flex items-center justify-center" wire:click="next_week">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300 rotate-180"
+                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M11 17l-5-5m0 0l5-5m-5 5h12"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
     <div class="mx-2 md:mx-10 mb-10 mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-4 gap-y-4">
 
         @forelse($lessons as $key => $les)

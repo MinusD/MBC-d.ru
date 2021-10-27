@@ -1376,9 +1376,6 @@ select {
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
-.col-span-2 {
-	grid-column: span 2 / span 2;
-}
 .col-span-1 {
 	grid-column: span 1 / span 1;
 }
@@ -4442,12 +4439,12 @@ select {
 		width: 100%;
 	}
 
-	.sm\:w-6 {
-		width: 1.5rem;
-	}
-
 	.sm\:w-1\/2 {
 		width: 50%;
+	}
+
+	.sm\:w-6 {
+		width: 1.5rem;
 	}
 
 	.sm\:w-72 {
