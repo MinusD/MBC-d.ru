@@ -491,7 +491,6 @@
                     </div>
                 </div>
                 <nav
-                    {{--                    :class="{'block': open, 'hidden': !open}"--}}
                     class="flex-grow px-4 pb-4 md:pb-0 md:overflow-y-auto text-base text-gray-600 mt-1 pt-2 px-1 rounded-xl bg-white dark:bg-gray-700"
                     x-show="open"
                     x-transition:enter="transition ease-out origin-top duration-200"
@@ -528,7 +527,7 @@
                             <span class="ml-3 ">Расписание</span>
                         </a>
                     </div>
-                    <div class="mb-2">
+                    <div class="">
                         <a href="{{ route('student.homework') }}"
                            class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600  bg-gray-100 {{ (request()->routeIs('student.homework')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-white" }}">
 						<span class="flex items-center justify-center text-lg ">
@@ -538,11 +537,11 @@
                                     d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                             </svg>
 						</span>
-                            <span class="ml-3 ">Домашнее задание</span>
+                            <span class="ml-3">Домашнее задание</span>
                         </a>
                     </div>
                     @can('headman-panel-access')
-                        <div class="mb-2">
+                        <div class="mt-2">
                             <a href="{{ route('headman.dashboard') }}"
                                class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-gray-100 bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-white">
 						<span class="flex items-center justify-center text-lg ">
@@ -557,7 +556,7 @@
                         </div>
                     @endcan
                     @can('mod-panel-access')
-                        <div class="mb-2">
+                        <div class="mt-2">
                             <a href="#"
                                class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-gray-100 bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-white">
 						<span class="flex items-center justify-center text-lg ">
@@ -572,7 +571,7 @@
                         </div>
                     @endcan
                     @can('admin-panel-access')
-                        <div class="mb-2">
+                        <div class="mt-2">
                             <a href="{{ route('admin.dashboard') }}"
                                class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-gray-100 bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-white">
 						<span class="flex items-center justify-center text-lg ">
