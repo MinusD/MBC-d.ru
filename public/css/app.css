@@ -1601,6 +1601,9 @@ select {
 .table {
 	display: table;
 }
+.table-cell {
+	display: table-cell;
+}
 .grid {
 	display: grid;
 }
@@ -4764,6 +4767,10 @@ select {
 		display: block;
 	}
 
+	.md\:inline-block {
+		display: inline-block;
+	}
+
 	.md\:inline {
 		display: inline;
 	}
@@ -4772,8 +4779,24 @@ select {
 		display: flex;
 	}
 
+	.md\:table-cell {
+		display: table-cell;
+	}
+
+	.md\:table-row-group {
+		display: table-row-group;
+	}
+
+	.md\:table-row {
+		display: table-row;
+	}
+
 	.md\:grid {
 		display: grid;
+	}
+
+	.md\:inline-grid {
+		display: inline-grid;
 	}
 
 	.md\:hidden {

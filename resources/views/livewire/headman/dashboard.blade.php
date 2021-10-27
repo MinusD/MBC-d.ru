@@ -138,12 +138,16 @@
     <x-modal.card title="Настройки приглашений в группу" blur wire:model.defer="invite_link_edit_model_is_open">
         @if(isset($invite->token) && is_null($invite->deleted_at))
             <div class="grid grid-cols-1 gap-4" x-data="{show_link: false}">
-                <div class="text-md ">Ссылка-приглашение: <a target="_blank" class="underline text-blue-400" href="{{ route('landing.reg_by_code') . "?t=" . $invite->token }}">{{ mb_substr($invite->token, 0, 12) . "..." }}</a> </div>
+                <div class="text-md ">Ссылка-приглашение: <a target="_blank" class="underline text-blue-400"
+                                                             href="{{ route('landing.reg_by_code') . "?t=" . $invite->token }}">{{ mb_substr($invite->token, 0, 12) . "..." }}</a>
+                </div>
                 <div x-show="show_link" x-transition:enter="transition ease-out duration-200"
                      x-transition:enter-start="transform opacity-0 scale-95"
-                     x-transition:enter-end="transform opacity-100 scale-100" class="text-md select-all"><code>{{ route('landing.reg_by_code') . "?t=" . $invite->token }}</code> </div>
+                     x-transition:enter-end="transform opacity-100 scale-100" class="text-md select-all">
+                    <code>{{ route('landing.reg_by_code') . "?t=" . $invite->token }}</code></div>
                 <x-button positive class="mr-2" @click="show_link = !show_link" label="Показать/скрыть ссылку"/>
-                <x-button primary class="mr-2" wire:click="generate_new_invite_link" label="Сгенерировать новую ссылку"/>
+                <x-button primary class="mr-2" wire:click="generate_new_invite_link"
+                          label="Сгенерировать новую ссылку"/>
                 <x-button warning class="mr-2" wire:click="deactivate_invite_link" label="Деактивироовать ссылку"/>
                 {{--                <div class="text-md ">Код досутпа: <code class="font-bold text-4xl"> {{ $data->fs_code }}</code></div>--}}
                 {{--                <div class="text-md ">Пин код: <code class="font-bold text-4xl"> {{ $data->fs_pass }}</code></div>--}}
@@ -161,15 +165,15 @@
             <x-slot name="footer">
                 <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
                     <div class="flex">
-{{--                        <x-button flat negative class="mr-2" @click="confirm = !confirm" label="Деактивировать FS"/>--}}
-{{--                        <x-button negative--}}
-{{--                                  x-show="confirm"--}}
-{{--                                  class="transition"--}}
-{{--                                  label="Я уверен"--}}
-{{--                                  wire:click="deactivate_fs"--}}
-{{--                                  x-transition:enter="transition ease-out duration-200"--}}
-{{--                                  x-transition:enter-start="transform opacity-0 scale-95"--}}
-{{--                                  x-transition:enter-end="transform opacity-100 scale-100"/>--}}
+                        {{--                        <x-button flat negative class="mr-2" @click="confirm = !confirm" label="Деактивировать FS"/>--}}
+                        {{--                        <x-button negative--}}
+                        {{--                                  x-show="confirm"--}}
+                        {{--                                  class="transition"--}}
+                        {{--                                  label="Я уверен"--}}
+                        {{--                                  wire:click="deactivate_fs"--}}
+                        {{--                                  x-transition:enter="transition ease-out duration-200"--}}
+                        {{--                                  x-transition:enter-start="transform opacity-0 scale-95"--}}
+                        {{--                                  x-transition:enter-end="transform opacity-100 scale-100"/>--}}
                     </div>
                     <div class="flex">
                         <x-button flat label="Отменить" x-on:click="close"/>
@@ -181,7 +185,9 @@
             <div
                 class="relative shadow-lg rounded-2xl p-4 bg-gray-200 dark:bg-gray-800 w-full flex items-center justify-center h-64">
                 <x-button md primary wire:click="generate_invite">Сгенерировать приглашение</x-button>
-                <div class="absolute text-xs text-gray-200 bottom-1 right-2">Если кнопка не реагирует, перезагрузите страницу</div>
+                <div class="absolute text-xs text-gray-200 bottom-1 right-2">Если кнопка не реагирует, перезагрузите
+                    страницу
+                </div>
             </div>
         @endif
     </x-modal.card>
@@ -214,9 +220,10 @@
                 <table class="min-w-max w-full table-auto  border-gray-200 my-1 dark:bg-gray-700 dark:border-gray-600">
                     <thead class="">
                     <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal rounded-t-full ">
-                        <th class="py-3 px-6 text-left rounded-tl-md">Фамилия</th>
-                        <th class="py-3 px-6 text-left">Имя</th>
-                        <th class="py-3 px-6 text-center">Отчество</th>
+                        <th class="table-cell md:hidden py-3 px-6 text-left rounded-tl-md ">ФИО</th>
+                        <th class="hidden md:table-cell py-3 px-6 text-left rounded-tl-md">Фамилия</th>
+                        <th class="hidden md:table-cell py-3 px-6 text-left">Имя</th>
+                        <th class="hidden md:table-cell py-3 px-6 text-center">Отчество</th>
                         {{--                        <th class="py-3 px-6 text-center">Status</th>--}}
                         <th class="py-3 px-6 text-center rounded-tr-md">Действия</th>
                     </tr>
@@ -224,17 +231,22 @@
                     <tbody class="text-gray-600 text-sm font-light dark:text-gray-300">
                     @forelse($students as $key => $student)
                         <tr class="border-b border-gray-200 hover:bg-gray-100 dark:border-gray-500 dark:hover:bg-gray-800 {{ $key%2 ? 'bg-gray-50 dark:bg-gray-800' : '' }}">
-                            <td class="py-3 px-6 text-left">
+                            <td class="block md:hidden py-3 px-6 text-left">
+                                <div class="flex items-center">
+                                    <span class="font-medium">{{ $student->sname . " " . mb_substr($student->name, 0, 1) . ". " .  mb_substr($student->pname, 0, 1) . "."  }} </span>
+                                </div>
+                            </td>
+                            <td class="hidden md:table-cell py-3 px-6 text-left">
                                 <div class="flex items-center">
                                     <span class="font-medium">{{ $student->sname  }} </span>
                                 </div>
                             </td>
-                            <td class="py-3 px-6 text-left">
+                            <td class="hidden md:table-cell py-3 px-6 text-left">
                                 <div class="flex items-center">
                                     <span>{{ $student->name }}</span>
                                 </div>
                             </td>
-                            <td class="py-3 px-6 text-center">
+                            <td class="hidden md:table-cell py-3 px-6 text-center">
                                 <div class="flex item-center justify-center">
                                     <span>{{ $student->pname }}</span>
                                 </div>
@@ -376,7 +388,7 @@
                 <div class="grid grid-cols-2 ">
                     <div class="p-2">
                         <button type="button"
-{{--                                onclick="$openModal('add_homework_modal_is_open')"--}}
+                                {{--                                onclick="$openModal('add_homework_modal_is_open')"--}}
                                 wire:click="open_add_homework_modal"
                                 class="w-full h-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">
                             Добавить ДЗ
@@ -391,7 +403,7 @@
                     </div>
                     <div class="p-2">
                         <button type="button"
-{{--                                x-on:click="$openModal('invite_link_edit_model_is_open')"--}}
+                                {{--                                x-on:click="$openModal('invite_link_edit_model_is_open')"--}}
 
                                 wire:click="open_invite_link_edit_modal"
                                 class="w-full h-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">

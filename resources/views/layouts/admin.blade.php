@@ -516,7 +516,7 @@
                         </a>
                     </div>
                 </nav>
-                <div class=" px-3 mx-auto flex-center  bg-white">
+                <div class=" px-3 mx-auto flex-center bg-white">
 
                     {{--                        <div class="flex-shrink-0 px-8 py-4 flex flex-row items-center justify-between">--}}
                     {{--                            <a href="#"--}}
