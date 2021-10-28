@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\Guest;
 
+use App\Models\LogLandingGetGroupSchedule;
 use App\Models\logLandingSaveGroupSchedule;
+use App\Models\PublicGroupSlug;
 use Livewire\Component;
 use Illuminate\Support\Facades\Cookie;
 use WireUi\Traits\Actions;
@@ -24,6 +26,7 @@ class Schedule extends Component
     public $g;
     public $show_week;
     public $timetable = [];
+    public $tid;
 
     protected $groups_list = [];
 
@@ -90,19 +93,22 @@ class Schedule extends Component
                 $n = true;
             }
             Cookie::queue(Cookie::forever('schedule-group-name', $this->group_name));
-
+            $this->tid = PublicGroupSlug::where('group_slugs', $this->group_name)->firstOrCreate(['group_slugs' =>$this->group_name], ['id'])->id;
             $this->get_group_data();
-
             $log = new logLandingSaveGroupSchedule();
-            $log->group_slug = $this->group_name;
+            $log->public_group_id = $this->tid;
             $log->is_new = $n;
             $log->is_authorize = \Auth::check();
             $log->save();
+
+
+
         }
     }
 
     public function get_group_data()
     {
+
         $this->g =  $this->group_name;
         $path = env('API_SERVER') . 'groups/certain?name=' . urlencode($this->group_name);
         $path2 = env('API_SERVER') . 'time/week';
@@ -134,6 +140,9 @@ class Schedule extends Component
                 }
             }
         }
+        $log2 = new LogLandingGetGroupSchedule();
+        $log2->public_group_id = $this->tid;
+        $log2->save();
     }
 
     public function load_data()
@@ -189,6 +198,7 @@ class Schedule extends Component
         if (Cookie::has('schedule-group-name')) {
             $this->group_name = Cookie::get('schedule-group-name');
             $this->modal_group_name = $this->group_name;
+            $this->tid = PublicGroupSlug::where('group_slugs', $this->group_name)->firstOrCreate(['group_slugs' =>$this->group_name], ['id'])->id;
             $this->get_group_data();
         } else {
             $this->modal_set = true;
