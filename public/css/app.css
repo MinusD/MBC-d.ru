@@ -1781,6 +1781,9 @@ select {
 .w-3\.5 {
 	width: 0.875rem;
 }
+.w-9\/12 {
+	width: 75%;
+}
 .min-w-0 {
 	min-width: 0px;
 }
@@ -2547,6 +2550,9 @@ select {
 }
 .bg-gradient-to-r {
 	background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+.bg-gradient-to-b {
+	background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 .from-indigo-900 {
 	--tw-gradient-from: #312e81;
@@ -3599,6 +3605,9 @@ select {
 }
 .hover\:bg-opacity-100:hover {
 	--tw-bg-opacity: 1;
+}
+.hover\:bg-opacity-75:hover {
+	--tw-bg-opacity: 0.75;
 }
 .hover\:text-gray-500:hover {
 	--tw-text-opacity: 1;
@@ -4779,6 +4788,10 @@ select {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
+	.md\:grid-cols-6 {
+		grid-template-columns: repeat(6, minmax(0, 1fr));
+	}
+
 	.md\:gap-6 {
 		gap: 1.5rem;
 	}
@@ -5001,6 +5014,10 @@ select {
 
 	.xl\:grid-cols-2 {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.xl\:grid-cols-8 {
+		grid-template-columns: repeat(8, minmax(0, 1fr));
 	}
 
 	.xl\:pr-3 {

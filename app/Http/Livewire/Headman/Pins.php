@@ -30,6 +30,7 @@ class Pins extends Component
     public $new_folder_modal = false;
     public $new_pin_modal = false;
 
+    public $pins = [];
     public $folders = [];
     public $folders_lines = [];
 
@@ -69,14 +70,16 @@ class Pins extends Component
         $this->get_data();
     }
 
-    public function edit_folder($key){
+    public function edit_folder($key)
+    {
         $this->edit_folder_modal = true;
         $this->edit_folder_name = $this->folders[$key]['name'];
         $this->edit_folder_desc = $this->folders[$key]['desc'];
         $this->edit_folder_id = $this->folders[$key]['id'];
     }
 
-    public function edit_folder_confirm(){
+    public function edit_folder_confirm()
+    {
         $this->validateOnly('edit_folder_name');
         $this->validateOnly('edit_folder_desc');
         $this->edit_folder_modal = false;
@@ -94,15 +97,17 @@ class Pins extends Component
         if ($this->f == 0) {
             $this->folders_lines = [];
             $this->folders = Folder::where('type', 'group')->where('parent_id', $this->data->id)->get();
+            $this->pins = \App\Models\Pin::where('type', 'group')->where('parent_id', $this->data->id)->get();
         } else {
             $this->folders = Folder::where('type', 'folder')->where('parent_id', $this->f)->get();
+            $this->pins = \App\Models\Pin::where('type', 'folder')->where('parent_id', $this->f)->get();
         }
         $this->folders_lines = [];
-        while ($f != 0){
+        while ($f != 0) {
             $c = Folder::find($f, ['name', 'parent_id', 'type']);
             array_push($this->folders_lines, ['name' => $c->name, 'id' => $f]);
-            if ($c['type'] == 'group'){
-                if ($c->parent_id != $this->data->id){
+            if ($c['type'] == 'group') {
+                if ($c->parent_id != $this->data->id) {
                     return $this->redirect(route('headman.pins'));
                 }
                 $f = 0;
@@ -163,7 +168,7 @@ class Pins extends Component
         $folder = new Folder();
         $folder->name = $this->new_folder_name;
         $folder->desc = $this->new_folder_desc;
-        if ($this->f == 0){
+        if ($this->f == 0) {
             $folder->type = 'group';
             $folder->parent_id = $this->data->id;
         } else {
@@ -189,9 +194,8 @@ class Pins extends Component
         }
     }
 
-    public function new_pin_confirm(){
-
-
+    public function new_pin_confirm()
+    {
         $this->validateOnly('new_pin_name');
         $this->validateOnly('new_pin_desc');
 
@@ -199,8 +203,14 @@ class Pins extends Component
         $pin->name = $this->new_pin_name;
         $pin->pin_type = $this->new_pin_type;
         $pin->text = $this->new_pin_desc;
-        $pin->type = "group";
-        $pin->parent_id = $this->data->id;
+        if ($this->f == 0) {
+            $pin->type = "group";
+            $pin->parent_id = $this->data->id;
+        } else {
+            $pin->type = "folder";
+            $pin->parent_id = $this->f;
+        }
+
         $pin->save();
         $this->new_pin_modal = false;
         $this->new_pin_name = "";
