@@ -90,7 +90,9 @@ class Schedule extends Component
                 $n = true;
             }
             Cookie::queue(Cookie::forever('schedule-group-name', $this->group_name));
+
             $this->get_group_data();
+
             $log = new logLandingSaveGroupSchedule();
             $log->group_slug = $this->group_name;
             $log->is_new = $n;
@@ -101,7 +103,7 @@ class Schedule extends Component
 
     public function get_group_data()
     {
-
+        $this->g =  $this->group_name;
         $path = env('API_SERVER') . 'groups/certain?name=' . urlencode($this->group_name);
         $path2 = env('API_SERVER') . 'time/week';
         $timetable = json_decode(file_get_contents($path), true)[0];
@@ -178,7 +180,6 @@ class Schedule extends Component
         if (!is_null($this->g)) {
             $this->modal_group_name = $this->g;
             $this->save();
-            $this->g = '';
             if ($this->search_error) {
                 $this->modal_set = true;
             }
