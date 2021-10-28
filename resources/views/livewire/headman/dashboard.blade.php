@@ -231,7 +231,7 @@
                     <tbody class="text-gray-600 text-sm font-light dark:text-gray-300">
                     @forelse($students as $key => $student)
                         <tr class="border-b border-gray-200 hover:bg-gray-100 dark:border-gray-500 dark:hover:bg-gray-800 {{ $key%2 ? 'bg-gray-50 dark:bg-gray-800' : '' }}">
-                            <td class="block md:hidden py-3 px-6 text-left">
+                            <td class="table-cell md:hidden py-3 px-6 text-left">
                                 <div class="flex items-center">
                                     <span class="font-medium">{{ $student->sname . " " . mb_substr($student->name, 0, 1) . ". " .  mb_substr($student->pname, 0, 1) . "."  }} </span>
                                 </div>
