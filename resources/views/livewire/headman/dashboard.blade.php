@@ -238,7 +238,7 @@
                             </td>
                             <td class="hidden md:table-cell py-3 px-6 text-left">
                                 <div class="flex items-center">
-                                    <span class="font-medium">{{ $student->sname  }} </span>
+                                    <span class="font-medium">{{ $student->sname }} </span>
                                 </div>
                             </td>
                             <td class="hidden md:table-cell py-3 px-6 text-left">
