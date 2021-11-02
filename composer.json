@@ -7,6 +7,8 @@
     "require": {
         "php": "^7.3|^8.0|^8.0.10",
         "ext-curl": "*",
+        "ext-json": "*",
+        "asantibanez/livewire-charts": "^2.3",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.3",
         "laravel/framework": "^8.54",
@@ -15,8 +17,7 @@
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.5",
         "ph7jack/wireui": "^0.11.6",
-        "spatie/laravel-permission": "^5.1",
-      "ext-json": "*"
+        "spatie/laravel-permission": "^5.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

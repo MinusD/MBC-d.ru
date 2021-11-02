@@ -63,7 +63,8 @@
 </div>
 
 @stack('modals')
-
+@livewireChartsScripts
 @livewireScripts
+
 </body>
 </html>

@@ -77,6 +77,7 @@
     {{ $slot }}
 </div>
 
+@livewireChartsScripts
 @livewireScripts
 @stack('modals')
 

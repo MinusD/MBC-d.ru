@@ -625,7 +625,7 @@
 
 @stack('modals')
 @livewireScripts
-
+@livewireChartsScripts
 
 </body>
 </html>
