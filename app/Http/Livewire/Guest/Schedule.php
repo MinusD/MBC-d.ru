@@ -93,7 +93,7 @@ class Schedule extends Component
                 $n = true;
             }
             Cookie::queue(Cookie::forever('schedule-group-name', $this->group_name));
-            $this->tid = PublicGroupSlug::where('group_slugs', $this->group_name)->firstOrCreate(['group_slugs' =>$this->group_name], ['id'])->id;
+            $this->tid = PublicGroupSlug::where('group_slugs', $this->group_name)->firstOrCreate(['group_slugs' => $this->group_name], ['id'])->id;
             $this->get_group_data();
             $log = new logLandingSaveGroupSchedule();
             $log->public_group_id = $this->tid;
@@ -102,14 +102,13 @@ class Schedule extends Component
             $log->save();
 
 
-
         }
     }
 
     public function get_group_data()
     {
 
-        $this->g =  $this->group_name;
+        $this->g = $this->group_name;
         $path = env('API_SERVER') . 'groups/certain?name=' . urlencode($this->group_name);
         $path2 = env('API_SERVER') . 'time/week';
         $timetable = json_decode(file_get_contents($path), true)[0];
@@ -198,7 +197,7 @@ class Schedule extends Component
         if (Cookie::has('schedule-group-name')) {
             $this->group_name = Cookie::get('schedule-group-name');
             $this->modal_group_name = $this->group_name;
-            $this->tid = PublicGroupSlug::where('group_slugs', $this->group_name)->firstOrCreate(['group_slugs' =>$this->group_name], ['id'])->id;
+            $this->tid = PublicGroupSlug::where('group_slugs', $this->group_name)->firstOrCreate(['group_slugs' => $this->group_name], ['id'])->id;
             $this->get_group_data();
         } else {
             $this->modal_set = true;
