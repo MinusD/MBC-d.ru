@@ -41,7 +41,8 @@ class RegByCode extends Component
         't' => ['except' => ''],
     ];
 
-    public function register(){
+    public function register()
+    {
         $this->validate();
         $user = User::find($this->users[$this->selected_user_key]->id);
         $user->email = $this->email;
@@ -60,13 +61,13 @@ class RegByCode extends Component
             if (isset($this->invite->group_id)) {
                 $this->users = User::where('group_id', $this->invite->group_id)->whereNull('password')->get();
                 if (count($this->users) == 0) {
+                    abort(403);
                     dd("Все зарегистрированны!");
                 }
-//                dd($this->users);
             } else {
+                abort(403);
                 dd("Токена не существует или он просрочен");
             }
-//            dd($this->t);
         } else {
             abort(401);
         }
