@@ -446,14 +446,15 @@
         {{--        </div>--}}
     </div>
     <div class="flex flex-wrap px-3 py-2">
-        <div class="grid grid-cols-3 xs:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 gap-3 w-9/12">
+        {{--        <div class="grid grid-cols-3 xs:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 gap-3">--}}
+        <div class="flex flex-wrap gap-3">
             @forelse ($pins as $key => $pin)
-                @if($pin->pin_type == "link")
+                @if($pin->pin_type != "link")
                     <div
                         wire:click="select({{$key}})"
-                        class="flex flex-col items-center justify-center bg-white p-4 shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b bg-red-600"
+                        class=" w-1/2  md:w-48 p-2  items-center justify-center bg-white p-4 shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b bg-red-600"
                     >
-                        <div class="inline-flex  overflow-hidden h-20 w-20">
+                        <div class="inline-flex overflow-hidden h-20 w-20">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none"
                                  viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -463,24 +464,62 @@
                             {{--                             class="h-full w-full">--}}
                         </div>
                         <h2 class="mt-4 font-bold text-sm text-center">{{ $pin->name }}</h2>
-                    </div>
-                @endif
-                <div
-                    wire:click="select({{$key}})"
-                    class="flex flex-col items-center justify-center bg-white p-4 shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b bg-red-600"
-                >
-                    <div class="inline-flex shadow-lg overflow-hidden h-20 w-20">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24"
-                             stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
-                        </svg>
-                        {{--                        <img src="../../storage/{{ $item['photo'] }}"--}}
-                        {{--                             class="h-full w-full">--}}
-                    </div>
-                    <h2 class="mt-4 font-bold text-xs text-center">{{ $pin['title'] }}</h2>
 
-                </div>
+                        <div class="bottom-1">
+                            <x-button xs warning class="w-full bottom-1">Редактировать</x-button>
+                        </div>
+
+                        {{--                        <div class="w-full bottom-1 flex flex-wrap px-1">--}}
+                        {{--                            <x-button xs class="w-1/2 p-1">Редактировать</x-button>--}}
+                        {{--                            <x-button xs class="w-1/2 p-1">Просмотр</x-button>--}}
+                        {{--                        </div>--}}
+
+                    </div>
+                @elseif(true)
+                    <div
+                        wire:click="select({{$key}})"
+                        class="flex flex-col items-center w-40 justify-between bg-white p-4 shadow rounded-lg shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b bg-red-600"
+                    >
+                        <div class="inline-flex overflow-hidden h-20 w-20">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                            </svg>
+                            {{--                        <img src="../../storage/{{ $item['photo'] }}"--}}
+                            {{--                             class="h-full w-full">--}}
+                        </div>
+                        <h2 class="mt-4 font-bold text-sm text-center">{{ $pin->name }}</h2>
+
+                        <div class="bottom-1">
+                            <x-button xs positive class="w-full my-2">Просмотреть</x-button>
+                            <x-button xs warning class="w-full ">Редактировать</x-button>
+                        </div>
+
+                        {{--                        <div class="w-full bottom-1 flex flex-wrap px-1">--}}
+                        {{--                            <x-button xs class="w-1/2 p-1">Редактировать</x-button>--}}
+                        {{--                            <x-button xs class="w-1/2 p-1">Просмотр</x-button>--}}
+                        {{--                        </div>--}}
+
+                    </div>
+
+                @endif
+                {{--                <div--}}
+                {{--                    wire:click="select({{$key}})"--}}
+                {{--                    class="flex flex-col items-center justify-center bg-white p-4 shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b bg-red-600"--}}
+                {{--                >--}}
+                {{--                    <div class="inline-flex shadow-lg overflow-hidden h-20 w-20">--}}
+                {{--                        <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24"--}}
+                {{--                             stroke="currentColor">--}}
+                {{--                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
+                {{--                                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>--}}
+                {{--                        </svg>--}}
+                {{--                        --}}{{--                        <img src="../../storage/{{ $item['photo'] }}"--}}
+                {{--                        --}}{{--                             class="h-full w-full">--}}
+                {{--                    </div>--}}
+                {{--                    <h2 class="mt-4 font-bold text-xs text-center">{{ $pin['title'] }}</h2>--}}
+
+                {{--                </div>--}}
             @empty
 
                 <div

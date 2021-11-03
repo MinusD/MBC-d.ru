@@ -1784,6 +1784,12 @@ select {
 .w-3\.5 {
 	width: 0.875rem;
 }
+.w-24 {
+	width: 6rem;
+}
+.w-40 {
+	width: 10rem;
+}
 .min-w-0 {
 	min-width: 0px;
 }
@@ -4826,6 +4832,10 @@ select {
 
 	.md\:w-1\/2 {
 		width: 50%;
+	}
+
+	.md\:w-48 {
+		width: 12rem;
 	}
 
 	.md\:grid-cols-3 {
