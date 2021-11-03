@@ -12,6 +12,7 @@ class Dashboard extends Component
     public $firstRun = true;
     public $public_group_get_data = [];
     public $colors = [];
+//    public $
 
 
     protected $listeners = [

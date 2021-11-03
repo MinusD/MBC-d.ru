@@ -5,6 +5,61 @@
 </x-slot>
 
 <div>
+    <x-modal.card title="Добавление домашнего задания" blur wire:model.defer="add_homework_modal_is_open">
+{{--        <div class="">--}}
+{{--            <span class="font-bold">Внимание!</span> Если вы до этого не добавляли новых студентов,--}}
+{{--            прочтите <a href="#" class="text-blue-500 underline">краткую инструкция</a> или посмотрите <a href="#"--}}
+{{--                                                                                                          class="text-blue-500 underline">видео</a>.--}}
+{{--        </div>--}}
+        <div class="grid grid-cols-1 gap-4">
+            <div class="">
+                <div class="flex justify-between mb-1">
+                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                        Фамилия
+                    </label>
+                </div>
+                <div class="relative rounded-md shadow-sm">
+                    <x-input/>
+                </div>
+            </div>
+            <div class="">
+                <div class="flex justify-between mb-1">
+                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                        Имя
+                    </label>
+                </div>
+                <div class="relative rounded-md shadow-sm">
+                    <x-input />
+                </div>
+            </div>
+            <div class="">
+                <div class="flex justify-between mb-1">
+                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                        Отчество <span class="text-xs text-gray-500 ">(При наличии)</span>
+                    </label>
+                </div>
+                <div class="relative rounded-md shadow-sm">
+                    <x-input />
+                </div>
+            </div>
+        </div>
+        <x-slot name="footer">
+            <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
+                <div class="flex">
+                    <x-button flat primary class="mr-2" @click="confirm = !confirm" label=""/>
+                </div>
+                <div class="flex">
+                    <x-button flat label="Отменить" x-on:click="close"/>
+                    <x-button primary label="Добавить" wire:click="act_add_student"/>
+                </div>
+            </div>
+        </x-slot>
+        {{--            <div--}}
+        {{--                class="shadow-lg rounded-2xl p-4 bg-gray-200 dark:bg-gray-800 w-full flex items-center justify-center h-64">--}}
+        {{--                <x-button md primary wire:click="activate_fs">Активировать FastShare</x-button>--}}
+        {{--            </div>--}}
+    </x-modal.card>
+
     <header class="w-full shadow-lg bg-white dark:bg-gray-700 items-center h-10 md:h-16 rounded-md md:rounded-2xl z-40 mb-2">
         <div class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
             <div class="relative items-center pl-1 flex w-full lg:max-w-68 sm:pr-2 sm:ml-0">
@@ -50,7 +105,7 @@
                 </div>
                 <div class="relative p-1 flex items-center justify-end w-1/4 ml-5 mr-4 sm:mr-0 sm:right-auto">
                     <div class="hidden md:block">
-                        <x-button icon="plus-circle" primary wire:click="openModal">Новое ДЗ</x-button>
+                        <x-button icon="plus-circle" primary wire:click="open_add_homework_modal">Новое ДЗ</x-button>
                     </div>
                     <div class="block md:hidden">
                         <x-button lg icon="plus-circle" primary wire:click="new_folder"/>

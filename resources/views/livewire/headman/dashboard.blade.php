@@ -387,12 +387,14 @@
                 </div>
                 <div class="grid grid-cols-2 ">
                     <div class="p-2">
+                        <a href="{{ route('headman.homework') . "?act=add-homework" }}">
                         <button type="button"
                                 {{--                                onclick="$openModal('add_homework_modal_is_open')"--}}
-                                wire:click="open_add_homework_modal"
+{{--                                wire:click="open_add_homework_modal"--}}
                                 class="w-full h-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">
                             Добавить ДЗ
                         </button>
+                        </a>
                     </div>
                     <div class="p-2">
                         <button type="button"
