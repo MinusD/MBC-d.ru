@@ -3402,6 +3402,44 @@ select {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 }
+/*@media (prefers-color-scheme: dark) {*/
+/*    .apexcharts-text.apexcharts-yaxis-label {*/
+/*        @apply text-gray-300;*/
+/*        fill: theme('colors.gray.300');*/
+/*    }*/
+/*    .apexcharts-inner {*/
+/*        @apply text-gray-300;*/
+/*        fill: theme('colors.gray.300');*/
+/*    }*/
+/*    .apexcharts-title-text {*/
+/*        @apply text-gray-300;*/
+/*        fill: theme('colors.gray.300');*/
+/*    }*/
+/*    !*apexcharts-inner apexcharts-graphical*!*/
+/*    .apexcharts-text.apexcharts-xaxis-label {*/
+/*        @apply text-gray-300;*/
+/*        fill: theme('colors.gray.300');*/
+/*    }*/
+/*}*/
+/*@media (prefers-color-scheme: light) {*/
+/*    .apexcharts-text.apexcharts-yaxis-label {*/
+/*        @apply text-gray-800;*/
+/*        fill: theme('colors.gray.800');*/
+/*    }*/
+/*    .apexcharts-inner {*/
+/*        @apply text-gray-800;*/
+/*        fill: theme('colors.gray.800');*/
+/*    }*/
+/*    .apexcharts-title-text {*/
+/*        @apply text-gray-800;*/
+/*        fill: theme('colors.gray.800');*/
+/*    }*/
+/*    !*apexcharts-inner apexcharts-graphical*!*/
+/*    .apexcharts-text.apexcharts-xaxis-label {*/
+/*        @apply text-gray-800;*/
+/*        fill: theme('colors.gray.800');*/
+/*    }*/
+/*}*/
 .checked\:translate-x-3:checked {
 	--tw-translate-x: 0.75rem;
 	transform: var(--tw-transform);
@@ -4039,6 +4077,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(82, 82, 91, var(--tw-bg-opacity));
 }
+.dark .dark\:bg-gray-200 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+}
 .dark .dark\:bg-indigo-400 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(129, 140, 248, var(--tw-bg-opacity));
@@ -4555,6 +4597,12 @@ select {
 		row-gap: 0px;
 	}
 
+	.sm\:space-x-8 > :not([hidden]) ~ :not([hidden]) {
+		--tw-space-x-reverse: 0;
+		margin-right: calc(2rem * var(--tw-space-x-reverse));
+		margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+	}
+
 	.sm\:space-x-4 > :not([hidden]) ~ :not([hidden]) {
 		--tw-space-x-reverse: 0;
 		margin-right: calc(1rem * var(--tw-space-x-reverse));
@@ -4565,12 +4613,6 @@ select {
 		--tw-space-y-reverse: 0;
 		margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
 		margin-bottom: calc(0px * var(--tw-space-y-reverse));
-	}
-
-	.sm\:space-x-8 > :not([hidden]) ~ :not([hidden]) {
-		--tw-space-x-reverse: 0;
-		margin-right: calc(2rem * var(--tw-space-x-reverse));
-		margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
 	}
 
 	.sm\:rounded-lg {
@@ -4615,12 +4657,12 @@ select {
 		padding: 1.5rem;
 	}
 
-	.sm\:p-5 {
-		padding: 1.25rem;
-	}
-
 	.sm\:p-0 {
 		padding: 0px;
+	}
+
+	.sm\:p-5 {
+		padding: 1.25rem;
 	}
 
 	.sm\:p-4 {

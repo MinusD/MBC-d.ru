@@ -1,3 +1,49 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+/*@media (prefers-color-scheme: dark) {*/
+/*    .apexcharts-text.apexcharts-yaxis-label {*/
+/*        @apply text-gray-300;*/
+/*        fill: theme('colors.gray.300');*/
+/*    }*/
+
+/*    .apexcharts-inner {*/
+/*        @apply text-gray-300;*/
+/*        fill: theme('colors.gray.300');*/
+/*    }*/
+
+/*    .apexcharts-title-text {*/
+/*        @apply text-gray-300;*/
+/*        fill: theme('colors.gray.300');*/
+/*    }*/
+
+/*    !*apexcharts-inner apexcharts-graphical*!*/
+/*    .apexcharts-text.apexcharts-xaxis-label {*/
+/*        @apply text-gray-300;*/
+/*        fill: theme('colors.gray.300');*/
+/*    }*/
+/*}*/
+
+/*@media (prefers-color-scheme: light) {*/
+/*    .apexcharts-text.apexcharts-yaxis-label {*/
+/*        @apply text-gray-800;*/
+/*        fill: theme('colors.gray.800');*/
+/*    }*/
+
+/*    .apexcharts-inner {*/
+/*        @apply text-gray-800;*/
+/*        fill: theme('colors.gray.800');*/
+/*    }*/
+
+/*    .apexcharts-title-text {*/
+/*        @apply text-gray-800;*/
+/*        fill: theme('colors.gray.800');*/
+/*    }*/
+
+/*    !*apexcharts-inner apexcharts-graphical*!*/
+/*    .apexcharts-text.apexcharts-xaxis-label {*/
+/*        @apply text-gray-800;*/
+/*        fill: theme('colors.gray.800');*/
+/*    }*/
+/*}*/
