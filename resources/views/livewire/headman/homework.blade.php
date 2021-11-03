@@ -38,6 +38,7 @@
             <input type="date"
                    class="rounded-md border border-secondary-300 dark:border-secondary-600 bg-gray-100 dark:bg-secondary-800"
                    wire:model="homework_to_date">
+            <x-errors wire:model="homework_to_date"/>
         </div>
         <x-slot name="footer">
             <div class="flex justify-between gap-x-1" x-data="{confirm: false}">

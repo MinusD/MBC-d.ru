@@ -16,7 +16,12 @@ class Homework extends Component
     public $homework_text = "";
     public $homework_to_date;
 
-
+    protected $rules = [
+        'homework_to_date' => 'required',
+    ];
+    protected $messages = [
+        'homework_to_date.required' => "На какое число домашка?)"
+    ];
     protected $queryString = [
         'act' => ['except' => ''],
     ];
@@ -58,14 +63,16 @@ class Homework extends Component
 
     public function save_homework()
     {
+        $this->validate();
         $homework = new \App\Models\Homework();
         $homework->subject_id = (int)$this->selected_subject;
         $homework->text = $this->homework_text;
         $homework->to_date = $this->homework_to_date;
         $homework->save();
         $this->add_homework_modal_is_open = false;
+        $this->selected_subject = "0";
+        $this->homework_text = "";
     }
-
 
     public function render()
     {
