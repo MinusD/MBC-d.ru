@@ -9,7 +9,7 @@
             <div class="shadow-xl w-80 h-80 rounded-full ml-8 -mt-96"></div>
         </div>
 
-{{--        <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css');</style>--}}
+        {{--        <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css');</style>--}}
 
         <div class=" flex items-center justify-center px-5 py-5">
             <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden"
@@ -116,34 +116,55 @@
                         border border-secondary-300 focus:ring-primary-500 focus:border-primary-500 dark:border-secondary-600 block w-full
                         sm:text-sm rounded-md transition ease-in-out duration-100 focus:outline-none shadow-sm cursor-pointer overflow-hidden
                         dark:text-secondary-400 mb-2"
-                                            wire:model="rarity"
+                                            wire:model.defer="student_id"
                                         >
-                                            <option label="Не вабрано" value="0"/>
-                                            @forelse([] as $key => $user)
+{{--                                            <option label="Не вабрано" value="0"/>--}}
+                                            @forelse($users as $key => $user)
+                                                <option
+                                                    label="{{ $user->sname . " " . mb_substr($user->name, 0, 1) . ". " .  mb_substr($user->pname, 0, 1) . "."  }}"
+                                                    value={{ $key }}/>
                                             @empty
+                                                <option label="Не существует" value=-1/>
                                             @endforelse
-
-                                            <option label="Обычный" value="2"/>
-                                            <option label="Синий" value="3"/>
-                                            <option label="Фиолетовый" value="4"/>
-                                            <option label="Розовый" value="5"/>
-                                            <option label="Красный" value="6"/>
-                                            <option label="Золотой" value="7"/>
+                                            {{--                                            <option label="Синий" value="3"/>--}}
+                                            {{--                                            <option label="Фиолетовый" value="4"/>--}}
+                                            {{--                                            <option label="Розовый" value="5"/>--}}
+                                            {{--                                            <option label="Красный" value="6"/>--}}
+                                            {{--                                            <option label="Золотой" value="7"/>--}}
                                         </select>
                                     </div>
-                                </div>
-                                <x-button lg positive class="w-full mt-3" x-show="student" label="Я Студент"
-                                          x-transition:enter="transition ease-out duration-300"
-                                          x-transition:enter-start="transform opacity-75"
-                                          x-transition:enter-end="transform opacity-100"/>
 
-                                <div class="text-center py-3"> или</div>
-                                <x-button lg outline secondary class="w-full mb-2" x-show="student"
-                                          @click="student = false" label="Я Cтароста"/>
-                                <x-button lg positive class="w-full mb-2" x-show="!student" label="Я Cтароста"
-                                          x-transition:enter="transition ease-out duration-300"
-                                          x-transition:enter-start="transform opacity-75"
-                                          x-transition:enter-end="transform opacity-100"/>
+                                    <x-input label="Email" class="mb-2" wire:model.defer="email"
+                                             type="email"></x-input>
+                                    <x-input label="Пароль" class="mb-2" wire:model.defer="pass"
+                                             type="password"></x-input>
+                                    <x-input label="Повтор пароля" class="mb-2" wire:model.defer="pass_2"
+                                             type="password"></x-input>
+                                </div>
+                                <div class="" x-data="{confirm: false }">
+                                    <x-button lg positive class="w-full mt-3"
+                                              x-text="confirm ? 'Нет, я не уверен что данные верны' : 'Зарегистрироваться'"
+                                              @click="confirm = !confirm"
+                                              x-transition:enter="transition ease-out duration-300"
+                                              x-transition:enter-start="transform opacity-75"
+                                              x-transition:enter-end="transform opacity-100"/>
+                                    <x-button sm negative class="w-full mt-3" label="Я проверил данные, всё верно!"
+                                              x-show="confirm"
+                                              wire:click="register"
+                                              x-transition:enter="transition ease-out duration-300"
+                                              x-transition:enter-start="transform opacity-75"
+                                              x-transition:enter-end="transform opacity-100"/>
+
+                                </div>
+
+
+                                {{--                                <div class="text-center py-3"> или</div>--}}
+                                {{--                                <x-button lg outline secondary class="w-full mb-2" x-show="student"--}}
+                                {{--                                          @click="student = false" label="Я Cтароста"/>--}}
+                                {{--                                <x-button lg positive class="w-full mb-2" x-show="!student" label="Я Cтароста"--}}
+                                {{--                                          x-transition:enter="transition ease-out duration-300"--}}
+                                {{--                                          x-transition:enter-start="transform opacity-75"--}}
+                                {{--                                          x-transition:enter-end="transform opacity-100"/>--}}
 
 
                             </div>

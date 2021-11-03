@@ -2167,6 +2167,12 @@ select {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+.overflow-ellipsis {
+	text-overflow: ellipsis;
+}
+.overflow-clip {
+	text-overflow: clip;
+}
 .whitespace-normal {
 	white-space: normal;
 }
