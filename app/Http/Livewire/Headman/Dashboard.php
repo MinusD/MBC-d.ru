@@ -6,14 +6,19 @@ use App\Models\Group;
 use App\Models\GroupInvites;
 use App\Models\User;
 use Livewire\Component;
+use WireUi\Traits\Actions;
 
 class Dashboard extends Component
 {
+    use Actions;
+
     public $students = [];
     public $group;
     public $add_student_modal_is_open = false;
     public $add_homework_modal_is_open = false;
     public $invite_link_edit_model_is_open = false;
+    public $delete_user_confirm_modal_is_open = false;
+    public $deleted_user_data;
     public $new_stunent_name = "";
     public $new_stunent_sname = "";
     public $new_stunent_pname = "";
@@ -52,10 +57,10 @@ class Dashboard extends Component
     {
         $this->add_student_modal_is_open = true;
     }
-    public function open_add_homework_modal()
-    {
-        $this->add_homework_modal_is_open = true;
-    }
+//    public function open_add_homework_modal()
+//    {
+//        $this->add_homework_modal_is_open = true;
+//    }
 
     public function open_invite_link_edit_modal()
     {
@@ -83,19 +88,52 @@ class Dashboard extends Component
         $this->get_students();
     }
 
-    public function generate_new_invite_link(){
+    public function generate_new_invite_link()
+    {
         $this->invite->delete();
         $this->generate_invite();
     }
 
-    public function deactivate_invite_link(){
+    public function deactivate_invite_link()
+    {
         $this->invite_link_edit_model_is_open = false;
         $this->invite->delete();
-//        unset($this->invite);
-//        $this->invite->token = 0;
-//        dd($this->invite);
-//        dd(isset($this->invite->token));
     }
+
+    public function delete_user($id)
+    {
+        $this->delete_user_confirm_modal_is_open = true;
+        $this->deleted_user_data = User::find($id);
+        if ($this->group->id != $this->deleted_user_data->group_id) {
+            dd("gg");
+        } else {
+            $this->dialog()->confirm([
+                'title' => 'Вы уверены что хотите удалить студента?',
+                'description' => $this->deleted_user_data->sname . ' ' . $this->deleted_user_data->name . ' ' . $this->deleted_user_data->pname . ' - этот пользователь потеряет доступ к данным группы!',
+                'icon' => 'error',
+                'accept' => [
+                    'label' => 'Да, я уверен',
+                    'method' => 'delete_user_confirm',
+                    'params' => 'Saved',
+                ],
+                'reject' => [
+                    'label' => 'Нет, не уверен',
+                ],
+            ]);
+        }
+    }
+
+    public function delete_user_confirm()
+    {
+        if (is_null($this->deleted_user_data->password)) {
+            $this->deleted_user_data->delete();
+        } else {
+            $this->deleted_user_data->group_id = null;
+            $this->deleted_user_data->save();
+        }
+        $this->get_students();
+    }
+
 
     public function generate_invite()
     {
