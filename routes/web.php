@@ -18,8 +18,6 @@ Route::get('/', function () {
 });
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Controllers\MainController::class, 'DashboardRedirect'])->name('dashboard');
-
 Route::get('/test', function () {
     return view('test');
 });
@@ -90,6 +88,8 @@ Route::get('fs', \App\Http\Livewire\Landing\Fastshare::class)->name('landing.fas
 Route::get('register', \App\Http\Livewire\Landing\Registration::class)->name('landing.register');
 Route::get('rbi', \App\Http\Livewire\Landing\RegByCode::class)->name('landing.reg_by_code');
 Route::get('s', \App\Http\Livewire\Landing\Test::class)->name('landing.test');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Controllers\MainController::class, 'DashboardRedirect'])->name('dashboard');
 
 
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Controllers\MainController::class, 'DashboardRedirect'])->name('dashboard');

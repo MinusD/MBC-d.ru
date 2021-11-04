@@ -55,8 +55,8 @@
     <x-modal.card title="Новая папка" blur wire:model.defer="new_folder_modal">
         <div class="grid grid-cols-1 gap-4">
 
-            <x-input label="Название" wire:model="new_folder_name"></x-input>
-            <x-input label="Описание" wire:model="new_folder_desc"></x-input>
+            <x-input label="Название" wire:model.defer="new_folder_name"></x-input>
+            <x-input label="Описание" wire:model.defer="new_folder_desc"></x-input>
             {{--            <div>--}}
             {{--                <div class="flex justify-between mb-1">--}}
             {{--                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">--}}
@@ -135,7 +135,7 @@
 
     <x-modal.card title="Новый пин" blur wire:model.defer="new_pin_modal">
         <div class="grid grid-cols-1 gap-4">
-            <x-input label="Название" wire:model="new_pin_name"></x-input>
+            <x-input label="Название" wire:model.defer="new_pin_name"></x-input>
             <div class="">
                 <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400 mb-1">
                     Тип <span class="text-gray-400 dark:text-gray-500 text-xs">Картинка и файл не работают</span>
@@ -145,7 +145,7 @@
                         border border-secondary-300 focus:ring-primary-500 focus:border-primary-500 dark:border-secondary-600 block w-full
                         sm:text-sm rounded-md transition ease-in-out duration-100 focus:outline-none shadow-sm cursor-pointer overflow-hidden
                         dark:text-secondary-400 mb-2"
-                    wire:model="new_pin_type"
+                    wire:model.defer="new_pin_type"
                 >
                     <option label="Текст" value="text" selected/>
                     <option label="Ссылка" value="link"/>
@@ -153,7 +153,7 @@
                     <option label="Картинка" value="img"/>
                 </select>
             </div>
-            <x-input label="Описание" wire:model="new_pin_desc"></x-input>
+            <x-input label="Описание" wire:model.defer="new_pin_desc"></x-input>
         </div>
         <x-slot name="footer">
             <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
@@ -449,33 +449,7 @@
         {{--        <div class="grid grid-cols-3 xs:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 gap-3">--}}
         <div class="flex flex-wrap gap-3">
             @forelse ($pins as $key => $pin)
-                @if($pin->pin_type != "link")
-                    <div
-                        wire:click="select({{$key}})"
-                        class=" w-1/2  md:w-48 p-2  items-center justify-center bg-white p-4 shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b bg-red-600"
-                    >
-                        <div class="inline-flex overflow-hidden h-20 w-20">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none"
-                                 viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
-                            </svg>
-                            {{--                        <img src="../../storage/{{ $item['photo'] }}"--}}
-                            {{--                             class="h-full w-full">--}}
-                        </div>
-                        <h2 class="mt-4 font-bold text-sm text-center">{{ $pin->name }}</h2>
-
-                        <div class="bottom-1">
-                            <x-button xs warning class="w-full bottom-1">Редактировать</x-button>
-                        </div>
-
-                        {{--                        <div class="w-full bottom-1 flex flex-wrap px-1">--}}
-                        {{--                            <x-button xs class="w-1/2 p-1">Редактировать</x-button>--}}
-                        {{--                            <x-button xs class="w-1/2 p-1">Просмотр</x-button>--}}
-                        {{--                        </div>--}}
-
-                    </div>
-                @elseif(true)
+                @if($pin->pin_type == "link")
                     <div
                         wire:click="select({{$key}})"
                         class="flex flex-col items-center w-40 justify-between bg-white p-4 shadow rounded-lg shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b bg-red-600"
@@ -502,8 +476,44 @@
                         {{--                        </div>--}}
 
                     </div>
-
+                @elseif($pin->pin_type == "text")
+                    <div
+                        wire:click="select({{$key}})"
+                        class="flex flex-col items-center w-40 justify-between bg-white p-4 shadow rounded-lg shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b bg-red-600"
+                    >
+                        <div class="inline-flex overflow-hidden h-20 w-20">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <h2 class="mt-4 font-bold text-sm text-center">{{ $pin->name }}</h2>
+                        <div class="bottom-1">
+                            <x-button xs positive class="w-full my-2">Просмотреть</x-button>
+                            <x-button xs warning class="w-full ">Редактировать</x-button>
+                        </div>
+                    </div>
+                @elseif(true)
+                    <div
+                        wire:click="select({{$key}})"
+                        class="flex flex-col items-center w-40 justify-between bg-white p-4 shadow rounded-lg shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b bg-red-600"
+                    >
+                        <div class="inline-flex overflow-hidden h-20 w-20">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                            </svg>
+                        </div>
+                        <h2 class="mt-4 font-bold text-sm text-center">{{ $pin->name }}</h2>
+                        <div class="bottom-1">
+                            <x-button xs positive class="w-full my-2">Просмотреть</x-button>
+                            <x-button xs warning class="w-full ">Редактировать</x-button>
+                        </div>
+                    </div>
                 @endif
+
                 {{--                <div--}}
                 {{--                    wire:click="select({{$key}})"--}}
                 {{--                    class="flex flex-col items-center justify-center bg-white p-4 shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b bg-red-600"--}}
@@ -518,19 +528,18 @@
                 {{--                        --}}{{--                             class="h-full w-full">--}}
                 {{--                    </div>--}}
                 {{--                    <h2 class="mt-4 font-bold text-xs text-center">{{ $pin['title'] }}</h2>--}}
-
                 {{--                </div>--}}
+
             @empty
+                {{--                <div--}}
+                {{--                    class="flex flex-col items-center justify-center bg-white p-4 shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 cursor-default">--}}
 
-                <div
-                    class="flex flex-col items-center justify-center bg-white p-4 shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 cursor-default">
-
-                    <div class="inline-flex shadow-lg border border-gray-200 rounded-full overflow-hidden h-20 w-20">
-                        <img src="https://png.pngitem.com/pimgs/s/162-1622915_nebula-hd-png-download.png"
-                             class="h-full w-full">
-                    </div>
-                    <h2 class="mt-4 font-bold text-xs text-center">А тут пусто :(</h2>
-                </div>
+                {{--                    <div class="inline-flex shadow-lg border border-gray-200 rounded-full overflow-hidden h-20 w-20">--}}
+                {{--                        <img src="https://png.pngitem.com/pimgs/s/162-1622915_nebula-hd-png-download.png"--}}
+                {{--                             class="h-full w-full">--}}
+                {{--                    </div>--}}
+                {{--                    <h2 class="mt-4 font-bold text-xs text-center">А тут пусто :(</h2>--}}
+                {{--                </div>--}}
             @endforelse
 
             {{--    <div class="">--}}
@@ -598,3 +607,5 @@
             {{--    </div>--}}
 
         </div>
+    </div>
+</div>

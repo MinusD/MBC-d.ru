@@ -10,7 +10,7 @@
             <div class="">
                 <label
                     class="block text-sm font-medium text-secondary-700 dark:text-gray-400 mb-1">
-                    Выбирите себя из списка
+                    Предмет
                 </label>
                 <select
                     class="placeholder-secondary-400 dark:bg-secondary-800 dark:text-secondary-400 dark:placeholder-secondary-500
@@ -33,7 +33,7 @@
             </x-textarea>
             <label
                 class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
-                Предмет
+                Дата домашнего задания
             </label>
             <input type="date"
                    class="rounded-md border border-secondary-300 dark:border-secondary-600 bg-gray-100 dark:bg-secondary-800"

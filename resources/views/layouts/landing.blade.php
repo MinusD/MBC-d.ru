@@ -77,10 +77,10 @@
     {{ $slot }}
 </div>
 
-@livewireChartsScripts
+
 @livewireScripts
 @stack('modals')
-
+{{--@livewireChartsScripts--}}
 
 </body>
 </html>

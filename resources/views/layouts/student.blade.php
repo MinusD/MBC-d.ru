@@ -669,7 +669,7 @@
 
 @stack('modals')
 @livewireScripts
-@livewireChartsScripts
+{{--@livewireChartsScripts--}}
 
 </body>
 </html>

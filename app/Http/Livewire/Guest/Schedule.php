@@ -111,6 +111,8 @@ class Schedule extends Component
         $this->g = $this->group_name;
         $path = env('API_SERVER') . 'groups/certain?name=' . urlencode($this->group_name);
         $path2 = env('API_SERVER') . 'time/week';
+//        $data = file_get_contents($path);
+//        dd(($data));
         $timetable = json_decode(file_get_contents($path), true)[0];
         $this->timetable = $timetable;
         $this->current_week = json_decode(file_get_contents($path2), true);
