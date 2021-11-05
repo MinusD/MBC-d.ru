@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Landing;
 
 use App\Models\Group;
+use App\Models\StudentGroupInvite;
 use App\Models\User;
 use Livewire\Component;
 use Auth;
@@ -94,6 +95,10 @@ class Registration extends Component
         $user->password = \Hash::make($this->pass);
         $user->assignRole('student');
         $user->save();
+        $inv = new StudentGroupInvite();
+        $inv->group_id = $this->confirm_group_id;
+        $inv->user_id = $user->id;
+        $inv->save();
         auth()->login($user);
         return redirect(route('student.dashboard'));
     }
