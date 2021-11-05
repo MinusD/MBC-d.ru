@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Guest;
 use App\Models\LogLandingGetGroupSchedule;
 use App\Models\logLandingSaveGroupSchedule;
 use App\Models\PublicGroupSlug;
+use Exception;
 use Livewire\Component;
 use Illuminate\Support\Facades\Cookie;
 use WireUi\Traits\Actions;
@@ -27,6 +28,7 @@ class Schedule extends Component
     public $show_week;
     public $timetable = [];
     public $tid;
+    public $api_error = false;
 
     protected $groups_list = [];
 
@@ -79,71 +81,76 @@ class Schedule extends Component
             $this->modal_group_name,
             array_column($tmp, 'groupName')
         );
-        if ($this->groups_list[$key]['groupName'] != $this->modal_group_name) {
-            $this->search_error = true;
-        } else {
-            $this->search_error = false;
-            $this->modal_set = false;
-            $this->group_name = $this->groups_list[$key]['groupName'];
-            unset($this->lessons);
-            $this->lessons = [];
-            if (Cookie::has('schedule-group-name')) {
-                $n = false;
+        try {
+            if ($this->groups_list[$key]['groupName'] != $this->modal_group_name) {
+                $this->search_error = true;
             } else {
-                $n = true;
+                $this->search_error = false;
+                $this->modal_set = false;
+                $this->group_name = $this->groups_list[$key]['groupName'];
+                unset($this->lessons);
+                $this->lessons = [];
+                if (Cookie::has('schedule-group-name')) {
+                    $n = false;
+                } else {
+                    $n = true;
+                }
+                Cookie::queue(Cookie::forever('schedule-group-name', $this->group_name));
+                $this->tid = PublicGroupSlug::where('group_slugs', $this->group_name)->firstOrCreate(['group_slugs' => $this->group_name], ['id'])->id;
+                $this->get_group_data();
+                $log = new logLandingSaveGroupSchedule();
+                $log->public_group_id = $this->tid;
+                $log->is_new = $n;
+                $log->is_authorize = \Auth::check();
+                $log->save();
             }
-            Cookie::queue(Cookie::forever('schedule-group-name', $this->group_name));
-            $this->tid = PublicGroupSlug::where('group_slugs', $this->group_name)->firstOrCreate(['group_slugs' => $this->group_name], ['id'])->id;
-            $this->get_group_data();
-            $log = new logLandingSaveGroupSchedule();
-            $log->public_group_id = $this->tid;
-            $log->is_new = $n;
-            $log->is_authorize = \Auth::check();
-            $log->save();
-
-
+        } catch (Exception $e) {
+            $this->api_error = true;
+            $this->modal_set = false;
         }
+
     }
 
     public function get_group_data()
     {
-
         $this->g = $this->group_name;
         $path = env('API_SERVER') . 'groups/certain?name=' . urlencode($this->group_name);
         $path2 = env('API_SERVER') . 'time/week';
-//        $data = file_get_contents($path);
-//        dd(($data));
-        $timetable = json_decode(file_get_contents($path), true)[0];
-        $this->timetable = $timetable;
-        $this->current_week = json_decode(file_get_contents($path2), true);
-        $this->show_week = $this->current_week;
+        try {
+            $timetable = json_decode(file_get_contents($path), true)[0];
+            $this->timetable = $timetable;
+            $this->current_week = json_decode(file_get_contents($path2), true);
+            $this->show_week = $this->current_week;
 
-        $this->lessons_time = $timetable['lessonsTimes'][0];
-        if ($this->current_week % 2 == 1) {
-            $c = 'odd';
-        } else {
-            $c = 'even';
-        }
-        foreach ($timetable['schedule'] as $key => $day) {
-            $d = ucfirst($day['day']);
-            $day = $day[$c];
-            $data = array();
-            foreach ($day as $key2 => $para) {
-                foreach ($para as $key3 => $lesson) {
-                    if (is_null($lesson['weeks']) or in_array($this->current_week, $lesson['weeks'])) {
-                        array_push($data, ['n' => $key2, 'name' => $lesson['name'], 'tuter' => $lesson['tutor'],
-                            'place' => $lesson['place'], 'type' => $lesson['type']]);
+            $this->lessons_time = $timetable['lessonsTimes'][0];
+            if ($this->current_week % 2 == 1) {
+                $c = 'odd';
+            } else {
+                $c = 'even';
+            }
+            foreach ($timetable['schedule'] as $key => $day) {
+                $d = ucfirst($day['day']);
+                $day = $day[$c];
+                $data = array();
+                foreach ($day as $key2 => $para) {
+                    foreach ($para as $key3 => $lesson) {
+                        if (is_null($lesson['weeks']) or in_array($this->current_week, $lesson['weeks'])) {
+                            array_push($data, ['n' => $key2, 'name' => $lesson['name'], 'tuter' => $lesson['tutor'],
+                                'place' => $lesson['place'], 'type' => $lesson['type']]);
+                        }
+                    }
+                    if ($key2 == 5 and !isset($p_list['day_name'])) {
+                        array_push($this->lessons, ['day_name' => $d, 'data' => $data]);
+                        unset($data);
                     }
                 }
-                if ($key2 == 5 and !isset($p_list['day_name'])) {
-                    array_push($this->lessons, ['day_name' => $d, 'data' => $data]);
-                    unset($data);
-                }
             }
+            $log2 = new LogLandingGetGroupSchedule();
+            $log2->public_group_id = $this->tid;
+            $log2->save();
+        } catch (Exception $e) {
+            $this->api_error = true;
         }
-        $log2 = new LogLandingGetGroupSchedule();
-        $log2->public_group_id = $this->tid;
-        $log2->save();
     }
 
     public function load_data()
@@ -180,14 +187,32 @@ class Schedule extends Component
         if (!isset($this->groups_list[1])) {
             header('Content-Type: application/json');
             $path = env('API_SERVER') . 'groups/all';
-            $this->groups_list = json_decode(file_get_contents($path), true);
+            try {
+                $this->groups_list = json_decode(file_get_contents($path), true);
+            } catch (Exception $e) {
+                $this->api_error = true;
+            }
+
         }
+    }
+
+    public function load_with_cookie()
+    {
+        $this->tid = PublicGroupSlug::where('group_slugs', $this->group_name)->firstOrCreate(['group_slugs' => $this->group_name], ['id'])->id;
+        $this->get_group_data();
     }
 
     public function mount()
     {
         $this->current_day = getdate()['wday'] - 1;
         if (!is_null($this->g)) {
+            if (Cookie::has('schedule-group-name')) {
+                $this->group_name = Cookie::get('schedule-group-name');
+                if ($this->group_name == $this->g) {
+                    $this->load_with_cookie();
+                    return;
+                }
+            }
             $this->modal_group_name = $this->g;
             $this->save();
             if ($this->search_error) {
@@ -199,8 +224,7 @@ class Schedule extends Component
         if (Cookie::has('schedule-group-name')) {
             $this->group_name = Cookie::get('schedule-group-name');
             $this->modal_group_name = $this->group_name;
-            $this->tid = PublicGroupSlug::where('group_slugs', $this->group_name)->firstOrCreate(['group_slugs' => $this->group_name], ['id'])->id;
-            $this->get_group_data();
+            $this->load_with_cookie();
         } else {
             $this->modal_set = true;
         }

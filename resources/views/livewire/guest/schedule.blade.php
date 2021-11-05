@@ -1,4 +1,5 @@
 <div class="bg-gradient-to-br from-indigo-900 to-green-900 min-h-screen overflow-auto">
+
     <div class="px-2 md:px-10 mt-4">
         <x-modal.card title="Выбор группы" class="z-50" blur wire:model="modal_set">
             <div class="grid grid-cols-1  gap-4">
@@ -152,6 +153,21 @@
             </div>
         </div>
     @endif
+    @if($api_error)
+        <div class="px-2 md:px-10 mt-4">
+            <div
+                class="block w-full shadow-lg bg-indigo-900 bg-opacity-40 items-center h-14 rounded-2xl z-38 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5">
+                <div>
+                    <div class="flex flex items-center justify-center">
+                        <div class="text-3xl  font-semibold text-blue-200 mt-3">
+                            Ошибка API
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="mx-2 md:mx-10 mb-10 mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-4 gap-y-4">
 
         @forelse($lessons as $key => $les)
@@ -160,7 +176,8 @@
                 <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center">
                         <div class="flex flex-col">
-                            <span class="font-bold text-2xl text-white ml-2 capitalize">{{ $les['day_name'] }}</span>
+                                <span
+                                    class="font-bold text-2xl text-white ml-2 capitalize">{{ $les['day_name'] }}</span>
                         </div>
                     </div>
                 </div>
@@ -174,7 +191,8 @@
                         <div class="flex-grow"><span
                                 class="text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}{{ ', ' . $day['place'] ?? '' }}</span>
                             <br>
-                            <span class="text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>
+                            <span
+                                class="text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>
                         </div>
                         <div class="flex-initial order-last flex items-center justify-center">
                             @if($day['type'] == 'пр')
