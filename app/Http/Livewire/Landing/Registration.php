@@ -61,7 +61,8 @@ class Registration extends Component
         'redirect_data' => ['except' => ''],
     ];
 
-    public function reg_by_headman(){
+    public function reg_by_headman()
+    {
         $this->validate();
         $user = new User();
         $user->name = $this->name;
@@ -73,16 +74,28 @@ class Registration extends Component
         $user->assignRole('headman');
         $user->save();
         auth()->login($user);
-
         $group = new Group();
         $group->headman_id = $user->id;
         $group->group_name = $this->confirm_group['groupName'];
         $group->save();
         $user->group_id = $group->id;
         $user->save();
-
-
         return redirect(route('headman.dashboard'));
+    }
+
+    public function reg_by_student()
+    {
+        $this->validate();
+        $user = new User();
+        $user->name = $this->name;
+        $user->sname = $this->sname;
+        $user->pname = $this->pname;
+        $user->email = $this->email;
+        $user->password = \Hash::make($this->pass);
+        $user->assignRole('student');
+        $user->save();
+        auth()->login($user);
+        return redirect(route('student.dashboard'));
     }
 
     public function search_group()
@@ -97,20 +110,26 @@ class Registration extends Component
 
     public function search_group_by_student()
     {
+        $this->confirm_group_id = 0;
         $groups = Group::where('group_name', $this->group_slug)->get();
         $this->isset_groups_list = [];
         foreach ($groups as $group) {
-//            dd($group);
             $h = User::find($group->headman_id, ['name', 'sname', 'pname']);
-            array_push($this->isset_groups_list, ['id' => $group->id,'group_name' => $group->group_name, 'headman' => $h->sname . ' ' . $h->name . ' ' . $h->pname]);
+            array_push($this->isset_groups_list, ['id' => $group->id, 'group_name' => $group->group_name, 'headman' => $h->sname . ' ' . $h->name . ' ' . $h->pname]);
         }
         $this->group_search_error = false;
-        if (count($this->isset_groups_list) == 1){
-            $this->confirm_group_id =  $this->isset_groups_list[0]['id'];
-        } elseif (count($this->isset_groups_list) == 0){
+        if (count($this->isset_groups_list) == 1) {
+            $this->confirm_group_id = $this->isset_groups_list[0]['id'];
+        } elseif (count($this->isset_groups_list) == 0) {
             $this->group_search_error = true;
         }
     }
+
+    public function select_group_by_student($key)
+    {
+        $this->confirm_group_id = $this->isset_groups_list[$key]['id'];
+    }
+
 
     public function search_group_by_headman()
     {

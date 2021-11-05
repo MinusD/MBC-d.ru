@@ -170,7 +170,9 @@
 
                                         @forelse($isset_groups_list as $key => $group)
                                             <div
-                                                class="p-3 mt-2 border rounded-2xl shadow-lg @if($group['id'] == $confirm_group_id) bg-green-200 @endif">
+
+                                                class="p-3 mt-2 border rounded-2xl shadow-lg cursor-pointer @if($group['id'] == $confirm_group_id) bg-green-200 @endif"
+                                                wire:click="select_group_by_student({{$key}})">
                                                 <div class="text-md">Группа: <span
                                                         class="font-semibold">{{ $group['group_name'] ?? 'не найдено' }}</span>
                                                 </div>
@@ -207,45 +209,29 @@
                                      x-transition:enter-end="transform opacity-100 scale-100" x-cloak>
 
                                     <div x-show="student">
-                                        <x-button md primary class="w-full mt-2" wire:click="search_group_by_student">
-                                            Найти
-                                        </x-button>
-                                        @if($group_search_error)
-                                            <div>
-                                                <div class="text-red-600">Ошибка поиска группы</div>
-                                            </div>
-                                        @endif
-
-                                        @forelse($isset_groups_list as $key => $group)
-                                            <div
-                                                class="p-3 mt-2 border rounded-2xl shadow-lg @if($group['id'] == $confirm_group_id) bg-green-200 @endif">
-                                                <div class="text-md">Группа: <span
-                                                        class="font-semibold">{{ $group['group_name'] ?? 'не найдено' }}</span>
-                                                </div>
-                                                <div class="text-md">Староста: <span
-                                                        class="font-semibold">{{ $group['headman'] ?? 'не найдено' }}</span>
-                                                </div>
-                                            </div>
-                                        @empty
-                                        @endforelse
-                                    </div>
-                                    {{-- Регистрация для старост --}}
-                                    @if(isset($confirm_group['groupName']))
-                                        <div x-show="!student">
+                                        @if($confirm_group_id > -1 )
                                             <x-input label="Фамилия" class="mb-2" wire:model.defer="sname"></x-input>
                                             <x-input label="Имя" class="mb-2" wire:model.defer="name"></x-input>
                                             <x-input label="Отчество (при наличии)" wire:model.defer="pname"></x-input>
+                                        @else
+                                            <div class="mb-20 md:mb-0 text-center font-bold">
+                                                Для начала укажите группу!
+                                            </div>
+                                        @endif
 
-                                            {{--                                            <x-button md primary class="w-full mt-2 mb-12 md:mb-1"--}}
-                                            {{--                                                      wire:click="reg_by_headman">--}}
-                                            {{--                                                Зарегестрироваться--}}
-                                            {{--                                            </x-button>--}}
-                                        </div>
-                                    @else
-                                        <div class="mb-20 md:mb-0 text-center font-bold">
-                                            Для начала укажите группу!
-                                        </div>
-                                    @endif
+                                    </div>
+                                    {{-- Регистрация для старост --}}
+                                    <div x-show="!student">
+                                        @if(isset($confirm_group['groupName']))
+                                            <x-input label="Фамилия" class="mb-2" wire:model.defer="sname"></x-input>
+                                            <x-input label="Имя" class="mb-2" wire:model.defer="name"></x-input>
+                                            <x-input label="Отчество (при наличии)" wire:model.defer="pname"></x-input>
+                                        @else
+                                            <div class="mb-20 md:mb-0 text-center font-bold">
+                                                Для начала укажите группу!
+                                            </div>
+                                        @endif
+                                    </div>
 
 
                                 </div>
@@ -255,7 +241,7 @@
                                      x-transition:enter-start="transform opacity-0 scale-95"
                                      x-transition:enter-end="transform opacity-100 scale-100" x-cloak>
 
-                                    @if(isset($confirm_group['groupName']))
+                                    @if(isset($confirm_group['groupName']) || $confirm_group_id > -1)
                                         <x-input label="Email" class="mb-2" wire:model.defer="email"
                                                  type="email"></x-input>
                                         <x-input label="Пароль" class="mb-2" wire:model.defer="pass"
@@ -265,6 +251,10 @@
 
                                         <x-button md primary class="w-full mt-2 mb-12 md:mb-6" x-show="!student"
                                                   wire:click="reg_by_headman">
+                                            Зарегестрироваться
+                                        </x-button>
+                                        <x-button md primary class="w-full mt-2 mb-12 md:mb-6" x-show="student"
+                                                  wire:click="reg_by_student">
                                             Зарегестрироваться
                                         </x-button>
                                     @else

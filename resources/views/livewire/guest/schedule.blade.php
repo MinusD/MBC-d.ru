@@ -117,7 +117,6 @@
                         </div>
                     </div>
                     {{--  Конец шестерёнки--}}
-
                 </div>
             </div>
         </header>
@@ -167,9 +166,7 @@
             </div>
         </div>
     @endif
-
     <div class="mx-2 md:mx-10 mb-10 mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-4 gap-y-4">
-
         @forelse($lessons as $key => $les)
             <div
                 class="block w-full shadow-lg  items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full @if($key == $current_day) bg-gradient-to-br from-indigo-700 to-green-600 @else bg-indigo-900 bg-opacity-40 @endif">
