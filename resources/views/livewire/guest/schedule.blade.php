@@ -182,8 +182,13 @@
                     <div
                         class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">
                         <div
-                            class="flex-initial text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 px-3 font-semibold whitespace-normal md:whitespace-nowrap">
-                            {{ $lessons_time[$day['n']] }}
+                            class="hidden md:flex text-gray-200 text-xs md:text-sm flex-initial items-center justify-center py-1 px-3 font-semibold whitespace-normal md:whitespace-nowrap">
+                            {{ $lessons_time[$day['n']]}}
+                        </div>
+                        <div
+                            class="flex-initial md:hidden text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 pr-3 font-semibold ">
+                            {{ mb_substr($lessons_time[$day['n']], 0, 5) }}<br>
+                            {{ mb_substr($lessons_time[$day['n']],-6, -1) . '0' }}
                         </div>
                         <div class="flex-grow"><span
                                 class="text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}{{ ', ' . $day['place'] ?? '' }}</span>

@@ -71,15 +71,15 @@
                                 } }">Отклонить
                             </x-button>
                         @elseif($student['status'] == 'accepted')
-                            <x-button positive outline disabled>Принят {{ $student['updated_at'] }}</x-button>
+                            <x-button positive outline disabled>Принято {{ $student['updated_at'] }}</x-button>
                         @else
-                            <x-button negative outline disabled>Отклонён {{ $student['updated_at'] }}</x-button>
+                            <x-button negative outline disabled>Отклонено {{ $student['updated_at'] }}</x-button>
                         @endif
                     </div>
                 </td>
             </tr>
         @empty
-            None Date
+            None Data
         @endforelse
         </tbody>
     </table>

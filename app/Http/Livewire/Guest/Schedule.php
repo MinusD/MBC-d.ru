@@ -117,18 +117,18 @@ class Schedule extends Component
         $path = env('API_SERVER') . 'groups/certain?name=' . urlencode($this->group_name);
         $path2 = env('API_SERVER') . 'time/week';
         try {
-            $timetable = json_decode(file_get_contents($path), true)[0];
-            $this->timetable = $timetable;
+//            $timetable = json_decode(file_get_contents($path), true)[0];
+            $this->timetable = json_decode(file_get_contents($path), true)[0];
             $this->current_week = json_decode(file_get_contents($path2), true);
             $this->show_week = $this->current_week;
 
-            $this->lessons_time = $timetable['lessonsTimes'][0];
+            $this->lessons_time = $this->timetable['lessonsTimes'][0];
             if ($this->current_week % 2 == 1) {
                 $c = 'odd';
             } else {
                 $c = 'even';
             }
-            foreach ($timetable['schedule'] as $key => $day) {
+            foreach ($this->timetable['schedule'] as $key => $day) {
                 $d = ucfirst($day['day']);
                 $day = $day[$c];
                 $data = array();
