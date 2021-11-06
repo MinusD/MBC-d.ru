@@ -36,6 +36,7 @@
                         <a href="{{ route('landing.home') }}">
                             <span class="text-3xl dark:text-gray-100 font-semibold text-white ml-3"><span
                                     class="font-bold" style="font-family: 'Otomanopee One', sans-serif;">MBC</span> Studio</span>
+{{--                            <span class="hidden md:block">MD</span> <span class="hidden xl:block">XL</span> <span class="hidden 2xl:block">2xl</span>--}}
                         </a>
                     </div>
 
@@ -166,6 +167,20 @@
             </div>
         </div>
     @endif
+    @if(env('IS_DISTANT'))
+        <div class="px-2 md:px-10 mt-4">
+            <div
+                class="block w-full shadow-lg bg-indigo-900 bg-opacity-40 items-center h-6 rounded-md z-38 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5">
+                <div>
+                    <div class="flex flex items-center justify-center">
+                        <div class="text-md font-semibold text-gray-100">
+                            Все пары проходят в дистанционном формате
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="mx-2 md:mx-10 mb-10 mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-4 gap-y-4">
         @forelse($lessons as $key => $les)
             <div
@@ -182,16 +197,16 @@
                     <div
                         class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">
                         <div
-                            class="hidden md:flex text-gray-200 text-xs md:text-sm flex-initial items-center justify-center py-1 px-3 font-semibold whitespace-normal md:whitespace-nowrap">
+                            class="hidden 2xl:flex text-gray-200 text-xs md:text-sm flex-initial items-center justify-center py-1 px-3 font-semibold whitespace-normal md:whitespace-nowrap">
                             {{ $lessons_time[$day['n']]}}
                         </div>
                         <div
-                            class="flex-initial md:hidden text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 pr-3 font-semibold ">
+                            class="flex-initial 2xl:hidden text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 pr-3 font-semibold ">
                             {{ mb_substr($lessons_time[$day['n']], 0, 5) }}<br>
                             {{ mb_substr($lessons_time[$day['n']],-6, -1) . '0' }}
                         </div>
                         <div class="flex-grow"><span
-                                class="text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}{{ ', ' . $day['place'] ?? '' }}</span>
+                                class="text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }} {{ !env('IS_DISTANT') ? (', ' . $day['place'] ?? '') : '' }}</span>
                             <br>
                             <span
                                 class="text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>

@@ -5063,6 +5063,10 @@ select {
 		margin-right: 1rem;
 	}
 
+	.xl\:block {
+		display: block;
+	}
+
 	.xl\:w-2\/3 {
 		width: 66.666667%;
 	}
@@ -5088,6 +5092,18 @@ select {
 	}
 }
 @media (min-width: 1536px) {
+
+	.\32xl\:block {
+		display: block;
+	}
+
+	.\32xl\:flex {
+		display: flex;
+	}
+
+	.\32xl\:hidden {
+		display: none;
+	}
 
 	.\32xl\:grid-cols-3 {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
