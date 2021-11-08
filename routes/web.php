@@ -70,6 +70,7 @@ Route::group([
         'middleware' => ['can:admin-panel-access'],
     ], function () {
         Route::get('/', \App\Http\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
+        Route::get('stats', \App\Http\Livewire\Admin\Stats::class)->name('admin.stats');
 
         Route::group([
             'prefix' => 'logs'

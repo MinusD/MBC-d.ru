@@ -105,6 +105,22 @@
                             <span class="ml-3">Главная</span>
                         </a>
                     </div>
+
+                    <div class="mb-2">
+                        <a href="{{ route('admin.stats') }}"
+                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-indigo-100  {{ (request()->routeIs('admin.stats')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-gray-400" }}">
+						<span class="flex items-center justify-center text-lg text-gray-500 dark:text-gray-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                 stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/>
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/>
+                            </svg>
+						</span>
+                            <span class="ml-3">Статистика</span>
+                        </a>
+                    </div>
                     {{--                    <div class="mb-2">--}}
                     {{--                        <a href=""--}}
                     {{--                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-indigo-100  {{ (request()->routeIs('admin.boxes')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-gray-400" }}">--}}
@@ -509,6 +525,22 @@
                     x-transition:leave-start="opacity-100 transform scale-100"
                     x-transition:leave-end="opacity-0 transform scale-90"
                 >
+                    <div class="mb-2">
+                        <a href="{{ route('admin.stats') }}"
+                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-500 bg-gray-100 {{ (request()->routeIs('admin.stats')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-white" }}">
+                            <span class="flex items-center justify-center text-lg ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                 stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/>
+                            </svg>
+                            </span>
+                            <span class="ml-3 ">Статистика</span>
+                        </a>
+                    </div>
+
                     <div class="mb-2">
                         <a href="{{ route('admin.dashboard') }}"
                            class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-500 bg-gray-100 {{ (request()->routeIs('admin.dashboard')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-white" }}">

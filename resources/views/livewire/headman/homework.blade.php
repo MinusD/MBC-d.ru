@@ -22,7 +22,7 @@
                     @forelse($subjects as $key => $subject)
                         <option
                             label="{{ $subject->title }}"
-                            value="{{ $key }}" />
+                            value="{{ $key }}"/>
                     @empty
                         <option label="Не существует" value=-1/>
                     @endforelse
@@ -111,51 +111,151 @@
     </header>
 
 
-
-        <div class="relative flex flex-col pr-0 md:pr-3">
-            <div class="grid mt-8 gap-8 grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
-
+    <div class="relative flex flex-col pr-0 md:pr-3">
+        <div class="grid mt-4 gap-8 grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
+            @forelse($homeworks as $homework)
                 <div class="flex flex-col">
                     <div class="bg-white dark:bg-gray-700 shadow-md  rounded-3xl p-4">
                         <div class="flex-none lg:flex">
                             <div class="flex-auto ml-3 justify-evenly py-2">
-                                <div class="flex flex-wrap ">
-                                    <div class="w-full flex-none text-xs text-blue-700 font-medium ">
-                                        Shop
+                                <div class="flex flex-wrap mb-5">
+                                    <div class="w-full flex-none text-sm text-gray-500 font-medium dark:text-gray-400">
+                                        Добавлено: {{ $homework->created_at }}
                                     </div>
-                                    <h2 class="flex-auto text-lg font-medium text-gray-800 dark:text-gray-200">Massive Dynamic</h2>
+                                    <h2 class="flex-auto text-xl font-medium text-gray-800 dark:text-gray-100">
+                                        Процедурное программирование</h2>
                                 </div>
-                                <p class="mt-3"></p>
-                                <div class="flex py-4  text-sm text-gray-500">
+
+                                <p class="text-lg px-3 mb-2 inline-flex rounded-xl text-gray-800 bg-gray-100 dark:text-gray-200 dark:bg-gray-600">
+                                    Задание на: {{ mb_substr($homework->to_date, 0, -8)}}</p>
+
+                                <div
+                                    class="flex-auto pb-2 mb-3 pt-1 px-3 text-sm text-gray-500 rounded-xl bg-gray-100 dark:bg-gray-600">
                                     <div class="flex-1 inline-flex items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-400"
-                                             fill="none"
-                                             viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                                            </path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        </svg>
-                                        <p class="">Cochin,KL</p>
-                                    </div>
-                                    <div class="flex-1 inline-flex items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400"
-                                             fill="none"
-                                             viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <p class="">05-25-2021</p>
+                                        <div>
+                                            <p class="text-gray-800 dark:text-gray-300">Тут наше любимое домашнее
+                                                задание, которое каждый должен сделать иначе ему жопа, надеюсь это всем
+                                                понятно, я по 100 раз не буду вам повторять поняли меня ублюдки мать
+                                                вашу, щеглы с которым я буду учиться 4 года</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
-                                <div class="flex space-x-3 text-sm font-medium">
-                                    <div class="flex-auto flex space-x-3">
+                                {{--                                <div class="flex p-4 border-gray-400"></div>--}}
+                                <div class="flex space-x-4 text-sm font-medium">
+                                    <div class="flex-auto flex">
                                         <button
-                                            class="mb-2 md:mb-0 bg-white px-4 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full hover:bg-gray-100 inline-flex items-center space-x-2 ">
+                                            class="md:mb-0 px-2 py-1 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full
+                                            border-gray-300 dark:border-gray-400
+                                            inline-flex items-center space-x-2 dark:text-gray-200 group group-hover:border-green-500 transition duration-300">
+                                        <span
+                                            class="border border-4 border-gray-700 rounded-full h-4 w-4 dark:border-gray-400 group-hover:border-green-500 transition duration-300">
+                                        </span>
+                                            <span class="font-semibold group-hover:text-green-500 transition duration-300">Не выполнил</span>
+                                        </button>
+                                    </div>
+                                    {{--                                    <div class="flex-auto flex">--}}
+                                    {{--                                        <button--}}
+                                    {{--                                            class="md:mb-0 px-4 py-1 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full inline-flex items-center space-x-2 dark:text-gray-200">--}}
+                                    {{--                                        <span--}}
+                                    {{--                                            class="border border-2 border-gray-700 rounded-full h-4 w-4 dark:border-gray-400">--}}
+                                    {{--                                        </span>--}}
+                                    {{--                                            <span>Не выполнил</span>--}}
+                                    {{--                                        </button>--}}
+                                    {{--                                    </div>--}}
+
+                                    <x-button icon="pencil" primary/>
+                                    <x-button rightIcon="information-circle" info label="Открыть"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @empty
+
+            @endforelse
+            {{--Соеденённый блок--}}
+            {{--                    <div class="flex flex-col">--}}
+            {{--                        <div class="bg-white dark:bg-gray-700 shadow-md  rounded-3xl p-4">--}}
+            {{--                            <div class="flex-none lg:flex">--}}
+            {{--                                <div class="flex-auto ml-3 justify-evenly py-2">--}}
+            {{--                                    <div class="flex flex-wrap mb-5">--}}
+            {{--                                        <div class="w-full flex-none text-sm text-gray-500 font-medium  dark:text-gray-400">--}}
+            {{--                                            Добавлено: {{ $homework->created_at }}--}}
+            {{--                                        </div>--}}
+            {{--                                        <h2 class="flex-auto text-xl font-medium text-gray-800 dark:text-gray-100">Процедурное программирование</h2>--}}
+            {{--                                    </div>--}}
+
+            {{--                                    <p class="text-lg pl-3 pr-3 inline-flex rounded-t-xl text-gray-800 bg-gray-100 dark:text-gray-200 dark:bg-gray-600">Задание на:  {{ mb_substr($homework->to_date, 0, -8)}}</p>--}}
+
+            {{--                                    <div class="flex-auto pb-4 pt-1 px-3 text-sm text-gray-500 rounded-b-xl rounded-tr-xl bg-gray-100 dark:bg-gray-600">--}}
+            {{--                                        <div class="flex-1 inline-flex items-center">--}}
+            {{--                                            <div>--}}
+            {{--                                                <p class="text-gray-800 dark:text-gray-300">Тут наше любимое домашнее задание, которое каждый должен сделать иначе ему жопа, надеюсь это всем понятно, я по 100 раз не буду вам повторять поняли меня ублюдки мать вашу, щеглы с которым я буду учиться 4 года</p>--}}
+            {{--                                            </div>--}}
+            {{--                                        </div>--}}
+            {{--                                    </div>--}}
+            {{--                                    <div class="flex p-4 border-gray-400"></div>--}}
+            {{--                                    <div class="flex space-x-4 text-sm font-medium">--}}
+            {{--                                        <div class="flex-auto flex">--}}
+            {{--                                            <button--}}
+            {{--                                                class="md:mb-0 px-4 py-2 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full inline-flex items-center space-x-2 dark:text-gray-200">--}}
+            {{--                                        <span class="border border-2 border-gray-700 rounded-full h-4 w-4 dark:border-gray-400">--}}
+            {{--                                        </span>--}}
+            {{--                                                <span>Выполнил</span>--}}
+            {{--                                            </button>--}}
+            {{--                                        </div>--}}
+
+            {{--                                        <x-button lg icon="pencil" primary />--}}
+            {{--                                        <x-button lg rightIcon="information-circle" info label="Открыть" />--}}
+            {{--                                    </div>--}}
+            {{--                                </div>--}}
+            {{--                            </div>--}}
+            {{--                        </div>--}}
+            {{--                    </div>--}}
+
+            <div class="flex flex-col">
+                <div class="bg-white dark:bg-gray-700 shadow-md  rounded-3xl p-4">
+                    <div class="flex-none lg:flex">
+                        <div class="flex-auto ml-3 justify-evenly py-2">
+                            <div class="flex flex-wrap ">
+                                <div class="w-full flex-none text-xs text-blue-700 font-medium ">
+                                    Shop
+                                </div>
+                                <h2 class="flex-auto text-lg font-medium text-gray-800 dark:text-gray-200">Massive
+                                    Dynamic</h2>
+                            </div>
+                            <p class="mt-3"></p>
+                            <div class="flex py-4  text-sm text-gray-500">
+                                <div class="flex-1 inline-flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-400"
+                                         fill="none"
+                                         viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                    <p class="">Cochin,KL</p>
+                                </div>
+                                <div class="flex-1 inline-flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400"
+                                         fill="none"
+                                         viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <p class="">05-25-2021</p>
+                                </div>
+                            </div>
+                            <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
+                            <div class="flex space-x-3 text-sm font-medium">
+                                <div class="flex-auto flex space-x-3">
+                                    <button
+                                        class="mb-2 md:mb-0 bg-white px-4 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full hover:bg-gray-100 inline-flex items-center space-x-2 ">
                                         <span class="text-green-400 hover:text-green-500 rounded-lg">
-                                            <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="shopify"
+                                            <svg aria-hidden="true" focusable="false" data-prefix="fab"
+                                                 data-icon="shopify"
                                                  class="svg-inline--fa fa-shopify  w-5 h-5  " role="img"
                                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                                 <path fill="currentColor"
@@ -163,120 +263,127 @@
                                                 </path>
                                             </svg>
                                         </span>
-                                            <span>62 Products</span>
-                                        </button>
-                                    </div>
-                                    <button
-                                        class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full hover:bg-gray-800"
-                                        type="button" aria-label="like">Редактировать
+                                        <span>62 Products</span>
                                     </button>
                                 </div>
+                                <button
+                                    class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full hover:bg-gray-800"
+                                    type="button" aria-label="like">Редактировать
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="flex flex-col">
-                    <div class="bg-white dark:bg-gray-700 shadow-md  rounded-3xl p-4">
-                        <div class="flex-none lg:flex">
-                            <div class="flex-auto ml-3 justify-evenly py-2">
-                                <div class="flex flex-wrap mb-5">
-                                    <div class="w-full flex-none text-sm text-gray-500 font-medium  dark:text-gray-400">
-                                        Добавленно: 26.21.2314
-                                    </div>
-                                    <h2 class="flex-auto text-xl font-medium text-gray-800 dark:text-gray-100">Процедурное программирование</h2>
+            <div class="flex flex-col">
+                <div class="bg-white dark:bg-gray-700 shadow-md  rounded-3xl p-4">
+                    <div class="flex-none lg:flex">
+                        <div class="flex-auto ml-3 justify-evenly py-2">
+                            <div class="flex flex-wrap mb-5">
+                                <div class="w-full flex-none text-sm text-gray-500 font-medium  dark:text-gray-400">
+                                    Добавленно: 26.21.2314
                                 </div>
+                                <h2 class="flex-auto text-xl font-medium text-gray-800 dark:text-gray-100">Процедурное
+                                    программирование</h2>
+                            </div>
 
-                                    <p class="mb-2 text-lg pl-3 pr-3 inline-flex rounded-xl text-gray-800 bg-gray-200 dark:text-gray-200 dark:bg-gray-600">Задание на: 22.23.1251</p>
+                            <p class="mb-2 text-lg pl-3 pr-3 inline-flex rounded-xl text-gray-800 bg-gray-200 dark:text-gray-200 dark:bg-gray-600">
+                                Задание на: 22.23.1251</p>
 
-                                <div class="flex-auto py-4 pl-3 pl-3 text-sm text-gray-500 rounded-xl bg-gray-100 dark:bg-gray-600">
-                                    <div class="flex-1 inline-flex items-center">
+                            <div
+                                class="flex-auto py-4 pl-3 pl-3 text-sm text-gray-500 rounded-xl bg-gray-100 dark:bg-gray-600">
+                                <div class="flex-1 inline-flex items-center">
                                     <div>
-                                        <p class="text-gray-800 dark:text-gray-300">Тут наше любимое домашнее задание, которое каждый должен сделать иначе ему жопа, надеюсь это всем понятно, я по 100 раз не буду вам повторять поняли меня ублюдки мать вашу, щеглы с которым я буду учиться 4 года</p>
-                                    </div>
+                                        <p class="text-gray-800 dark:text-gray-300">Тут наше любимое домашнее задание,
+                                            которое каждый должен сделать иначе ему жопа, надеюсь это всем понятно, я по
+                                            100 раз не буду вам повторять поняли меня ублюдки мать вашу, щеглы с которым
+                                            я буду учиться 4 года</p>
                                     </div>
                                 </div>
-                                <div class="flex p-4 border-gray-400"></div>
-                                <div class="flex space-x-4 text-sm font-medium">
-                                    <div class="flex-auto flex">
-                                        <button
-                                            class="md:mb-0 px-4 py-2 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full inline-flex items-center space-x-2 dark:text-gray-200">
-                                        <span class="border border-2 border-gray-700 rounded-full h-4 w-4 dark:border-gray-400">
+                            </div>
+                            <div class="flex p-4 border-gray-400"></div>
+                            <div class="flex space-x-4 text-sm font-medium">
+                                <div class="flex-auto flex">
+                                    <button
+                                        class="md:mb-0 px-4 py-2 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full inline-flex items-center space-x-2 dark:text-gray-200">
+                                        <span
+                                            class="border border-2 border-gray-700 rounded-full h-4 w-4 dark:border-gray-400">
                                         </span>
-                                            <span>Выполнил</span>
-                                        </button>
-                                    </div>
-
-                                    <x-button lg icon="pencil" primary />
-                                    <x-button lg rightIcon="information-circle" info label="Открыть" />
+                                        <span>Выполнил</span>
+                                    </button>
                                 </div>
+
+                                <x-button lg icon="pencil" primary/>
+                                <x-button lg rightIcon="information-circle" info label="Открыть"/>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
-                <div class="flex flex-col ">
-                    <div class="bg-white shadow-md  rounded-3xl p-4">
-                        <div class="flex-none lg:flex">
-                            <div class=" h-full w-full lg:h-48 lg:w-48   lg:mb-0 mb-3">
-                                <img
-                                    src="https://images.unsplash.com/photo-1585399000684-d2f72660f092?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1951&amp;q=80"
-                                    alt="Just a flower"
-                                    class=" w-full  object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
+            <div class="flex flex-col ">
+                <div class="bg-white shadow-md  rounded-3xl p-4">
+                    <div class="flex-none lg:flex">
+                        <div class=" h-full w-full lg:h-48 lg:w-48   lg:mb-0 mb-3">
+                            <img
+                                src="https://images.unsplash.com/photo-1585399000684-d2f72660f092?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1951&amp;q=80"
+                                alt="Just a flower"
+                                class=" w-full  object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
+                        </div>
+                        <div class="flex-auto ml-3 justify-evenly py-2">
+                            <div class="flex flex-wrap ">
+                                <div class="w-full flex-none text-xs text-blue-700 font-medium ">
+                                    Shop
+                                </div>
+                                <h2 class="flex-auto text-lg font-medium">Umbrella Corporation</h2>
                             </div>
-                            <div class="flex-auto ml-3 justify-evenly py-2">
-                                <div class="flex flex-wrap ">
-                                    <div class="w-full flex-none text-xs text-blue-700 font-medium ">
-                                        Shop
-                                    </div>
-                                    <h2 class="flex-auto text-lg font-medium">Umbrella Corporation</h2>
+                            <p class="mt-3"></p>
+                            <div class="flex py-4  text-sm text-gray-500">
+                                <div class="flex-1 inline-flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-400"
+                                         fill="none"
+                                         viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                    <p class="">Mumbai,MH</p>
                                 </div>
-                                <p class="mt-3"></p>
-                                <div class="flex py-4  text-sm text-gray-500">
-                                    <div class="flex-1 inline-flex items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-gray-400"
-                                             fill="none"
-                                             viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                                            </path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        </svg>
-                                        <p class="">Mumbai,MH</p>
-                                    </div>
-                                    <div class="flex-1 inline-flex items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400"
-                                             fill="none"
-                                             viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <p class="">05-25-2021</p>
-                                    </div>
+                                <div class="flex-1 inline-flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400"
+                                         fill="none"
+                                         viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <p class="">05-25-2021</p>
                                 </div>
-                                <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
-                                <div class="flex space-x-3 text-sm font-medium">
-                                    <div class="flex-auto flex space-x-3">
-                                        <button
-                                            class="mb-2 md:mb-0 bg-white px-4 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full hover:bg-gray-100 inline-flex items-center space-x-2 ">
+                            </div>
+                            <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
+                            <div class="flex space-x-3 text-sm font-medium">
+                                <div class="flex-auto flex space-x-3">
+                                    <button
+                                        class="mb-2 md:mb-0 bg-white px-4 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full hover:bg-gray-100 inline-flex items-center space-x-2 ">
                                         <span class="text-green-400 hover:text-green-500 rounded-lg">
                                            <img src="https://image.flaticon.com/icons/png/512/168/168810.png"
                                                 class="svg-inline--fa fa-shopify  w-5 h-5 "/>
                                         </span>
-                                            <span>60 Products</span>
-                                        </button>
-                                    </div>
-                                    <button
-                                        class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full hover:bg-gray-800"
-                                        type="button" aria-label="like">Edit Shop
+                                        <span>60 Products</span>
                                     </button>
                                 </div>
+                                <button
+                                    class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full hover:bg-gray-800"
+                                    type="button" aria-label="like">Edit Shop
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </div>

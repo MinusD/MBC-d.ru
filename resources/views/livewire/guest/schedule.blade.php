@@ -206,7 +206,7 @@
                             {{ mb_substr($lessons_time[$day['n']],-6, -1) . '0' }}
                         </div>
                         <div class="flex-grow"><span
-                                class="text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }} {{ !env('IS_DISTANT') ? (', ' . $day['place'] ?? '') : '' }}</span>
+                                class="text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}{{ !env('IS_DISTANT') ? (', ' . $day['place'] ?? '') : '' }}</span>
                             <br>
                             <span
                                 class="text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>
