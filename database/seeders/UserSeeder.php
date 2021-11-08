@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Http\Livewire\Headman\Homework;
 use App\Models\Folder;
 use App\Models\Group;
+use App\Models\Subject;
 use App\Models\User;
 use Hash;
 use Illuminate\Database\Seeder;
@@ -59,5 +61,27 @@ class UserSeeder extends Seeder
         $user->save();
         $user1->group_id = $group->id;
         $user1->save();
+
+        $path = env('API_SERVER') . 'groups/certain?name=' . urlencode(Group::find($group->id, 'group_name')->group_name);
+        $timetable = json_decode(file_get_contents($path), true)[0]['schedule'];
+        foreach ($timetable as $day) {
+            foreach ($day['odd'] as $para) {
+                foreach ($para as $item) {
+                    Subject::where('group_id', $group->id)->where('title', $item['name'])->firstOrCreate(['group_id' => $group->id, 'title' => $item['name']]);
+                }
+            }
+            foreach ($day['even'] as $para) {
+                foreach ($para as $item) {
+                    Subject::where('group_id', $group->id)->where('title', $item['name'])->firstOrCreate(['group_id' => $group->id, 'title' => $item['name']]);
+                }
+            }
+        }
+
+        $homework = new \App\Models\Homework();
+        $homework->group_id = $group->id;
+        $homework->subject_id = 1;
+        $homework->text = "Тут наше любимое домашнее задание, которое каждый должен сделать иначе ему жопа, надеюсь это всем понятно, я по 100 раз не буду вам повторять поняли меня ублюдки мать вашу, щеглы с которым я буду учиться 4 года";
+        $homework->to_date = '2021-11-08 00:00:00';
+        $homework->save();
     }
 }

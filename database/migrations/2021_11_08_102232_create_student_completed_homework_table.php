@@ -15,7 +15,11 @@ class CreateStudentCompletedHomeworkTable extends Migration
     {
         Schema::create('student_completed_homework', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('homework_id');
+            $table->foreign('homework_id')->references('id')->on('homework');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamp('created_at');
         });
     }
 

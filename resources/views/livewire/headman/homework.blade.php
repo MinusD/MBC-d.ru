@@ -113,7 +113,7 @@
 
     <div class="relative flex flex-col pr-0 md:pr-3">
         <div class="grid mt-4 gap-8 grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
-            @forelse($homeworks as $homework)
+            @forelse($homeworks as $key => $homework)
                 <div class="flex flex-col">
                     <div class="bg-white dark:bg-gray-700 shadow-md  rounded-3xl p-4">
                         <div class="flex-none lg:flex">
@@ -142,17 +142,38 @@
                                 </div>
                                 {{--                                <div class="flex p-4 border-gray-400"></div>--}}
                                 <div class="flex space-x-4 text-sm font-medium">
-                                    <div class="flex-auto flex">
-                                        <button
-                                            class="md:mb-0 px-2 py-1 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full
-                                            border-gray-300 dark:border-gray-400
-                                            inline-flex items-center space-x-2 dark:text-gray-200 group group-hover:border-green-500 transition duration-300">
-                                        <span
-                                            class="border border-4 border-gray-700 rounded-full h-4 w-4 dark:border-gray-400 group-hover:border-green-500 transition duration-300">
-                                        </span>
-                                            <span class="font-semibold group-hover:text-green-500 transition duration-300">Не выполнил</span>
-                                        </button>
-                                    </div>
+                                    @if($homework->done)
+                                        <div class="flex-auto flex">
+                                            <button
+                                                wire:click="uncompete_homework({{$key}})"
+                                                class="md:mb-0 px-2 py-1 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full
+                                                                                    border-green-400 dark:border-green-400
+                                                                                    inline-flex items-center space-x-2 dark:text-gray-200 group group-hover:border-green-500 transition duration-300">
+                                                                                <span
+                                                                                    class="border border-4 border-green-500 rounded-full h-4 w-4 dark:border-green-500 group-hover:border-red-500 transition duration-300">
+                                                                                </span>
+                                                <span
+                                                    class="font-semibold text-green-500 group-hover:text-red-500 transition duration-300">Выполнил</span>
+                                            </button>
+                                        </div>
+                                    @else
+                                        <div class="flex-auto flex">
+                                            <button
+                                                wire:click="compete_homework({{$key}})"
+                                                class="md:mb-0 px-2 py-1 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full
+                                                                                    border-gray-300 dark:border-gray-400
+                                                                                    inline-flex items-center space-x-2 dark:text-gray-200 group group-hover:border-green-500 transition duration-300">
+                                                                                <span
+                                                                                    class="border border-4 border-gray-700 rounded-full h-4 w-4 dark:border-gray-400 group-hover:border-green-500 transition duration-300">
+                                                                                </span>
+                                                <span
+                                                    class="font-semibold group-hover:text-green-500 transition duration-300">Не выполнил</span>
+                                            </button>
+                                        </div>
+
+                                    @endif
+
+
                                     {{--                                    <div class="flex-auto flex">--}}
                                     {{--                                        <button--}}
                                     {{--                                            class="md:mb-0 px-4 py-1 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full inline-flex items-center space-x-2 dark:text-gray-200">--}}

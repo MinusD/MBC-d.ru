@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Headman;
 
 use App\Models\Group;
+use App\Models\StudentCompletedHomework;
 use App\Models\Subject;
 use App\Models\User;
 use Livewire\Component;
@@ -50,6 +51,13 @@ class Homework extends Component
     {
         $homeworks = \App\Models\Homework::where('group_id', $this->group_id);
         $this->homeworks = $homeworks->get();
+        foreach ($this->homeworks as $key => $homework){
+            if (StudentCompletedHomework::where('homework_id', $homework->id)->where('user_id', \Auth::id())->exists()) {
+                $this->homeworks[$key]->setAttribute('done', true);
+            } else {
+                $this->homeworks[$key]->setAttribute('done', false);
+            }
+        }
     }
 
     public function mount()
@@ -83,6 +91,23 @@ class Homework extends Component
         $this->add_homework_modal_is_open = false;
         $this->selected_subject = "0";
         $this->homework_text = "";
+        $this->load_homeworks();
+    }
+
+    public function compete_homework($key){
+        $cc = new StudentCompletedHomework();
+        $cc->homework_id = $this->homeworks[$key]->id;
+        $cc->user_id = \Auth::id();
+        $cc->save();
+        $this->load_homeworks();
+    }
+
+    public function uncompete_homework($key){
+        $cc = StudentCompletedHomework::where('homework_id', $this->homeworks[$key]->id)->where('user_id', \Auth::id())->first();
+        if (isset($cc->id)){
+            $cc->delete();
+        }
+        $this->load_homeworks();
     }
 
     public function render()

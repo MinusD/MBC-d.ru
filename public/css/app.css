@@ -2367,6 +2367,18 @@ select {
 	--tw-border-opacity: 1;
 	border-color: rgba(75, 85, 99, var(--tw-border-opacity));
 }
+.border-green-700 {
+	--tw-border-opacity: 1;
+	border-color: rgba(4, 120, 87, var(--tw-border-opacity));
+}
+.border-green-500 {
+	--tw-border-opacity: 1;
+	border-color: rgba(16, 185, 129, var(--tw-border-opacity));
+}
+.border-green-400 {
+	--tw-border-opacity: 1;
+	border-color: rgba(52, 211, 153, var(--tw-border-opacity));
+}
 .bg-white {
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -3982,6 +3994,10 @@ select {
 	--tw-border-opacity: 1;
 	border-color: rgba(16, 185, 129, var(--tw-border-opacity));
 }
+.group:hover .group-hover\:border-red-500 {
+	--tw-border-opacity: 1;
+	border-color: rgba(239, 68, 68, var(--tw-border-opacity));
+}
 .group:hover .group-hover\:text-white {
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
@@ -3993,6 +4009,10 @@ select {
 .group:hover .group-hover\:text-green-500 {
 	--tw-text-opacity: 1;
 	color: rgba(16, 185, 129, var(--tw-text-opacity));
+}
+.group:hover .group-hover\:text-red-500 {
+	--tw-text-opacity: 1;
+	color: rgba(239, 68, 68, var(--tw-text-opacity));
 }
 .group:hover .group-hover\:opacity-100 {
 	opacity: 1;
@@ -4069,6 +4089,18 @@ select {
 .dark .dark\:border-secondary-500 {
 	--tw-border-opacity: 1;
 	border-color: rgba(113, 113, 122, var(--tw-border-opacity));
+}
+.dark .dark\:border-green-600 {
+	--tw-border-opacity: 1;
+	border-color: rgba(5, 150, 105, var(--tw-border-opacity));
+}
+.dark .dark\:border-green-500 {
+	--tw-border-opacity: 1;
+	border-color: rgba(16, 185, 129, var(--tw-border-opacity));
+}
+.dark .dark\:border-green-400 {
+	--tw-border-opacity: 1;
+	border-color: rgba(52, 211, 153, var(--tw-border-opacity));
 }
 .dark .dark\:bg-secondary-800 {
 	--tw-bg-opacity: 1;
@@ -4338,6 +4370,14 @@ select {
 }
 .dark .dark\:focus\:ring-offset-secondary-800:focus {
 	--tw-ring-offset-color: #27272a;
+}
+.dark .group:hover .dark\:group-hover\:border-red-400 {
+	--tw-border-opacity: 1;
+	border-color: rgba(248, 113, 113, var(--tw-border-opacity));
+}
+.dark .group:hover .dark\:group-hover\:text-red-400 {
+	--tw-text-opacity: 1;
+	color: rgba(248, 113, 113, var(--tw-text-opacity));
 }
 .dark .peer:checked ~ .dark\:peer-checked\:bg-secondary-700 {
 	--tw-bg-opacity: 1;
