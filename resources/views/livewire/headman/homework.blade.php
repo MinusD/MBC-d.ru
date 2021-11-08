@@ -114,8 +114,8 @@
     <div class="relative flex flex-col pr-0 md:pr-3">
         <div class="grid mt-4 gap-8 grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
             @forelse($homeworks as $key => $homework)
-                <div class="flex flex-col">
-                    <div class="bg-white dark:bg-gray-700 shadow-md  rounded-3xl p-4">
+                <div class="flex flex-col ">
+                    <div class="bg-white dark:bg-gray-700 shadow-md  rounded-3xl p-4 h-full">
                         <div class="flex-none lg:flex">
                             <div class="flex-auto ml-3 justify-evenly py-2">
                                 <div class="flex flex-wrap mb-5">
@@ -133,10 +133,7 @@
                                     class="flex-auto pb-2 mb-3 pt-1 px-3 text-sm text-gray-500 rounded-xl bg-gray-100 dark:bg-gray-600">
                                     <div class="flex-1 inline-flex items-center">
                                         <div>
-                                            <p class="text-gray-800 dark:text-gray-300">Тут наше любимое домашнее
-                                                задание, которое каждый должен сделать иначе ему жопа, надеюсь это всем
-                                                понятно, я по 100 раз не буду вам повторять поняли меня ублюдки мать
-                                                вашу, щеглы с которым я буду учиться 4 года</p>
+                                            <p class="text-gray-800 dark:text-gray-300 whitespace-pre-line">{{ $homework->text }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -146,12 +143,10 @@
                                         <div class="flex-auto flex">
                                             <button
                                                 wire:click="uncompete_homework({{$key}})"
-                                                class="md:mb-0 px-2 py-1 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full
-                                                                                    border-green-400 dark:border-green-400
-                                                                                    inline-flex items-center space-x-2 dark:text-gray-200 group group-hover:border-green-500 transition duration-300">
-                                                                                <span
-                                                                                    class="border border-4 border-green-500 rounded-full h-4 w-4 dark:border-green-500 group-hover:border-red-500 transition duration-300">
-                                                                                </span>
+                                                class="md:mb-0 px-2 py-1 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full border-green-400 dark:border-green-400 inline-flex items-center space-x-2 dark:text-gray-200 group group-hover:border-green-500 transition duration-300">
+                                                    <span
+                                                        class="border border-4 border-green-500 rounded-full h-4 w-4 dark:border-green-500 group-hover:border-red-500 transition duration-300">
+                                                    </span>
                                                 <span
                                                     class="font-semibold text-green-500 group-hover:text-red-500 transition duration-300">Выполнил</span>
                                             </button>
