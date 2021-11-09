@@ -2,6 +2,9 @@
 
 namespace App\Http\Livewire\Student;
 
+use App\Models\Group;
+use App\Models\LonelyStudentGroup;
+use App\Models\PublicGroupSlug;
 use Illuminate\Support\Facades\Cookie;
 use Livewire\Component;
 
@@ -16,10 +19,14 @@ class Schedule extends Component
     public $lessons = [];
     public $current_day;
 
-
     public function get_group_data()
     {
-        $path = env('API_SERVER') . 'groups/certain?name=' . urlencode("ИКБО-30-21");
+        if (is_null(\Auth::user()->group_id)){
+            $g = PublicGroupSlug::find(LonelyStudentGroup::where('user_id', \Auth::id())->first()->public_group_id)->group_slugs;
+        } else {
+            $g = Group::find(\Auth::user()->group_id)->group_name;
+        }
+        $path = env('API_SERVER') . 'groups/certain?name=' . urlencode($g);
         $path2 = env('API_SERVER') . 'time/week';
         $timetable = json_decode(file_get_contents($path), true)[0];
         $this->current_week = json_decode(file_get_contents($path2), true);

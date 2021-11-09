@@ -1583,6 +1583,9 @@ select {
 .ml-10 {
 	margin-left: 2.5rem;
 }
+.-mt-2 {
+	margin-top: -0.5rem;
+}
 .block {
 	display: block;
 }

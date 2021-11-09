@@ -52,11 +52,24 @@
 {{--        </div>--}}
 {{--    </header>--}}
 
-
+    @if(env('IS_DISTANT'))
+        <div class="w-full shadow-lg bg-white dark:bg-gray-700 items-center rounded-md z-40 mb-2">
+            <div
+                class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
+                <div>
+                    <div class="flex flex items-center justify-center">
+                        <div class="text-md font-semibold text-gray-100">
+                            Все пары проходят в дистанционном формате
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="mx-0 mb-10 mt-1 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 md:gap-4 gap-y-4">
 
         @forelse($lessons as $key => $les)
-            <div class="mb-4 mx-0  xl:mr-4 block w-full shadow-lg items-center rounded-2xl bg-white dark:bg-gray-700">
+            <div class="mb-4 mx-0 xl:mr-4 block w-full shadow-lg items-center rounded-2xl bg-white dark:bg-gray-700">
                 <div class="rounded-2xl w-full">
                     <p class="font-bold text-md pl-4 pt-2 text-black dark:text-white capitalize">
                         {{ $les['day_name'] }}
@@ -66,11 +79,16 @@
                             <div
                                 class=" bg-gray-400 bg-opacity-40 ring-2 ring-offset-1 dark:ring-offset-2 ring-offset-gray-300 dark:ring-offset-gray-800 ring-gray-500 dark:ring-gray-700 rounded-md my-3 px-3 py-2 mx-3 text-gray-700 dark:text-white flex space-x-2 justify-between dark:bg-opacity-40 dark:bg-gray-900">
                                 <div
-                                    class="flex-initial text-gray-500 dark:text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 px-3 font-semibold whitespace-normal md:whitespace-nowrap">
+                                    class="hidden 2xl:flex text-gray-500 dark:text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 px-3 font-semibold whitespace-normal md:whitespace-nowrap">
                                     {{ $lessons_time[$day['n']] }}
                                 </div>
+                                <div
+                                    class="flex-initial 2xl:hidden text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 pr-3 font-semibold ">
+                                    {{ mb_substr($lessons_time[$day['n']], 0, 5) }}<br>
+                                    {{ mb_substr($lessons_time[$day['n']],-6, -1) . '0' }}
+                                </div>
                                 <div class="flex-grow"><span
-                                        class="text-gray-700 dark:text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}{{ ', ' . $day['place'] ?? '' }}</span>
+                                        class="text-gray-700 dark:text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}{{ !env('IS_DISTANT') ? (', ' . $day['place'] ?? '') : '' }}</span>
                                     <br>
                                     <span
                                         class="text-gray-500 dark:text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>
