@@ -52,20 +52,20 @@
 {{--        </div>--}}
 {{--    </header>--}}
 
-    @if(env('IS_DISTANT'))
-        <div class="w-full shadow-lg bg-white dark:bg-gray-700 items-center rounded-md z-40 mb-2">
-            <div
-                class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
-                <div>
-                    <div class="flex flex items-center justify-center">
-                        <div class="text-md font-semibold text-gray-100">
-                            Все пары проходят в дистанционном формате
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
+{{--    @if(env('IS_DISTANT'))--}}
+{{--        <div class="w-full shadow-lg bg-white dark:bg-gray-700 items-center rounded-md z-40 mb-2">--}}
+{{--            <div--}}
+{{--                class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">--}}
+{{--                <div>--}}
+{{--                    <div class="flex flex items-center justify-center">--}}
+{{--                        <div class="text-md font-semibold text-gray-100">--}}
+{{--                            Все пары проходят в дистанционном формате--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    @endif--}}
     <div class="mx-0 mb-10 mt-1 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 md:gap-4 gap-y-4">
 
         @forelse($lessons as $key => $les)
