@@ -40,6 +40,7 @@ Route::group([
         Route::get('/', \App\Http\Livewire\Student\Dashboard::class)->name('student.dashboard');
         Route::get('schedule', \App\Http\Livewire\Student\Schedule::class)->name('student.schedule');
         Route::get('homework', \App\Http\Livewire\Student\Homework::class)->name('student.homework');
+        Route::get('services', \App\Http\Livewire\Student\Services::class)->name('student.services');
 
 
     });
@@ -50,6 +51,7 @@ Route::group([
         Route::get('/', \App\Http\Livewire\Headman\Dashboard::class)->name('headman.dashboard');
         Route::get('pins', \App\Http\Livewire\Headman\Pins::class)->name('headman.pins');
         Route::get('homework', \App\Http\Livewire\Headman\Homework::class)->name('headman.homework');
+        Route::get('services', \App\Http\Livewire\Headman\Services::class)->name('headman.services');
         Route::get('applications', \App\Http\Livewire\Headman\GroupApplications::class)->name('headman.applications');
 
     });

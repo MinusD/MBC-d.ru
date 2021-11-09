@@ -140,6 +140,19 @@
                             <span class="ml-3">Закрепы</span>
                         </a>
                     </div>
+                    <div class="mb-2">
+                        <a href="{{ route('headman.services') }}"
+                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-gray-100  {{ (request()->routeIs('headman.services')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-gray-400" }}">
+						<span class="flex items-center justify-center text-lg text-gray-500 dark:text-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                        </svg>
+						</span>
+                            <span class="ml-3">Сервисы</span>
+                        </a>
+                    </div>
 
 
                     {{--                    <div x-data="{ open: false }" class="mb-2">--}}
@@ -537,6 +550,7 @@
                             <span class="ml-3 ">Домашнее задание</span>
                         </a>
                     </div>
+
                     <div class="mb-2">
                         <a href="{{ route('headman.pins') }}"
                            class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600  bg-gray-100 {{ (request()->routeIs('headman.pins')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-white" }}">
@@ -548,6 +562,20 @@
                             </svg>
 						</span>
                             <span class="ml-3 ">Закрепы</span>
+                        </a>
+                    </div>
+
+                    <div class="">
+                        <a href="{{ route('headman.services') }}"
+                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600  bg-gray-100 {{ (request()->routeIs('headman.services')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-white" }}">
+						<span class="flex items-center justify-center text-lg ">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                        </svg>
+						</span>
+                            <span class="ml-3">Сервисы</span>
                         </a>
                     </div>
                     <div class="">
