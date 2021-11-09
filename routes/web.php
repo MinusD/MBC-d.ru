@@ -95,8 +95,9 @@ Route::get('register', \App\Http\Livewire\Landing\Registration::class)->name('la
 Route::get('rbi', \App\Http\Livewire\Landing\RegByCode::class)->name('landing.reg_by_code');
 Route::get('s', \App\Http\Livewire\Landing\Test::class)->name('landing.test');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Controllers\MainController::class, 'DashboardRedirect'])->name('dashboard');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Controllers\MainController::class, 'DashboardRedirect'])->name('dashboard');
+Route::get('import/{token}', \App\Http\Livewire\Admin\Import::class);
 
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Controllers\MainController::class, 'DashboardRedirect'])->name('dashboard');
 //Route::get('/', \App\Http\Livewire\Landing\Home::class)->name('landing.home');

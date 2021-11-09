@@ -5171,6 +5171,10 @@ select {
 		width: 66.666667%;
 	}
 
+	.xl\:w-1\/2 {
+		width: 50%;
+	}
+
 	.xl\:grid-cols-3 {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
