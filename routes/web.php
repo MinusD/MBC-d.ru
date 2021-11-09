@@ -71,6 +71,7 @@ Route::group([
     ], function () {
         Route::get('/', \App\Http\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
         Route::get('stats', \App\Http\Livewire\Admin\Stats::class)->name('admin.stats');
+        Route::get('export', \App\Http\Livewire\Admin\Export::class)->name('admin.export');
 
         Route::group([
             'prefix' => 'logs'

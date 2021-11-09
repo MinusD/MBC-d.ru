@@ -121,6 +121,19 @@
                             <span class="ml-3">Статистика</span>
                         </a>
                     </div>
+                    <div class="mb-2">
+                        <a href="{{ route('admin.export') }}"
+                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-indigo-100  {{ (request()->routeIs('admin.export')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-gray-400" }}">
+						<span class="flex items-center justify-center text-lg text-gray-500 dark:text-gray-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                 stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+						</span>
+                            <span class="ml-3">Экспорт</span>
+                        </a>
+                    </div>
                     {{--                    <div class="mb-2">--}}
                     {{--                        <a href=""--}}
                     {{--                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-indigo-100  {{ (request()->routeIs('admin.boxes')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-gray-400" }}">--}}
@@ -525,6 +538,21 @@
                     x-transition:leave-start="opacity-100 transform scale-100"
                     x-transition:leave-end="opacity-0 transform scale-90"
                 >
+
+
+                    <div class="mb-2">
+                        <a href="{{ route('admin.dashboard') }}"
+                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-500 bg-gray-100 {{ (request()->routeIs('admin.dashboard')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-white" }}">
+						<span class="flex items-center justify-center text-lg ">
+							<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                 viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+								<path
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+							</svg>
+						</span>
+                            <span class="ml-3 ">Главная</span>
+                        </a>
+                    </div>
                     <div class="mb-2">
                         <a href="{{ route('admin.stats') }}"
                            class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-500 bg-gray-100 {{ (request()->routeIs('admin.stats')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-white" }}">
@@ -540,21 +568,19 @@
                             <span class="ml-3 ">Статистика</span>
                         </a>
                     </div>
-
                     <div class="mb-2">
-                        <a href="{{ route('admin.dashboard') }}"
-                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-500 bg-gray-100 {{ (request()->routeIs('admin.dashboard')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-white" }}">
-						<span class="flex items-center justify-center text-lg ">
-							<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                 viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-								<path
-                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-							</svg>
-						</span>
-                            <span class="ml-3 ">Главная</span>
+                        <a href="{{ route('admin.export') }}"
+                           class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-500 bg-gray-100 {{ (request()->routeIs('admin.export')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-white" }}">
+                            <span class="flex items-center justify-center text-lg ">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                </svg>
+                            </span>
+                            <span class="ml-3 ">Экспорт</span>
                         </a>
                     </div>
-
 
                     <div class="">
                         <a href="{{ route('student.dashboard') }}"
