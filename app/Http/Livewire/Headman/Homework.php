@@ -58,6 +58,7 @@ class Homework extends Component
             } else {
                 $this->homeworks[$key]->setAttribute('done', false);
             }
+            $this->homeworks[$key]->setAttribute('subject', Subject::find($homework->subject_id, ['title'])->title);
         }
     }
 

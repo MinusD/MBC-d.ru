@@ -114,26 +114,26 @@
     </header>
 
 
-    <div class="relative flex flex-col pr-0 md:pr-3">
-        <div class="grid mt-4 gap-8 grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
+    <div class="relative flex flex-col pr-0">
+        <div class="grid mt-3 gap-2 md:gap-3 grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
             @forelse($homeworks as $key => $homework)
-                <div class="flex flex-col ">
+                <div class="flex flex-col">
                     <div class="bg-white dark:bg-gray-700 shadow-md  rounded-3xl p-4">
                         <div class="flex-none lg:flex">
                             <div class="flex-auto ml-3 justify-evenly py-2">
-                                <div class="flex flex-wrap mb-5">
+                                <div class="flex flex-wrap mb-1">
                                     <div class="w-full flex-none text-sm text-gray-500 font-medium dark:text-gray-400">
                                         Добавлено: {{ $homework->created_at }}
                                     </div>
                                     <h2 class="flex-auto text-xl font-medium text-gray-800 dark:text-gray-100">
-                                        Процедурное программирование</h2>
+                                        {{  $homework->subject }}</h2>
                                 </div>
 
                                 <p class="text-lg px-3 mb-2 inline-flex rounded-xl text-gray-800 bg-gray-100 dark:text-gray-200 dark:bg-gray-600">
                                     Задание на: {{ mb_substr($homework->to_date, 0, -8)}}</p>
 
                                 <div
-                                    class="flex-auto pb-2 mb-3 pt-1 px-3 text-sm text-gray-500 rounded-xl bg-gray-100 dark:bg-gray-600">
+                                    class="flex-auto py-2 mb-3 pt-1 px-3 text-sm text-gray-500 rounded-xl bg-gray-100 dark:bg-gray-600">
                                     <div class="flex-1 inline-flex items-center">
                                         <div>
                                             <p class="text-gray-800 dark:text-gray-300 whitespace-pre-line">{{ $homework->text }}</p>
