@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Landing;
 
 use App\Models\Group;
+use App\Models\LonelyStudentGroup;
+use App\Models\PublicGroupSlug;
 use App\Models\StudentGroupInvite;
 use App\Models\User;
 use Livewire\Component;
@@ -99,6 +101,11 @@ class Registration extends Component
         $inv->group_id = $this->confirm_group_id;
         $inv->user_id = $user->id;
         $inv->save();
+        $solo = new LonelyStudentGroup();
+        $solo->user_id = $user->id;
+        $g = Group::find($this->confirm_group_id, ['group_name'])->group_name;
+        $solo->public_group_id = PublicGroupSlug::where('group_slugs', $g)->firstOrCreate(['group_slugs' => $g], ['id'])->id;
+        $solo->save();
         auth()->login($user);
         return redirect(route('student.dashboard'));
     }
