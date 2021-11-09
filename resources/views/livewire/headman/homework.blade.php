@@ -7,6 +7,7 @@
 <div>
     <x-modal.card title="Добавление домашнего задания" blur wire:model.defer="add_homework_modal_is_open">
         <div class="grid grid-cols-1 gap-3">
+
             <div class="">
                 <label
                     class="block text-sm font-medium text-secondary-700 dark:text-gray-400 mb-1">
@@ -40,10 +41,12 @@
                    wire:model="homework_to_date">
             <x-errors wire:model="homework_to_date"/>
         </div>
+        <h1 class="transition mt-1 font-semibold" wire:loading wire:target="reload_subjects">Обновляю список предметов</h1>
         <x-slot name="footer">
+
             <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
                 <div class="flex">
-                    <x-button flat primary class="mr-2" @click="confirm = !confirm" label=""/>
+                    <x-button primary class="mr-2" icon="refresh" wire:click="reload_subjects" label=""/>
                 </div>
                 <div class="flex">
                     <x-button flat label="Отменить" x-on:click="close"/>

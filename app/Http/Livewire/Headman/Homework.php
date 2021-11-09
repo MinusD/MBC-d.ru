@@ -45,13 +45,14 @@ class Homework extends Component
                 }
             }
         }
+        $this->subjects = Subject::where('group_id', $this->group_id)->get();
     }
 
     public function load_homeworks()
     {
         $homeworks = \App\Models\Homework::where('group_id', $this->group_id);
         $this->homeworks = $homeworks->get();
-        foreach ($this->homeworks as $key => $homework){
+        foreach ($this->homeworks as $key => $homework) {
             if (StudentCompletedHomework::where('homework_id', $homework->id)->where('user_id', \Auth::id())->exists()) {
                 $this->homeworks[$key]->setAttribute('done', true);
             } else {
@@ -64,10 +65,8 @@ class Homework extends Component
     {
         $this->group_id = \Auth::user()->group_id;
         if ($this->act == "add-homework") {
-            $this->add_homework_modal_is_open = true;
-            $this->reload_subjects();
-            $this->subjects = Subject::where('group_id', $this->group_id)->get();
             $this->act = "";
+            $this->open_add_homework_modal();
         }
         $this->load_homeworks();
     }
@@ -75,7 +74,9 @@ class Homework extends Component
     public function open_add_homework_modal()
     {
         $this->add_homework_modal_is_open = true;
-        $this->reload_subjects();
+        if (Subject::where('group_id', $this->group_id)->count() < 5) {
+            $this->reload_subjects();
+        }
         $this->subjects = Subject::where('group_id', $this->group_id)->get();
     }
 
@@ -94,7 +95,8 @@ class Homework extends Component
         $this->load_homeworks();
     }
 
-    public function compete_homework($key){
+    public function compete_homework($key)
+    {
         $cc = new StudentCompletedHomework();
         $cc->homework_id = $this->homeworks[$key]->id;
         $cc->user_id = \Auth::id();
@@ -102,9 +104,10 @@ class Homework extends Component
         $this->load_homeworks();
     }
 
-    public function uncompete_homework($key){
+    public function uncompete_homework($key)
+    {
         $cc = StudentCompletedHomework::where('homework_id', $this->homeworks[$key]->id)->where('user_id', \Auth::id())->first();
-        if (isset($cc->id)){
+        if (isset($cc->id)) {
             $cc->delete();
         }
         $this->load_homeworks();
