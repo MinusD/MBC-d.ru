@@ -12,7 +12,6 @@ class Dashboard extends Component
     public $firstRun = true;
     public $public_group_get_data = [];
     public $colors = [];
-//    public $
 
 
     protected $listeners = [
@@ -63,8 +62,7 @@ class Dashboard extends Component
             '#CDF70C',
             '#F09432',
         ];
-
-
+        shuffle($this->colors);
     }
 
     public function render()
@@ -113,7 +111,6 @@ class Dashboard extends Component
         $ChartData1
 //            ->withOnSliceClickEvent('onSliceClick')
             ->setAnimated($this->firstRun);
-
 
 //                ->addColumn('Food', 100, '#f6ad55')
 //                ->addColumn('Shopping', 200, '#fc8181')
