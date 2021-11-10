@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <x-textarea wire:model="import_stats"></x-textarea>
+            <x-textarea wire:model="import_stats_var"></x-textarea>
         </div>
     </div>
 </div>

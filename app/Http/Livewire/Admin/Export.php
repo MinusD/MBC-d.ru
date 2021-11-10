@@ -16,6 +16,7 @@ use App\Models\StudentCompletedHomework;
 use App\Models\StudentGroupInvite;
 use App\Models\Subject;
 use App\Models\User;
+use Exception;
 use Livewire\Component;
 
 class Export extends Component
@@ -26,12 +27,41 @@ class Export extends Component
     public $data_result;
     public $stats_result;
 
-    public $import_stats;
+    public $import_stats_var;
 
 
     public function import_stats()
     {
-
+        $data = json_decode($this->import_stats_var, true);
+        foreach ($data['pg'] as $pg) {
+//            try {
+//                $p = new PublicGroupSlug();
+//                $p->id = $pg['id'];
+//                $p->group_slugs = $pg['group_slugs'];
+//                $p->created_at = $pg['created_at'];
+//                $p->save();
+//            } catch (Exception $e) {
+            $p = new PublicGroupSlug();
+            $p->group_slugs = $pg['group_slugs'];
+            $p->created_at = $pg['created_at'];
+            $p->save();
+//            }
+        }
+        foreach ($data['lg'] as $lg) {
+            $p = new LogLandingGetGroupSchedule();
+            $p->public_group_id = $lg['public_group_id'];
+            $p->created_at = $lg['created_at'];
+            $p->save();
+        }
+        foreach ($data['ls'] as $ls) {
+            $p = new logLandingSaveGroupSchedule();
+            $p->public_group_id = $ls['public_group_id'];
+            $p->is_new = $ls['is_new'];
+            $p->is_authorize = $ls['is_authorize'];
+            $p->created_at = $ls['created_at'];
+            $p->save();
+        }
+        $this->import_stats_var = "";
     }
 
     public function export_stats()
@@ -59,7 +89,7 @@ class Export extends Component
         $data['pg'] = PublicGroupSlug::all()->toArray();
         $data['lg'] = LogLandingGetGroupSchedule::all()->toArray();
         $data['ls'] = logLandingSaveGroupSchedule::all()->toArray();
-        $this->data_result =  json_encode($data);
+        $this->data_result = json_encode($data);
     }
 
     public function generate_export()
