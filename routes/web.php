@@ -86,6 +86,7 @@ Route::group([
 
 Route::get('schedule', \App\Http\Livewire\Guest\Schedule::class)->name('guest.schedule');
 
+
 Route::get('/', \App\Http\Livewire\Landing\Home::class)->name('landing.home');
 Route::get('about', \App\Http\Livewire\Landing\About::class)->name('landing.about');
 Route::get('contacts', \App\Http\Livewire\Landing\Contacts::class)->name('landing.contacts');
@@ -95,7 +96,14 @@ Route::get('register', \App\Http\Livewire\Landing\Registration::class)->name('la
 Route::get('rbi', \App\Http\Livewire\Landing\RegByCode::class)->name('landing.reg_by_code');
 Route::get('s', \App\Http\Livewire\Landing\Test::class)->name('landing.test');
 
+Route::group([
+    'prefix' => 'services',
+], function () {
 
+    Route::get('/', \App\Http\Livewire\Landing\Service::class)->name('landing.services');
+    Route::get('help/informatics', \App\Http\Livewire\Landing\Service\Help\Informatics::class)->name('landing.services.help.informatics');
+
+});
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Controllers\MainController::class, 'DashboardRedirect'])->name('dashboard');
 Route::get('import/{token}', \App\Http\Livewire\Admin\Import::class);
 
