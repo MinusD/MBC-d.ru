@@ -192,7 +192,7 @@
 
                         <div class="flex flex-col">
                                 <div
-                                    class="font-bold text-2xl text-white ml-2 capitalize">{{ $les['day_name'] }} <span class="text-sm text-gray-200 ">({{ date("d.m.Y", $show_date) }})</span> </div>
+                                    class="font-bold text-2xl text-white ml-2 capitalize">{{ $les['day_name'] }} <span class="text-sm text-gray-200 ">{{ date("d.m.Y", $show_date) }}</span> </div>
                         </div>
                     </div>
                 </div>
