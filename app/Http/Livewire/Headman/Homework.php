@@ -18,6 +18,7 @@ class Homework extends Component
     public $homework_to_date;
     public $homeworks = [];
     public $group_id;
+    public $search = '';
 
     protected $rules = [
         'homework_to_date' => 'required',
@@ -27,6 +28,7 @@ class Homework extends Component
     ];
     protected $queryString = [
         'act' => ['except' => ''],
+        'search' => ['except' => ''],
     ];
 
     public function reload_subjects()
@@ -51,6 +53,11 @@ class Homework extends Component
     public function load_homeworks()
     {
         $homeworks = \App\Models\Homework::where('group_id', $this->group_id);
+        if (mb_strlen($this->search) > 1) {
+            $homeworks->where('text', 'like', '%' . $this->search . '%');
+//            dd($homeworks);
+        }
+
         $this->homeworks = $homeworks->get();
         foreach ($this->homeworks as $key => $homework) {
             if (StudentCompletedHomework::where('homework_id', $homework->id)->where('user_id', \Auth::id())->exists()) {
@@ -102,7 +109,7 @@ class Homework extends Component
         $cc->homework_id = $this->homeworks[$key]->id;
         $cc->user_id = \Auth::id();
         $cc->save();
-        $this->load_homeworks();
+//        $this->load_homeworks();
     }
 
     public function uncompete_homework($key)
@@ -111,11 +118,12 @@ class Homework extends Component
         if (isset($cc->id)) {
             $cc->delete();
         }
-        $this->load_homeworks();
+//        $this->load_homeworks();
     }
 
     public function render()
     {
+        $this->load_homeworks();
         return view('livewire.headman.homework')->layout('layouts.headman');
     }
 }

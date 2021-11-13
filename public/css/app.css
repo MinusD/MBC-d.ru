@@ -2071,12 +2071,12 @@ select {
 	-moz-column-gap: 0.25rem;
 	     column-gap: 0.25rem;
 }
-.gap-y-2 {
-	row-gap: 0.5rem;
-}
 .gap-x-3 {
 	-moz-column-gap: 0.75rem;
 	     column-gap: 0.75rem;
+}
+.gap-y-2 {
+	row-gap: 0.5rem;
 }
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
@@ -2576,14 +2576,6 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(220, 38, 38, var(--tw-bg-opacity));
 }
-.bg-blue-200 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(191, 219, 254, var(--tw-bg-opacity));
-}
-.bg-yellow-400 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(251, 191, 36, var(--tw-bg-opacity));
-}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
@@ -2907,9 +2899,6 @@ select {
 }
 .pr-10 {
 	padding-right: 2.5rem;
-}
-.pl-6 {
-	padding-left: 1.5rem;
 }
 .text-left {
 	text-align: left;
@@ -3775,10 +3764,6 @@ select {
 .hover\:text-secondary-900:hover {
 	--tw-text-opacity: 1;
 	color: rgba(24, 24, 27, var(--tw-text-opacity));
-}
-.hover\:text-blue-600:hover {
-	--tw-text-opacity: 1;
-	color: rgba(37, 99, 235, var(--tw-text-opacity));
 }
 .hover\:shadow-sm:hover {
 	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -5103,16 +5088,16 @@ select {
 		width: 16rem;
 	}
 
+	.lg\:w-auto {
+		width: auto;
+	}
+
 	.lg\:w-1\/4 {
 		width: 25%;
 	}
 
 	.lg\:w-48 {
 		width: 12rem;
-	}
-
-	.lg\:w-auto {
-		width: auto;
 	}
 
 	.lg\:grid-cols-2 {

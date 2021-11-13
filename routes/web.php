@@ -104,6 +104,17 @@ Route::group([
     Route::get('help/informatics', \App\Http\Livewire\Landing\Service\Help\Informatics::class)->name('landing.services.help.informatics');
 
 });
+
+
+Route::group([
+    'prefix' => 'api',
+], function () {
+//    Route::get('/', \App\Http\Livewire\Landing\Service::class)->name('landing.services');
+//    Route::get('help/informatics', \App\Http\Livewire\Landing\Service\Help\Informatics::class)->name('landing.services.help.informatics');
+
+});
+
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Controllers\MainController::class, 'DashboardRedirect'])->name('dashboard');
 Route::get('import/{token}', \App\Http\Livewire\Admin\Import::class);
 
