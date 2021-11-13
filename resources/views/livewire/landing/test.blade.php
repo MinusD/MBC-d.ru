@@ -1,26 +1,34 @@
 <div class="container mx-auto space-y-4 p-4 sm:p-0">
-    <ul class="flex flex-col sm:flex-row sm:space-x-8 sm:items-center">
-        <li>
-            <input type="checkbox" value="travel" wire:model="types"/>
-            <span>Travel</span>
-        </li>
-        <li>
-            <input type="checkbox" value="shopping" wire:model="types"/>
-            <span>Shopping</span>
-        </li>
-        <li>
-            <input type="checkbox" value="food" wire:model="types"/>
-            <span>Food</span>
-        </li>
-        <li>
-            <input type="checkbox" value="entertainment" wire:model="types"/>
-            <span>Entertainment</span>
-        </li>
-        <li>
-            <input type="checkbox" value="other" wire:model="types"/>
-            <span>Other</span>
-        </li>
-    </ul>
+    @php
+    $date = strtotime('monday this week');
+    for($i = 1;$i < 7;$i++) {?>
+    <div class=""><?php echo date("d.m.Y", $date); ?></div>
+    <?php
+    $date =  strtotime('+1 day', $date);
+    } @endphp
+
+{{--    <ul class="flex flex-col sm:flex-row sm:space-x-8 sm:items-center">--}}
+{{--        <li>--}}
+{{--            <input type="checkbox" value="travel" wire:model="types"/>--}}
+{{--            <span>Travel</span>--}}
+{{--        </li>--}}
+{{--        <li>--}}
+{{--            <input type="checkbox" value="shopping" wire:model="types"/>--}}
+{{--            <span>Shopping</span>--}}
+{{--        </li>--}}
+{{--        <li>--}}
+{{--            <input type="checkbox" value="food" wire:model="types"/>--}}
+{{--            <span>Food</span>--}}
+{{--        </li>--}}
+{{--        <li>--}}
+{{--            <input type="checkbox" value="entertainment" wire:model="types"/>--}}
+{{--            <span>Entertainment</span>--}}
+{{--        </li>--}}
+{{--        <li>--}}
+{{--            <input type="checkbox" value="other" wire:model="types"/>--}}
+{{--            <span>Other</span>--}}
+{{--        </li>--}}
+{{--    </ul>--}}
 {{--    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">--}}
 {{--        <div class="shadow rounded p-4 border bg-white flex-1" style="height: 32rem;">--}}
 {{--            <livewire:livewire-column-chart--}}
@@ -35,17 +43,17 @@
 {{--            />--}}
 {{--        </div>--}}
 {{--    </div>--}}
-    <div class="shadow rounded p-4 border bg-white" style="height: 32rem;">
+{{--    <div class="shadow rounded p-4 border bg-white" style="height: 32rem;">--}}
 
-    <livewire:livewire-pie-chart
-        key="{{ $ChartData1->reactiveKey() }}"
-        :pie-chart-model="$ChartData1"
-    />
+{{--    <livewire:livewire-pie-chart--}}
+{{--        key="{{ $ChartData1->reactiveKey() }}"--}}
+{{--        :pie-chart-model="$ChartData1"--}}
+{{--    />--}}
 
 {{--    <livewire:livewire-column-chart--}}
 {{--        :column-chart-model="$ChartData1"--}}
 {{--    />--}}
-</div>
+{{--</div>--}}
 
 
 

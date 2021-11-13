@@ -29,6 +29,8 @@ class Schedule extends Component
     public $timetable = [];
     public $tid;
     public $api_error = false;
+    public $date;
+    public $show_date;
 
     protected $groups_list = [];
 
@@ -48,18 +50,24 @@ class Schedule extends Component
     {
         $this->show_week++;
         $this->load_data();
+        $this->date = strtotime('+1 week', $this->date);
+        $this->show_date = $this->date;
     }
 
     public function current_week()
     {
         $this->show_week = $this->current_week;
         $this->load_data();
+        $this->date = strtotime('monday this week');
+        $this->show_date = $this->date;
     }
 
     public function previous_week()
     {
         if ($this->show_week != 1) {
             $this->show_week--;
+            $this->date = strtotime('-1 week', $this->date);
+            $this->show_date = $this->date;
         } else {
             return;
         }
@@ -116,6 +124,8 @@ class Schedule extends Component
         $this->g = $this->group_name;
         $path = env('API_SERVER') . 'groups/certain?name=' . urlencode($this->group_name);
         $path2 = env('API_SERVER') . 'time/week';
+        $this->date = strtotime('monday this week');
+        $this->show_date = $this->date;
         try {
 //            $timetable = json_decode(file_get_contents($path), true)[0];
             $this->timetable = json_decode(file_get_contents($path), true)[0];
@@ -155,6 +165,7 @@ class Schedule extends Component
 
     public function load_data()
     {
+
         $this->lessons = [];
         $timetable = $this->timetable;
         $this->lessons_time = $timetable['lessonsTimes'][0];

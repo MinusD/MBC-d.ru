@@ -185,14 +185,18 @@
         @forelse($lessons as $key => $les)
             <div
                 class="block w-full shadow-lg  items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full @if($key == $current_day) bg-gradient-to-br from-indigo-700 to-green-600 @else bg-indigo-900 bg-opacity-40 @endif">
+{{--                <div class="-mt-3 text-gray-200 font-semibold text-sm  ml-2 right-2">2021-11-09</div>--}}
                 <div class="flex items-center justify-between mb-3">
+
                     <div class="flex items-center">
+
                         <div class="flex flex-col">
-                                <span
-                                    class="font-bold text-2xl text-white ml-2 capitalize">{{ $les['day_name'] }}</span>
+                                <div
+                                    class="font-bold text-2xl text-white ml-2 capitalize">{{ $les['day_name'] }} <span class="text-sm text-gray-200 ">({{ date("d.m.Y", $show_date) }})</span> </div>
                         </div>
                     </div>
                 </div>
+                @php($show_date =  strtotime('+1 day', $show_date))
                 @forelse($les['data'] as $day)
                     <div
                         class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">

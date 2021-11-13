@@ -123,11 +123,11 @@ class Test extends Component
         $context = stream_context_create($opts);
         $data = file_get_contents($path, false, $context);
 
-        echo(mb_strlen($data));
-        echo '<br>';
-        $data2 = mb_substr($data, 20);
-        echo(mb_strlen($data2));
-        dd($data2);
+//        echo(mb_strlen($data));
+//        echo '<br>';
+//        $data2 = mb_substr($data, 20);
+//        echo(mb_strlen($data2));
+//        dd($data2);
 
 
 //        $data = json_decode(file_get_contents($path), true);
