@@ -22,6 +22,7 @@ class CreateGroupsTable extends Migration
             $table->string('group_name');
             $table->integer('fs_code')->nullable();
             $table->integer('fs_pass')->nullable();
+            $table->tinyInteger('verification_level')->default(0);
             $table->timestamps();
         });
     }
