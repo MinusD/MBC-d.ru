@@ -46,9 +46,9 @@ class Services extends Component
             '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' .
             '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' .
             '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $i = substr(str_shuffle($permitted_chars), 0, 60);
+        $i = substr(str_shuffle($permitted_chars), 0, 30);
         while (TokenGroupExtension::where('token', $i)->exists()) {
-            $i = substr(str_shuffle($permitted_chars), 0, 60);
+            $i = substr(str_shuffle($permitted_chars), 0, 30);
         }
         $token = new TokenGroupExtension();
         $token->group_id = Auth::user()->group_id;

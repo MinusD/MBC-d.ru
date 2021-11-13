@@ -109,7 +109,13 @@ Route::group([
 Route::group([
     'prefix' => 'api',
 ], function () {
-//    Route::get('/', \App\Http\Livewire\Landing\Service::class)->name('landing.services');
+    Route::group([
+        'prefix' => 'extension',
+    ], function () {
+        Route::get('/get_group_data', [\App\Http\Controllers\ApiController::class, 'GroupGetData']);
+        Route::get('/obtain_data', [\App\Http\Controllers\ApiController::class, 'ObtainData']);
+    });
+
 //    Route::get('help/informatics', \App\Http\Livewire\Landing\Service\Help\Informatics::class)->name('landing.services.help.informatics');
 
 });
