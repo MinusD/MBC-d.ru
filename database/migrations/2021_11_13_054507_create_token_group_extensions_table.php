@@ -19,6 +19,7 @@ class CreateTokenGroupExtensionsTable extends Migration
             $table->foreign('group_id')->references('id')->on('groups');
             $table->string('token');
             $table->timestamp('created_at');
+            $table->softDeletes();
         });
     }
 

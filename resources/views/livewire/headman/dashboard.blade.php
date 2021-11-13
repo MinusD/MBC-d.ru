@@ -180,7 +180,7 @@
                     </div>
                     <div class="flex">
                         <x-button flat label="Отменить" x-on:click="close"/>
-                        <x-button primary label="Сохранить" wire:click="save_new_pincode"/>
+{{--                        <x-button primary label="Сохранить" wire:click="save_new_pincode"/>--}}
                     </div>
                 </div>
             </x-slot>

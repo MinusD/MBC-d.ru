@@ -3419,6 +3419,9 @@ select {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 }
+.delay-75 {
+	transition-delay: 75ms;
+}
 .duration-150 {
 	transition-duration: 150ms;
 }
@@ -3436,6 +3439,9 @@ select {
 }
 .duration-500 {
 	transition-duration: 500ms;
+}
+.duration-700 {
+	transition-duration: 700ms;
 }
 .ease-in-out {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -3521,6 +3527,11 @@ select {
 .hover\:scale-110:hover {
 	--tw-scale-x: 1.1;
 	--tw-scale-y: 1.1;
+	transform: var(--tw-transform);
+}
+.hover\:scale-125:hover {
+	--tw-scale-x: 1.25;
+	--tw-scale-y: 1.25;
 	transform: var(--tw-transform);
 }
 .hover\:border-gray-300:hover {
@@ -3764,6 +3775,9 @@ select {
 .hover\:text-secondary-900:hover {
 	--tw-text-opacity: 1;
 	color: rgba(24, 24, 27, var(--tw-text-opacity));
+}
+.hover\:underline:hover {
+	text-decoration: underline;
 }
 .hover\:shadow-sm:hover {
 	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -5183,6 +5197,10 @@ select {
 		width: 66.666667%;
 	}
 
+	.xl\:w-1\/4 {
+		width: 25%;
+	}
+
 	.xl\:grid-cols-3 {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
@@ -5211,6 +5229,10 @@ select {
 
 	.\32xl\:hidden {
 		display: none;
+	}
+
+	.\32xl\:w-1\/4 {
+		width: 25%;
 	}
 
 	.\32xl\:grid-cols-3 {

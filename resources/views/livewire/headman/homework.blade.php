@@ -129,10 +129,8 @@
                                     <h2 class="flex-auto text-xl font-medium text-gray-800 dark:text-gray-100">
                                         {{  $homework->subject }}</h2>
                                 </div>
-
                                 <p class="text-lg px-3 mb-2 inline-flex rounded-xl text-gray-800 bg-gray-100 dark:text-gray-200 dark:bg-gray-600">
                                     Задание на: {{ mb_substr($homework->to_date, 0, -8)}}</p>
-
                                 <div
                                     class="flex-auto py-2 mb-3 pt-1 px-3 text-sm text-gray-500 rounded-xl bg-gray-100 dark:bg-gray-600">
                                     <div class="flex-1 inline-flex items-center">
