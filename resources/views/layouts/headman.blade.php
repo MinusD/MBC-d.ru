@@ -71,6 +71,7 @@
 </head>
 <body class="font-sans antialiased">
 <x-dialog z-index="z-50" blur="md" align="center"/>
+<x-notifications z-index="z-50" />
 <main class="bg-gray-100 dark:bg-gray-800 relative h-screen overflow-hidden">
     <div class="flex items-start justify-between">
         <div class="h-screen hidden lg:block my-4 ml-4 shadow-lg relative w-80">

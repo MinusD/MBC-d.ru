@@ -1602,6 +1602,12 @@ select {
 .ml-10 {
 	margin-left: 2.5rem;
 }
+.-mt-10 {
+	margin-top: -2.5rem;
+}
+.-mt-6 {
+	margin-top: -1.5rem;
+}
 .block {
 	display: block;
 }
