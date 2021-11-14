@@ -113,6 +113,7 @@ Route::group([
     ], function () {
         Route::get('/get_group_data', [\App\Http\Controllers\ApiController::class, 'GroupGetData']);
         Route::get('/obtain_data', [\App\Http\Controllers\ApiController::class, 'ObtainData']);
+        Route::get('/notify_user', [\App\Http\Controllers\ApiController::class, 'NotifyUser']);
     });
 
 //    Route::get('help/informatics', \App\Http\Livewire\Landing\Service\Help\Informatics::class)->name('landing.services.help.informatics');
