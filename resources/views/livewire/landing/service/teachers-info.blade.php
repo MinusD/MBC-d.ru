@@ -3,7 +3,7 @@
     <div
         class="bg-gradient-to-br from-indigo-900 to-green-900 min-h-screen overflow-auto flex items-center justify-center ">
         <div
-            class="block w-full md:w-1/2 xl:w-1/4 shadow-lg  items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full  bg-indigo-900 bg-opacity-40 ">
+            class="block m-3 w-full md:w-1/2 xl:w-1/4 shadow-lg  items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full  bg-indigo-900 bg-opacity-40 ">
             <div class="w-full rounded-lg sahdow-lg py-5 flex flex-col justify-center items-center">
                 <div class="mb-8">
                     <img class="object-center object-cover rounded-full h-36 w-36"
@@ -12,28 +12,28 @@
                 </div>
                 <div class="text-center">
                     <p class="text-xl text-white font-bold mb-2">{{ $info->short_name  ?? $t}}</p>
-                    <p class="text-base text-gray-400 font-normal">{{ $info->name ?? "Нет в базе данных" }}</p>
+                    <p class="text-base text-gray-400 font-normal">{{ $info->name ?? "Отсутствует в базе данных" }}</p>
                     <p class="mt-3 text-xl text-gray-200 font-normal"><a
                             href="mailto:{{ $info->email ?? "" }}">{{ $info->email ?? "???@mirea.ru" }}</a>
                     </p>
                 </div>
                 @if(!isset($info->email))
-                <div class="w-full -mb-3 mt-3 grid grid-cols-1 md:grid-cols-2 gap-x-5" >
-                    <div
-                        class=" items-center bg-indigo-900 text-white text-center bg-opacity-40 shadow-xl gap-5 px-2 py-1 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
-                        Я знаю
+                    <div class="w-full -mb-3 mt-3 grid grid-cols-1 md:grid-cols-2 gap-x-5">
+                        <div
+                            class=" items-center bg-indigo-900 text-white text-center bg-opacity-40 shadow-xl gap-5 px-2 py-1 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
+                            Я знаю
+                        </div>
+                        <div
+                            class=" items-center bg-indigo-900 text-white text-center bg-opacity-40 shadow-xl gap-5 px-2 py-1 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
+                            Попросить узнать
+                        </div>
                     </div>
-                    <div
-                        class=" items-center bg-indigo-900 text-white text-center bg-opacity-40 shadow-xl gap-5 px-2 py-1 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
-                        Попросить узнать
-                    </div>
-                </div>
                 @else
                     <div
                         class="w-full -mb-3 mt-3 items-center bg-indigo-900 text-white text-center bg-opacity-40 shadow-xl gap-5 px-2 py-1 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
                         Есть ошибка?
                     </div>
-                    @endif
+                @endif
             </div>
         </div>
         <a href="#footer"
