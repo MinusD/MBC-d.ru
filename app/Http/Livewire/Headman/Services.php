@@ -10,6 +10,11 @@ class Services extends Component
 {
     public $modal_token_menu = false;
     public $token = "";
+    public $act = "";
+
+    protected $queryString = [
+        'act' => ['except' => ''],
+    ];
 
     public function open_token_menu()
     {
@@ -36,7 +41,16 @@ class Services extends Component
         }
     }
 
+    public function mount(){
+        if (mb_strlen($this->act) > 1){
+            if ($this->act == 'app-token'){
+                $this->open_token_menu();
+            } else {
 
+            }
+        }
+        $this->act = "";
+    }
 
     public function generate_token()
     {
