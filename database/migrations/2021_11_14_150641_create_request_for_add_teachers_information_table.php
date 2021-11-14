@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTeacherInformationTable extends Migration
+class CreateRequestForAddTeachersInformationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateTeacherInformationTable extends Migration
      */
     public function up()
     {
-        Schema::create('teacher_information', function (Blueprint $table) {
+        Schema::create('request_for_add_teachers_information', function (Blueprint $table) {
             $table->id();
             $table->string('short_name');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('email')->nullable();
-            $table->unsignedBigInteger('subject_id')->nullable();
-            $table->foreign('subject_id')->references('id')->on('subjects');
-            $table->string('photo_path', 2048)->nullable();
-            $table->timestamps();
+            $table->string('comment')->nullable();
+            $table->timestamp('created_at');
         });
     }
 
@@ -32,6 +30,6 @@ class CreateTeacherInformationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teacher_information');
+        Schema::dropIfExists('request_for_add_teachers_information');
     }
 }

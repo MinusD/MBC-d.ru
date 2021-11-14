@@ -3,9 +3,11 @@
 namespace Database\Seeders;
 
 use App\Http\Livewire\Headman\Homework;
+use App\Http\Livewire\Landing\Service\TeachersInfo;
 use App\Models\Folder;
 use App\Models\Group;
 use App\Models\Subject;
+use App\Models\TeacherInformation;
 use App\Models\User;
 use Hash;
 use Illuminate\Database\Seeder;
@@ -32,8 +34,8 @@ class UserSeeder extends Seeder
         $user->save();
 
         $user1 = new User();
-        $user1->name = 'Кудлинков';
-        $user1->sname = 'Николай';
+        $user1->name = 'Николай';
+        $user1->sname = 'Кудлинков';
         $user1->pname = 'Александрович';
         $user1->email = 'v@v.v';
         $user1->password = Hash::make(12345678);
@@ -83,5 +85,11 @@ class UserSeeder extends Seeder
         $homework->text = "Тут наше любимое домашнее задание, которое каждый должен сделать иначе ему жопа, надеюсь это всем понятно, я по 100 раз не буду вам повторять поняли меня ублюдки мать вашу, щеглы с которым я буду учиться 4 года";
         $homework->to_date = '2021-11-08 00:00:00';
         $homework->save();
+
+        $ti1 = new TeacherInformation();
+        $ti1->short_name = "Соловьев А.А.";
+        $ti1->name = "Соловьев Александр Анатольевич";
+        $ti1->email = "solovev_aa@mirea.ru";
+        $ti1->save();
     }
 }
