@@ -99,10 +99,9 @@ Route::get('s', \App\Http\Livewire\Landing\Test::class)->name('landing.test');
 Route::group([
     'prefix' => 'services',
 ], function () {
-
     Route::get('/', \App\Http\Livewire\Landing\Service::class)->name('landing.services');
+    Route::get('teachersinfo', \App\Http\Livewire\Landing\Service\TeachersInfo::class)->name('landing.services.teachers_info');
     Route::get('help/informatics', \App\Http\Livewire\Landing\Service\Help\Informatics::class)->name('landing.services.help.informatics');
-
 });
 
 

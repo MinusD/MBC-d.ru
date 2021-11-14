@@ -212,8 +212,11 @@
                         <div class="flex-grow"><span
                                 class="text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}{{ !env('IS_DISTANT') ? (', ' . $day['place'] ?? '') : '' }}</span>
                             <br>
+
+                            <a href="{{ route('landing.services.teachers_info') . '?t=' . $day['tuter']}}" target="_blank">
                             <span
                                 class="text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>
+                            </a>
                         </div>
                         <div class="flex-initial order-last flex items-center justify-center">
                             @if($day['type'] == 'пр')

@@ -1587,14 +1587,14 @@ select {
 .ml-auto {
 	margin-left: auto;
 }
+.-mt-3 {
+	margin-top: -0.75rem;
+}
 .-ml-10 {
 	margin-left: -2.5rem;
 }
 .ml-10 {
 	margin-left: 2.5rem;
-}
-.-mt-3 {
-	margin-top: -0.75rem;
 }
 .block {
 	display: block;
@@ -2695,6 +2695,9 @@ select {
 }
 .p-10 {
 	padding: 2.5rem;
+}
+.p-8 {
+	padding: 2rem;
 }
 .px-4 {
 	padding-left: 1rem;
@@ -4686,12 +4689,6 @@ select {
 		row-gap: 0px;
 	}
 
-	.sm\:space-x-8 > :not([hidden]) ~ :not([hidden]) {
-		--tw-space-x-reverse: 0;
-		margin-right: calc(2rem * var(--tw-space-x-reverse));
-		margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
-	}
-
 	.sm\:space-x-4 > :not([hidden]) ~ :not([hidden]) {
 		--tw-space-x-reverse: 0;
 		margin-right: calc(1rem * var(--tw-space-x-reverse));
@@ -4702,6 +4699,12 @@ select {
 		--tw-space-y-reverse: 0;
 		margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
 		margin-bottom: calc(0px * var(--tw-space-y-reverse));
+	}
+
+	.sm\:space-x-8 > :not([hidden]) ~ :not([hidden]) {
+		--tw-space-x-reverse: 0;
+		margin-right: calc(2rem * var(--tw-space-x-reverse));
+		margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
 	}
 
 	.sm\:rounded-lg {
@@ -5184,6 +5187,10 @@ select {
 
 	.xl\:w-2\/3 {
 		width: 66.666667%;
+	}
+
+	.xl\:w-1\/4 {
+		width: 25%;
 	}
 
 	.xl\:grid-cols-3 {

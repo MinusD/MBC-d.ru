@@ -18,7 +18,9 @@ class CreateTeacherInformationTable extends Migration
             $table->string('short_name');
             $table->string('name');
             $table->string('email')->nullable();
-            $table->string('profile_photo_path', 2048)->nullable();
+            $table->unsignedBigInteger('subject_id')->nullable();
+            $table->foreign('subject_id')->references('id')->on('subjects');
+            $table->string('photo_path', 2048)->nullable();
             $table->timestamps();
         });
     }

@@ -38,6 +38,10 @@
             background-color: #a0aec0;
             /*outline: 1px solid slategrey;*/
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 {{--    <script>--}}
 {{--        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {--}}
