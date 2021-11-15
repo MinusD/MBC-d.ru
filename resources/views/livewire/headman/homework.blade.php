@@ -77,11 +77,12 @@
                            class="rounded-md border border-secondary-300 dark:border-secondary-600 bg-gray-100 dark:bg-secondary-800 w-full"
                            wire:model="edit_homework_to_date">
                     <x-errors wire:model.defer="edit_homework_to_date"/>
-                    <x-button primary label="Не изменять"  wire:click="edit_homework_date_btn(0)" class="mt-2"/>
+                    <x-button primary label="Не изменять" wire:click="edit_homework_date_btn(0)" class="mt-2"/>
                 @else
-                    <div class="text-lg px-3 mb-2 inline-flex rounded-md text-gray-800 bg-gray-100 dark:text-gray-200 dark:bg-gray-600">
-                       {{ mb_substr($edit_homework->to_date  ?? '', 0, -8)}}</div>
-                        <x-button primary label="Изменить" wire:click="edit_homework_date_btn(1)"/>
+                    <div
+                        class="text-lg px-3 mb-2 inline-flex rounded-md text-gray-800 bg-gray-100 dark:text-gray-200 dark:bg-gray-600">
+                        {{ mb_substr($edit_homework->to_date  ?? '', 0, -8)}}</div>
+                    <x-button primary label="Изменить" wire:click="edit_homework_date_btn(1)"/>
                 @endif
             </div>
         </div>
@@ -302,9 +303,13 @@
                                         {{--                                            <span>Не выполнил</span>--}}
                                         {{--                                        </button>--}}
                                         {{--                                    </div>--}}
+                                        <x-button icon="trash" negative wire:loading.attr="enabled"
+                                                  wire:click="delete_homework({{ $key }})"/>
                                         <x-button icon="pencil" primary wire:loading.attr="enabled"
                                                   wire:click="edit_homework({{ $key }})"/>
-                                        <x-button rightIcon="information-circle" info label="Открыть"
+                                        {{--                                        <x-button rightIcon="information-circle" info label="Открыть" class="hidden md:block"--}}
+                                        {{--                                                  wire:loading.attr="enabled"/>--}}
+                                        <x-button rightIcon="information-circle" info class=""
                                                   wire:loading.attr="enabled"/>
                                     </div>
                                 </div>
