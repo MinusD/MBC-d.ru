@@ -203,43 +203,43 @@ class Stats extends Component
 
     public function render()
     {
-        if ($this->time == "5") {
+//        if ($this->time == "5") {
             $ChartData1 = $this->getChartData(LogLandingGetGroupSchedule::all('public_group_id'));
             $ChartData2 = $this->getChartData(logLandingSaveGroupSchedule::all('public_group_id'));
             $ChartData3 = $this->getChartData(logLandingSaveGroupSchedule::where('is_new', true)->get('public_group_id'));
             $ChartData4 = $this->getChartData(logLandingSaveGroupSchedule::where('is_authorize', true)->get('public_group_id'));
             $ChartData5 = $this->getChartData(logLandingSaveGroupSchedule::where('is_new', false)->get('public_group_id'));
             $ChartData6 = $this->getChartData(logLandingSaveGroupSchedule::where('is_authorize', false)->get('public_group_id'));
-        } elseif ($this->time == "4") {
-            $ChartData1 = $this->getChartData(LogLandingGetGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->get('public_group_id'));
-            $ChartData2 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->get('public_group_id'));
-            $ChartData3 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_new', true)->get('public_group_id'));
-            $ChartData4 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_authorize', true)->get('public_group_id'));
-            $ChartData5 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_new', false)->get('public_group_id'));
-            $ChartData6 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_authorize', false)->get('public_group_id'));
-        } elseif ($this->time == "1") {
-            $ChartData1 = $this->getChartData(LogLandingGetGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->get('public_group_id'));
-            $ChartData2 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->get('public_group_id'));
-            $ChartData3 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_new', true)->get('public_group_id'));
-            $ChartData4 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_authorize', true)->get('public_group_id'));
-            $ChartData5 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_new', false)->get('public_group_id'));
-            $ChartData6 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_authorize', false)->get('public_group_id'));
-        } else {
-            $ChartData1 = $this->getChartData(LogLandingGetGroupSchedule::all('public_group_id'));
-            $ChartData2 = $this->getChartData(logLandingSaveGroupSchedule::all('public_group_id'));
-            $ChartData3 = $this->getChartData(logLandingSaveGroupSchedule::where('is_new', true)->get('public_group_id'));
-            $ChartData4 = $this->getChartData(logLandingSaveGroupSchedule::where('is_authorize', true)->get('public_group_id'));
-            $ChartData5 = $this->getChartData(logLandingSaveGroupSchedule::where('is_new', false)->get('public_group_id'));
-            $ChartData6 = $this->getChartData(logLandingSaveGroupSchedule::where('is_authorize', false)->get('public_group_id'));
-
-        }
+//        } elseif ($this->time == "4") {
+//            $ChartData1 = $this->getChartData(LogLandingGetGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->get('public_group_id'));
+//            $ChartData2 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->get('public_group_id'));
+//            $ChartData3 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_new', true)->get('public_group_id'));
+//            $ChartData4 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_authorize', true)->get('public_group_id'));
+//            $ChartData5 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_new', false)->get('public_group_id'));
+//            $ChartData6 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_authorize', false)->get('public_group_id'));
+//        } elseif ($this->time == "1") {
+//            $ChartData1 = $this->getChartData(LogLandingGetGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->get('public_group_id'));
+//            $ChartData2 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->get('public_group_id'));
+//            $ChartData3 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_new', true)->get('public_group_id'));
+//            $ChartData4 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_authorize', true)->get('public_group_id'));
+//            $ChartData5 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_new', false)->get('public_group_id'));
+//            $ChartData6 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->where('is_authorize', false)->get('public_group_id'));
+//        } else {
+//            $ChartData1 = $this->getChartData(LogLandingGetGroupSchedule::all('public_group_id'));
+//            $ChartData2 = $this->getChartData(logLandingSaveGroupSchedule::all('public_group_id'));
+//            $ChartData3 = $this->getChartData(logLandingSaveGroupSchedule::where('is_new', true)->get('public_group_id'));
+//            $ChartData4 = $this->getChartData(logLandingSaveGroupSchedule::where('is_authorize', true)->get('public_group_id'));
+//            $ChartData5 = $this->getChartData(logLandingSaveGroupSchedule::where('is_new', false)->get('public_group_id'));
+//            $ChartData6 = $this->getChartData(logLandingSaveGroupSchedule::where('is_authorize', false)->get('public_group_id'));
+//
+//        }
         $this->firstRun = false;
-        $ChartData1->setTitle('Публичное расписание (Get)');
-        $ChartData2->setTitle('Публичное расписание (Save)');
-        $ChartData3->setTitle('Публичное расписание (New)');
-        $ChartData4->setTitle('Публичное расписание (Auth)');
-        $ChartData5->setTitle('Публичное расписание (Not New)');
-        $ChartData6->setTitle('Публичное расписание (Not Auth)');
+        $ChartData1->setTitle('Публичное расписание (Get) (' . LogLandingGetGroupSchedule::all()->count() . ")" );
+        $ChartData2->setTitle('Публичное расписание (Save) (' . logLandingSaveGroupSchedule::all()->count() . ")" );
+        $ChartData3->setTitle('Публичное расписание (New) (' . logLandingSaveGroupSchedule::where('is_new', true)->count() . ")" ) ;
+        $ChartData4->setTitle('Публичное расписание (Auth) (' . logLandingSaveGroupSchedule::where('is_authorize', true)->count() . ")" );
+        $ChartData5->setTitle('Публичное расписание (Not New) (' . logLandingSaveGroupSchedule::where('is_new', false)->count() . ")" );
+        $ChartData6->setTitle('Публичное расписание (Not Auth) (' . logLandingSaveGroupSchedule::where('is_authorize', false)->count() . ")" );
 
         return view('livewire.admin.stats')->layout('layouts.admin')->with([
             'ChartData1' => $ChartData1,
