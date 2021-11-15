@@ -56,9 +56,50 @@
             </div>
         </x-slot>
     </x-modal.card>
+    <x-modal.card title="Фильтр предметов" blur wire:model.defer="mobile_modal_select_subject">
+        <div class="grid grid-cols-1 gap-3">
+
+            <div class="">
+                <label
+                    class="block text-sm font-medium text-secondary-700 dark:text-gray-400 mb-1">
+                    Предмет
+                </label>
+                <select
+                    class="placeholder-secondary-400 dark:bg-secondary-800 dark:text-secondary-400 dark:placeholder-secondary-500
+                        border border-secondary-300 focus:ring-primary-500 focus:border-primary-500 dark:border-secondary-600 block w-full
+                        sm:text-sm rounded-md transition ease-in-out duration-100 focus:outline-none shadow-sm cursor-pointer overflow-hidden
+                        dark:text-secondary-400 mb-2"
+                    wire:model.defer="filter_subject"
+                >
+                    <option
+                        label="Все предметы"
+                        value="-1"/>
+                    @forelse($subjects as $key => $subject)
+                        <option
+                            label="{{ $subject->title }}"
+                            value="{{ $key }}"/>
+                    @empty
+                        <option label="Не существует" value=-2/>
+                    @endforelse
+                </select>
+            </div>
+
+        </div>
+        <x-slot name="footer">
+            <div class="flex justify-between gap-x-1">
+                <div class="flex">
+                    <x-button primary class="mr-2" icon="refresh" wire:click="reset_subject" label=""/>
+                </div>
+                <div class="flex">
+                    <x-button flat label="Отменить" x-on:click="close"/>
+                    <x-button primary label="Применить" wire:click="select_filter_subject"/>
+                </div>
+            </div>
+        </x-slot>
+    </x-modal.card>
 
     <header
-        class="w-full shadow-lg bg-white dark:bg-gray-700 items-center h-10 md:h-16 rounded-md md:rounded-2xl z-40 mb-2">
+        class="w-full shadow-lg bg-white dark:bg-gray-700 items-center h-14 md:h-16 rounded-md md:rounded-2xl z-40 mb-2">
         <div class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
             <div class="relative items-center pl-1 flex w-full lg:max-w-68 sm:pr-2 sm:ml-0">
                 <div class="container relative left-0 z-50 flex w-3/4 h-auto h-full">
@@ -86,19 +127,57 @@
 
                     </div>
 
-                    <div class="grid grid-cols-2 gap-4 items-center">
-                        {{--                        <div class="hidden md:block">--}}
-                        {{--                            <x-button icon="folder-add" primary label="Новая папка" wire:click="new_folder"/>--}}
-                        {{--                        </div>--}}
-                        {{--                        <div class="hidden md:block">--}}
-                        {{--                            <x-button icon="document-add" positive label="Новая пин" wire:click="new_pin"/>--}}
-                        {{--                        </div>--}}
-                        {{--                        <div class="block md:hidden">--}}
-                        {{--                            <x-button lg icon="folder-add" primary wire:click="new_folder"/>--}}
-                        {{--                        </div>--}}
-                        {{--                        <div class="block md:hidden">--}}
-                        {{--                            <x-button lg icon="document-add" positive wire:click="new_pin"/>--}}
-                        {{--                        </div>--}}
+                    <div class="grid grid-cols-2 gap-4 items-center ml-3">
+                        @if($all)
+                            <div class="hidden md:block w-full">
+                                <x-button icon="database" positive wire:click="show_unc" class="w-full"
+                                          label="Отображать невыполненные"/>
+                            </div>
+                            <div class="block md:hidden">
+                                <x-button lg icon="database" positive wire:click="show_unc"/>
+                            </div>
+                        @else
+                            <div class="hidden md:block">
+                                <x-button icon="shield-check" primary wire:click="show_all" class="w-full"
+                                          label="Отображать все"/>
+                            </div>
+                            <div class="block md:hidden">
+                                <x-button lg icon="shield-check" primary wire:click="show_all"/>
+                            </div>
+                        @endif
+                        <div class="block md:hidden ml-2">
+                            <x-button lg icon="selector" primary wire:click="open_subjects_modal"/>
+                        </div>
+                        <div class="hidden md:block">
+                            <select
+                                wire:change="select_filter_subject"
+                                class="placeholder-secondary-400 dark:bg-secondary-800 dark:text-secondary-400 dark:placeholder-secondary-500
+                        border border-secondary-300 focus:ring-primary-500 focus:border-primary-500 dark:border-secondary-600 block w-full
+                        sm:text-sm rounded-md transition ease-in-out duration-100 focus:outline-none shadow-sm cursor-pointer overflow-hidden
+                        dark:text-secondary-400"
+                                wire:model.defer="filter_subject"
+                            >
+                                <option
+                                    label="Все предметы"
+                                    value="-1"/>
+                                @forelse($subjects as $key => $subject)
+                                    <option
+                                        label="{{ $subject->title }}"
+                                        value="{{ $key }}"/>
+                                @empty
+                                    <option label="Не существует" value=-2/>
+                                @endforelse
+                            </select>
+                        </div>
+                        {{--                                                <div class="hidden md:block">--}}
+                        {{--                                                    <x-button icon="document-add" positive label="Новая пин" wire:click="new_pin"/>--}}
+                        {{--                                                </div>--}}
+                        {{--                                                <div class="block md:hidden">--}}
+                        {{--                                                    <x-button lg icon="folder-add" primary wire:click="new_folder"/>--}}
+                        {{--                                                </div>--}}
+                        {{--                                                <div class="block md:hidden">--}}
+                        {{--                                                    <x-button lg icon="document-add" positive wire:click="new_pin"/>--}}
+                        {{--                                                </div>--}}
                     </div>
                 </div>
                 <div class="relative p-1 flex items-center justify-end w-1/4 ml-5 mr-4 sm:mr-0 sm:right-auto">
@@ -106,7 +185,7 @@
                         <x-button icon="plus-circle" primary wire:click="open_add_homework_modal">Новое ДЗ</x-button>
                     </div>
                     <div class="block md:hidden">
-                        <x-button lg icon="plus-circle" primary wire:click="new_folder"/>
+                        <x-button lg icon="plus-circle" primary wire:click="open_add_homework_modal"/>
                     </div>
 
                 </div>
@@ -116,74 +195,77 @@
 
 
     <div class="relative flex flex-col pr-0">
-        <div class="grid mt-3 gap-2 md:gap-3 grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
+        <div class="grid mt-1 md:mt-3 gap-2 md:gap-3 grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
             @forelse($homeworks as $key => $homework)
-                <div class="flex flex-col">
-                    <div class="bg-white dark:bg-gray-700 shadow-md  rounded-3xl p-4">
-                        <div class="flex-none lg:flex">
-                            <div class="flex-auto ml-3 justify-evenly py-2">
-                                <div class="flex flex-wrap mb-1">
-                                    <div class="w-full flex-none text-sm text-gray-500 font-medium dark:text-gray-400">
-                                        Добавлено: {{ $homework->created_at }}
+                @if($all or !$homework->done)
+                    <div class="flex flex-col">
+                        <div class="bg-white dark:bg-gray-700 shadow-md  rounded-3xl p-4">
+                            <div class="flex-none lg:flex">
+                                <div class="flex-auto ml-3 justify-evenly py-2">
+                                    <div class="flex flex-wrap mb-1">
+                                        <div
+                                            class="w-full flex-none text-sm text-gray-500 font-medium dark:text-gray-400">
+                                            Добавлено: {{ $homework->created_at }}
+                                        </div>
+                                        <h2 class="flex-auto text-xl font-medium text-gray-800 dark:text-gray-100">
+                                            {{  $homework->subject }}</h2>
                                     </div>
-                                    <h2 class="flex-auto text-xl font-medium text-gray-800 dark:text-gray-100">
-                                        {{  $homework->subject }}</h2>
-                                </div>
-                                <p class="text-lg px-3 mb-2 inline-flex rounded-xl text-gray-800 bg-gray-100 dark:text-gray-200 dark:bg-gray-600">
-                                    Задание на: {{ mb_substr($homework->to_date, 0, -8)}}</p>
-                                <div
-                                    class="flex-auto py-2 mb-3 pt-1 px-3 text-sm text-gray-500 rounded-xl bg-gray-100 dark:bg-gray-600">
-                                    <div class="flex-1 inline-flex items-center">
-                                        <div>
-                                            <p class="text-gray-800 dark:text-gray-300 whitespace-pre-line">{{ $homework->text }}</p>
+                                    <p class="text-lg px-3 mb-2 inline-flex rounded-xl text-gray-800 bg-gray-100 dark:text-gray-200 dark:bg-gray-600">
+                                        Задание на: {{ mb_substr($homework->to_date, 0, -8)}}</p>
+                                    <div
+                                        class="flex-auto py-2 mb-3 pt-1 px-3 text-sm text-gray-500 rounded-xl bg-gray-100 dark:bg-gray-600">
+                                        <div class="flex-1 inline-flex items-center">
+                                            <div>
+                                                <p class="text-gray-800 dark:text-gray-300 whitespace-pre-line">{{ $homework->text }}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="flex space-x-4 text-sm font-medium">
-                                    @if($homework->done)
-                                        <div class="flex-auto flex">
-                                            <button
-                                                wire:click="uncompete_homework({{$key}})"
-                                                class="md:mb-0 px-2 py-1 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full border-green-400 dark:border-green-400 inline-flex items-center space-x-2 dark:text-gray-200 group group-hover:border-green-500 transition duration-300">
+                                    <div class="flex space-x-4 text-sm font-medium">
+                                        @if($homework->done)
+                                            <div class="flex-auto flex">
+                                                <button
+                                                    wire:click="uncompete_homework({{$key}})"
+                                                    class="md:mb-0 px-2 py-1 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full border-green-400 dark:border-green-400 inline-flex items-center space-x-2 dark:text-gray-200 group group-hover:border-green-500 transition duration-300">
                                                     <span
                                                         class="border border-4 border-green-500 rounded-full h-4 w-4 dark:border-green-500 group-hover:border-red-500 transition duration-300">
                                                     </span>
-                                                <span
-                                                    class="font-semibold text-green-500 group-hover:text-red-500 transition duration-300">Выполнил</span>
-                                            </button>
-                                        </div>
-                                    @else
-                                        <div class="flex-auto flex">
-                                            <button
-                                                wire:click="compete_homework({{$key}})"
-                                                class="md:mb-0 px-2 py-1 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full
+                                                    <span
+                                                        class="font-semibold text-green-500 group-hover:text-red-500 transition duration-300">Выполнил</span>
+                                                </button>
+                                            </div>
+                                        @else
+                                            <div class="flex-auto flex">
+                                                <button
+                                                    wire:click="compete_homework({{$key}})"
+                                                    class="md:mb-0 px-2 py-1 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full
                                                                                     border-gray-300 dark:border-gray-400
                                                                                     inline-flex items-center space-x-2 dark:text-gray-200 group group-hover:border-green-500 transition duration-300">
                                                                                 <span
                                                                                     class="border border-4 border-gray-700 rounded-full h-4 w-4 dark:border-gray-400 group-hover:border-green-500 transition duration-300">
                                                                                 </span>
-                                                <span
-                                                    class="font-semibold group-hover:text-green-500 transition duration-300">Не выполнил</span>
-                                            </button>
-                                        </div>
-                                    @endif
-                                    {{--                                    <div class="flex-auto flex">--}}
-                                    {{--                                        <button--}}
-                                    {{--                                            class="md:mb-0 px-4 py-1 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full inline-flex items-center space-x-2 dark:text-gray-200">--}}
-                                    {{--                                        <span--}}
-                                    {{--                                            class="border border-2 border-gray-700 rounded-full h-4 w-4 dark:border-gray-400">--}}
-                                    {{--                                        </span>--}}
-                                    {{--                                            <span>Не выполнил</span>--}}
-                                    {{--                                        </button>--}}
-                                    {{--                                    </div>--}}
-                                    <x-button icon="pencil" primary wire:loading.attr="enabled"/>
-                                    <x-button rightIcon="information-circle" info label="Открыть"
-                                              wire:loading.attr="enabled"/>
+                                                    <span
+                                                        class="font-semibold group-hover:text-green-500 transition duration-300">Не выполнил</span>
+                                                </button>
+                                            </div>
+                                        @endif
+                                        {{--                                    <div class="flex-auto flex">--}}
+                                        {{--                                        <button--}}
+                                        {{--                                            class="md:mb-0 px-4 py-1 shadow-sm tracking-wider border border-2 text-gray-800 rounded-full inline-flex items-center space-x-2 dark:text-gray-200">--}}
+                                        {{--                                        <span--}}
+                                        {{--                                            class="border border-2 border-gray-700 rounded-full h-4 w-4 dark:border-gray-400">--}}
+                                        {{--                                        </span>--}}
+                                        {{--                                            <span>Не выполнил</span>--}}
+                                        {{--                                        </button>--}}
+                                        {{--                                    </div>--}}
+                                        <x-button icon="pencil" primary wire:loading.attr="enabled"/>
+                                        <x-button rightIcon="information-circle" info label="Открыть"
+                                                  wire:loading.attr="enabled"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @empty
 
             @endforelse

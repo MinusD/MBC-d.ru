@@ -19,6 +19,10 @@ class Homework extends Component
     public $homeworks = [];
     public $group_id;
     public $search = '';
+    public $all = true;
+    public $mobile_modal_select_subject = false;
+    public $filter_subject = "-1";
+    public $confirm_subject_id = 0;
 
     protected $rules = [
         'homework_to_date' => 'required',
@@ -26,10 +30,42 @@ class Homework extends Component
     protected $messages = [
         'homework_to_date.required' => "На какое число домашка?)"
     ];
+
     protected $queryString = [
         'act' => ['except' => ''],
         'search' => ['except' => ''],
     ];
+
+    public function show_unc()
+    {
+        $this->all = false;
+    }
+
+    public function show_all()
+    {
+        $this->all = true;
+    }
+
+    public function open_subjects_modal()
+    {
+        $this->mobile_modal_select_subject = true;
+    }
+
+    public function select_filter_subject()
+    {
+        if ($this->filter_subject == "-1") {
+            $this->confirm_subject_id = 0;
+        } else {
+            $this->confirm_subject_id = $this->subjects[(int)$this->filter_subject]->id;
+        }
+        $this->mobile_modal_select_subject = false;
+    }
+
+    public function reset_subject(){
+        $this->confirm_subject_id = 0;
+        $this->filter_subject = -1;
+        $this->mobile_modal_select_subject = false;
+    }
 
     public function reload_subjects()
     {
@@ -55,7 +91,10 @@ class Homework extends Component
         $homeworks = \App\Models\Homework::where('group_id', $this->group_id);
         if (mb_strlen($this->search) > 1) {
             $homeworks->where('text', 'like', '%' . $this->search . '%');
-//            dd($homeworks);
+        }
+//        dd($this->confirm_subject_id);
+        if ($this->confirm_subject_id != 0){
+            $homeworks->where('subject_id', $this->confirm_subject_id);
         }
 
         $this->homeworks = $homeworks->get();
@@ -76,6 +115,7 @@ class Homework extends Component
             $this->act = "";
             $this->open_add_homework_modal();
         }
+        $this->subjects = Subject::where('group_id', $this->group_id)->get();
         $this->load_homeworks();
     }
 
@@ -118,7 +158,6 @@ class Homework extends Component
         if (isset($cc->id)) {
             $cc->delete();
         }
-//        $this->load_homeworks();
     }
 
     public function render()

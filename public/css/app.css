@@ -4907,6 +4907,10 @@ select {
 		margin-bottom: 1.5rem;
 	}
 
+	.md\:mt-3 {
+		margin-top: 0.75rem;
+	}
+
 	.md\:block {
 		display: block;
 	}
