@@ -7,9 +7,12 @@ use App\Models\StudentCompletedHomework;
 use App\Models\Subject;
 use App\Models\User;
 use Livewire\Component;
+use WireUi\Traits\Actions;
 
 class Homework extends Component
 {
+    use Actions;
+
     public $act;
     public $add_homework_modal_is_open = false;
     public $subjects = [];
@@ -44,17 +47,20 @@ class Homework extends Component
         'search' => ['except' => ''],
     ];
 
-    public function edit_homework_confirm(){
+    public function edit_homework_confirm()
+    {
 //        dd($this->edit_homework_to_date);
         $this->edit_homework->text = $this->edit_homework_text;
-        if ($this->edit_hw_date){
+        if ($this->edit_hw_date) {
             $this->edit_homework->to_date = $this->edit_homework_to_date;
         }
         $this->edit_homework->save();
         $this->edit_homework_modal_is_open = false;
 
     }
-    public function edit_homework($key){
+
+    public function edit_homework($key)
+    {
         $this->edit_hw_date = false;
         $this->edit_homework = $this->homeworks[$key];
         $this->edit_selected_subject = Subject::find($this->edit_homework->subject_id, ['title'])->title;
@@ -62,8 +68,15 @@ class Homework extends Component
         $this->edit_homework_modal_is_open = true;
     }
 
-    public function edit_homework_date_btn($p){
+    public function edit_homework_date_btn($p)
+    {
         $this->edit_hw_date = $p;
+    }
+
+    public function delete_homework($key)
+    {
+        $this->homeworks[$key]->delete();
+
     }
 
     public function show_unc()
@@ -91,7 +104,8 @@ class Homework extends Component
         $this->mobile_modal_select_subject = false;
     }
 
-    public function reset_subject(){
+    public function reset_subject()
+    {
         $this->confirm_subject_id = 0;
         $this->filter_subject = -1;
         $this->mobile_modal_select_subject = false;
@@ -123,7 +137,7 @@ class Homework extends Component
             $homeworks->where('text', 'like', '%' . $this->search . '%');
         }
 //        dd($this->confirm_subject_id);
-        if ($this->confirm_subject_id != 0){
+        if ($this->confirm_subject_id != 0) {
             $homeworks->where('subject_id', $this->confirm_subject_id);
         }
 

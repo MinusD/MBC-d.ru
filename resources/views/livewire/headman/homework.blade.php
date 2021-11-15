@@ -301,10 +301,22 @@
                                         {{--                                            class="border border-2 border-gray-700 rounded-full h-4 w-4 dark:border-gray-400">--}}
                                         {{--                                        </span>--}}
                                         {{--                                            <span>Не выполнил</span>--}}
-                                        {{--                                        </button>--}}
+                                        {{--                       wire:click="delete_homework({{ $key }})"                  </button>--}}
                                         {{--                                    </div>--}}
                                         <x-button icon="trash" negative wire:loading.attr="enabled"
-                                                  wire:click="delete_homework({{ $key }})"/>
+                                                  x-on:confirm="{
+        title: 'Вы уверены?',
+        icon: 'error',
+            accept: {
+        label: 'Да, удалить',
+        method: 'delete_homework',
+        params: {{ $key }}
+    },
+    reject: {
+        label: 'Нет, оставить',
+{{--        method: 'cancel'--}}
+    }
+    }"/>
                                         <x-button icon="pencil" primary wire:loading.attr="enabled"
                                                   wire:click="edit_homework({{ $key }})"/>
                                         {{--                                        <x-button rightIcon="information-circle" info label="Открыть" class="hidden md:block"--}}

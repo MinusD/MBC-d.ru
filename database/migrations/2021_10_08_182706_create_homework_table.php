@@ -22,6 +22,7 @@ class CreateHomeworkTable extends Migration
             $table->text('text')->nullable();
             $table->timestamp('to_date');
             $table->timestamp('created_at');
+            $table->softDeletes();
         });
     }
 
