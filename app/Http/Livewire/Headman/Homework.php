@@ -18,11 +18,19 @@ class Homework extends Component
     public $homework_to_date;
     public $homeworks = [];
     public $group_id;
+
     public $search = '';
     public $all = true;
     public $mobile_modal_select_subject = false;
     public $filter_subject = "-1";
     public $confirm_subject_id = 0;
+
+    public $edit_homework_modal_is_open = false;
+    public $edit_homework;
+    public $edit_selected_subject = 0;
+    public $edit_homework_text = "";
+    public $edit_homework_to_date = 0;
+    public $edit_hw_date = false;
 
     protected $rules = [
         'homework_to_date' => 'required',
@@ -35,6 +43,28 @@ class Homework extends Component
         'act' => ['except' => ''],
         'search' => ['except' => ''],
     ];
+
+    public function edit_homework_confirm(){
+//        dd($this->edit_homework_to_date);
+        $this->edit_homework->text = $this->edit_homework_text;
+        if ($this->edit_hw_date){
+            $this->edit_homework->to_date = $this->edit_homework_to_date;
+        }
+        $this->edit_homework->save();
+        $this->edit_homework_modal_is_open = false;
+
+    }
+    public function edit_homework($key){
+        $this->edit_hw_date = false;
+        $this->edit_homework = $this->homeworks[$key];
+        $this->edit_selected_subject = Subject::find($this->edit_homework->subject_id, ['title'])->title;
+        $this->edit_homework_text = $this->edit_homework->text;
+        $this->edit_homework_modal_is_open = true;
+    }
+
+    public function edit_homework_date_btn($p){
+        $this->edit_hw_date = $p;
+    }
 
     public function show_unc()
     {

@@ -56,6 +56,49 @@
             </div>
         </x-slot>
     </x-modal.card>
+    <x-modal.card title="Редактирование домашнего задания" blur wire:model.defer="edit_homework_modal_is_open">
+        <div class="grid grid-cols-1 gap-3">
+            <label
+                class="block text-sm font-medium text-secondary-700 dark:text-gray-400 ">
+                Предмет
+                <h1 class="text-xl font-semibold">{{ $edit_selected_subject }}</h1>
+            </label>
+
+            <x-textarea label="Текст задания" wire:model.defer="edit_homework_text">
+
+            </x-textarea>
+            <label
+                class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                Дата домашнего задания
+            </label>
+            <div class="w-full">
+                @if($edit_hw_date)
+                    <input type="date"
+                           class="rounded-md border border-secondary-300 dark:border-secondary-600 bg-gray-100 dark:bg-secondary-800 w-full"
+                           wire:model="edit_homework_to_date">
+                    <x-errors wire:model.defer="edit_homework_to_date"/>
+                    <x-button primary label="Не изменять"  wire:click="edit_homework_date_btn(0)" class="mt-2"/>
+                @else
+                    <div class="text-lg px-3 mb-2 inline-flex rounded-md text-gray-800 bg-gray-100 dark:text-gray-200 dark:bg-gray-600">
+                       {{ mb_substr($edit_homework->to_date  ?? '', 0, -8)}}</div>
+                        <x-button primary label="Изменить" wire:click="edit_homework_date_btn(1)"/>
+                @endif
+            </div>
+        </div>
+        <h1 class="transition mt-1 font-semibold" wire:loading wire:target="reload_subjects">Обновляю список
+            предметов</h1>
+        <x-slot name="footer">
+            <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
+                <div class="flex">
+                    <x-button primary class="mr-2" icon="refresh" wire:click="reload_subjects" label=""/>
+                </div>
+                <div class="flex">
+                    <x-button flat label="Отменить" x-on:click="close"/>
+                    <x-button primary label="Добавить" wire:click="edit_homework_confirm"/>
+                </div>
+            </div>
+        </x-slot>
+    </x-modal.card>
     <x-modal.card title="Фильтр предметов" blur wire:model.defer="mobile_modal_select_subject">
         <div class="grid grid-cols-1 gap-3">
 
@@ -259,7 +302,8 @@
                                         {{--                                            <span>Не выполнил</span>--}}
                                         {{--                                        </button>--}}
                                         {{--                                    </div>--}}
-                                        <x-button icon="pencil" primary wire:loading.attr="enabled"/>
+                                        <x-button icon="pencil" primary wire:loading.attr="enabled"
+                                                  wire:click="edit_homework({{ $key }})"/>
                                         <x-button rightIcon="information-circle" info label="Открыть"
                                                   wire:loading.attr="enabled"/>
                                     </div>
