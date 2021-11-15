@@ -10,6 +10,7 @@ use WireUi\Traits\Actions;
 class Homework extends Component
 {
     use Actions;
+
     public $act;
     public $add_homework_modal_is_open = false;
     public $subjects = [];
@@ -139,7 +140,6 @@ class Homework extends Component
         $cc->homework_id = $this->homeworks[$key]->id;
         $cc->user_id = \Auth::id();
         $cc->save();
-//        $this->load_homeworks();
     }
 
     public function uncompete_homework($key)
