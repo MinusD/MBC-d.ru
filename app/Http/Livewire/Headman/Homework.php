@@ -35,6 +35,10 @@ class Homework extends Component
     public $edit_homework_to_date = 0;
     public $edit_hw_date = false;
 
+    public $show_homework_modal_is_open = false;
+    public $show_homework;
+    public $show_homework_subject;
+
     protected $rules = [
         'homework_to_date' => 'required',
     ];
@@ -46,6 +50,13 @@ class Homework extends Component
         'act' => ['except' => ''],
         'search' => ['except' => ''],
     ];
+
+    public function open_homework($key){
+        $this->show_homework_modal_is_open = true;
+        $this->show_homework = $this->homeworks[$key];
+        $this->show_homework_subject = Subject::find($this->show_homework->subject_id, ['title'])->title;
+
+    }
 
     public function edit_homework_confirm()
     {

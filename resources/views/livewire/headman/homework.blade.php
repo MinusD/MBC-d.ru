@@ -95,11 +95,50 @@
                 </div>
                 <div class="flex">
                     <x-button flat label="Отменить" x-on:click="close"/>
-                    <x-button primary label="Добавить" wire:click="edit_homework_confirm"/>
+                    <x-button primary label="Сохранить" wire:click="edit_homework_confirm"/>
                 </div>
             </div>
         </x-slot>
     </x-modal.card>
+    <x-modal.card title="Просмотр домашнего задания" blur wire:model.defer="show_homework_modal_is_open">
+        <div class="grid grid-cols-1 gap-3">
+            <label
+                class="block text-sm font-medium text-secondary-700 dark:text-gray-400 ">
+                Предмет
+                <h1 class="text-xl font-semibold">{{ $show_homework_subject  }}</h1>
+            </label>
+
+            <label
+                class="block text-sm font-medium text-secondary-700 dark:text-gray-400 ">
+                Текст задания
+                <p class=" -mt-4 text-gray-800 dark:text-gray-300 whitespace-pre-line">
+                    {{ $show_homework->text ?? "" }}
+                </p>
+            </label>
+            <label
+                class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                Дата домашнего задания
+            </label>
+            <div class="w-full">
+                <div
+                    class="text-lg px-3 mb-2 -mt-3 inline-flex rounded-md text-gray-800 bg-gray-100 dark:text-gray-200 dark:bg-gray-600">
+                    {{ mb_substr($show_homework->to_date  ?? '', 0, -8)}}</div>
+            </div>
+        </div>
+        <x-slot name="footer">
+            <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
+                <div class="flex">
+{{--                    <x-button primary class="mr-2" icon="refresh" wire:click="reload_subjects" label=""/>--}}
+                </div>
+                <div class="flex">
+{{--                    <x-button flat label="Отменить" x-on:click="close"/>--}}
+                    <x-button primary label="Завершить" x-on:click="close"/>
+                </div>
+            </div>
+        </x-slot>
+    </x-modal.card>
+
+
     <x-modal.card title="Фильтр предметов" blur wire:model.defer="mobile_modal_select_subject">
         <div class="grid grid-cols-1 gap-3">
 
@@ -193,27 +232,25 @@
                             <x-button lg icon="selector" primary wire:click="open_subjects_modal"/>
                         </div>
                         <div class="hidden md:block">
-                            <label>
-                                <select
-                                    wire:change="select_filter_subject"
-                                    class="placeholder-secondary-400 dark:bg-secondary-800 dark:text-secondary-400 dark:placeholder-secondary-500
+                            <select
+                                wire:change="select_filter_subject"
+                                class="placeholder-secondary-400 dark:bg-secondary-800 dark:text-secondary-400 dark:placeholder-secondary-500
                             border border-secondary-300 focus:ring-primary-500 focus:border-primary-500 dark:border-secondary-600 block w-full
                             sm:text-sm rounded-md transition ease-in-out duration-100 focus:outline-none shadow-sm cursor-pointer overflow-hidden
                             dark:text-secondary-400"
-                                    wire:model.defer="filter_subject"
-                                >
+                                wire:model.defer="filter_subject"
+                            >
+                                <option
+                                    label="Все предметы"
+                                    value="-1"/>
+                                @forelse($subjects as $key => $subject)
                                     <option
-                                        label="Все предметы"
-                                        value="-1"/>
-                                    @forelse($subjects as $key => $subject)
-                                        <option
-                                            label="{{ $subject->title }}"
-                                            value="{{ $key }}"/>
-                                    @empty
-                                        <option label="Не существует" value=-2/>
-                                    @endforelse
-                                </select>
-                            </label>
+                                        label="{{ $subject->title }}"
+                                        value="{{ $key }}"/>
+                                @empty
+                                    <option label="Не существует" value=-2/>
+                                @endforelse
+                            </select>
                         </div>
                         {{--                                                <div class="hidden md:block">--}}
                         {{--                                                    <x-button icon="document-add" positive label="Новая пин" wire:click="new_pin"/>--}}
@@ -262,7 +299,8 @@
                                         class="flex-auto py-2 mb-3 pt-1 px-3 text-sm text-gray-500 rounded-xl bg-gray-100 dark:bg-gray-600">
                                         <div class="flex-1 inline-flex items-center">
                                             <div>
-                                                <p class="text-gray-800 dark:text-gray-300 whitespace-pre-line">{{ $homework->text }}</p>
+                                                <p class="text-gray-800 dark:text-gray-300 whitespace-pre-line">@if(mb_strlen($homework->text) < 110) {{ $homework->text }}
+                                                    @else {{ mb_substr($homework->text, 0, 109) . "..." }} @endif</p>
                                             </div>
                                         </div>
                                     </div>
@@ -305,23 +343,23 @@
                                         {{--                                    </div>--}}
                                         <x-button icon="trash" negative wire:loading.attr="enabled"
                                                   x-on:confirm="{
-        title: 'Вы уверены?',
-        icon: 'error',
-            accept: {
-        label: 'Да, удалить',
-        method: 'delete_homework',
-        params: {{ $key }}
-    },
-    reject: {
-        label: 'Нет, оставить',
-{{--        method: 'cancel'--}}
-    }
-    }"/>
+                                                      title: 'Вы уверены?',
+                                                      icon: 'error',
+                                                      accept: {
+                                                        label: 'Да, удалить',
+                                                        method: 'delete_homework',
+                                                        params: {{ $key }}
+                                                      },
+                                                      reject: {
+                                                        label: 'Нет, оставить',
+                                                      }
+                                                  }"/>
                                         <x-button icon="pencil" primary wire:loading.attr="enabled"
                                                   wire:click="edit_homework({{ $key }})"/>
                                         {{--                                        <x-button rightIcon="information-circle" info label="Открыть" class="hidden md:block"--}}
                                         {{--                                                  wire:loading.attr="enabled"/>--}}
-                                        <x-button rightIcon="information-circle" info class=""
+                                        <x-button rightIcon="information-circle" info
+                                                  wire:click="open_homework({{ $key }})"
                                                   wire:loading.attr="enabled"/>
                                     </div>
                                 </div>
