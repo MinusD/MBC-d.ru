@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Headman;
 
 use App\Models\Group;
+use App\Models\OfferHomework;
 use App\Models\StudentCompletedHomework;
 use App\Models\Subject;
 use App\Models\User;
@@ -169,17 +170,6 @@ class Homework extends Component
         }
     }
 
-    public function mount()
-    {
-        $this->group_id = \Auth::user()->group_id;
-        if ($this->act == "add-homework") {
-            $this->act = "";
-            $this->open_add_homework_modal();
-        }
-        $this->subjects = Subject::where('group_id', $this->group_id)->get();
-        $this->load_homeworks();
-    }
-
     public function open_add_homework_modal()
     {
         $this->add_homework_modal_is_open = true;
@@ -192,8 +182,9 @@ class Homework extends Component
     public function save_homework()
     {
         $this->validate();
-        $homework = new \App\Models\Homework();
-        $homework->group_id = $this->group_id;
+        $homework = new OfferHomework();
+        $homework->user_id = \Auth::id();
+        $homework->group_id = \Auth::user()->group_id;
         $homework->subject_id = $this->subjects[(int)$this->selected_subject]->id;
         $homework->text = $this->homework_text;
         $homework->to_date = $this->homework_to_date;
@@ -204,7 +195,7 @@ class Homework extends Component
         $this->load_homeworks();
         $this->notification()->success(
             $title = 'Готово!',
-            $description = 'Домашнее задание добавлено'
+            $description = 'Домашнее задание предложено'
         );
     }
 
@@ -223,6 +214,17 @@ class Homework extends Component
         if (isset($cc->id)) {
             $cc->delete();
         }
+    }
+
+    public function mount()
+    {
+        $this->group_id = \Auth::user()->group_id;
+        if ($this->act == "add-homework") {
+            $this->act = "";
+            $this->open_add_homework_modal();
+        }
+        $this->subjects = Subject::where('group_id', $this->group_id)->get();
+        $this->load_homeworks();
     }
 
     public function render()
