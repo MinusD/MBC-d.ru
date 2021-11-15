@@ -149,25 +149,27 @@
                             <x-button lg icon="selector" primary wire:click="open_subjects_modal"/>
                         </div>
                         <div class="hidden md:block">
-                            <select
-                                wire:change="select_filter_subject"
-                                class="placeholder-secondary-400 dark:bg-secondary-800 dark:text-secondary-400 dark:placeholder-secondary-500
-                        border border-secondary-300 focus:ring-primary-500 focus:border-primary-500 dark:border-secondary-600 block w-full
-                        sm:text-sm rounded-md transition ease-in-out duration-100 focus:outline-none shadow-sm cursor-pointer overflow-hidden
-                        dark:text-secondary-400"
-                                wire:model.defer="filter_subject"
-                            >
-                                <option
-                                    label="Все предметы"
-                                    value="-1"/>
-                                @forelse($subjects as $key => $subject)
+                            <label>
+                                <select
+                                    wire:change="select_filter_subject"
+                                    class="placeholder-secondary-400 dark:bg-secondary-800 dark:text-secondary-400 dark:placeholder-secondary-500
+                            border border-secondary-300 focus:ring-primary-500 focus:border-primary-500 dark:border-secondary-600 block w-full
+                            sm:text-sm rounded-md transition ease-in-out duration-100 focus:outline-none shadow-sm cursor-pointer overflow-hidden
+                            dark:text-secondary-400"
+                                    wire:model.defer="filter_subject"
+                                >
                                     <option
-                                        label="{{ $subject->title }}"
-                                        value="{{ $key }}"/>
-                                @empty
-                                    <option label="Не существует" value=-2/>
-                                @endforelse
-                            </select>
+                                        label="Все предметы"
+                                        value="-1"/>
+                                    @forelse($subjects as $key => $subject)
+                                        <option
+                                            label="{{ $subject->title }}"
+                                            value="{{ $key }}"/>
+                                    @empty
+                                        <option label="Не существует" value=-2/>
+                                    @endforelse
+                                </select>
+                            </label>
                         </div>
                         {{--                                                <div class="hidden md:block">--}}
                         {{--                                                    <x-button icon="document-add" positive label="Новая пин" wire:click="new_pin"/>--}}

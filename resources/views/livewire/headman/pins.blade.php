@@ -452,7 +452,7 @@
                 @if($pin->pin_type == "link")
                     <div
                         wire:click="select({{$key}})"
-                        class="flex flex-col items-center w-40 justify-between bg-white p-4 shadow rounded-lg shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b bg-red-600"
+                        class="flex flex-col items-center w-40 justify-between bg-white p-4 shadow rounded-lg shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b "
                     >
                         <div class="inline-flex overflow-hidden h-20 w-20">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none"
@@ -479,7 +479,7 @@
                 @elseif($pin->pin_type == "text")
                     <div
                         wire:click="select({{$key}})"
-                        class="flex flex-col items-center w-40 justify-between bg-white p-4 shadow rounded-lg shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b bg-red-600"
+                        class="flex flex-col items-center w-40 justify-between bg-white p-4 shadow rounded-lg shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b "
                     >
                         <div class="inline-flex overflow-hidden h-20 w-20">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none"
@@ -497,7 +497,7 @@
                 @elseif(true)
                     <div
                         wire:click="select({{$key}})"
-                        class="flex flex-col items-center w-40 justify-between bg-white p-4 shadow rounded-lg shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b bg-red-600"
+                        class="flex flex-col items-center w-40 justify-between bg-white p-4 shadow rounded-lg shadow rounded-lg dark:bg-gray-800 dark:text-gray-300 border border-2 transition duration-500 ease-in-out transform hover:bg-opacity-75 hover:shadow-lg cursor-pointer bg-gradient-to-b "
                     >
                         <div class="inline-flex overflow-hidden h-20 w-20">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none"
