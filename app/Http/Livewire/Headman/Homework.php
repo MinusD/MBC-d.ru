@@ -43,7 +43,7 @@ class Homework extends Component
         'homework_to_date' => 'required',
     ];
     protected $messages = [
-        'homework_to_date.required' => "На какое число домашка?)"
+        'homework_to_date.required' => "На какое число домашка?"
     ];
 
     protected $queryString = [
@@ -55,7 +55,6 @@ class Homework extends Component
         $this->show_homework_modal_is_open = true;
         $this->show_homework = $this->homeworks[$key];
         $this->show_homework_subject = Subject::find($this->show_homework->subject_id, ['title'])->title;
-
     }
 
     public function edit_homework_confirm()
@@ -67,6 +66,10 @@ class Homework extends Component
         }
         $this->edit_homework->save();
         $this->edit_homework_modal_is_open = false;
+        $this->notification()->success(
+            $title = 'Готово!',
+            $description = 'Домашнее задание изменено'
+        );
 
     }
 
@@ -87,7 +90,10 @@ class Homework extends Component
     public function delete_homework($key)
     {
         $this->homeworks[$key]->delete();
-
+        $this->notification()->success(
+            $title = 'Готово!',
+            $description = 'Домашнее задание удалено'
+        );
     }
 
     public function show_unc()
@@ -196,6 +202,10 @@ class Homework extends Component
         $this->selected_subject = "0";
         $this->homework_text = "";
         $this->load_homeworks();
+        $this->notification()->success(
+            $title = 'Готово!',
+            $description = 'Домашнее задание добавлено'
+        );
     }
 
     public function compete_homework($key)

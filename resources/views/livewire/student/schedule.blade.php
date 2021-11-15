@@ -117,8 +117,7 @@
                                 {{--                            <div class="mb-3"></div>--}}
                                 @if(random_int(0, 6) == 5)
                                     <div
-                                        x-show="open_hw"
-                                        x-show="open" x-transition:enter="transition ease-out origin-top duration-200"
+                                        x-show="open_hw" x-transition:enter="transition ease-out origin-top duration-200"
                                         x-transition:enter-start="opacity-0 transform "
                                         x-transition:enter-end="opacity-100 transform "
                                         x-transition:leave="transition origin-top ease-in duration-200"
@@ -127,11 +126,9 @@
                                         class="-mt-2 bg-gray-400 bg-opacity-40 ring-offset-gray-300 dark:ring-offset-gray-800 ring-gray-500 dark:ring-gray-700 rounded-b-md px-3 pt-2 pb-4
                                 mx-5 text-gray-700 dark:text-white dark:bg-opacity-40 dark:bg-gray-900 relative mb-2">
                                         <div class=""><span
-                                                class="text-gray-700 dark:text-white text-xs md:text-sm space-y-1 md:space-y-2">{{ \App\Models\Homework::find(1)->text }}</span>
+                                                class="text-gray-700 dark:text-white text-xs md:text-sm space-y-1 md:space-y-2"></span>
                                             <br>
-
-                                            {{--                                        class="text-gray-500 dark:text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>--}}
-                                        </div>
+ </div>
                                         <a href="#">
                                             <div
                                                 class="absolute bottom-0 text-xs w-full text-gray-600 dark:text-gray-200 bg-opacity-60 bg-green-400 dark:bg-green-500 -mx-3 text-center rounded-b-md font-bold">

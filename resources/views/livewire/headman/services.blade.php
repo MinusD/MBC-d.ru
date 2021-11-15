@@ -70,7 +70,7 @@
             <div class="mb-2">Введите список группы в формате: <br><code class="font-semibold">Фамилия Имя
                     Отчество</code><br> <span class="text-sm">Если Отчество отсутствует, после имени, через пробел, необходимо написать точку.</span>
             </div>
-            <x-textarea  wire:model="fast_student_primary_data"></x-textarea>
+            <x-textarea wire:model="fast_student_primary_data"></x-textarea>
         </div>
         <x-slot name="footer">
             <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
@@ -102,8 +102,8 @@
                     <tr class="border-b border-gray-200 hover:bg-gray-100 dark:border-gray-500 dark:hover:bg-gray-800 {{ $key%2 ? 'bg-gray-50 dark:bg-gray-800' : '' }}">
                         <td class="table-cell md:hidden py-3 px-6 text-left">
                             <div class="flex items-center">
-{{--                                    <span--}}
-{{--                                        class="font-medium">{{ $student[0] . " " . mb_substr($student[1], 0, 1) . ". " .  mb_substr($student[2], 0, 1) . "."  }} </span>--}}
+                                {{--                                    <span--}}
+                                {{--                                        class="font-medium">{{ $student[0] . " " . mb_substr($student[1], 0, 1) . ". " .  mb_substr($student[2], 0, 1) . "."  }} </span>--}}
                             </div>
                         </td>
                         <td class="hidden md:table-cell py-3 px-6 text-left">
@@ -123,22 +123,22 @@
                         </td>
                         <td class="py-3 px-6 text-center">
                             <div class="flex item-center justify-center">
-{{--                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">--}}
-{{--                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"--}}
-{{--                                         stroke="currentColor">--}}
-{{--                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
-{{--                                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>--}}
-{{--                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
-{{--                                              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>--}}
-{{--                                    </svg>--}}
-{{--                                </div>--}}
-{{--                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">--}}
-{{--                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"--}}
-{{--                                         stroke="currentColor">--}}
-{{--                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
-{{--                                              d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>--}}
-{{--                                    </svg>--}}
-{{--                                </div>--}}
+                                {{--                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">--}}
+                                {{--                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"--}}
+                                {{--                                         stroke="currentColor">--}}
+                                {{--                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
+                                {{--                                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>--}}
+                                {{--                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
+                                {{--                                              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>--}}
+                                {{--                                    </svg>--}}
+                                {{--                                </div>--}}
+                                {{--                                <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">--}}
+                                {{--                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"--}}
+                                {{--                                         stroke="currentColor">--}}
+                                {{--                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
+                                {{--                                              d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>--}}
+                                {{--                                    </svg>--}}
+                                {{--                                </div>--}}
                                 <div class="w-4 mr-2 transform hover:text-red-500 hover:scale-110"
                                      wire:click="delete_user({{$key}})">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -189,9 +189,6 @@
                 <span class="font-bold text-2xl text-black dark:text-white ">Быстрое добавление студентов</span>
             </div>
         </div>
-
-
-
 
         <div class="flex-initial mb-4 w-full md:w-1/2 md:pl-3 lg:pl-3 xl:w-1/3 2xl:w-1/3 xl:pr-3 self-auto">
             <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-700 w-full h-full">
@@ -245,26 +242,26 @@
                             </div>
                             <div class="w-1/4 items-center text-center flex" x-data="{ch: false, vk: false, tg: false}">
                                 <div class="w-full h-full">
-{{--                                    <svg class="inline-block w-11/12 rounded-full bg-red-500 opacity-40"--}}
-{{--                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">--}}
-{{--                                        <path fill="#4caf50"--}}
-{{--                                              d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/>--}}
-{{--                                        <path fill="#ffc107"--}}
-{{--                                              d="M24,4v20l8,4l-8.843,16c0.317,0,0.526,0,0.843,0c11.053,0,20-8.947,20-20S35.053,4,24,4z"/>--}}
-{{--                                        <path fill="#4caf50"--}}
-{{--                                              d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/>--}}
-{{--                                        <path fill="#ffc107"--}}
-{{--                                              d="M24,4v20l8,4l-8.843,16c0.317,0,0.526,0,0.843,0c11.053,0,20-8.947,20-20S35.053,4,24,4z"/>--}}
-{{--                                        <path fill="#f44336"--}}
-{{--                                              d="M41.84,15H24v13l-3-1L7.16,13.26H7.14C10.68,7.69,16.91,4,24,4C31.8,4,38.55,8.48,41.84,15z"/>--}}
-{{--                                        <path fill="#dd2c00" d="M7.158,13.264l8.843,14.862L21,27L7.158,13.264z"/>--}}
-{{--                                        <path fill="#558b2f" d="M23.157,44l8.934-16.059L28,25L23.157,44z"/>--}}
-{{--                                        <path fill="#f9a825" d="M41.865,15H24l-1.579,4.58L41.865,15z"/>--}}
-{{--                                        <path fill="#fff"--}}
-{{--                                              d="M33,24c0,4.969-4.031,9-9,9s-9-4.031-9-9s4.031-9,9-9S33,19.031,33,24z"/>--}}
-{{--                                        <path fill="#2196f3"--}}
-{{--                                              d="M31,24c0,3.867-3.133,7-7,7s-7-3.133-7-7s3.133-7,7-7S31,20.133,31,24z"/>--}}
-{{--                                    </svg>--}}
+                                    {{--                                    <svg class="inline-block w-11/12 rounded-full bg-red-500 opacity-40"--}}
+                                    {{--                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">--}}
+                                    {{--                                        <path fill="#4caf50"--}}
+                                    {{--                                              d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/>--}}
+                                    {{--                                        <path fill="#ffc107"--}}
+                                    {{--                                              d="M24,4v20l8,4l-8.843,16c0.317,0,0.526,0,0.843,0c11.053,0,20-8.947,20-20S35.053,4,24,4z"/>--}}
+                                    {{--                                        <path fill="#4caf50"--}}
+                                    {{--                                              d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/>--}}
+                                    {{--                                        <path fill="#ffc107"--}}
+                                    {{--                                              d="M24,4v20l8,4l-8.843,16c0.317,0,0.526,0,0.843,0c11.053,0,20-8.947,20-20S35.053,4,24,4z"/>--}}
+                                    {{--                                        <path fill="#f44336"--}}
+                                    {{--                                              d="M41.84,15H24v13l-3-1L7.16,13.26H7.14C10.68,7.69,16.91,4,24,4C31.8,4,38.55,8.48,41.84,15z"/>--}}
+                                    {{--                                        <path fill="#dd2c00" d="M7.158,13.264l8.843,14.862L21,27L7.158,13.264z"/>--}}
+                                    {{--                                        <path fill="#558b2f" d="M23.157,44l8.934-16.059L28,25L23.157,44z"/>--}}
+                                    {{--                                        <path fill="#f9a825" d="M41.865,15H24l-1.579,4.58L41.865,15z"/>--}}
+                                    {{--                                        <path fill="#fff"--}}
+                                    {{--                                              d="M33,24c0,4.969-4.031,9-9,9s-9-4.031-9-9s4.031-9,9-9S33,19.031,33,24z"/>--}}
+                                    {{--                                        <path fill="#2196f3"--}}
+                                    {{--                                              d="M31,24c0,3.867-3.133,7-7,7s-7-3.133-7-7s3.133-7,7-7S31,20.133,31,24z"/>--}}
+                                    {{--                                    </svg>--}}
                                 </div>
                                 <div class="w-full h-full" x-show="vk" @click="vk = false">
                                     <svg class="inline-block w-11/12 rounded-full bg-green-400"
@@ -319,50 +316,50 @@
                             <div class="w-1/4 items-center text-center flex" x-data="{ch: false, vk: false, tg: false}">
                                 <div class="w-full h-full">
                                 </div>
-{{--                                <div class="w-full h-full" x-show="ch" @click="ch = false">--}}
-{{--                                    <svg class="inline-block w-11/12 rounded-full bg-green-400"--}}
-{{--                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">--}}
-{{--                                        <path fill="#4caf50"--}}
-{{--                                              d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/>--}}
-{{--                                        <path fill="#ffc107"--}}
-{{--                                              d="M24,4v20l8,4l-8.843,16c0.317,0,0.526,0,0.843,0c11.053,0,20-8.947,20-20S35.053,4,24,4z"/>--}}
-{{--                                        <path fill="#4caf50"--}}
-{{--                                              d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/>--}}
-{{--                                        <path fill="#ffc107"--}}
-{{--                                              d="M24,4v20l8,4l-8.843,16c0.317,0,0.526,0,0.843,0c11.053,0,20-8.947,20-20S35.053,4,24,4z"/>--}}
-{{--                                        <path fill="#f44336"--}}
-{{--                                              d="M41.84,15H24v13l-3-1L7.16,13.26H7.14C10.68,7.69,16.91,4,24,4C31.8,4,38.55,8.48,41.84,15z"/>--}}
-{{--                                        <path fill="#dd2c00" d="M7.158,13.264l8.843,14.862L21,27L7.158,13.264z"/>--}}
-{{--                                        <path fill="#558b2f" d="M23.157,44l8.934-16.059L28,25L23.157,44z"/>--}}
-{{--                                        <path fill="#f9a825" d="M41.865,15H24l-1.579,4.58L41.865,15z"/>--}}
-{{--                                        <path fill="#fff"--}}
-{{--                                              d="M33,24c0,4.969-4.031,9-9,9s-9-4.031-9-9s4.031-9,9-9S33,19.031,33,24z"/>--}}
-{{--                                        <path fill="#2196f3"--}}
-{{--                                              d="M31,24c0,3.867-3.133,7-7,7s-7-3.133-7-7s3.133-7,7-7S31,20.133,31,24z"/>--}}
-{{--                                    </svg>--}}
-{{--                                </div>--}}
-{{--                                <div class="w-full h-full" x-show="!ch" @click="ch = true">--}}
-{{--                                    <svg class="inline-block w-11/12 rounded-full bg-red-500 opacity-40"--}}
-{{--                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">--}}
-{{--                                        <path fill="#4caf50"--}}
-{{--                                              d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/>--}}
-{{--                                        <path fill="#ffc107"--}}
-{{--                                              d="M24,4v20l8,4l-8.843,16c0.317,0,0.526,0,0.843,0c11.053,0,20-8.947,20-20S35.053,4,24,4z"/>--}}
-{{--                                        <path fill="#4caf50"--}}
-{{--                                              d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/>--}}
-{{--                                        <path fill="#ffc107"--}}
-{{--                                              d="M24,4v20l8,4l-8.843,16c0.317,0,0.526,0,0.843,0c11.053,0,20-8.947,20-20S35.053,4,24,4z"/>--}}
-{{--                                        <path fill="#f44336"--}}
-{{--                                              d="M41.84,15H24v13l-3-1L7.16,13.26H7.14C10.68,7.69,16.91,4,24,4C31.8,4,38.55,8.48,41.84,15z"/>--}}
-{{--                                        <path fill="#dd2c00" d="M7.158,13.264l8.843,14.862L21,27L7.158,13.264z"/>--}}
-{{--                                        <path fill="#558b2f" d="M23.157,44l8.934-16.059L28,25L23.157,44z"/>--}}
-{{--                                        <path fill="#f9a825" d="M41.865,15H24l-1.579,4.58L41.865,15z"/>--}}
-{{--                                        <path fill="#fff"--}}
-{{--                                              d="M33,24c0,4.969-4.031,9-9,9s-9-4.031-9-9s4.031-9,9-9S33,19.031,33,24z"/>--}}
-{{--                                        <path fill="#2196f3"--}}
-{{--                                              d="M31,24c0,3.867-3.133,7-7,7s-7-3.133-7-7s3.133-7,7-7S31,20.133,31,24z"/>--}}
-{{--                                    </svg>--}}
-{{--                                </div>--}}
+                                {{--                                <div class="w-full h-full" x-show="ch" @click="ch = false">--}}
+                                {{--                                    <svg class="inline-block w-11/12 rounded-full bg-green-400"--}}
+                                {{--                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">--}}
+                                {{--                                        <path fill="#4caf50"--}}
+                                {{--                                              d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/>--}}
+                                {{--                                        <path fill="#ffc107"--}}
+                                {{--                                              d="M24,4v20l8,4l-8.843,16c0.317,0,0.526,0,0.843,0c11.053,0,20-8.947,20-20S35.053,4,24,4z"/>--}}
+                                {{--                                        <path fill="#4caf50"--}}
+                                {{--                                              d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/>--}}
+                                {{--                                        <path fill="#ffc107"--}}
+                                {{--                                              d="M24,4v20l8,4l-8.843,16c0.317,0,0.526,0,0.843,0c11.053,0,20-8.947,20-20S35.053,4,24,4z"/>--}}
+                                {{--                                        <path fill="#f44336"--}}
+                                {{--                                              d="M41.84,15H24v13l-3-1L7.16,13.26H7.14C10.68,7.69,16.91,4,24,4C31.8,4,38.55,8.48,41.84,15z"/>--}}
+                                {{--                                        <path fill="#dd2c00" d="M7.158,13.264l8.843,14.862L21,27L7.158,13.264z"/>--}}
+                                {{--                                        <path fill="#558b2f" d="M23.157,44l8.934-16.059L28,25L23.157,44z"/>--}}
+                                {{--                                        <path fill="#f9a825" d="M41.865,15H24l-1.579,4.58L41.865,15z"/>--}}
+                                {{--                                        <path fill="#fff"--}}
+                                {{--                                              d="M33,24c0,4.969-4.031,9-9,9s-9-4.031-9-9s4.031-9,9-9S33,19.031,33,24z"/>--}}
+                                {{--                                        <path fill="#2196f3"--}}
+                                {{--                                              d="M31,24c0,3.867-3.133,7-7,7s-7-3.133-7-7s3.133-7,7-7S31,20.133,31,24z"/>--}}
+                                {{--                                    </svg>--}}
+                                {{--                                </div>--}}
+                                {{--                                <div class="w-full h-full" x-show="!ch" @click="ch = true">--}}
+                                {{--                                    <svg class="inline-block w-11/12 rounded-full bg-red-500 opacity-40"--}}
+                                {{--                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">--}}
+                                {{--                                        <path fill="#4caf50"--}}
+                                {{--                                              d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/>--}}
+                                {{--                                        <path fill="#ffc107"--}}
+                                {{--                                              d="M24,4v20l8,4l-8.843,16c0.317,0,0.526,0,0.843,0c11.053,0,20-8.947,20-20S35.053,4,24,4z"/>--}}
+                                {{--                                        <path fill="#4caf50"--}}
+                                {{--                                              d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/>--}}
+                                {{--                                        <path fill="#ffc107"--}}
+                                {{--                                              d="M24,4v20l8,4l-8.843,16c0.317,0,0.526,0,0.843,0c11.053,0,20-8.947,20-20S35.053,4,24,4z"/>--}}
+                                {{--                                        <path fill="#f44336"--}}
+                                {{--                                              d="M41.84,15H24v13l-3-1L7.16,13.26H7.14C10.68,7.69,16.91,4,24,4C31.8,4,38.55,8.48,41.84,15z"/>--}}
+                                {{--                                        <path fill="#dd2c00" d="M7.158,13.264l8.843,14.862L21,27L7.158,13.264z"/>--}}
+                                {{--                                        <path fill="#558b2f" d="M23.157,44l8.934-16.059L28,25L23.157,44z"/>--}}
+                                {{--                                        <path fill="#f9a825" d="M41.865,15H24l-1.579,4.58L41.865,15z"/>--}}
+                                {{--                                        <path fill="#fff"--}}
+                                {{--                                              d="M33,24c0,4.969-4.031,9-9,9s-9-4.031-9-9s4.031-9,9-9S33,19.031,33,24z"/>--}}
+                                {{--                                        <path fill="#2196f3"--}}
+                                {{--                                              d="M31,24c0,3.867-3.133,7-7,7s-7-3.133-7-7s3.133-7,7-7S31,20.133,31,24z"/>--}}
+                                {{--                                    </svg>--}}
+                                {{--                                </div>--}}
                                 <div class="w-full h-full" x-show="vk" @click="vk = false">
                                     <svg class="inline-block w-11/12 rounded-full bg-green-400"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
@@ -704,6 +701,14 @@
 
                 </div>
 
+            </div>
+        </div>
+        <div class="flex-initial mb-4 w-full md:w-1/2 md:pl-3 lg:pl-3 xl:w-1/3 2xl:w-1/3 xl:pr-3 self-auto">
+            <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-700 w-full h-full">
+                <span class="font-bold text-2xl text-black dark:text-white ml-2">Привязки</span>
+                <div class="mt-3 rounded-md  space-y-3">
+
+                </div>
             </div>
         </div>
     </div>

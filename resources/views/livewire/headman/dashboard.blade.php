@@ -180,7 +180,7 @@
                     </div>
                     <div class="flex">
                         <x-button flat label="Отменить" x-on:click="close"/>
-{{--                        <x-button primary label="Сохранить" wire:click="save_new_pincode"/>--}}
+                        {{--                        <x-button primary label="Сохранить" wire:click="save_new_pincode"/>--}}
                     </div>
                 </div>
             </x-slot>
@@ -224,10 +224,18 @@
                             Добавить участника
                         </button>
                     </div>
+
+                    <div class="p-2">
+                        <a href="{{ route('headman.services') . "?act=fast-group" }}">
+                            <button type="button"
+                                    class="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">
+                                Быстрое добавление
+                            </button>
+                        </a>
+                    </div>
+
                     <div class="p-2">
                         <button type="button"
-                                {{--                                x-on:click="$openModal('invite_link_edit_model_is_open')"--}}
-
                                 wire:click="open_invite_link_edit_modal"
                                 class="w-full h-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">
                             Приглашения
@@ -244,17 +252,12 @@
                     </div>
 
                     <div class="p-2">
-                        <button type="button"
-                                class="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">
-                            Действие 3
-                        </button>
-                    </div>
-
-                    <div class="p-2">
-                        <button type="button"
-                                class="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">
-                            Действие 4
-                        </button>
+                        <a href="{{ route('headman.services') . "?act=app-token" }}">
+                            <button type="button"
+                                    class="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">
+                                Токен расширения
+                            </button>
+                        </a>
                     </div>
 
                 </div>
