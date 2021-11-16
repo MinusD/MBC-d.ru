@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Student;
 
+use App\Models\OfferHomework;
 use App\Models\StudentCompletedHomework;
 use App\Models\Subject;
 use Livewire\Component;
@@ -115,11 +116,14 @@ class Homework extends Component
         $this->subjects = Subject::where('group_id', $this->group_id)->get();
     }
 
+
+
     public function save_homework()
     {
         $this->validate();
-        $homework = new \App\Models\Homework();
-        $homework->group_id = $this->group_id;
+        $homework = new OfferHomework();
+        $homework->user_id = \Auth::id();
+        $homework->group_id = \Auth::user()->group_id;
         $homework->subject_id = $this->subjects[(int)$this->selected_subject]->id;
         $homework->text = $this->homework_text;
         $homework->to_date = $this->homework_to_date;

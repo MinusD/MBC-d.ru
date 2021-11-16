@@ -52,7 +52,8 @@ class Homework extends Component
         'search' => ['except' => ''],
     ];
 
-    public function open_homework($key){
+    public function open_homework($key)
+    {
         $this->show_homework_modal_is_open = true;
         $this->show_homework = $this->homeworks[$key];
         $this->show_homework_subject = Subject::find($this->show_homework->subject_id, ['title'])->title;
@@ -182,9 +183,8 @@ class Homework extends Component
     public function save_homework()
     {
         $this->validate();
-        $homework = new OfferHomework();
-        $homework->user_id = \Auth::id();
-        $homework->group_id = \Auth::user()->group_id;
+        $homework = new \App\Models\Homework();
+        $homework->group_id = $this->group_id;
         $homework->subject_id = $this->subjects[(int)$this->selected_subject]->id;
         $homework->text = $this->homework_text;
         $homework->to_date = $this->homework_to_date;
@@ -195,7 +195,7 @@ class Homework extends Component
         $this->load_homeworks();
         $this->notification()->success(
             $title = 'Готово!',
-            $description = 'Домашнее задание предложено'
+            $description = 'Домашнее задание добавлено'
         );
     }
 
