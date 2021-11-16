@@ -34,6 +34,7 @@ class ApiController extends Controller
     public function ObtainData(Request $request): \Illuminate\Http\JsonResponse
     {
         $t = $request->input();
+        $t['data'] = json_encode($t['data']);
         if (isset($t['t'])) {
             if (isset($t['data']) and mb_strlen((string)$t['data']) > 1) {
                 $token = TokenGroupExtension::where('token', $t['t'])->first();
@@ -54,9 +55,10 @@ class ApiController extends Controller
     public function NotifyUser(Request $request): \Illuminate\Http\JsonResponse
     {
         $t = $request->input();
+
         if (isset($t['t'])) {
-                $token = TokenGroupExtension::where('token', $t['t'])->first();
-                return response()->json(['status' => 'ok', 'msg' => 'Notification sent successfully']);
+            $token = TokenGroupExtension::where('token', $t['t'])->first();
+            return response()->json(['status' => 'ok', 'msg' => 'Notification sent successfully']);
 //                if (isset($token->group_id)) {
 //                    $scan = new ExtensionScanResults();
 //                    $scan->group_id = $token->group_id;
