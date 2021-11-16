@@ -113,6 +113,7 @@ Route::group([
     ], function () {
         Route::get('/get_group_data', [\App\Http\Controllers\ApiController::class, 'GroupGetData']);
         Route::get('/obtain_data', [\App\Http\Controllers\ApiController::class, 'ObtainData']);
+        Route::get('/obtain_data/post', [\App\Http\Controllers\ApiController::class, 'ObtainData']);
         Route::post('/obtain_data/post', [\App\Http\Controllers\ApiController::class, 'ObtainData']);
         Route::put('/obtain_data/put', [\App\Http\Controllers\ApiController::class, 'ObtainData']);
         Route::get('/notify_user', [\App\Http\Controllers\ApiController::class, 'NotifyUser']);

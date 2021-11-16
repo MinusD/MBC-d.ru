@@ -35,15 +35,13 @@ class ApiController extends Controller
     {
         $t = $request->input();
         if (isset($t['t'])) {
-            if (isset($t['data']) and mb_strlen($t['data']) > 1) {
+            if (isset($t['data']) and mb_strlen((string)$t['data']) > 1) {
                 $token = TokenGroupExtension::where('token', $t['t'])->first();
                 if (isset($token->group_id)) {
-
                     $scan = new ExtensionScanResults();
                     $scan->group_id = $token->group_id;
-                    $scan->data = $t['data'];
+                    $scan->data = (string)$t['data'];
                     $scan->save();
-//                    return response()->json(json_decode($scan->data));
                     return response()->json(['status' => 'ok', 'msg' => 'Save successfully', 'data' => $scan->id]);
                 }
             } else {
@@ -52,6 +50,7 @@ class ApiController extends Controller
         }
         return response()->json(['status' => 'error', 'msg' => 'Invalid token']);
     }
+
     public function NotifyUser(Request $request): \Illuminate\Http\JsonResponse
     {
         $t = $request->input();
