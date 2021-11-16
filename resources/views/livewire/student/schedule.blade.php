@@ -137,15 +137,12 @@
                                         </a>
                                     </div>
                                 @endif
-
-
                                 {{--                            <li class="flex items-center text-gray-600 dark:text-gray-200 justify-between py-3 border-b-2 border-gray-100 dark:border-gray-800">--}}
                                 {{--                                <div class="flex items-center justify-start text-sm">--}}
                                 {{--                                    <div class="px-4">--}}
                                 {{--                                        <span class="">{{ $lessons_time[$day['n']] }} </span>--}}
                                 {{--                                        <span> {{ $day['name'] }}{{ ', ' . $day['place'] ?? '' }} </span>--}}
                                 {{--                                        <br>--}}
-
                                 {{--                                        <span--}}
                                 {{--                                            class="text-gray-200 text-xs md:text-sm text-sm underline ml-10">{{ $day['tuter'] }}</span>--}}
                                 {{--                                    </div>--}}
@@ -157,7 +154,6 @@
                                 {{--                                        fill="currentColor">--}}
                                 {{--                                    </path>--}}
                                 {{--                                </svg>--}}
-
                                 {{--                            </li>--}}
                             @empty
                                 <div
