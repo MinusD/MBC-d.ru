@@ -18,7 +18,6 @@ class MainController extends Controller
         } else {
             return abort(503);
         }
-
     }
 
     public function test(): string

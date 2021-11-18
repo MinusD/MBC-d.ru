@@ -251,11 +251,11 @@
 
                                         <x-button md primary class="w-full mt-2 mb-12 md:mb-6" x-show="!student"
                                                   wire:click="reg_by_headman">
-                                            Зарегестрироваться
+                                            Зарегистрироваться
                                         </x-button>
                                         <x-button md primary class="w-full mt-2 mb-12 md:mb-6" x-show="student"
                                                   wire:click="reg_by_student">
-                                            Зарегестрироваться
+                                            Зарегистрироваться
                                         </x-button>
                                     @else
                                         <div class="mb-20 md:mb-0 text-center font-bold">
