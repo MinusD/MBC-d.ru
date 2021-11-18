@@ -64,8 +64,8 @@ class Services extends Component
         $group_id = Auth::user()->group_id;
         foreach ($this->fast_student_data as $u) {
             $user = new User();
-            $user->name = $u[0];
-            $user->sname = $u[1];
+            $user->name = $u[1];
+            $user->sname = $u[0];
             $user->pname = $u[2];
             $user->group_id = $group_id;
             $user->save();

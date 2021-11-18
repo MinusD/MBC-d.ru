@@ -2611,6 +2611,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(220, 38, 38, var(--tw-bg-opacity));
 }
+.bg-red-300 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(252, 165, 165, var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
@@ -5036,6 +5040,11 @@ select {
 
 	.md\:border-l {
 		border-left-width: 1px;
+	}
+
+	.md\:bg-green-500 {
+		--tw-bg-opacity: 1;
+		background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
 	}
 
 	.md\:p-4 {

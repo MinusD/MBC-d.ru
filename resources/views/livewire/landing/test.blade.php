@@ -1,11 +1,21 @@
-<div class="container mx-auto space-y-4 p-4 sm:p-0">
-    @php
-    $date = strtotime('monday this week');
-    for($i = 1;$i < 7;$i++) {?>
-    <div class=""><?php echo date("d.m.Y", $date); ?></div>
-    <?php
-    $date =  strtotime('+1 day', $date);
-    } @endphp
+<div class="">
+    <div class="flex items-center justify-center w-full h-screen">
+        <div class="flex bg-red-300 h-32 w-32 md:bg-green-500 transition transform duration-500 rounded-md">
+            <span class="hidden md:block">Размер >MD</span>
+            <span class="block md:hidden">Размер меньше MD</span>
+        </div>
+    </div>
+</div>
+
+
+{{--<div class="container mx-auto space-y-4 p-4 sm:p-0">--}}
+{{--    @php--}}
+{{--    $date = strtotime('monday this week');--}}
+{{--    for($i = 1;$i < 7;$i++) {?>--}}
+{{--    <div class=""><?php echo date("d.m.Y", $date); ?></div>--}}
+{{--    <?php--}}
+{{--    $date =  strtotime('+1 day', $date);--}}
+{{--    } @endphp--}}
 
 {{--    <ul class="flex flex-col sm:flex-row sm:space-x-8 sm:items-center">--}}
 {{--        <li>--}}
@@ -56,8 +66,6 @@
 {{--</div>--}}
 
 
-
-
 {{--    <div class="shadow rounded p-4 border bg-white" style="height: 32rem;">--}}
 {{--        <livewire:livewire-line-chart--}}
 {{--            key="{{ $lineChartModel->reactiveKey() }}"--}}
@@ -74,7 +82,7 @@
 {{--            :area-chart-model="$areaChartModel"--}}
 {{--        />--}}
 {{--    </div>--}}
-</div>
+{{--</div>--}}
 
 
 {{--<div class="bg-gray-800 w-full h-screen p-10 gap-4">--}}
