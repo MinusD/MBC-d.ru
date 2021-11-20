@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Headman;
 
 use App\Models\Group;
 use App\Models\GroupInvites;
+use App\Models\OfferHomework;
 use App\Models\StudentGroupInvite;
 use App\Models\User;
 use Livewire\Component;
@@ -25,6 +26,7 @@ class Dashboard extends Component
     public $new_stunent_pname = "";
     public $invite;
     public $group_applications_counter;
+    public $homeworks_applications_counter = 0;
 
     protected $rules = [
         'new_stunent_name' => 'required|min:2|max:25',
@@ -47,6 +49,7 @@ class Dashboard extends Component
     {
         $this->group = Group::where('headman_id', \Auth::id())->first();
         $this->group_applications_counter = StudentGroupInvite::where('group_id', $this->group->id)->where('status', 'wait')->count();
+        $this->homeworks_applications_counter = OfferHomework::where('group_id', $this->group->id)->count();
         $this->get_students();
 //        dd($this->students);
     }

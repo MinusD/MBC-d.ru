@@ -80,7 +80,7 @@ class Homework extends Component
         if (mb_strlen($this->search) > 1) {
             $homeworks->where('text', 'like', '%' . $this->search . '%');
         }
-//        dd($this->confirm_subject_id);
+
         if ($this->confirm_subject_id != 0) {
             $homeworks->where('subject_id', $this->confirm_subject_id);
         }

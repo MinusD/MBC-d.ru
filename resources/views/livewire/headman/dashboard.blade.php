@@ -252,13 +252,21 @@
                     </div>
 
                     <div class="p-2">
-                        <a href="{{ route('headman.services') . "?act=app-token" }}">
+                        <a href="{{ route('headman.homeworks-applications') }}">
                             <button type="button"
-                                    class="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">
-                                Токен расширения
+                                    class="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105 @if($homeworks_applications_counter > 0) bg-gradient-to-r from-yellow-400 to-yellow-600  @endif">
+                                Предложения ДЗ ({{$homeworks_applications_counter}})
                             </button>
                         </a>
                     </div>
+{{--                    <div class="p-2">--}}
+{{--                        <a href="{{ route('headman.services') . "?act=app-token" }}">--}}
+{{--                            <button type="button"--}}
+{{--                                    class="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">--}}
+{{--                                Токен расширения--}}
+{{--                            </button>--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
 
                 </div>
 

@@ -72,7 +72,6 @@ class Homework extends Component
             $title = 'Готово!',
             $description = 'Домашнее задание изменено'
         );
-
     }
 
     public function edit_homework($key)

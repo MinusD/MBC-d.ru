@@ -53,6 +53,7 @@ Route::group([
         Route::get('homework', \App\Http\Livewire\Headman\Homework::class)->name('headman.homework');
         Route::get('services', \App\Http\Livewire\Headman\Services::class)->name('headman.services');
         Route::get('applications', \App\Http\Livewire\Headman\GroupApplications::class)->name('headman.applications');
+        Route::get('homeworks-applications', \App\Http\Livewire\Headman\HomeworkApplications::class)->name('headman.homeworks-applications');
 
     });
 
@@ -60,9 +61,7 @@ Route::group([
         'prefix' => 'moderator',
         'middleware' => ['can:mod-panel-access'],
     ], function () {
-
 //        Route::get('/', \App\Http\Livewire\Moderator\Dashboard::class)->name('moderator.dashboard');
-
 //        Route::get('/group/id-{id}', [\App\Http\Controllers\GroupsController::class, 'learnerSeeGroup'])->name('learner-see-group');
     });
 
