@@ -61,7 +61,7 @@ Route::group([
         'prefix' => 'moderator',
         'middleware' => ['can:mod-panel-access'],
     ], function () {
-//        Route::get('/', \App\Http\Livewire\Moderator\Dashboard::class)->name('moderator.dashboard');
+        Route::get('/', \App\Http\Livewire\Moderator\Dashboard::class)->name('moderator.dashboard');
 //        Route::get('/group/id-{id}', [\App\Http\Controllers\GroupsController::class, 'learnerSeeGroup'])->name('learner-see-group');
     });
 

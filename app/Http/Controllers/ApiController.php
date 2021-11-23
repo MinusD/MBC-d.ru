@@ -55,7 +55,6 @@ class ApiController extends Controller
     public function NotifyUser(Request $request): \Illuminate\Http\JsonResponse
     {
         $t = $request->input();
-
         if (isset($t['t'])) {
             $token = TokenGroupExtension::where('token', $t['t'])->first();
             return response()->json(['status' => 'ok', 'msg' => 'Notification sent successfully']);
