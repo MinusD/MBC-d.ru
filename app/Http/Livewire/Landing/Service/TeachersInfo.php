@@ -2,13 +2,18 @@
 
 namespace App\Http\Livewire\Landing\Service;
 
+use App\Models\RequestForAddTeachersInformation;
 use App\Models\TeacherInformation;
 use Livewire\Component;
+use WireUi\Traits\Actions;
 
 class TeachersInfo extends Component
 {
+    use Actions;
     public $info;
     public $t;
+    public $ask_modal = false;
+    public $comment = "";
 
     protected $queryString = [
         't' => ['except' => ''],
@@ -22,8 +27,17 @@ class TeachersInfo extends Component
         $this->info = TeacherInformation::where('short_name', $this->t)->first();
     }
 
-    public function search(){
+    public function open_modal_ask(){
+        $this->ask_modal = true;
+    }
 
+    public function send_ask(){
+        $ask = new RequestForAddTeachersInformation();
+        $ask->short_name = $this->t;
+        $ask->comment = $this->comment;
+        $ask->save();
+        $this->comment = "";
+        $this->ask_modal = false;
     }
 
     public function render()

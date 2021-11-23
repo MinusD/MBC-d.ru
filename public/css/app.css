@@ -2096,10 +2096,6 @@ select {
 .gap-y-2 {
 	row-gap: 0.5rem;
 }
-.gap-x-5 {
-	-moz-column-gap: 1.25rem;
-	     column-gap: 1.25rem;
-}
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
 	margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -2367,6 +2363,10 @@ select {
 	--tw-border-opacity: 1;
 	border-color: rgba(254, 202, 202, var(--tw-border-opacity));
 }
+.border-negative-600 {
+	--tw-border-opacity: 1;
+	border-color: rgba(220, 38, 38, var(--tw-border-opacity));
+}
 .border-secondary-200 {
 	--tw-border-opacity: 1;
 	border-color: rgba(228, 228, 231, var(--tw-border-opacity));
@@ -2374,10 +2374,6 @@ select {
 .border-positive-600 {
 	--tw-border-opacity: 1;
 	border-color: rgba(5, 150, 105, var(--tw-border-opacity));
-}
-.border-negative-600 {
-	--tw-border-opacity: 1;
-	border-color: rgba(220, 38, 38, var(--tw-border-opacity));
 }
 .border-green-400 {
 	--tw-border-opacity: 1;
@@ -3654,6 +3650,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
 }
+.hover\:bg-negative-50:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(254, 242, 242, var(--tw-bg-opacity));
+}
 .hover\:bg-secondary-50:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(250, 250, 250, var(--tw-bg-opacity));
@@ -3661,10 +3661,6 @@ select {
 .hover\:bg-positive-50:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
-}
-.hover\:bg-negative-50:hover {
-	--tw-bg-opacity: 1;
-	background-color: rgba(254, 242, 242, var(--tw-bg-opacity));
 }
 .hover\:bg-blue-900:hover {
 	--tw-bg-opacity: 1;

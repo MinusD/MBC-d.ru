@@ -16,8 +16,8 @@ class CreateRequestForAddTeachersInformationTable extends Migration
         Schema::create('request_for_add_teachers_information', function (Blueprint $table) {
             $table->id();
             $table->string('short_name');
-            $table->string('name')->nullable();
-            $table->string('email')->nullable();
+//            $table->string('name')->nullable();
+//            $table->string('email')->nullable();
             $table->string('comment')->nullable();
             $table->timestamp('created_at');
         });

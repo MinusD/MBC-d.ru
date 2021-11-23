@@ -1,4 +1,29 @@
 <div>
+    <x-modal.card title="Запрос" blur wire:model.defer="ask_modal">
+        <div class="grid grid-cols-1 gap-3">
+
+            <div class="">
+                <label
+                    class="block text-sm font-medium text-secondary-700 dark:text-gray-400 ">
+                    Имя
+                    <h1 class="text-xl font-semibold">{{ $t }}</h1>
+                </label>
+            </div>
+            <x-textarea label="Комментарий и как с вами связаться? (Vk, Telegram и тд)"></x-textarea>
+        </div>
+
+        <x-slot name="footer">
+            <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
+                <div class="flex">
+                </div>
+                <div class="flex">
+                    <x-button flat label="Отменить" x-on:click="close"/>
+                    <x-button primary label="Отправить" wire:click="send_ask"/>
+                </div>
+            </div>
+        </x-slot>
+    </x-modal.card>
+
 
     <div
         class="bg-gradient-to-br from-indigo-900 to-green-900 min-h-screen overflow-auto flex items-center justify-center ">
@@ -18,21 +43,16 @@
                     </p>
                 </div>
                 @if(!isset($info->email))
-                    <div class="w-full -mb-3 mt-3 grid grid-cols-1 md:grid-cols-2 gap-x-5">
-                        <div
-                            class=" items-center bg-indigo-900 text-white text-center bg-opacity-40 shadow-xl gap-5 px-2 py-1 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
-                            Я знаю
-                        </div>
-                        <div
-                            class=" items-center bg-indigo-900 text-white text-center bg-opacity-40 shadow-xl gap-5 px-2 py-1 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
-                            Попросить узнать
-                        </div>
-                    </div>
-                @else
                     <div
-                        class="w-full -mb-3 mt-3 items-center bg-indigo-900 text-white text-center bg-opacity-40 shadow-xl gap-5 px-2 py-1 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
-                        Есть ошибка?
+                        wire:click="open_modal_ask"
+                        class="w-full -mb-3 mt-5 items-center bg-indigo-900 text-white text-center bg-opacity-40 shadow-xl gap-5 px-2 py-1 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
+                        Попросить узнать
                     </div>
+{{--                @else--}}
+{{--                    <div--}}
+{{--                        class="w-full -mb-3 mt-3 items-center bg-indigo-900 text-white text-center bg-opacity-40 shadow-xl gap-5 px-2 py-1 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">--}}
+{{--                        Есть ошибка?--}}
+{{--                    </div>--}}
                 @endif
             </div>
         </div>
