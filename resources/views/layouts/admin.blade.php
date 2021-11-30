@@ -139,7 +139,8 @@
                         <a href="{{ route('admin.logs') }}"
                            class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-indigo-100  {{ (request()->routeIs('admin.logs')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-gray-400" }}">
 						<span class="flex items-center justify-center text-lg text-gray-500 dark:text-gray-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                 stroke="currentColor">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                             </svg>
@@ -536,8 +537,6 @@
                         {{--                                    }--}}
                         {{--                                </script>--}}
                         {{--                            </div>--}}
-
-
                         {{--                        </div>--}}
 
                     </div>
@@ -552,8 +551,6 @@
                     x-transition:leave-start="opacity-100 transform scale-100"
                     x-transition:leave-end="opacity-0 transform scale-90"
                 >
-
-
                     <div class="mb-2">
                         <a href="{{ route('admin.dashboard') }}"
                            class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-500 bg-gray-100 {{ (request()->routeIs('admin.dashboard')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-white" }}">
@@ -600,8 +597,10 @@
                         <a href="{{ route('admin.logs') }}"
                            class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-500 bg-gray-100 {{ (request()->routeIs('admin.logs')) ? " bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100" : "bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-800 dark:text-white" }}">
                             <span class="flex items-center justify-center text-lg ">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                                 </svg>
                             </span>
                             <span class="ml-3 ">Журнал</span>
@@ -622,21 +621,16 @@
                         </a>
                     </div>
                 </nav>
-                <div class=" px-3 mx-auto flex-center bg-white">
-
-                    {{--                        <div class="flex-shrink-0 px-8 py-4 flex flex-row items-center justify-between">--}}
-                    {{--                            <a href="#"--}}
-                    {{--                               class="md:hidden text-xl font-mono tracking-wide text-gray-800 dark-mode:text-white focus:outline-none focus:shadow-outline dark:text-white">Название</a>--}}
-                    {{--                            <div class="flex items-center">--}}
-                    {{--                                <div class="md:hidden">--}}
-                    {{--                                </div>--}}
-
-                    {{--                            </div>--}}
-
-                    {{--                        </div>--}}
-
-
-                </div>
+                {{--                <div class=" px-3 mx-auto flex-center bg-white">--}}
+                {{--                        <div class="flex-shrink-0 px-8 py-4 flex flex-row items-center justify-between">--}}
+                {{--                            <a href="#"--}}
+                {{--                               class="md:hidden text-xl font-mono tracking-wide text-gray-800 dark-mode:text-white focus:outline-none focus:shadow-outline dark:text-white">Название</a>--}}
+                {{--                            <div class="flex items-center">--}}
+                {{--                                <div class="md:hidden">--}}
+                {{--                                </div>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                </div>--}}
             </header>
             <div class="overflow-auto h-screen pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0">
                 <main>

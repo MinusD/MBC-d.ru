@@ -4380,10 +4380,6 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
 }
-.dark .dark\:hover\:bg-gray-700:hover {
-	--tw-bg-opacity: 1;
-	background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
-}
 .dark .dark\:hover\:bg-gray-800:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
@@ -4392,9 +4388,9 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(129, 140, 248, var(--tw-bg-opacity));
 }
-.dark .dark\:hover\:bg-gray-900:hover {
+.dark .dark\:hover\:bg-gray-700:hover {
 	--tw-bg-opacity: 1;
-	background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
+	background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
 }
 .dark .dark\:hover\:text-gray-600:hover {
 	--tw-text-opacity: 1;

@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 
 Route::get('/test', function () {
@@ -102,6 +102,7 @@ Route::group([
     Route::get('/', \App\Http\Livewire\Landing\Service::class)->name('landing.services');
     Route::get('teachersinfo', \App\Http\Livewire\Landing\Service\TeachersInfo::class)->name('landing.services.teachers_info');
     Route::get('help/informatics', \App\Http\Livewire\Landing\Service\Help\Informatics::class)->name('landing.services.help.informatics');
+    Route::get('help/informatics11', \App\Http\Livewire\Landing\Service\Help\Informatics11::class)->name('landing.services.help.informatics11');
 });
 
 
@@ -118,9 +119,7 @@ Route::group([
 //        Route::put('/obtain_data/put', [\App\Http\Controllers\ApiController::class, 'ObtainData']);
         Route::get('/notify_user', [\App\Http\Controllers\ApiController::class, 'NotifyUser']);
     });
-
-//    Route::get('help/informatics', \App\Http\Livewire\Landing\Service\Help\Informatics::class)->name('landing.services.help.informatics');
-
+    //    Route::get('help/informatics', \App\Http\Livewire\Landing\Service\Help\Informatics::class)->name('landing.services.help.informatics');
 });
 
 
