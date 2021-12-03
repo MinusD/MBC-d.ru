@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Http\Livewire\Headman\Homework;
 use App\Http\Livewire\Landing\Service\TeachersInfo;
+use App\Models\CustomLink;
 use App\Models\Folder;
 use App\Models\Group;
 use App\Models\Subject;
@@ -91,5 +92,13 @@ class UserSeeder extends Seeder
         $ti1->name = "Соловьев Александр Анатольевич";
         $ti1->email = "solovev_aa@mirea.ru";
         $ti1->save();
+
+        $cl1 = new CustomLink();
+        $cl1->title = "Лекции по информатике";
+        $cl1->full = "lektsii-po-informatike";
+        $cl1->short = "yZ3I1Sv9";
+        $cl1->link = "https://www.youtube.com/playlist?list=PLHROBPvji2_kvAH8Nshvk0u9jQI501prv";
+        $cl1->save();
+
     }
 }

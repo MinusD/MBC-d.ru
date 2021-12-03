@@ -18,6 +18,7 @@ class CreateCustomLinksTable extends Migration
             $table->string('title')->default('Без названия');
             $table->string('full')->nullable();
             $table->string('short')->nullable();
+            $table->string('link');
             $table->integer('counter')->default(0);
             $table->timestamps();
         });
