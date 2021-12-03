@@ -126,5 +126,6 @@ Route::group([
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Controllers\MainController::class, 'DashboardRedirect'])->name('dashboard');
 Route::get('import/{token}', \App\Http\Livewire\Admin\Import::class);
 
+Route::get('r/{key}', [\App\Http\Controllers\MainController::class, 'CustomRedirect']);
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Controllers\MainController::class, 'DashboardRedirect'])->name('dashboard');
 //Route::get('/', \App\Http\Livewire\Landing\Home::class)->name('landing.home');

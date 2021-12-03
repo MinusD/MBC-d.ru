@@ -10,7 +10,7 @@
                     <span class="text-red-600">Ошибка поиска группы</span>
                 @endif
                 <p><span class="font-bold">Важно! </span>Название группы должно быть в таком же формате, как и в
-                    расаписании (Например: <code>ИКБО-30-21)</code></p>
+                    расаписании (Например: <code>ИКБО-30-21</code>)</p>
 
             </div>
 
@@ -36,7 +36,7 @@
                         <a href="{{ route('landing.home') }}">
                             <span class="text-3xl dark:text-gray-100 font-semibold text-white ml-3"><span
                                     class="font-bold" style="font-family: 'Otomanopee One', sans-serif;">MBC</span> Studio</span>
-{{--                            <span class="hidden md:block">MD</span> <span class="hidden xl:block">XL</span> <span class="hidden 2xl:block">2xl</span>--}}
+                            {{--                            <span class="hidden md:block">MD</span> <span class="hidden xl:block">XL</span> <span class="hidden 2xl:block">2xl</span>--}}
                         </a>
                     </div>
 
@@ -184,15 +184,16 @@
     <div class="mx-2 md:mx-10 mb-10 mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-4 gap-y-4">
         @forelse($lessons as $key => $les)
             <div
-                class="block w-full shadow-lg  items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full @if($key == $current_day) bg-gradient-to-br from-indigo-700 to-green-600 @else bg-indigo-900 bg-opacity-40 @endif">
-{{--                <div class="-mt-3 text-gray-200 font-semibold text-sm  ml-2 right-2">2021-11-09</div>--}}
+                class="block w-full shadow-lg  items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full @if($key == $current_day && $show_week == $current_week) bg-gradient-to-br from-indigo-700 to-green-600 @else bg-indigo-900 bg-opacity-40 @endif">
+                {{--                <div class="-mt-3 text-gray-200 font-semibold text-sm  ml-2 right-2">2021-11-09</div>--}}
                 <div class="flex items-center justify-between mb-3">
 
                     <div class="flex items-center">
 
                         <div class="flex flex-col">
-                                <div
-                                    class="font-bold text-2xl text-white ml-2 capitalize">{{ $les['day_name'] }} <span class="text-sm text-gray-200 ">{{ date("d.m.Y", $show_date) }}</span> </div>
+                            <div
+                                class="font-bold text-2xl text-white ml-2 capitalize">{{ $les['day_name'] }} <span
+                                    class="text-sm text-gray-200 ">{{ date("d.m.Y", $show_date) }}</span></div>
                         </div>
                     </div>
                 </div>
@@ -200,12 +201,13 @@
                 @forelse($les['data'] as $day)
                     <div
                         class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">
+                        {{--                        <div--}}
+                        {{--                            class="hidden  text-gray-200 text-xs md:text-sm flex-initial items-center justify-center py-1 px-3 font-semibold whitespace-normal md:whitespace-nowrap">--}}
+                        {{--                            {{ $lessons_time[$day['n']]}}--}}
+                        {{--                        </div>--}}
+                        {{--                        2xl:flex--}}
                         <div
-                            class="hidden 2xl:flex text-gray-200 text-xs md:text-sm flex-initial items-center justify-center py-1 px-3 font-semibold whitespace-normal md:whitespace-nowrap">
-                            {{ $lessons_time[$day['n']]}}
-                        </div>
-                        <div
-                            class="flex-initial 2xl:hidden text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 pr-3 font-semibold ">
+                            class="flex-initial text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 pr-3 font-semibold ">
                             {{ mb_substr($lessons_time[$day['n']], 0, 5) }}<br>
                             {{ mb_substr($lessons_time[$day['n']],-6, -1) . '0' }}
                         </div>
@@ -213,7 +215,8 @@
                                 class="text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}{{ !env('IS_DISTANT') ? (', ' . $day['place'] ?? '') : '' }}</span>
                             <br>
 
-                            <a href="{{ route('landing.services.teachers_info') . '?t=' . $day['tuter']}}" target="_blank">
+                            <a href="{{ route('landing.services.teachers_info') . '?t=' . $day['tuter']}}"
+                               target="_blank">
                             <span
                                 class="text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>
                             </a>
