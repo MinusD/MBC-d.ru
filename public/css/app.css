@@ -1379,6 +1379,9 @@ select {
 .col-span-1 {
 	grid-column: span 1 / span 1;
 }
+.col-span-2 {
+	grid-column: span 2 / span 2;
+}
 .m-4 {
 	margin: 1rem;
 }
@@ -2029,6 +2032,9 @@ select {
 .flex-wrap {
 	flex-wrap: wrap;
 }
+.flex-nowrap {
+	flex-wrap: nowrap;
+}
 .items-start {
 	align-items: flex-start;
 }
@@ -2268,6 +2274,18 @@ select {
 .rounded-b-xl {
 	border-bottom-right-radius: 0.75rem;
 	border-bottom-left-radius: 0.75rem;
+}
+.rounded-b-lg {
+	border-bottom-right-radius: 0.5rem;
+	border-bottom-left-radius: 0.5rem;
+}
+.rounded-l-lg {
+	border-top-left-radius: 0.5rem;
+	border-bottom-left-radius: 0.5rem;
+}
+.rounded-r-lg {
+	border-top-right-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
 }
 .rounded-tr-lg {
 	border-top-right-radius: 0.5rem;
@@ -2652,6 +2670,10 @@ select {
 	--tw-gradient-from: #a78bfa;
 	--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(167, 139, 250, 0));
 }
+.from-yellow-700 {
+	--tw-gradient-from: #b45309;
+	--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(180, 83, 9, 0));
+}
 .via-pink-500 {
 	--tw-gradient-stops: var(--tw-gradient-from), #ec4899, var(--tw-gradient-to, rgba(236, 72, 153, 0));
 }
@@ -2669,6 +2691,9 @@ select {
 }
 .to-red-500 {
 	--tw-gradient-to: #ef4444;
+}
+.to-red-600 {
+	--tw-gradient-to: #dc2626;
 }
 .bg-cover {
 	background-size: cover;
@@ -2918,6 +2943,9 @@ select {
 .pt-8 {
 	padding-top: 2rem;
 }
+.pb-6 {
+	padding-bottom: 1.5rem;
+}
 .pt-12 {
 	padding-top: 3rem;
 }
@@ -2962,6 +2990,9 @@ select {
 }
 .font-mono {
 	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.font-serif {
+	font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 .text-sm {
 	font-size: 0.875rem;
@@ -4689,6 +4720,10 @@ select {
 		grid-template-columns: none;
 	}
 
+	.sm\:grid-cols-3 {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
 	.sm\:flex-row {
 		flex-direction: row;
 	}
@@ -4990,6 +5025,10 @@ select {
 		grid-template-columns: repeat(6, minmax(0, 1fr));
 	}
 
+	.md\:grid-cols-4 {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
 	.md\:gap-6 {
 		gap: 1.5rem;
 	}
@@ -5075,6 +5114,16 @@ select {
 	.md\:px-4 {
 		padding-left: 1rem;
 		padding-right: 1rem;
+	}
+
+	.md\:px-6 {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+
+	.md\:py-6 {
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
 	}
 
 	.md\:pt-0 {
@@ -5245,6 +5294,11 @@ select {
 	.lg\:text-base {
 		font-size: 1rem;
 		line-height: 1.5rem;
+	}
+
+	.lg\:text-2xl {
+		font-size: 1.5rem;
+		line-height: 2rem;
 	}
 
 	.lg\:hover\:bg-gray-100:hover {
