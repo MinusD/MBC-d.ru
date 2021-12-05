@@ -25,14 +25,7 @@ class MainController extends Controller
 
     public function CustomRedirect($key)
     {
-//        switch ($key) {
-//            case "lektsii-po-informatike":
-//            case "yZ3I1Sv9":
-//                return redirect("https://www.youtube.com/playlist?list=PLHROBPvji2_kvAH8Nshvk0u9jQI501prv");
-//                break;
-//
-//        }
-        $l = CustomLink::Where('full', $key)->orWhere('short', $key)->first();
+        $l = CustomLink::where('full', $key)->orWhere('short', $key)->first();
         if (!is_null($l)){
             $l->counter++;
             $l->save();
@@ -40,12 +33,11 @@ class MainController extends Controller
         } else {
             return "Ключ не найден";
         }
-
     }
 
     public function test()
     {
-        $d = User::find(2);
+//        $d = User::find(2);
 //        Storage::put('attempt1.txt', $d);
     }
 }

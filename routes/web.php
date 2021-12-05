@@ -73,6 +73,7 @@ Route::group([
         Route::get('/', \App\Http\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
         Route::get('stats', \App\Http\Livewire\Admin\Stats::class)->name('admin.stats');
         Route::get('export', \App\Http\Livewire\Admin\Export::class)->name('admin.export');
+        Route::get('short-links', \App\Http\Livewire\Admin\ShortLinks::class)->name('admin.short-links');
         Route::get('logs', \App\Http\Livewire\Admin\Logs::class)->name('admin.logs');
 
         Route::group([
@@ -103,6 +104,7 @@ Route::group([
     Route::get('teachersinfo', \App\Http\Livewire\Landing\Service\TeachersInfo::class)->name('landing.services.teachers_info');
     Route::get('help/informatics', \App\Http\Livewire\Landing\Service\Help\Informatics::class)->name('landing.services.help.informatics');
     Route::get('help/informatics11', \App\Http\Livewire\Landing\Service\Help\Informatics11::class)->name('landing.services.help.informatics11');
+    Route::get('materials/english-texts', \App\Http\Livewire\Landing\Service\Materials\EnglishTexts::class)->name('landing.services.materials.english-texts');
 });
 
 
@@ -113,11 +115,12 @@ Route::group([
         'prefix' => 'extension',
     ], function () {
         Route::get('/get_group_data', [\App\Http\Controllers\ApiController::class, 'GroupGetData']);
+        Route::post('/obtain_data', [\App\Http\Controllers\ApiController::class, 'ObtainData']);
+        Route::get('/notify_user', [\App\Http\Controllers\ApiController::class, 'NotifyUser']);
 //        Route::get('/obtain_data', [\App\Http\Controllers\ApiController::class, 'ObtainData']);
 //        Route::get('/obtain_data/post', [\App\Http\Controllers\ApiController::class, 'ObtainData']);
-        Route::post('/obtain_data', [\App\Http\Controllers\ApiController::class, 'ObtainData']);
 //        Route::put('/obtain_data/put', [\App\Http\Controllers\ApiController::class, 'ObtainData']);
-        Route::get('/notify_user', [\App\Http\Controllers\ApiController::class, 'NotifyUser']);
+
     });
     //    Route::get('help/informatics', \App\Http\Livewire\Landing\Service\Help\Informatics::class)->name('landing.services.help.informatics');
 });

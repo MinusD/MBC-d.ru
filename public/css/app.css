@@ -5313,10 +5313,6 @@ select {
 		display: flex;
 	}
 
-	.\32xl\:hidden {
-		display: none;
-	}
-
 	.\32xl\:w-1\/3 {
 		width: 33.333333%;
 	}
