@@ -22,7 +22,7 @@ class BookReader extends Component
             default:
                 dd("Файл не найден");
         }
-//        dd($book);
+        $this->redirect(asset('/laraview/data/' . $this->path));
     }
 
     public function render()
