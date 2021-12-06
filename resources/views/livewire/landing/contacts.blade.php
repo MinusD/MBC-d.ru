@@ -161,6 +161,8 @@
         </p>
     </div>
 
+{{--    <iframe src ="{{ asset('/laraview/data/Физика. Чертов.pdf') }}" class="w-full h-screen"></iframe>--}}
+
 {{--        <a href="{{ route('landing.home') }}" class="text-gray-200">--}}
 {{--            <div class="group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">--}}
 {{--                <svg class="w-9 h-9 -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">--}}

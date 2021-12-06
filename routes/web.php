@@ -105,6 +105,7 @@ Route::group([
     Route::get('help/informatics', \App\Http\Livewire\Landing\Service\Help\Informatics::class)->name('landing.services.help.informatics');
     Route::get('help/informatics11', \App\Http\Livewire\Landing\Service\Help\Informatics11::class)->name('landing.services.help.informatics11');
     Route::get('materials/english-texts', \App\Http\Livewire\Landing\Service\Materials\EnglishTexts::class)->name('landing.services.materials.english-texts');
+    Route::get('materials/book/{book}', \App\Http\Livewire\Landing\Service\Materials\BookReader::class)->name('landing.services.materials.book');
 });
 
 

@@ -12,6 +12,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "asantibanez/livewire-charts": "^2.3",
+        "davcpas1234/laravelpdfviewer": "^1.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.3",
         "laravel/framework": "^8.54",

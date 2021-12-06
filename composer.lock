@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb2fab105442724945f158c5cd694d8d",
+    "content-hash": "171d95328ebc1e1ec8a57661e2c85ce3",
     "packages": [
         {
             "name": "asantibanez/livewire-charts",
@@ -283,6 +283,59 @@
                 "source": "https://github.com/DASPRiD/Enum/tree/1.0.3"
             },
             "time": "2020-10-02T16:03:48+00:00"
+        },
+        {
+            "name": "davcpas1234/laravelpdfviewer",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davcpas1234/laravel-pdf-viewer.git",
+                "reference": "be0a3a8ff9719708cc62a12db091551ba91c2f5f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davcpas1234/laravel-pdf-viewer/zipball/be0a3a8ff9719708cc62a12db091551ba91c2f5f",
+                "reference": "be0a3a8ff9719708cc62a12db091551ba91c2f5f",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Davcpas1234\\LaravelPdfViewer\\LaravelPdfViewerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Davcpas1234\\LaravelPdfViewer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Goodness Toluwanimi Kayode",
+                    "email": "gtkbrain@gmail.com"
+                },
+                {
+                    "name": "David Passmore",
+                    "email": "david.passmore@verscreative.co.uk"
+                }
+            ],
+            "description": "A Laravel Package for viewing PDF files or documents on Web App",
+            "keywords": [
+                "ViewerJS",
+                "laravel",
+                "laravel-viewerJS",
+                "pdf-viewer"
+            ],
+            "support": {
+                "source": "https://github.com/davcpas1234/laravel-pdf-viewer/tree/v1.0.1"
+            },
+            "time": "2021-05-31T12:18:40+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
