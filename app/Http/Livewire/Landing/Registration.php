@@ -68,10 +68,10 @@ class Registration extends Component
     {
         $this->validate();
         $user = new User();
-        $user->name = $this->name;
-        $user->sname = $this->sname;
-        $user->pname = $this->pname;
-        $user->email = $this->email;
+        $user->name = trim($this->name);
+        $user->sname = trim($this->sname);
+        $user->pname = trim($this->pname);
+        $user->email = trim($this->email);
         $user->password = \Hash::make($this->pass);
         $user->assignRole('student');
         $user->assignRole('headman');
@@ -90,10 +90,10 @@ class Registration extends Component
     {
         $this->validate();
         $user = new User();
-        $user->name = $this->name;
-        $user->sname = $this->sname;
-        $user->pname = $this->pname;
-        $user->email = $this->email;
+        $user->name = trim($this->name);
+        $user->sname = trim($this->sname);
+        $user->pname = trim($this->pname);
+        $user->email = trim($this->email);
         $user->password = \Hash::make($this->pass);
         $user->assignRole('student');
         $user->save();
