@@ -116,15 +116,15 @@
                         border border-secondary-300 focus:ring-primary-500 focus:border-primary-500 dark:border-secondary-600 block w-full
                         sm:text-sm rounded-md transition ease-in-out duration-100 focus:outline-none shadow-sm cursor-pointer overflow-hidden
                         dark:text-secondary-400 mb-2"
-                                            wire:model.defer="student_id"
+                                            wire:model.defer="selected_user_key"
                                         >
 {{--                                            <option label="Не вабрано" value="0"/>--}}
                                             @forelse($users as $key => $user)
                                                 <option
                                                     label="{{ $user->sname . " " . mb_substr($user->name, 0, 1) . ". " .  mb_substr($user->pname, 0, 1) . "."  }}"
-                                                    value={{ $key }}/>
+                                                    value={{ $key }} />
                                             @empty
-                                                <option label="Не существует" value=-1/>
+                                                <option label="Не существует" value=-1 />
                                             @endforelse
                                             {{--                                            <option label="Синий" value="3"/>--}}
                                             {{--                                            <option label="Фиолетовый" value="4"/>--}}

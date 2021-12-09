@@ -128,7 +128,9 @@
                                     </div>
                                 </div>
                                 @forelse($day['hw'] as $hw)
-                                    <div
+
+                                    <section>
+                                        <div
                                         x-show="open_hw"
                                         x-transition:enter="transition ease-out origin-top duration-200"
                                         x-transition:enter-start="opacity-0 transform "
@@ -149,7 +151,8 @@
                                                 Просмотреть полностью
                                             </div>
                                         </a>
-                                    </div>
+                                        </div>
+                                    <section/>
                                     @empty
                                 @endforelse
 

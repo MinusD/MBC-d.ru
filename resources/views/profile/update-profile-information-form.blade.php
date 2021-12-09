@@ -54,8 +54,15 @@
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="name" value="{{ __('Name') }}" />
-            <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
+            <x-jet-label for="name" value="{{ __('Имя') }}" />
+            <h1 class="text-xl mb-3">{{ $state['name'] }}</h1>
+
+            <x-jet-label for="name" value="{{ __('Фамилия') }}" />
+            <h1 class="text-xl mb-3">{{ $state['sname'] }}</h1>
+
+            <x-jet-label for="name" value="{{ __('Отчество') }}" />
+            <h1 class="text-xl mb-3">{{ $state['pname'] }}</h1>
+
             <x-jet-input-error for="name" class="mt-2" />
         </div>
 

@@ -45,7 +45,7 @@ class RegByCode extends Component
     {
         $this->validate();
         $user = User::find($this->users[$this->selected_user_key]->id);
-        $user->email = $this->email;
+        $user->email = trim($this->email);
         $user->password = \Hash::make($this->pass);
         $user->save();
         $user->assignRole('student');
@@ -62,7 +62,7 @@ class RegByCode extends Component
                 $this->users = User::where('group_id', $this->invite->group_id)->whereNull('password')->get();
                 if (count($this->users) == 0) {
                     abort(403);
-                    dd("Все зарегистрированны!");
+                    dd("Все зарегистрированы!");
                 }
             } else {
                 abort(403);
