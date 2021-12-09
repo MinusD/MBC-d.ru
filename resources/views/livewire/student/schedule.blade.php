@@ -3,86 +3,100 @@
         <header class="w-full shadow-lg bg-white dark:bg-gray-700 items-center h-16 rounded-2xl z-40 mb-2">
             <div class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
                 <div class="relative items-center pl-1 flex w-full lg:max-w-68 sm:pr-2 sm:ml-0">
+
                     <div class="container relative left-0 z-50 flex w-3/4 h-auto h-full">
-                        {{--                        <div class="relative flex items-center w-full lg:w-64 h-full group">--}}
-                        {{--                            <div--}}
-                        {{--                                class="absolute z-50 flex items-center justify-center block w-auto h-10 p-3 pr-2 text-sm text-gray-500 uppercase cursor-pointer sm:hidden">--}}
-                        {{--                                <svg fill="none" class="relative w-5 h-5" stroke-linecap="round" stroke-linejoin="round"--}}
-                        {{--                                     stroke-width="2" stroke="currentColor" viewBox="0 0 24 24">--}}
-                        {{--                                    <path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z">--}}
-                        {{--                                    </path>--}}
-                        {{--                                </svg>--}}
-                        {{--                            </div>--}}
-                        {{--                            <svg--}}
-                        {{--                                class="absolute left-0 z-20 hidden w-4 h-4 ml-4 text-gray-500 pointer-events-none fill-current group-hover:text-gray-400 sm:block"--}}
-                        {{--                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">--}}
-                        {{--                                <path--}}
-                        {{--                                    d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z">--}}
-                        {{--                                </path>--}}
-                        {{--                            </svg>--}}
-                        {{--                            <input type="text"--}}
-                        {{--                                   class="block w-full py-1.5 pl-10 pr-4 leading-normal rounded-2xl focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 ring-opacity-90 bg-gray-100 dark:bg-gray-800 text-gray-400 aa-input"--}}
-                        {{--                                   placeholder="Поиск">--}}
-                        {{--                            <div--}}
-                        {{--                                class="absolute right-0 hidden h-auto px-2 py-1 mr-2 text-xs text-gray-400 border border-gray-300 rounded-2xl md:block">--}}
-                        {{--                                +--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-                        {{--                        <div class="grid grid-cols-2 gap-4 items-center">--}}
-                        {{--                            <div class="hidden md:block">--}}
-                        {{--                                <x-button icon="folder-add" primary label="Новая папка" wire:click="new_folder"/>--}}
-                        {{--                            </div>--}}
-                        {{--                            <div class="hidden md:block">--}}
-                        {{--                                <x-button icon="document-add" positive label="Новая пин" wire:click="new_pin"/>--}}
-                        {{--                            </div>--}}
-                        {{--                            <div class="block md:hidden">--}}
-                        {{--                                <x-button lg icon="folder-add" primary wire:click="new_folder"/>--}}
-                        {{--                            </div>--}}
-                        {{--                            <div class="block md:hidden">--}}
-                        {{--                                <x-button lg icon="document-add" positive wire:click="new_pin"/>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
+
+                        <div class="-mb-1">
+                                <span
+                                    class="inline-flex rounded-md shadow-lg bg-indigo-900 bg-opacity-40 items-center shadow-lg bg-gray-200 dark:bg-gray-900">
+                                    <ul class="flex">
+                                        <li class="mx-1 ml-3 py-1 cursor-pointer" wire:click="previous_week">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300"
+                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M11 17l-5-5m0 0l5-5m-5 5h12"></path>
+                                            </svg>
+                                        </li>
+                                        <li class="mx-1 px-3 py-1 rounded-lg cursor-pointer" wire:click="current_week">
+                                            <a class="flex items-center font-bold" href="#">
+                                                <span class="mx-1 text-gray-300">Неделя&nbsp;{{ $show_week }}</span>
+                                            </a>
+                                        </li>
+                                        <li class="mx-1 pr-3 py-1 cursor-pointer" wire:click="next_week">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 class="h-6 w-6 text-gray-300 rotate-180"
+                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M11 17l-5-5m0 0l5-5m-5 5h12"></path>
+                                            </svg>
+                                        </li>
+                                    </ul>
+                                </span>
+                        </div>
+
+                        {{--                                                <div class="relative flex items-center w-full lg:w-64 h-full group">--}}
+                        {{--                                                    <div--}}
+                        {{--                                                        class="absolute z-50 flex items-center justify-center block w-auto h-10 p-3 pr-2 text-sm text-gray-500 uppercase cursor-pointer sm:hidden">--}}
+                        {{--                                                        <svg fill="none" class="relative w-5 h-5" stroke-linecap="round" stroke-linejoin="round"--}}
+                        {{--                                                             stroke-width="2" stroke="currentColor" viewBox="0 0 24 24">--}}
+                        {{--                                                            <path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z">--}}
+                        {{--                                                            </path>--}}
+                        {{--                                                        </svg>--}}
+                        {{--                                                    </div>--}}
+                        {{--                                                    <svg--}}
+                        {{--                                                        class="absolute left-0 z-20 hidden w-4 h-4 ml-4 text-gray-500 pointer-events-none fill-current group-hover:text-gray-400 sm:block"--}}
+                        {{--                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">--}}
+                        {{--                                                        <path--}}
+                        {{--                                                            d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z">--}}
+                        {{--                                                        </path>--}}
+                        {{--                                                    </svg>--}}
+                        {{--                                                    <input type="text"--}}
+                        {{--                                                           class="block w-full py-1.5 pl-10 pr-4 leading-normal rounded-2xl focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 ring-opacity-90 bg-gray-100 dark:bg-gray-800 text-gray-400 aa-input"--}}
+                        {{--                                                           placeholder="Поиск">--}}
+                        {{--                                                    <div--}}
+                        {{--                                                        class="absolute right-0 hidden h-auto px-2 py-1 mr-2 text-xs text-gray-400 border border-gray-300 rounded-2xl md:block">--}}
+                        {{--                                                        +--}}
+                        {{--                                                    </div>--}}
+                        {{--                                                </div>--}}
+                        {{--                                                <div class="grid grid-cols-2 gap-4 items-center">--}}
+                        {{--                                                    <div class="hidden md:block">--}}
+                        {{--                                                        <x-button icon="folder-add" primary label="Новая папка" wire:click="new_folder"/>--}}
+                        {{--                                                    </div>--}}
+                        {{--                                                    <div class="hidden md:block">--}}
+                        {{--                                                        <x-button icon="document-add" positive label="Новая пин" wire:click="new_pin"/>--}}
+                        {{--                                                    </div>--}}
+                        {{--                                                    <div class="block md:hidden">--}}
+                        {{--                                                        <x-button lg icon="folder-add" primary wire:click="new_folder"/>--}}
+                        {{--                                                    </div>--}}
+                        {{--                                                    <div class="block md:hidden">--}}
+                        {{--                                                        <x-button lg icon="document-add" positive wire:click="new_pin"/>--}}
+                        {{--                                                    </div>--}}
+                        {{--                                                </div>--}}
 
 
                     </div>
-                    <div class="relative p-1 flex items-center justify-end w-1/4 ml-5 mr-4 sm:mr-0 sm:right-auto">
-                        <x-button primary @click="open_hw = !open_hw">Показать/Скрыть дз</x-button>
-                    </div>
+                    @if(!is_null(Auth::user()->group_id))
+                        <div class="relative p-1 flex items-center justify-end w-1/4 ml-5 mr-4 sm:mr-0 sm:right-auto">
+                            <x-button primary @click="open_hw = !open_hw">Показать/Скрыть дз</x-button>
+                        </div>
+                    @endif
                 </div>
             </div>
         </header>
-
-        {{--    @if(env('IS_DISTANT'))--}}
-        {{--        <div class="w-full shadow-lg bg-white dark:bg-gray-700 items-center rounded-md z-40 mb-2">--}}
-        {{--            <div--}}
-        {{--                class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">--}}
-        {{--                <div>--}}
-        {{--                    <div class="flex flex items-center justify-center">--}}
-        {{--                        <div class="text-md font-semibold text-gray-100">--}}
-        {{--                            Все пары проходят в дистанционном формате--}}
-        {{--                        </div>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-        {{--        </div>--}}
-        {{--    @endif--}}
         <div class="mx-0 mb-10 mt-1 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 md:gap-4 gap-y-4">
 
             @forelse($lessons as $key => $les)
                 <div
                     class="mb-4 mx-0 xl:mr-4 block w-full shadow-lg items-center rounded-2xl bg-white dark:bg-gray-700">
                     <div class="rounded-2xl w-full">
-                        <p class="font-bold text-md pl-4 pt-2 text-black dark:text-white capitalize">
-                            {{ $les['day_name'] }}
+                        <p class="font-bold text-lg pl-4 pt-2 text-black dark:text-white capitalize">
+                            {{ $les['day_name'] }} <span
+                                class="text-xs text-gray-600 dark:text-gray-200">{{ $les['date'] }}</span>
                         </p>
                         <ul>
                             @forelse($les['data'] as $day)
                                 <div
                                     class="mb-2 bg-gray-400 bg-opacity-40 ring-2 ring-offset-1 dark:ring-offset-2 ring-offset-gray-300 dark:ring-offset-gray-800 ring-gray-500 dark:ring-gray-700 rounded-md mt-3 px-3 py-2 mx-3 text-gray-700 dark:text-white flex space-x-2 justify-between dark:bg-opacity-40 dark:bg-gray-900 z-40 transition transform">
-                                    {{--                                    <div--}}
-                                    {{--                                        class="hidden 2xl:flex text-gray-500 dark:text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 px-3 font-semibold whitespace-normal md:whitespace-nowrap">--}}
-                                    {{--                                        {{ $lessons_time[$day['n']] }}--}}
-                                    {{--                                    </div>--}}
                                     <div
                                         class="flex-initial text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 pr-3 font-semibold">
                                         {{ mb_substr($lessons_time[$day['n']], 0, 5) }}<br>
@@ -113,8 +127,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                {{--                            <div class="mb-3"></div>--}}
-                                @if(random_int(0, 6) == 5)
+                                @forelse($day['hw'] as $hw)
                                     <div
                                         x-show="open_hw"
                                         x-transition:enter="transition ease-out origin-top duration-200"
@@ -124,19 +137,24 @@
                                         x-transition:leave-start="opacity-100 transform"
                                         x-transition:leave-end="opacity-0 transform"
                                         class="-mt-2 bg-gray-400 bg-opacity-40 ring-offset-gray-300 dark:ring-offset-gray-800 ring-gray-500 dark:ring-gray-700 rounded-b-md px-3 pt-2 pb-4
-                                mx-5 text-gray-700 dark:text-white dark:bg-opacity-40 dark:bg-gray-900 relative mb-2">
+                                                                mx-5 text-gray-700 dark:text-white dark:bg-opacity-40 dark:bg-gray-900 relative mb-2">
                                         <div class=""><span
-                                                class="text-gray-700 dark:text-white text-xs md:text-sm space-y-1 md:space-y-2">Тут скоро будет дз</span>
+                                                class="text-gray-700 dark:text-white text-xs md:text-sm space-y-1 md:space-y-2">@if(mb_strlen($hw->text) < 60) {{ $hw->text }}
+                                                @else {{ mb_substr($hw->text, 0, 59) . "..." }} @endif</span>
                                             <br>
                                         </div>
-                                        <a href="#">
+                                        <a href="{{ route('student.homework') . '?show_hw=' . $hw->id }}">
                                             <div
                                                 class="absolute bottom-0 text-xs w-full text-gray-600 dark:text-gray-200 bg-opacity-60 bg-green-400 dark:bg-green-500 -mx-3 text-center rounded-b-md font-bold">
                                                 Просмотреть полностью
                                             </div>
                                         </a>
                                     </div>
-                                @endif
+                                    @empty
+                                @endforelse
+
+
+
                                 {{--                            <li class="flex items-center text-gray-600 dark:text-gray-200 justify-between py-3 border-b-2 border-gray-100 dark:border-gray-800">--}}
                                 {{--                                <div class="flex items-center justify-start text-sm">--}}
                                 {{--                                    <div class="px-4">--}}

@@ -81,7 +81,7 @@
                 @else
                     <div
                         class="text-lg px-3 mb-2 inline-flex rounded-md text-gray-800 bg-gray-100 dark:text-gray-200 dark:bg-gray-600">
-                        {{ mb_substr($edit_homework->to_date  ?? '', 0, -8)}}</div>
+                        {{ date("d.m.Y", strtotime($edit_homework->to_date ?? '')) }}</div>
                     <x-button primary label="Изменить" wire:click="edit_homework_date_btn(1)"/>
                 @endif
             </div>
@@ -128,10 +128,10 @@
         <x-slot name="footer">
             <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
                 <div class="flex">
-{{--                    <x-button primary class="mr-2" icon="refresh" wire:click="reload_subjects" label=""/>--}}
+                    {{--                    <x-button primary class="mr-2" icon="refresh" wire:click="reload_subjects" label=""/>--}}
                 </div>
                 <div class="flex">
-{{--                    <x-button flat label="Отменить" x-on:click="close"/>--}}
+                    {{--                    <x-button flat label="Отменить" x-on:click="close"/>--}}
                     <x-button primary label="Завершить" x-on:click="close"/>
                 </div>
             </div>
@@ -294,7 +294,7 @@
                                             {{  $homework->subject }}</h2>
                                     </div>
                                     <p class="text-lg px-3 mb-2 inline-flex rounded-xl text-gray-800 bg-gray-100 dark:text-gray-200 dark:bg-gray-600">
-                                        Задание на: {{ mb_substr($homework->to_date, 0, -8)}}</p>
+                                        Задание на: {{  date("d.m.Y", strtotime($homework->to_date))}}</p>
                                     <div
                                         class="flex-auto py-2 mb-3 pt-1 px-3 text-sm text-gray-500 rounded-xl bg-gray-100 dark:bg-gray-600">
                                         <div class="flex-1 inline-flex items-center">

@@ -71,7 +71,6 @@ class Schedule extends Component
         } else {
             return;
         }
-
         $this->load_data();
     }
 

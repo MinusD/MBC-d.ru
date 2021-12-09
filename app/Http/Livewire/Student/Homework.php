@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Student;
 
+use App\Models\Group;
 use App\Models\OfferHomework;
 use App\Models\StudentCompletedHomework;
 use App\Models\Subject;
@@ -30,6 +31,7 @@ class Homework extends Component
     public $show_homework_modal_is_open = false;
     public $show_homework;
     public $show_homework_subject;
+    public $show_hw;
 
     protected $rules = [
         'homework_to_date' => 'required',
@@ -40,6 +42,7 @@ class Homework extends Component
     protected $queryString = [
         'act' => ['except' => ''],
         'search' => ['except' => ''],
+        'show_hw' => ['except' => ''],
     ];
 
     public function open_homework($key)
@@ -103,6 +106,14 @@ class Homework extends Component
             $this->act = "";
             $this->open_add_homework_modal();
         }
+        if (isset($this->show_hw)){
+            if (\App\Models\Homework::where('id', $this->show_hw)->where('group_id', $this->group_id)->exists()){
+                $this->show_homework_modal_is_open = true;
+                $this->show_homework = \App\Models\Homework::find($this->show_hw);
+                $this->show_homework_subject = Subject::find($this->show_homework->subject_id, ['title'])->title;
+            }
+            $this->show_hw = "";
+        }
         $this->subjects = Subject::where('group_id', $this->group_id)->get();
         $this->load_homeworks();
     }
@@ -116,6 +127,24 @@ class Homework extends Component
         $this->subjects = Subject::where('group_id', $this->group_id)->get();
     }
 
+    public function reload_subjects()
+    {
+        $path = env('API_SERVER') . 'groups/certain?name=' . urlencode(Group::find($this->group_id, 'group_name')->group_name);
+        $timetable = json_decode(file_get_contents($path), true)[0]['schedule'];
+        foreach ($timetable as $day) {
+            foreach ($day['odd'] as $para) {
+                foreach ($para as $item) {
+                    Subject::where('group_id', $this->group_id)->where('title', $item['name'])->firstOrCreate(['group_id' => $this->group_id, 'title' => $item['name']]);
+                }
+            }
+            foreach ($day['even'] as $para) {
+                foreach ($para as $item) {
+                    Subject::where('group_id', $this->group_id)->where('title', $item['name'])->firstOrCreate(['group_id' => $this->group_id, 'title' => $item['name']]);
+                }
+            }
+        }
+        $this->subjects = Subject::where('group_id', $this->group_id)->get();
+    }
 
 
     public function save_homework()
