@@ -89,7 +89,6 @@ class Dashboard extends Component
         $u->save();
         $this->edit_user_modal_is_open = false;
         $this->get_students();
-
     }
 
     public function clear_news_labels()
@@ -98,7 +97,6 @@ class Dashboard extends Component
         $this->new_stunent_name = "";
         $this->new_stunent_pname = "";
         $this->new_stunent_sname = "";
-
     }
 
     public function open_invite_link_edit_modal()
@@ -164,13 +162,20 @@ class Dashboard extends Component
 
     public function delete_user_confirm()
     {
-        if (is_null($this->deleted_user_data->password)) {
-            $this->deleted_user_data->delete();
+        if ($this->deleted_user_data->id == \Auth::id()) {
+            $this->notification()->error(
+                $title = 'Ошибка!',
+                $description = 'Нельзя удалить самого себя!'
+            );
         } else {
-            $this->deleted_user_data->group_id = null;
-            $this->deleted_user_data->save();
+            if (is_null($this->deleted_user_data->password)) {
+                $this->deleted_user_data->delete();
+            } else {
+                $this->deleted_user_data->group_id = null;
+                $this->deleted_user_data->save();
+            }
+            $this->get_students();
         }
-        $this->get_students();
     }
 
     public function generate_invite()
