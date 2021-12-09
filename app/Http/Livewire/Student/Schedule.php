@@ -37,9 +37,9 @@ class Schedule extends Component
     public function current_week()
     {
         $this->show_week = $this->current_week;
-        $this->load_data();
         $this->date = strtotime('monday this week');
         $this->show_date = $this->date;
+        $this->load_data();
     }
 
     public function previous_week()
@@ -85,7 +85,7 @@ class Schedule extends Component
             $data = array();
             foreach ($day as $key2 => $para) {
                 foreach ($para as $key3 => $lesson) {
-                    if (is_null($lesson['weeks']) or in_array($this->current_week, $lesson['weeks'])) {
+                    if (is_null($lesson['weeks']) or in_array($this->show_week, $lesson['weeks'])) {
                         if (!is_null($this->group_id)) {
                             $subject = Subject::where('group_id', $this->group_id)->where('title', $lesson['name'])->firstOrCreate(['group_id' => $this->group_id, 'title' => $lesson['name']])->id;
                         } else {
@@ -96,7 +96,7 @@ class Schedule extends Component
                     }
                 }
                 if ($key2 == 5) {
-                    array_push($this->lessons, ['day_name' => $d, 'data' => $data, 'date' => (string)date("d.m.Y", $this->show_date)]);
+                    array_push($this->lessons, ['day_name' => $d, 'data' => $data, 'date' => date("d.m.Y", $this->show_date)]);
                     $this->show_date = strtotime('+1 day', $this->show_date);
                     unset($data);
                 }
