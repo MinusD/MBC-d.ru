@@ -5,11 +5,6 @@
 </x-slot>
 
 <div>
-    <x-dialog title="User information" description="Complete your profile, give your name"
-              wire:model="delete_user_confirm_modal_is_open">
-        <x-input label="What's your name?" placeholder="your name bro"/>
-    </x-dialog>
-
     <x-modal.card title="Добавление домашнего задания" blur wire:model.defer="add_homework_modal_is_open">
         <div class="my-2">
             <span class="font-bold">Внимание!</span> Если вы до этого не добавляли новых студентов,
@@ -129,6 +124,75 @@
                 <div class="flex">
                     <x-button flat label="Отменить" x-on:click="close"/>
                     <x-button primary label="Добавить" wire:click="act_add_student"/>
+                </div>
+            </div>
+        </x-slot>
+        {{--            <div--}}
+        {{--                class="shadow-lg rounded-2xl p-4 bg-gray-200 dark:bg-gray-800 w-full flex items-center justify-center h-64">--}}
+        {{--                <x-button md primary wire:click="activate_fs">Активировать FastShare</x-button>--}}
+        {{--            </div>--}}
+    </x-modal.card>
+
+    <x-modal.card title="Изменение данных студента" blur wire:model.defer="edit_user_modal_is_open">
+
+        <div class="grid grid-cols-1 gap-4">
+            <div class="">
+                <div class="flex justify-between mb-1">
+                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                        Фамилия
+                    </label>
+                </div>
+                <div class="relative rounded-md shadow-sm">
+                    <x-input wire:model.defer="new_stunent_sname"/>
+                </div>
+            </div>
+            <div class="">
+                <div class="flex justify-between mb-1">
+                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                        Имя
+                    </label>
+                </div>
+                <div class="relative rounded-md shadow-sm">
+                    <x-input wire:model.defer="new_stunent_name"/>
+                </div>
+            </div>
+            <div class="">
+                <div class="flex justify-between mb-1">
+                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                        Отчество <span class="text-xs text-gray-500 ">(При наличии)</span>
+                    </label>
+                </div>
+                <div class="relative rounded-md shadow-sm">
+                    <x-input wire:model.defer="new_stunent_pname"/>
+                </div>
+            </div>
+        </div>
+        <x-slot name="footer">
+            <div class="flex justify-between gap-x-1" x-data="{confirm: false}">
+                <div class="flex">
+                    <x-button flat primary class="mr-2" @click="confirm = !confirm" label=""/>
+                    {{--                    <div x-show="confirm"--}}
+                    {{--                         class="transition text-center py-1 select-all"--}}
+                    {{--                         x-transition:enter="transition ease-out duration-200"--}}
+                    {{--                         x-transition:enter-start="transform opacity-0 scale-95"--}}
+                    {{--                         x-transition:enter-end="transform opacity-100 scale-100">--}}
+
+                    {{--                        <span class="text-sm ml-2 text-gray-600 dark:text-gray-300">--}}
+                    {{--                            {{ route('landing.reg_by_code') . "?t=123" }}--}}
+                    {{--                        </span>--}}
+                    {{--                    </div>--}}
+                    {{--                    <x-button negative--}}
+                    {{--                              x-show="confirm"--}}
+                    {{--                              class="transition"--}}
+                    {{--                              label="{{ "213123" }}"--}}
+                    {{--                              wire:click="deactivate_fs"--}}
+                    {{--                              x-transition:enter="transition ease-out duration-200"--}}
+                    {{--                              x-transition:enter-start="transform opacity-0 scale-95"--}}
+                    {{--                              x-transition:enter-end="transform opacity-100 scale-100"/>--}}
+                </div>
+                <div class="flex">
+                    <x-button flat label="Отменить" x-on:click="close" wire:click="clear_news_labels"/>
+                    <x-button primary label="Изменить" wire:click="confirm_edit_modal"/>
                 </div>
             </div>
         </x-slot>
@@ -341,7 +405,9 @@
                                                   d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                         </svg>
                                     </div>
-                                    <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                                    <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
+                                        wire:click="open_edit_student_modal({{$key}})"
+                                    >
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                              stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

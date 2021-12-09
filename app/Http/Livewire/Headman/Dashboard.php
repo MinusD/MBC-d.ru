@@ -16,10 +16,13 @@ class Dashboard extends Component
 
     public $students = [];
     public $group;
-    public $add_student_modal_is_open = false;
     public $add_homework_modal_is_open = false;
     public $invite_link_edit_model_is_open = false;
     public $delete_user_confirm_modal_is_open = false;
+    public $edit_user_modal_is_open = false;
+    public $add_student_modal_is_open = false;
+
+
     public $deleted_user_data;
     public $new_stunent_name = "";
     public $new_stunent_sname = "";
@@ -27,6 +30,8 @@ class Dashboard extends Component
     public $invite;
     public $group_applications_counter;
     public $homeworks_applications_counter = 0;
+    public $current_edit_user_id;
+
 
     protected $rules = [
         'new_stunent_name' => 'required|min:2|max:25',
@@ -51,7 +56,6 @@ class Dashboard extends Component
         $this->group_applications_counter = StudentGroupInvite::where('group_id', $this->group->id)->where('status', 'wait')->count();
         $this->homeworks_applications_counter = OfferHomework::where('group_id', $this->group->id)->count();
         $this->get_students();
-//        dd($this->students);
     }
 
     public function get_students()
@@ -63,10 +67,39 @@ class Dashboard extends Component
     {
         $this->add_student_modal_is_open = true;
     }
-//    public function open_add_homework_modal()
-//    {
-//        $this->add_homework_modal_is_open = true;
-//    }
+
+    public function open_edit_student_modal($key)
+    {
+        $this->current_edit_user_id = $this->students[$key]->id;
+        $this->new_stunent_name = $this->students[$key]->name;
+        $this->new_stunent_pname = $this->students[$key]->pname;
+        $this->new_stunent_sname = $this->students[$key]->sname;
+        $this->edit_user_modal_is_open = true;
+    }
+
+    public function confirm_edit_modal()
+    {
+        $this->validateOnly('new_stunent_sname');
+        $this->validateOnly('new_stunent_name');
+        $this->validateOnly('new_stunent_pname');
+        $u = User::find($this->current_edit_user_id);
+        $u->name = $this->new_stunent_name;
+        $u->sname = $this->new_stunent_sname;
+        $u->pname = $this->new_stunent_pname;
+        $u->save();
+        $this->edit_user_modal_is_open = false;
+        $this->get_students();
+
+    }
+
+    public function clear_news_labels()
+    {
+        $this->clearValidation();
+        $this->new_stunent_name = "";
+        $this->new_stunent_pname = "";
+        $this->new_stunent_sname = "";
+
+    }
 
     public function open_invite_link_edit_modal()
     {
@@ -140,10 +173,12 @@ class Dashboard extends Component
         $this->get_students();
     }
 
-
     public function generate_invite()
     {
-        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' . '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' . '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $permitted_chars =
+            '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' .
+            '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' .
+            '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $i = substr(str_shuffle($permitted_chars), 0, 30);
 //        while (GroupInvites::where('token', $i)->where('deleted_at', !null)->exists()) {
 //        dd(GroupInvites::all());
@@ -157,7 +192,6 @@ class Dashboard extends Component
         $this->invite = $inv;
 //        $this->invite_link_edit_model_is_open = false;
     }
-
 
     public function render()
     {
