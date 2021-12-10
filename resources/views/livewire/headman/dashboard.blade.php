@@ -166,6 +166,20 @@
                     <x-input wire:model.defer="new_stunent_pname"/>
                 </div>
             </div>
+            <div class="" x-data="{}">
+                <div class="flex justify-between mb-1">
+                    <label class="block text-sm font-medium text-secondary-700 dark:text-gray-400">
+                        Персональное имя на Webinar @if(!$custom_wb_name_active)<span class="font-bold text-red-600">отключено</span>!  @endif
+                    </label>
+                </div>
+                <div class="relative rounded-md shadow-sm">
+                    @if($custom_wb_name_active)
+                    <x-input wire:model.defer="custom_webinar_name"/>
+                    @else
+                        <x-button info>Активировать</x-button>
+                    @endif
+                </div>
+            </div>
         </div>
         <x-slot name="footer">
             <div class="flex justify-between gap-x-1" x-data="{confirm: false}">

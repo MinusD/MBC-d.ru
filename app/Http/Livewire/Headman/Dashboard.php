@@ -32,6 +32,9 @@ class Dashboard extends Component
     public $homeworks_applications_counter = 0;
     public $current_edit_user_id;
 
+    public $custom_webinar_name = "";
+    public $custom_wb_name_active = false;
+
 
     protected $rules = [
         'new_stunent_name' => 'required|min:2|max:25',
