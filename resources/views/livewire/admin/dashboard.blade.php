@@ -1,5 +1,5 @@
 <div>
-    <div class="rounded px-4 pt-2 bg-white dark:bg-gray-200 h-screen" style="height: 85vh;">
+    <div class="rounded px-4 pt-2 bg-white dark:bg-gray-200 h-screen hidden" style="height: 85vh;">
         <livewire:livewire-pie-chart
             key="{{ $ChartData1->reactiveKey() }}"
             :pie-chart-model="$ChartData1"
@@ -66,7 +66,6 @@
 {{--                            Действие 3--}}
 {{--                        </button>--}}
 {{--                    </div>--}}
-
 {{--                    <div class="p-2">--}}
 {{--                        <button type="button"--}}
 {{--                                class="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105">--}}

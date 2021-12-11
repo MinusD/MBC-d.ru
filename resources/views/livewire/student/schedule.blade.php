@@ -3,12 +3,11 @@
         <header class="w-full shadow-lg bg-white dark:bg-gray-700 items-center h-16 rounded-2xl z-40 mb-2">
             <div class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
                 <div class="relative items-center pl-1 flex w-full lg:max-w-68 sm:pr-2 sm:ml-0">
-
                     <div class="container relative left-0 z-50 flex w-3/4 h-auto h-full">
 
                         <div class="-mb-1">
                                 <span
-                                    class="inline-flex rounded-md shadow-lg bg-indigo-900 bg-opacity-40 items-center shadow-lg bg-gray-200 dark:bg-gray-900">
+                                    class="inline-flex rounded-md shadow-lg bg-indigo-500 items-center shadow-lg dark:bg-gray-900">
                                     <ul class="flex">
                                         <li class="mx-1 ml-3 py-1 cursor-pointer" wire:click="previous_week">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300"
@@ -85,7 +84,6 @@
             </div>
         </header>
         <div class="mx-0 mb-10 mt-1 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 md:gap-4 gap-y-4">
-
             @forelse($lessons as $key => $les)
                 <div
                     class="mb-4 mx-0 xl:mr-4 block w-full shadow-lg items-center rounded-2xl bg-white dark:bg-gray-700">
@@ -97,17 +95,16 @@
                         <ul>
                             @forelse($les['data'] as $day)
                                 <div
-                                    class="mb-2 bg-gray-400 bg-opacity-40 ring-2 ring-offset-1 dark:ring-offset-2 ring-offset-gray-300 dark:ring-offset-gray-800 ring-gray-500 dark:ring-gray-700 rounded-md mt-3 px-3 py-2 mx-3 text-gray-700 dark:text-white flex space-x-2 justify-between dark:bg-opacity-40 dark:bg-gray-900 z-40 transition transform">
+                                    class="mb-2 bg-gray-200 bg-opacity-40 ring-2 ring-offset-1 dark:ring-offset-2 ring-offset-gray-400 dark:ring-offset-gray-800 ring-gray-500 dark:ring-gray-700 rounded-md mt-3 px-3 py-2 mx-3 text-gray-700 dark:text-white flex space-x-2 justify-between dark:bg-opacity-40 dark:bg-gray-900 z-40 transition transform">
                                     <div
-                                        class="flex-initial text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 pr-3 font-semibold">
+                                        class="flex-initial text-gray-600 dark:text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 pr-3 font-semibold">
                                         {{ mb_substr($lessons_time[$day['n']], 0, 5) }}<br>
                                         {{ mb_substr($lessons_time[$day['n']],-6, -1) . '0' }}
                                     </div>
                                     <div class="flex-grow"><span
-                                            class="text-gray-700 dark:text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}{{ !env('IS_DISTANT') ? (', ' . $day['place'] ?? '') : '' }}</span>
+                                            class="text-gray-800 font-semibold dark:font-normal dark:text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}{{ !env('IS_DISTANT') ? (', ' . $day['place'] ?? '') : '' }}</span>
                                         <br>
-                                        <span
-                                            class="text-gray-500 dark:text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>
+                                        <span class="text-gray-600 dark:text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>
                                     </div>
                                     <div class="flex-initial order-last flex items-center justify-center">
                                         @if($day['type'] == 'пр')
@@ -129,7 +126,6 @@
                                     </div>
                                 </div>
                                 @forelse($day['hw'] as $hw)
-
                                     <section>
                                         <div
                                             x-show="open_hw"
