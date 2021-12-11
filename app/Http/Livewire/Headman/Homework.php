@@ -159,7 +159,7 @@ class Homework extends Component
             $homeworks->where('subject_id', $this->confirm_subject_id);
         }
 
-        $this->homeworks = $homeworks->get();
+        $this->homeworks = $homeworks->latest('to_date')->get();
         foreach ($this->homeworks as $key => $homework) {
             if (StudentCompletedHomework::where('homework_id', $homework->id)->where('user_id', \Auth::id())->exists()) {
                 $this->homeworks[$key]->setAttribute('done', true);
