@@ -77,7 +77,8 @@
                     </div>
                     @if(!is_null(Auth::user()->group_id))
                         <div class="relative p-1 flex items-center justify-end w-1/4 ml-5 mr-4 sm:mr-0 sm:right-auto">
-                            <x-button primary @click="open_hw = !open_hw">Показать/Скрыть дз</x-button>
+                            <x-button primary @click="open_hw = !open_hw"
+                                      x-text="open_hw ? 'Скрыть&nbsp;дз' : 'Показать&nbsp;дз'"/>
                         </div>
                     @endif
                 </div>
@@ -131,57 +132,57 @@
 
                                     <section>
                                         <div
-                                        x-show="open_hw"
-                                        x-transition:enter="transition ease-out origin-top duration-200"
-                                        x-transition:enter-start="opacity-0 transform "
-                                        x-transition:enter-end="opacity-100 transform "
-                                        x-transition:leave="transition origin-top ease-in duration-200"
-                                        x-transition:leave-start="opacity-100 transform"
-                                        x-transition:leave-end="opacity-0 transform"
-                                        class="-mt-2 bg-gray-400 bg-opacity-40 ring-offset-gray-300 dark:ring-offset-gray-800 ring-gray-500 dark:ring-gray-700 rounded-b-md px-3 pt-2 pb-4
+                                            x-show="open_hw"
+                                            x-transition:enter="transition ease-out origin-top duration-200"
+                                            x-transition:enter-start="opacity-0 transform "
+                                            x-transition:enter-end="opacity-100 transform "
+                                            x-transition:leave="transition origin-top ease-in duration-200"
+                                            x-transition:leave-start="opacity-100 transform"
+                                            x-transition:leave-end="opacity-0 transform"
+                                            class="-mt-2 bg-gray-400 bg-opacity-40 ring-offset-gray-300 dark:ring-offset-gray-800 ring-gray-500 dark:ring-gray-700 rounded-b-md px-3 pt-2 pb-4
                                                                 mx-5 text-gray-700 dark:text-white dark:bg-opacity-40 dark:bg-gray-900 relative mb-2">
-                                        <div class=""><span
-                                                class="text-gray-700 dark:text-white text-xs md:text-sm space-y-1 md:space-y-2">@if(mb_strlen($hw->text) < 60) {{ $hw->text }}
-                                                @else {{ mb_substr($hw->text, 0, 59) . "..." }} @endif</span>
-                                            <br>
-                                        </div>
-                                        <a href="{{ route('student.homework') . '?show_hw=' . $hw->id }}">
-                                            <div
-                                                class="absolute bottom-0 text-xs w-full text-gray-600 dark:text-gray-200 bg-opacity-60 bg-green-400 dark:bg-green-500 -mx-3 text-center rounded-b-md font-bold">
-                                                Просмотреть полностью
+                                            <div class=""><span
+                                                    class="text-gray-700 dark:text-white text-xs md:text-sm space-y-1 md:space-y-2">@if(mb_strlen($hw->text) < 60) {{ $hw->text }}
+                                                    @else {{ mb_substr($hw->text, 0, 59) . "..." }} @endif</span>
+                                                <br>
                                             </div>
-                                        </a>
+                                            <a href="{{ route('student.homework') . '?show_hw=' . $hw->id }}">
+                                                <div
+                                                    class="absolute bottom-0 text-xs w-full text-gray-600 dark:text-gray-200 bg-opacity-60 bg-green-400 dark:bg-green-500 -mx-3 text-center rounded-b-md font-bold">
+                                                    Просмотреть полностью
+                                                </div>
+                                            </a>
                                         </div>
-                                    <section/>
-                                    @empty
+                                        <section/>
+                                        @empty
+                                        @endforelse
+
+
+
+                                        {{--                            <li class="flex items-center text-gray-600 dark:text-gray-200 justify-between py-3 border-b-2 border-gray-100 dark:border-gray-800">--}}
+                                        {{--                                <div class="flex items-center justify-start text-sm">--}}
+                                        {{--                                    <div class="px-4">--}}
+                                        {{--                                        <span class="">{{ $lessons_time[$day['n']] }} </span>--}}
+                                        {{--                                        <span> {{ $day['name'] }}{{ ', ' . $day['place'] ?? '' }} </span>--}}
+                                        {{--                                        <br>--}}
+                                        {{--                                        <span--}}
+                                        {{--                                            class="text-gray-200 text-xs md:text-sm text-sm underline ml-10">{{ $day['tuter'] }}</span>--}}
+                                        {{--                                    </div>--}}
+                                        {{--                                </div>--}}
+                                        {{--                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 1024 1024"--}}
+                                        {{--                                     class="text-green-500 mx-4">--}}
+                                        {{--                                    <path--}}
+                                        {{--                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448s448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 0 1-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8l157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"--}}
+                                        {{--                                        fill="currentColor">--}}
+                                        {{--                                    </path>--}}
+                                        {{--                                </svg>--}}
+                                        {{--                            </li>--}}
+                                        @empty
+                                            <div
+                                                class="flex items-center justify-center text-center text-gray-600  bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100 h-10 my-5 mx-2 rounded-md">
+                                                <div class=" ">В этот день пар нет :)</div>
+                                            </div>
                                 @endforelse
-
-
-
-                                {{--                            <li class="flex items-center text-gray-600 dark:text-gray-200 justify-between py-3 border-b-2 border-gray-100 dark:border-gray-800">--}}
-                                {{--                                <div class="flex items-center justify-start text-sm">--}}
-                                {{--                                    <div class="px-4">--}}
-                                {{--                                        <span class="">{{ $lessons_time[$day['n']] }} </span>--}}
-                                {{--                                        <span> {{ $day['name'] }}{{ ', ' . $day['place'] ?? '' }} </span>--}}
-                                {{--                                        <br>--}}
-                                {{--                                        <span--}}
-                                {{--                                            class="text-gray-200 text-xs md:text-sm text-sm underline ml-10">{{ $day['tuter'] }}</span>--}}
-                                {{--                                    </div>--}}
-                                {{--                                </div>--}}
-                                {{--                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 1024 1024"--}}
-                                {{--                                     class="text-green-500 mx-4">--}}
-                                {{--                                    <path--}}
-                                {{--                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448s448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 0 1-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8l157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"--}}
-                                {{--                                        fill="currentColor">--}}
-                                {{--                                    </path>--}}
-                                {{--                                </svg>--}}
-                                {{--                            </li>--}}
-                            @empty
-                                <div
-                                    class="flex items-center justify-center text-center text-gray-600  bg-indigo-300 font-bold dark:text-gray-500 dark:bg-gray-100 h-10 my-5 mx-2 rounded-md">
-                                    <div class=" ">В этот день пар нет :)</div>
-                                </div>
-                            @endforelse
                         </ul>
                     </div>
                 </div>
