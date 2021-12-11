@@ -2,9 +2,13 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\ExtensionScanResults;
+use App\Models\Group;
+use App\Models\Homework;
 use App\Models\LogLandingGetGroupSchedule;
 use App\Models\logLandingSaveGroupSchedule;
 use App\Models\PublicGroupSlug;
+use App\Models\User;
 use Asantibanez\LivewireCharts\Models\PieChartModel;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -15,8 +19,12 @@ class Stats extends Component
     public $public_group_get_data = [];
     public $colors = [];
     public $time = "5";
-//    public $
-
+    public $users_all_counter = 0;
+    public $reg_user_counter = 0;
+    public $groups_counter = 0;
+    public $homeworks_counter = 0;
+    public $scan_counter = 0;
+    public $public_slugs_counter = 0;
 
     protected $listeners = [
         'onPointClick' => 'handleOnPointClick',
@@ -121,7 +129,13 @@ class Stats extends Component
 
     public function mount()
     {
-//        $this->generate_hex();
+        $this->users_all_counter = User::all()->count();
+        $this->reg_user_counter = User::where('password', "!=", NULL)->count();
+        $this->groups_counter = Group::all()->count();
+        $this->homeworks_counter = Homework::all()->count();
+        $this->scan_counter = ExtensionScanResults::all()->count();
+        $this->public_slugs_counter = PublicGroupSlug::all()->count();
+
         $this->colors = [
             '#ED0CD2',
             '#0C21F7',
@@ -204,12 +218,12 @@ class Stats extends Component
     public function render()
     {
 //        if ($this->time == "5") {
-            $ChartData1 = $this->getChartData(LogLandingGetGroupSchedule::all('public_group_id'));
-            $ChartData2 = $this->getChartData(logLandingSaveGroupSchedule::all('public_group_id'));
-            $ChartData3 = $this->getChartData(logLandingSaveGroupSchedule::where('is_new', true)->get('public_group_id'));
-            $ChartData4 = $this->getChartData(logLandingSaveGroupSchedule::where('is_authorize', true)->get('public_group_id'));
-            $ChartData5 = $this->getChartData(logLandingSaveGroupSchedule::where('is_new', false)->get('public_group_id'));
-            $ChartData6 = $this->getChartData(logLandingSaveGroupSchedule::where('is_authorize', false)->get('public_group_id'));
+        $ChartData1 = $this->getChartData(LogLandingGetGroupSchedule::all('public_group_id'));
+        $ChartData2 = $this->getChartData(logLandingSaveGroupSchedule::all('public_group_id'));
+        $ChartData3 = $this->getChartData(logLandingSaveGroupSchedule::where('is_new', true)->get('public_group_id'));
+        $ChartData4 = $this->getChartData(logLandingSaveGroupSchedule::where('is_authorize', true)->get('public_group_id'));
+        $ChartData5 = $this->getChartData(logLandingSaveGroupSchedule::where('is_new', false)->get('public_group_id'));
+        $ChartData6 = $this->getChartData(logLandingSaveGroupSchedule::where('is_authorize', false)->get('public_group_id'));
 //        } elseif ($this->time == "4") {
 //            $ChartData1 = $this->getChartData(LogLandingGetGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->get('public_group_id'));
 //            $ChartData2 = $this->getChartData(logLandingSaveGroupSchedule::whereMonth('created_at', '<', Carbon::now()->subMonth()->month)->get('public_group_id'));
@@ -234,12 +248,12 @@ class Stats extends Component
 //
 //        }
         $this->firstRun = false;
-        $ChartData1->setTitle('Публичное расписание (Get) (' . LogLandingGetGroupSchedule::all()->count() . ")" );
-        $ChartData2->setTitle('Публичное расписание (Save) (' . logLandingSaveGroupSchedule::all()->count() . ")" );
-        $ChartData3->setTitle('Публичное расписание (New) (' . logLandingSaveGroupSchedule::where('is_new', true)->count() . ")" ) ;
-        $ChartData4->setTitle('Публичное расписание (Auth) (' . logLandingSaveGroupSchedule::where('is_authorize', true)->count() . ")" );
-        $ChartData5->setTitle('Публичное расписание (Not New) (' . logLandingSaveGroupSchedule::where('is_new', false)->count() . ")" );
-        $ChartData6->setTitle('Публичное расписание (Not Auth) (' . logLandingSaveGroupSchedule::where('is_authorize', false)->count() . ")" );
+        $ChartData1->setTitle('Публичное расписание (Get) (' . LogLandingGetGroupSchedule::all()->count() . ")");
+        $ChartData2->setTitle('Публичное расписание (Save) (' . logLandingSaveGroupSchedule::all()->count() . ")");
+        $ChartData3->setTitle('Публичное расписание (New) (' . logLandingSaveGroupSchedule::where('is_new', true)->count() . ")");
+        $ChartData4->setTitle('Публичное расписание (Auth) (' . logLandingSaveGroupSchedule::where('is_authorize', true)->count() . ")");
+        $ChartData5->setTitle('Публичное расписание (Not New) (' . logLandingSaveGroupSchedule::where('is_new', false)->count() . ")");
+        $ChartData6->setTitle('Публичное расписание (Not Auth) (' . logLandingSaveGroupSchedule::where('is_authorize', false)->count() . ")");
 
         return view('livewire.admin.stats')->layout('layouts.admin')->with([
             'ChartData1' => $ChartData1,

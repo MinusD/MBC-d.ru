@@ -2528,6 +2528,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
 }
+.bg-secondary-500 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(113, 113, 122, var(--tw-bg-opacity));
+}
 .bg-indigo-100 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(224, 231, 255, var(--tw-bg-opacity));
@@ -2535,10 +2539,6 @@ select {
 .bg-indigo-300 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(165, 180, 252, var(--tw-bg-opacity));
-}
-.bg-secondary-500 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(113, 113, 122, var(--tw-bg-opacity));
 }
 .bg-gray-400 {
 	--tw-bg-opacity: 1;
@@ -3693,13 +3693,13 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
 }
-.hover\:bg-blue-900:hover {
-	--tw-bg-opacity: 1;
-	background-color: rgba(30, 58, 138, var(--tw-bg-opacity));
-}
 .hover\:bg-secondary-600:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(82, 82, 91, var(--tw-bg-opacity));
+}
+.hover\:bg-blue-900:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(30, 58, 138, var(--tw-bg-opacity));
 }
 .hover\:bg-blue-700:hover {
 	--tw-bg-opacity: 1;
@@ -4236,6 +4236,10 @@ select {
 .dark .dark\:bg-transparent {
 	background-color: transparent;
 }
+.dark .dark\:bg-secondary-700 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(63, 63, 70, var(--tw-bg-opacity));
+}
 .dark .dark\:bg-gray-100 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
@@ -4243,10 +4247,6 @@ select {
 .dark .dark\:bg-white {
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-}
-.dark .dark\:bg-secondary-700 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(63, 63, 70, var(--tw-bg-opacity));
 }
 .dark .dark\:bg-gray-900 {
 	--tw-bg-opacity: 1;
@@ -4374,13 +4374,13 @@ select {
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(180, 83, 9, var(--tw-ring-opacity));
 }
-.dark .dark\:ring-gray-700 {
-	--tw-ring-opacity: 1;
-	--tw-ring-color: rgba(55, 65, 81, var(--tw-ring-opacity));
-}
 .dark .dark\:ring-secondary-700 {
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(63, 63, 70, var(--tw-ring-opacity));
+}
+.dark .dark\:ring-gray-700 {
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgba(55, 65, 81, var(--tw-ring-opacity));
 }
 .dark .dark\:ring-negative-600 {
 	--tw-ring-opacity: 1;

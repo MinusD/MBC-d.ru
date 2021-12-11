@@ -60,6 +60,58 @@
     </div>
 </header>
 
+<div class="overflow-auto pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0 flex flex-wrap items-stretch">
+
+    <div class="flex-initial mb-2 w-full xl:w-1/3 xl:pr-3 self-auto ">
+        <div
+            class="shadow-lg rounded-2xl p-4 bg-white dark:text-gray-50 dark:bg-gray-700 text-xl w-full h-full flex inline-flex font-bold">
+            <div class="w-3/4 inline-flex">Пользователи</div>
+            <div class="w-1/4 text-center"><span class="">{{  number_format($users_all_counter, 0, '', ' ') }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-initial mb-2 w-full xl:w-1/3 xl:pr-3 self-auto ">
+        <div
+            class="shadow-lg rounded-2xl p-4 bg-white dark:text-gray-50 dark:bg-gray-700 text-xl w-full h-full flex inline-flex font-bold">
+            <div class="w-3/4 inline-flex">Пользователи (reg)</div>
+            <div class="w-1/4 text-center"><span class="">{{  number_format($reg_user_counter, 0, '', ' ') }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="flex-initial mb-2 w-full xl:w-1/3 xl:pr-3 self-auto ">
+        <div
+            class="shadow-lg rounded-2xl p-4 bg-white dark:text-gray-50 dark:bg-gray-700 text-xl w-full h-full flex inline-flex font-bold">
+            <div class="w-3/4 inline-flex">Группы</div>
+            <div class="w-1/4 text-center"><span class="">{{  number_format($groups_counter, 0, '', ' ') }}</span></div>
+        </div>
+    </div>
+    <div class="flex-initial mb-2 w-full xl:w-1/3 xl:pr-3 self-auto ">
+        <div
+            class="shadow-lg rounded-2xl p-4 bg-white dark:text-gray-50 dark:bg-gray-700 text-xl w-full h-full flex inline-flex font-bold">
+            <div class="w-3/4 inline-flex">Домашние задания</div>
+            <div class="w-1/4 text-center"><span class="">{{  number_format($homeworks_counter, 0, '', ' ') }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="flex-initial mb-2 w-full xl:w-1/3 xl:pr-3 self-auto ">
+        <div
+            class="shadow-lg rounded-2xl p-4 bg-white dark:text-gray-50 dark:bg-gray-700 text-xl w-full h-full flex inline-flex font-bold">
+            <div class="w-3/4 inline-flex">Сканирования</div>
+            <div class="w-1/4 text-center"><span class="">{{  number_format($scan_counter, 0, '', ' ') }}</span></div>
+        </div>
+    </div>
+
+    <div class="flex-initial mb-2 w-full xl:w-1/3 xl:pr-3 self-auto ">
+        <div
+            class="shadow-lg rounded-2xl p-4 bg-white dark:text-gray-50 dark:bg-gray-700 text-xl w-full h-full flex inline-flex font-bold">
+            <div class="w-3/4 inline-flex">Публичные группы</div>
+            <div class="w-1/4 text-center"><span class="">{{  number_format($public_slugs_counter, 0, '', ' ') }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div>
     <div class="overflow-auto pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0 flex flex-wrap items-stretch">
         <div class="flex-initial mb-4 w-full xl:w-1/3 xl:pr-3 self-auto ">
