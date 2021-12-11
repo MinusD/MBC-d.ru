@@ -47,15 +47,15 @@
                     {{--                        </div>--}}
                 </div>
             </div>
-            <div class="relative p-1 flex items-center justify-end w-1/4 ml-5 mr-4 sm:mr-0 sm:right-auto">
-                <div class="hidden md:block">
-                    <x-button icon="plus-circle" primary wire:click="open_add_homework_modal">Новое ДЗ</x-button>
-                </div>
-                <div class="block md:hidden">
-                    <x-button lg icon="plus-circle" primary wire:click="new_folder"/>
-                </div>
+{{--            <div class="relative p-1 flex items-center justify-end w-1/4 ml-5 mr-4 sm:mr-0 sm:right-auto">--}}
+{{--                <div class="hidden md:block">--}}
+{{--                    <x-button icon="plus-circle" primary wire:click="open_add_homework_modal">Новое ДЗ</x-button>--}}
+{{--                </div>--}}
+{{--                <div class="block md:hidden">--}}
+{{--                    <x-button lg icon="plus-circle" primary wire:click="new_folder"/>--}}
+{{--                </div>--}}
 
-            </div>
+{{--            </div>--}}
         </div>
     </div>
 </header>
