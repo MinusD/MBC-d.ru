@@ -200,7 +200,7 @@ class Stats extends Component
         $data2 = array_reverse($data2);
         $sum = 0;
         foreach ($data2 as $key => $item) {
-            if ($key < 11) {
+            if ($key < 14) {
                 $ChartData1->addSlice(PublicGroupSlug::find($item[0], 'group_slugs')->group_slugs, $item[1], $this->colors[$key]);
             } else {
                 $sum += $item[1];

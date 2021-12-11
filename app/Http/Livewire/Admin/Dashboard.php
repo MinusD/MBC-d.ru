@@ -99,8 +99,8 @@ class Dashboard extends Component
         $sum = 0;
         foreach ($data2 as $key => $item) {
 //            dd($item);
-            if ($key < 20) {
-                $ChartData1->addSlice(PublicGroupSlug::find($item[0], 'group_slugs')->group_slugs, $item[1], $this->colors[$key]);
+            if ($key < 9999) {
+                $ChartData1->addSlice(PublicGroupSlug::find($item[0], 'group_slugs')->group_slugs, $item[1], $this->colors[$key % 20]);
             } else {
                 $sum += $item[1];
             }
