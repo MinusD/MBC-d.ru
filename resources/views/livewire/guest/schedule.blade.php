@@ -9,6 +9,10 @@
                 @if($search_error)
                     <span class="text-red-600">Ошибка поиска группы</span>
                 @endif
+                @if(mb_strlen($previous_group > 3))
+                    <x-button info wire:click="get_previous_group">Вернуть расписание
+                        группы {{ $previous_group ?? "не найдено"}}</x-button>
+                @endif
                 <p><span class="font-bold">Важно! </span>Название группы должно быть в таком же формате, как и в
                     расаписании (Например: <code>ИКБО-30-21</code>)</p>
 
@@ -29,20 +33,28 @@
             class="block w-full shadow-lg bg-indigo-900 bg-opacity-40 items-center h-16 rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700">
             <div class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
                 <div class="relative items-center pl-1 flex w-full lg:max-w-68 sm:pr-2 sm:ml-0">
-                    <div class="container relative left-0 z-50 flex w-3/4 h-auto h-full">
+                    <div class="container relative left-0 z-50 flex w-3/4 lg:w-1/2 h-auto h-full">
                         <style>
                             @import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+                            @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
                         </style>
                         <a href="{{ route('landing.home') }}">
                             <span class="text-3xl dark:text-gray-100 font-semibold text-white ml-3"><span
-                                    class="font-bold" style="font-family: 'Otomanopee One', sans-serif;">MBC</span> Studio</span>
+                                    class="font-bold" style="font-family: 'Otomanopee One', sans-serif;">MBC</span> Studio</span>
                             {{--                            <span class="hidden md:block">MD</span> <span class="hidden xl:block">XL</span> <span class="hidden 2xl:block">2xl</span>--}}
                         </a>
+                    </div>
+                    <div class="container relative z-50 hidden lg:flex text-center justify-center h-auto h-full">
+
+                            <span class="text-3xl dark:text-gray-100 font-semibold text-white"><span
+                                    class="font-bold"
+                                    style="font-family: 'Lobster', cursive;">{{ $g ?? '' }}</span></span>
+
                     </div>
 
                     {{-- ШЕСТЕРЁНКА--}}
                     <div
-                        class="flex relative p-1  items-center justify-end w-1/4 ml-5 mr-4 sm:mr-0 sm:right-auto">
+                        class="flex relative p-1  items-center justify-end w-3/4 lg:w-1/2 ml-5 mr-4 sm:mr-0 sm:right-auto ">
                         {{--                        <div class="flex sm:items-center sm:ml-6">--}}
                         {{--                            <div class="relative">--}}
                         {{--                                <div class="relative">--}}
@@ -123,6 +135,19 @@
         </header>
     </div>
     @if($show_week > 0)
+        <div class="px-2 md:px-10 mt-4 lg:hidden">
+            <div
+                class="block w-full shadow-lg bg-indigo-900 bg-opacity-40 items-center h-6 rounded-md z-38 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5">
+                <div>
+                    <div class="flex flex items-center justify-center">
+                        <div class="text-md font-semibold text-gray-100">
+                            Расписание группы <span
+                                class="font-bold" style="font-family: 'Lobster', cursive;">{{ $g ?? '' }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div
             class="block sm:hidden shadow-lg bg-indigo-900 bg-opacity-40 items-center  rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mx-2 mt-4">
             <div class="relative">
@@ -214,7 +239,6 @@
                         <div class="flex-grow"><span
                                 class="text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}{{ !env('IS_DISTANT') ? (', ' . $day['place'] ?? '') : '' }}</span>
                             <br>
-
                             <a href="{{ route('landing.services.teachers_info') . '?t=' . $day['tuter']}}"
                                target="_blank">
                             <span

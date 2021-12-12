@@ -31,6 +31,7 @@ class Schedule extends Component
     public $api_error = false;
     public $date;
     public $show_date;
+    public $previous_group = "";
 
     protected $groups_list = [];
 
@@ -74,6 +75,13 @@ class Schedule extends Component
         $this->load_data();
     }
 
+    public function get_previous_group(){
+        $tmp = $this->modal_group_name;
+        $this->modal_group_name = $this->previous_group;
+        $this->previous_group = $tmp;
+        $this->save();
+    }
+
     public function save()
     {
         $this->modal_group_name = trim($this->modal_group_name);
@@ -94,6 +102,7 @@ class Schedule extends Component
             } else {
                 $this->search_error = false;
                 $this->modal_set = false;
+                $this->previous_group = $this->group_name;
                 $this->group_name = $this->groups_list[$key]['groupName'];
                 unset($this->lessons);
                 $this->lessons = [];
@@ -219,6 +228,7 @@ class Schedule extends Component
             if (Cookie::has('schedule-group-name')) {
                 $this->group_name = Cookie::get('schedule-group-name');
                 if ($this->group_name == $this->g) {
+                    $this->modal_group_name = $this->g;
                     $this->load_with_cookie();
                     return;
                 }
