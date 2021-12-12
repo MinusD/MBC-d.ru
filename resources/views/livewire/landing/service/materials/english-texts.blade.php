@@ -1070,8 +1070,7 @@
             </div>
         </section>
 
-
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200 w-full"
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
             <div class="text-center pb-6">
@@ -1082,12 +1081,355 @@
                     British Parliament
                 </h1>
             </div>
+
+            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+                <div>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. What does the term “constitutional monarchy”
+                        mean?</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Great Britain is a constitutional monarchy. This
+                        means that it has a
+                        monarch as its Head of the State. The monarch reigns with the support of
+                        Parliament. The powers of the monarch are not defined precisely.
+                        Everything today is done in the Queen’s name. It is her government, her
+                        armed forces, her law courts and so on. She appoints all the Ministers,
+                        including the Prime Minister. Everything is done however on the advice of
+                        the elected Government, and the monarch takes no part in the decisionmaking process. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. What is the name of the association of former
+                        members of the
+                        British Empire? </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Once the British Empire included a large number
+                        of countries all
+                        over the world ruled by Britain. The process of decolonization began in
+                        1947 with the independence of India, Pakistan, and Ceylon. Now there is
+                        no Empire and only few small islands belong to Britain. In 1997 the last
+                        colony, Hong Kong, was given to China. But the British ruling classes
+                        tried not to lose influence over the former colonies of the British Empire.
+                        An association of former members of the British Empire and Britain was
+                        founded in 1949. It is called the Commonwealth. The Queen of Great
+                        Britain is also Head of the Commonwealth. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. What is the British constitution?</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The British constitution is to a large extent a
+                        product of many
+                        historical events. Unlike the constitutions of most other countries, it is not
+                        set out in any single document. Instead it is made up of statute law,
+                        common law and conventions. The constitution can be changed by Act of
+                        Parliament, or by general agreement to alter a convention. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. What elements make up British Parliament? </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The three elements, which make up
+                        Parliament – the Queen, the House of
+                        Lords and the elected House of Commons,
+                        are constituted on different principles.
+                        They meet together only on occasions of
+                        symbolic significance such as the State
+                        Opening of Parliament, when the
+                        Commons are invited by the Queen to the
+                        House of Lords or coronation of a new
+                        monarch. Parliament consists of two
+                        chambers known as the House of Lords
+                        and the House of Commons. The division
+                        of Parliament into two Houses goes back
+                        over some 700 years when feudal assembly ruled the country. In modern
+                        times, real political power rests in the elected House although members of
+                        the House of Lords still occupy important cabinet posts. Parliament and the
+                        monarch have different roles in the government of the country. In reality,
+                        the House of Commons is the only one of the three which is true power. It
+                        is here that new bills are introduced and debated. If the majority of the
+                        members aren’t in favour of a bill, it goes to the House of Lords to be
+                        debated and finally to the monarch to be signed. Only then it becomes law.
+                        Although a bill must be supported by all three bodies, the House of Lords
+                        only has limited powers, and the monarch hasn’t refused to sign one. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. What are the functions of Parliament? </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The main functions of Parliament are: to pass
+                        laws; to provide, by
+                        voting, taxation, the means of carrying on the work of government; to
+                        scrutinize government policy and administration; to debate the major
+                        issues of the day. In carrying out these functions, Parliament helps to bring
+                        the relevant facts and issues before the electorate. By custom, Parliament is
+                        also informed before all-important international treaties and agreements are
+                        ratified. A Parliament has a maximum duration of five years, but in
+                        practice general elections are usually held before the end of this term.
+                        Parliament is dissolved and rights for a general election are ordered by the
+                        Queen on the advice of the Prime Minister. The life of a Parliament is
+                        divided into sessions. Each usually lasts for one year – normally beginning and ending in
+                        October or November. At the start of each session the
+                        Queen’s speech to Parliament outlines the Government’s policies and
+                        proposed legislative programme.</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. What is the British political party
+                        system? </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The present political system depends upon the
+                        existence of organized
+                        political parties, each of which presents its policies to the electorate for
+                        approval. The parties are not registered or formally recognized in law, but
+                        in practice most candidates in elections, and almost all winning candidates,
+                        belong to one of the main parties. For the last 150 years there were only
+                        two parties: the Conservative Party and the Labour Party. The
+                        effectiveness of the party system in Parliament rests largely on the
+                        relationship between the Government and the Opposition parties.
+                        Depending on the relative strengths of the parties in the House of
+                        Commons, the Opposition may seek to overthrow the Government by
+                        defeating it in a vote on a “matter of confidence”. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. What is the cabinet of ministers?</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It is responsible for the administration of
+                        national affairs. The Prime
+                        Minister is appointed by the Queen, and all other ministers are appointed
+                        by the Queen on the recommendation of the Prime Minister. Most
+                        ministers are members of the Commons, although the Government is also
+                        fully represented by ministers in the Lords. The composition of
+                        governments can vary both in the number of ministers and in the titles of
+                        some offices. New ministerial offices may be created, others may be
+                        abolished and functions may be transferred from one minister to another.
+                        The Cabinet is composed of about 20 ministers chosen by the Prime
+                        Minister. The functions of the Cabinet are initiating and deciding on
+                        policy, the supreme control of government and the co-ordination of
+                        government departments. The Prime Minister is, by tradition, First Lord of
+                        the Treasury and Minister for the Civil Service. The Prime Minister’s
+                        unique position of authority derives from majority support in the House of
+                        Commons and from the power to appoint and dismiss ministers. By
+                        modern convention, the Prime Minister always sits in the House of
+                        Commons. The Prime Minister presides over the Cabinet, is responsible for
+                        the allocation of functions among ministers and informs the Queen at
+                        regular meetings of the general business of the Government. The Prime
+                        Minister’s Office is situated at 11 Downing Street. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;So Great Britain is the constitutional monarchy.
+                        Monarch is the Head
+                        of the State. But Queen or King rules with the support of the parliament.
+                        And practically monarch has no real political power. The main political
+                        decisions are made by the Parliament and the Cabinet. </p>
+                    {{--                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
+                    {{--                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+                 :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
+        >
+            <div class="text-center pb-6">
+                <h2 class="text-base font-bold text-indigo-300">
+                    Text 4 D
+                </h2>
+                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                    London
+                </h1>
+            </div>
+
+            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+                <div>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;London is the capital city of the United Kingdom.
+                        The capital of the
+                        former empire, London is a leader in culture, communications, politics,
+                        finance, entertainment and the arts and has considerable influence
+                        worldwide. London is one of the four major global cities along with New
+                        York, Tokyo and Paris. London is the most populous city in the Europen
+                        Union, with an estimated population on 1 January, 2005, of 7,421,328, and
+                        several million more living in the wider metropolitan area. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;London’s population includes a very diverse range
+                        of peoples,
+                        cultures, and religions, making it one of the most cosmopolitan, vibrant
+                        and energetic cities on earth. Over 300 languages are spoken in London,
+                        making the capital one of the most linguistically diverse cities in the world.</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;London is the home to many institutions,
+                        organisations and
+                        companies, and as such retains its leading role in global affairs. It has a
+                        great number of important buildings and iconic landmarks, including world-famous museums,
+                        theatres, concert halls, airports, palaces, and
+                        offices. It is also the location of many foreign embassies. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Historically, London referred to the square mile
+                        of the City of
+                        London at the conurbation’s heart, from which the city grew. Today,
+                        London usually refers to the conurbation known as Greater London, which
+                        comprises the City of London and the 32 London boroughs including the
+                        City of Westminster.
+                    </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The dominant centre of activity in London is the
+                        City of Westminster
+                        including the West End which is the main cultural, entertainment and
+                        shopping district, the location of most of London’s major corporate
+                        headquarters outside of the financial services sector, and the centre of the
+                        UK’s national government. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The City of London is the banking centre of the
+                        world and Europe’s
+                        main business centre. The headquarters of more than 100 of Europe’s 500
+                        largest companies are in London. The London foreign exchange market is
+                        the largest in the world, with an average daily turnover of $504 billion,
+                        more than the New York and Tokyo exchanges combined. While very busy
+                        during the working week, most parts of the City tend to be quiet at
+                        weekends, since it is primarily a non-residential area.
+                    </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;London attracts very large numbers of visitors
+                        and tourists. Tourist
+                        attractions are mainly in Central London, comprising the historic City of
+                        London; the West End with its cinemas, bars, clubs, theatres, shops and
+                        restaurants; the City of Westminster with Westminster Abbey, the Royal
+                        palaces of Buckingham Palace, the Royal Borough of Kensington and
+                        Chelsea with its museums (the Science Museum, Natural History Museum,
+                        and Victoria and Albert Museum) and Hyde Park. Other important tourist
+                        attractions include St Paul’s Cathedral, the National Gallery, London
+                        Bridge, Tower of London, the British Museum. There are many other
+                        museums and places of interest. </p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+                 :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
+        >
+            <div class="text-center pb-6">
+                <h2 class="text-base font-bold text-indigo-300">
+                    Text 5 A
+                </h2>
+                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                    “To Learn or Not to Learn Foreign Languages?”
+                </h1>
+            </div>
+
+            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+                <div>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Have you noticed that universal craziness about foreign languages?
+                        Everyone seems to study them now, even if there is no any practical use in
+                        it. What’s the point in learning a language if you go abroad once a year or
+                        even less and not necessarily to the region where this language is spoken?
+                        You can easily do without that “fashionable” knowledge. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Even if you travel a lot, you can easily survive with your Russian; it
+                        is the business of the travel agencies to make you feel comfortable
+                        anywhere. If you are a businessman, you know the price of time, it’s nonrefundable. Are you ready to waste it, a good while of it, if you can easily
+                        hire an interpreter who has been studying the language for years and would
+                        do a better job of it? Indeed, it’s better to be a professional in your own
+                        field than an amateur in everything. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As long as you are an expert in your field, nobody cares what
+                        language you are speaking. In addition to everything above, language
+                        studying is a very time and money consuming occupation. It is stylish to be
+                        able to speak a foreign language, but is doing it worth it? There are a lot of
+                        opportunities to spend time and money in a more practical or at least
+                        pleasant way. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yet, the way people live in the modern society requires new
+                        standards of communication and that is why it is an essential demand of
+                        the contemporary society to be able to speak foreign languages. A foreign
+                        language is an important advantage for an experienced specialist in any
+                        field. Higher education cannot be called complete without at least one
+                        foreign language. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Languages make possible the immediate access to the hottest
+                        technological information all over the world. It is very useful in business as
+                        well. Any businessman will confirm the statement that ability to use your
+                        partner’s language helps to establish the so-called personal contact that
+                        makes your negotiations more efficient. You will always be respected for
+                        your attempts to be closer to the culture of your partners. While negotiating
+                        it is preferable to be able to understand everything, at least in general, as
+                        the interpreter sometimes can set out the problem according to his or her
+                        own vision. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;However, not only scientists and businessmen need languages. When
+                        travelling abroad, a person has an opportunity to get acquainted with other
+                        cultures, traditions, and different mentality. It is easier to do by means of
+                        their language. It makes for understanding and tolerance towards other
+                        peoples’ views, and it is very important in our vulnerable world. To sum it
+                        all up, learning other languages is not a matter of fashion that can change
+                        in a year or two. The importance of it is apparent, and there is a stable
+                        tendency towards its rising; soon you would hardly be a valuable member
+                        of the contemporary integrated society if you feel absolutely helpless in
+                        communicating with non-Russian people. The earlier we realize it the
+                        better. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As you see, there are very important reasons to learn languages; it
+                        can never be called wasting of time. Firstly, it is essential if you want to
+                        meet the demands of an educated person. Foreign languages can educate –
+                        they help to accept the variety of mentalities existing in the world.
+                        Secondly, languages help other people to understand you while travelling
+                        abroad. Of course one can say that it is not difficult to feel comfortable on
+                        holidays, speaking only Russian, if you have chosen the right travel
+                        agency. But it is not so. It is not nice to be dependent on interpreters and
+                        travel agents. There is no pleasure in looking at advertisements and menus
+                        without understanding what it is all about. </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And at last, but not least, it is business. It is impossible to be a
+                        professional without a good command of a foreign language. Each
+                        profession requires a certain language: Latin – for doctors, Ancient Greek
+                        – for archeologists, French or Italian – for researchers, English – for
+                        businessmen. Many centuries ago Aristotle wrote: “You are worth so many
+                        people as many languages you speak”. </p>
+{{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
+{{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
+{{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
+                </div>
+            </div>
+        </section>
+
+
+{{--        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"--}}
+{{--                 :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"--}}
+{{--        >--}}
+{{--            <div class="text-center pb-6">--}}
+{{--                <h2 class="text-base font-bold text-indigo-300">--}}
+{{--                    Text 5 B--}}
+{{--                </h2>--}}
+{{--                <h1 class="font-bold text-xl lg:text-2xl font-heading ">--}}
+{{--                    Tourism--}}
+{{--                </h1>--}}
+{{--            </div>--}}
+
+{{--            <div class="w-full flex items-center text-base md:text-lg font-semibold ">--}}
+{{--                <div>--}}
+{{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tourism is the act of travel for the purpose of recreation and--}}
+{{--                        business, and the provision of services for this act. Tourists are persons--}}
+{{--                        who are “travelling to and staying in places outside their usual--}}
+{{--                        environment for not more than one consecutive year for leisure, business--}}
+{{--                        and other purposes not related to the exercise of an activity remunerated--}}
+{{--                        from within the place visited”. A more comprehensive definition would be--}}
+{{--                        that tourism is a service industry, comprising a number of tangible and--}}
+{{--                        intangible components. The tangible elements include transport systems –--}}
+{{--                        air, rail, road, water and now, space; hospitality services – accommodation,--}}
+{{--                        foods and beverages, tours, souvenirs; and related services such as--}}
+{{--                        banking, insurance and safety and security. The intangible elements--}}
+{{--                        include: rest and relaxation, culture, escape, adventure, new and different--}}
+{{--                        experiences. </p>--}}
+{{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Many countries depend heavily upon travel expenditures by--}}
+{{--                        foreigners as a source of taxation and as a source of income for the--}}
+{{--                        enterprises that sell (export) services to these travellers. Sometimes--}}
+{{--                        Tourism and Travel are used interchangeably. In this context travel has a--}}
+{{--                        similar definition to tourism, but implies a more purposeful journey. The--}}
+{{--                        term tourism is sometimes used pejoratively, implying a shallow interest in--}}
+{{--                        the societies and places that the tourist visits. </p>--}}
+{{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
+
+
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200 w-full"
+                 :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
+        >
+            <div class="text-center pb-6">
+                <h2 class="text-base font-bold text-indigo-300">
+                    Text 5 B
+                </h2>
+                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                    Tourism
+                </h1>
+            </div>
             <div class="text-center pb-6 w-full">
                 <h1 class="font-bold text-xl lg:text-2xl font-heading ">
                     Скоро...
                 </h1>
             </div>
         </section>
+
+
+        {{--        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"--}}
+        {{--                 :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"--}}
+        {{--        >--}}
+        {{--            <div class="text-center pb-6">--}}
+        {{--                <h2 class="text-base font-bold text-indigo-300">--}}
+        {{--                    Text 1 A--}}
+        {{--                </h2>--}}
+        {{--                <h1 class="font-bold text-xl lg:text-2xl font-heading ">--}}
+        {{--                    Higher Education in Russia--}}
+        {{--                </h1>--}}
+        {{--            </div>--}}
+
+        {{--            <div class="w-full flex items-center text-base md:text-lg font-semibold ">--}}
+        {{--                <div>--}}
+        {{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--        </section>--}}
 
 
         {{--        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"--}}
