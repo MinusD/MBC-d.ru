@@ -118,19 +118,11 @@
                         dark:text-secondary-400 mb-2"
                                             wire:model.defer="selected_user_key"
                                         >
-{{--                                            <option label="Не вабрано" value="0"/>--}}
                                             @forelse($users as $key => $user)
-                                                <option
-                                                    label="{{ $user->sname . " " . mb_substr($user->name, 0, 1) . ". " .  mb_substr($user->pname, 0, 1) . "."  }}"
-                                                    value={{ $key }} />
+                                                <option value={{ $key }}>{{ $user->sname . " " . mb_substr($user->name, 0, 1) . ". " .  mb_substr($user->pname, 0, 1) . "."  }}</option>
                                             @empty
-                                                <option label="Не существует" value=-1 />
+                                                <option value=-1>Не существует</option>
                                             @endforelse
-                                            {{--                                            <option label="Синий" value="3"/>--}}
-                                            {{--                                            <option label="Фиолетовый" value="4"/>--}}
-                                            {{--                                            <option label="Розовый" value="5"/>--}}
-                                            {{--                                            <option label="Красный" value="6"/>--}}
-                                            {{--                                            <option label="Золотой" value="7"/>--}}
                                         </select>
                                     </div>
 

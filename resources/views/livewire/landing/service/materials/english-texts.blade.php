@@ -1286,30 +1286,36 @@
 
             <div class="w-full flex items-center text-base md:text-lg font-semibold ">
                 <div>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Have you noticed that universal craziness about foreign languages?
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Have you noticed that universal craziness about
+                        foreign languages?
                         Everyone seems to study them now, even if there is no any practical use in
                         it. What’s the point in learning a language if you go abroad once a year or
                         even less and not necessarily to the region where this language is spoken?
                         You can easily do without that “fashionable” knowledge. </p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Even if you travel a lot, you can easily survive with your Russian; it
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Even if you travel a lot, you can easily survive
+                        with your Russian; it
                         is the business of the travel agencies to make you feel comfortable
-                        anywhere. If you are a businessman, you know the price of time, it’s nonrefundable. Are you ready to waste it, a good while of it, if you can easily
+                        anywhere. If you are a businessman, you know the price of time, it’s nonrefundable. Are you
+                        ready to waste it, a good while of it, if you can easily
                         hire an interpreter who has been studying the language for years and would
                         do a better job of it? Indeed, it’s better to be a professional in your own
                         field than an amateur in everything. </p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As long as you are an expert in your field, nobody cares what
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As long as you are an expert in your field,
+                        nobody cares what
                         language you are speaking. In addition to everything above, language
                         studying is a very time and money consuming occupation. It is stylish to be
                         able to speak a foreign language, but is doing it worth it? There are a lot of
                         opportunities to spend time and money in a more practical or at least
                         pleasant way. </p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yet, the way people live in the modern society requires new
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yet, the way people live in the modern society
+                        requires new
                         standards of communication and that is why it is an essential demand of
                         the contemporary society to be able to speak foreign languages. A foreign
                         language is an important advantage for an experienced specialist in any
                         field. Higher education cannot be called complete without at least one
                         foreign language. </p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Languages make possible the immediate access to the hottest
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Languages make possible the immediate access to
+                        the hottest
                         technological information all over the world. It is very useful in business as
                         well. Any businessman will confirm the statement that ability to use your
                         partner’s language helps to establish the so-called personal contact that
@@ -1318,7 +1324,8 @@
                         it is preferable to be able to understand everything, at least in general, as
                         the interpreter sometimes can set out the problem according to his or her
                         own vision. </p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;However, not only scientists and businessmen need languages. When
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;However, not only scientists and businessmen need
+                        languages. When
                         travelling abroad, a person has an opportunity to get acquainted with other
                         cultures, traditions, and different mentality. It is easier to do by means of
                         their language. It makes for understanding and tolerance towards other
@@ -1329,7 +1336,8 @@
                         of the contemporary integrated society if you feel absolutely helpless in
                         communicating with non-Russian people. The earlier we realize it the
                         better. </p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As you see, there are very important reasons to learn languages; it
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As you see, there are very important reasons to
+                        learn languages; it
                         can never be called wasting of time. Firstly, it is essential if you want to
                         meet the demands of an educated person. Foreign languages can educate –
                         they help to accept the variety of mentalities existing in the world.
@@ -1339,58 +1347,59 @@
                         agency. But it is not so. It is not nice to be dependent on interpreters and
                         travel agents. There is no pleasure in looking at advertisements and menus
                         without understanding what it is all about. </p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And at last, but not least, it is business. It is impossible to be a
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And at last, but not least, it is business. It is
+                        impossible to be a
                         professional without a good command of a foreign language. Each
                         profession requires a certain language: Latin – for doctors, Ancient Greek
                         – for archeologists, French or Italian – for researchers, English – for
                         businessmen. Many centuries ago Aristotle wrote: “You are worth so many
                         people as many languages you speak”. </p>
-{{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
-{{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
-{{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
+                    {{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
+                    {{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
+                    {{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
                 </div>
             </div>
         </section>
 
 
-{{--        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"--}}
-{{--                 :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"--}}
-{{--        >--}}
-{{--            <div class="text-center pb-6">--}}
-{{--                <h2 class="text-base font-bold text-indigo-300">--}}
-{{--                    Text 5 B--}}
-{{--                </h2>--}}
-{{--                <h1 class="font-bold text-xl lg:text-2xl font-heading ">--}}
-{{--                    Tourism--}}
-{{--                </h1>--}}
-{{--            </div>--}}
+        {{--        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"--}}
+        {{--                 :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"--}}
+        {{--        >--}}
+        {{--            <div class="text-center pb-6">--}}
+        {{--                <h2 class="text-base font-bold text-indigo-300">--}}
+        {{--                    Text 5 B--}}
+        {{--                </h2>--}}
+        {{--                <h1 class="font-bold text-xl lg:text-2xl font-heading ">--}}
+        {{--                    Tourism--}}
+        {{--                </h1>--}}
+        {{--            </div>--}}
 
-{{--            <div class="w-full flex items-center text-base md:text-lg font-semibold ">--}}
-{{--                <div>--}}
-{{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tourism is the act of travel for the purpose of recreation and--}}
-{{--                        business, and the provision of services for this act. Tourists are persons--}}
-{{--                        who are “travelling to and staying in places outside their usual--}}
-{{--                        environment for not more than one consecutive year for leisure, business--}}
-{{--                        and other purposes not related to the exercise of an activity remunerated--}}
-{{--                        from within the place visited”. A more comprehensive definition would be--}}
-{{--                        that tourism is a service industry, comprising a number of tangible and--}}
-{{--                        intangible components. The tangible elements include transport systems –--}}
-{{--                        air, rail, road, water and now, space; hospitality services – accommodation,--}}
-{{--                        foods and beverages, tours, souvenirs; and related services such as--}}
-{{--                        banking, insurance and safety and security. The intangible elements--}}
-{{--                        include: rest and relaxation, culture, escape, adventure, new and different--}}
-{{--                        experiences. </p>--}}
-{{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Many countries depend heavily upon travel expenditures by--}}
-{{--                        foreigners as a source of taxation and as a source of income for the--}}
-{{--                        enterprises that sell (export) services to these travellers. Sometimes--}}
-{{--                        Tourism and Travel are used interchangeably. In this context travel has a--}}
-{{--                        similar definition to tourism, but implies a more purposeful journey. The--}}
-{{--                        term tourism is sometimes used pejoratively, implying a shallow interest in--}}
-{{--                        the societies and places that the tourist visits. </p>--}}
-{{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </section>--}}
+        {{--            <div class="w-full flex items-center text-base md:text-lg font-semibold ">--}}
+        {{--                <div>--}}
+        {{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tourism is the act of travel for the purpose of recreation and--}}
+        {{--                        business, and the provision of services for this act. Tourists are persons--}}
+        {{--                        who are “travelling to and staying in places outside their usual--}}
+        {{--                        environment for not more than one consecutive year for leisure, business--}}
+        {{--                        and other purposes not related to the exercise of an activity remunerated--}}
+        {{--                        from within the place visited”. A more comprehensive definition would be--}}
+        {{--                        that tourism is a service industry, comprising a number of tangible and--}}
+        {{--                        intangible components. The tangible elements include transport systems –--}}
+        {{--                        air, rail, road, water and now, space; hospitality services – accommodation,--}}
+        {{--                        foods and beverages, tours, souvenirs; and related services such as--}}
+        {{--                        banking, insurance and safety and security. The intangible elements--}}
+        {{--                        include: rest and relaxation, culture, escape, adventure, new and different--}}
+        {{--                        experiences. </p>--}}
+        {{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Many countries depend heavily upon travel expenditures by--}}
+        {{--                        foreigners as a source of taxation and as a source of income for the--}}
+        {{--                        enterprises that sell (export) services to these travellers. Sometimes--}}
+        {{--                        Tourism and Travel are used interchangeably. In this context travel has a--}}
+        {{--                        similar definition to tourism, but implies a more purposeful journey. The--}}
+        {{--                        term tourism is sometimes used pejoratively, implying a shallow interest in--}}
+        {{--                        the societies and places that the tourist visits. </p>--}}
+        {{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--        </section>--}}
 
 
         <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200 w-full"

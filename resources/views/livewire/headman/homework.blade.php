@@ -21,11 +21,9 @@
                     wire:model.defer="selected_subject"
                 >
                     @forelse($subjects as $key => $subject)
-                        <option
-                            label="{{ $subject->title }}"
-                            value="{{ $key }}"/>
+                        <option value="{{ $key }}">{{ $subject->title }}</option>
                     @empty
-                        <option label="Не существует" value=-1/>
+                        <option value=-1 >Не существует</option>
                     @endforelse
                 </select>
             </div>
@@ -154,13 +152,9 @@
                         dark:text-secondary-400 mb-2"
                     wire:model.defer="filter_subject"
                 >
-                    <option
-                        label="Все предметы"
-                        value="-1"/>
+                    <option value="-1" >Все предметы</option>
                     @forelse($subjects as $key => $subject)
-                        <option
-                            label="{{ $subject->title }}"
-                            value="{{ $key }}"/>
+                        <option value="{{ $key }}">{{ $subject->title }}</option>
                     @empty
                         <option label="Не существует" value=-2/>
                     @endforelse
@@ -240,13 +234,9 @@
                             dark:text-secondary-400"
                                 wire:model.defer="filter_subject"
                             >
-                                <option
-                                    label="Все предметы"
-                                    value="-1"/>
+                                <option  value="-1" >Все предметы</option>
                                 @forelse($subjects as $key => $subject)
-                                    <option
-                                        label="{{ $subject->title }}"
-                                        value="{{ $key }}"/>
+                                    <option value="{{ $key }}">{{ $subject->title }}</option>
                                 @empty
                                     <option label="Не существует" value=-2/>
                                 @endforelse

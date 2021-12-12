@@ -1,10 +1,28 @@
 <div class="">
-    <div class="flex items-center justify-center w-full h-screen">
-        <div class="flex bg-red-300 h-32 w-32 md:bg-green-500 transition transform duration-500 rounded-md">
-            <span class="hidden md:block">Размер >MD</span>
-            <span class="block md:hidden">Размер меньше MD</span>
-        </div>
-    </div>
+    <select
+        class="placeholder-secondary-400 dark:bg-secondary-800 dark:text-secondary-400 dark:placeholder-secondary-500
+                        border border-secondary-300 focus:ring-primary-500 focus:border-primary-500 dark:border-secondary-600 block w-full
+                        sm:text-sm rounded-md transition ease-in-out duration-100 focus:outline-none shadow-sm cursor-pointer overflow-hidden
+                        dark:text-secondary-400 mb-2"
+    >
+        <option
+            label="123"
+            value=1/>
+        <option label="Не существует" value=-1/>
+
+        <option value="3">Синий</option>
+        <option label="Фиолетовый" value="4"/>
+        <option label="Розовый" value="5"/>
+        <option label="Красный" value="6"/>
+        <option label="Золотой" value="7"/>
+    </select>
+
+    {{--    <div class="flex items-center justify-center w-full h-screen">--}}
+    {{--        <div class="flex bg-red-300 h-32 w-32 md:bg-green-500 transition transform duration-500 rounded-md">--}}
+    {{--            <span class="hidden md:block">Размер >MD</span>--}}
+    {{--            <span class="block md:hidden">Размер меньше MD</span>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
 </div>
 
 
