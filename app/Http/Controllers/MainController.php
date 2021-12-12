@@ -12,6 +12,9 @@ class MainController extends Controller
 {
     public function DashboardRedirect()
     {
+        if (Auth::user()->hasRole('student')) {
+            return redirect(route('student.dashboard'));
+        }
         if (Auth::user()->hasRole('admin')) {
             return redirect(route('admin.dashboard'));
         } elseif (Auth::user()->hasRole('moderator')) {
@@ -26,7 +29,7 @@ class MainController extends Controller
     public function CustomRedirect($key)
     {
         $l = CustomLink::where('full', $key)->orWhere('short', $key)->first();
-        if (!is_null($l)){
+        if (!is_null($l)) {
             $l->counter++;
             $l->save();
             return redirect($l->link);
