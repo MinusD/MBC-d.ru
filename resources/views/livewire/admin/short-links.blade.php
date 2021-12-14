@@ -29,8 +29,7 @@
 {{--                    {{ $key%2 ? 'bg-gray-50 dark:bg-gray-800' : '' }}--}}
                     <td class="table-cell md:hidden py-3 px-6 text-left">
                         <div class="flex items-center">
-                                    <span
-                                        class="font-medium">{{ $link->title }}</span>
+                            <span class="font-medium">{{ $link->title }}</span>
                         </div>
                     </td>
                     <td class="hidden md:table-cell py-3 px-6 text-left">

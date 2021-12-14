@@ -192,6 +192,19 @@
             </div>
         </div>
     @endif
+
+    <div class="px-2 md:px-10 mt-4">
+        <div
+            class="block w-full shadow-lg bg-indigo-900 items-center h-6 rounded-md z-38 ring-2 ring-offset-2 ring-offset-yellow-600 ring-yellow-500 mt-5 ">
+            <div>
+                <div class="flex flex items-center justify-center">
+                    <div class="text-md font-semibold text-gray-100">
+                        22 занятия проходят по расписанию 4 ноября, 20 и 21 - учебные дни, по обычному расписанию, с 23 начинаются зачеты
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     @if(env('IS_DISTANT'))
         <div class="px-2 md:px-10 mt-4">
             <div
