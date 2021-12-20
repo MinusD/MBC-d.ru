@@ -199,7 +199,7 @@
             <div>
                 <div class="flex flex items-center justify-center">
                     <div class="text-md font-semibold text-gray-100">
-                        22 занятия проходят по расписанию 4 ноября, 20 и 21 - учебные дни, по обычному расписанию, с 23 начинаются зачеты
+                        (ИТ) 22 занятия проходят по расписанию 4 ноября, 20 и 21 - учебные дни, по обычному расписанию, с 23 начинаются зачеты
                     </div>
                 </div>
             </div>
@@ -225,9 +225,7 @@
                 class="block w-full shadow-lg  items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 p-4 w-full @if($key == $current_day && $show_week == $current_week) bg-gradient-to-br from-indigo-700 to-green-600 @else bg-indigo-900 bg-opacity-40 @endif">
                 {{--                <div class="-mt-3 text-gray-200 font-semibold text-sm  ml-2 right-2">2021-11-09</div>--}}
                 <div class="flex items-center justify-between mb-3">
-
                     <div class="flex items-center">
-
                         <div class="flex flex-col">
                             <div
                                 class="font-bold text-2xl text-white ml-2 capitalize">{{ $les['day_name'] }} <span

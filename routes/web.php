@@ -96,6 +96,7 @@ Route::get('fs', \App\Http\Livewire\Landing\Fastshare::class)->name('landing.fas
 Route::get('register', \App\Http\Livewire\Landing\Registration::class)->name('landing.register');
 Route::get('rbi', \App\Http\Livewire\Landing\RegByCode::class)->name('landing.reg_by_code');
 Route::get('s', \App\Http\Livewire\Landing\Test::class)->name('landing.test');
+Route::get('adm', \App\Http\Livewire\Admin\Helper::class);
 
 Route::group([
     'prefix' => 'services',
