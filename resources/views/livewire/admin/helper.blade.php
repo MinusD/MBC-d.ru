@@ -64,7 +64,7 @@
                 </button>
             </div>
             <div class="flex flex-col mt-5 gap-7 text-sm">
-                <a href="https://disk.yandex.ru/i/RKGrzjXN5V_UVg">
+                <a href="https://disk.yandex.ru/i/r8C6duwDyPf6ZA">
                     <div class="bg-yellow-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
                         <div class="flex justify-start items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" viewBox="0 0 20 20"
@@ -73,12 +73,27 @@
                                       d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
                                       clip-rule="evenodd"></path>
                             </svg>
-                            <div><p class="text-gray-700 font-bold tracking-wider">Эссе по ВВПД</p>
+                            <div><p class="text-gray-700 font-bold tracking-wider">Эссе по ВВПД (DOCX)</p>
                                 <p class="text-gray-400 text-xs">disk.yandex.ru</p></div>
                         </div>
                     </div>
                 </a>
-                <a href="https://disk.yandex.ru/i/fjlSejyDknjM1w">
+                <a href="https://disk.yandex.ru/i/78GESM5A--UNpA">
+                    <div class="bg-pink-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
+                        <div class="flex justify-start items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-500" viewBox="0 0 20 20"
+                                 fill="currentColor">
+                                <path fill-rule="evenodd"
+                                      d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
+                                      clip-rule="evenodd"></path>
+                            </svg>
+                            <div><p class="text-gray-700 font-bold tracking-wider">Эссе по ВВПД (PDF)</p>
+                                <p class="text-gray-400 text-xs">disk.yandex.ru</p></div>
+                        </div>
+                        {{--                    <span class="font-bold text-pink-500">-27%</span>--}}
+                    </div>
+                </a>
+                <a href="https://disk.yandex.ru/d/0LOhMLYY6rQLeg">
                     <div class="bg-green-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
                         <div class="flex justify-start items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500" viewBox="0 0 20 20"
@@ -87,37 +102,27 @@
                                       d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
                                       clip-rule="evenodd"></path>
                             </svg>
-                            <div><p class="text-gray-700 font-bold tracking-wider">Эссе по ВВПД с темами</p>
+                            <div><p class="text-gray-700 font-bold tracking-wider">Папка разное</p>
                                 <p class="text-gray-400 text-xs">disk.yandex.ru</p></div>
                         </div>
                     </div>
                 </a>
-                <div class="bg-pink-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
-                    <div class="flex justify-start items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-500" viewBox="0 0 20 20"
-                             fill="currentColor">
-                            <path fill-rule="evenodd"
-                                  d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
-                                  clip-rule="evenodd"></path>
-                        </svg>
-                        <div><p class="text-gray-700 font-bold tracking-wider">Удалено</p>
-                            <p class="text-gray-400 text-xs">******</p></div>
+
+                <a href="https://disk.yandex.ru/i/6gljRn8nkM3nJQ">
+                    <div class="bg-indigo-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
+                        <div class="flex justify-start items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-500" viewBox="0 0 20 20"
+                                 fill="currentColor">
+                                <path fill-rule="evenodd"
+                                      d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
+                                      clip-rule="evenodd"></path>
+                            </svg>
+                            <div><p class="text-gray-700 font-bold tracking-wider">Удалено</p>
+                                <p class="text-gray-400 text-xs">disk.yandex.ru</p></div>
+                        </div>
+                        {{--                    <span class="font-bold text-indigo-500">+8%</span></div>--}}
                     </div>
-                    {{--                    <span class="font-bold text-pink-500">-27%</span>--}}
-                </div>
-                <div class="bg-indigo-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
-                    <div class="flex justify-start items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-500" viewBox="0 0 20 20"
-                             fill="currentColor">
-                            <path fill-rule="evenodd"
-                                  d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
-                                  clip-rule="evenodd"></path>
-                        </svg>
-                        <div><p class="text-gray-700 font-bold tracking-wider">Удалено</p>
-                            <p class="text-gray-400 text-xs">******</p></div>
-                    </div>
-                    {{--                    <span class="font-bold text-indigo-500">+8%</span></div>--}}
-                </div>
+                </a>
             </div>
             @else
                 <div class="flex">

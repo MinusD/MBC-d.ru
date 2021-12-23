@@ -90,7 +90,7 @@
                 <div>
                     <div class="flex flex items-center justify-center">
                         <div class="text-md font-semibold text-white">
-                           (ИТ) 22 занятия проходят по расписанию 4 ноября, 20 и 21 - учебные дни, по обычному расписанию, с 23 начинаются зачеты
+                            Расписание не актуально, идёт сессия!
                         </div>
                     </div>
                 </div>
