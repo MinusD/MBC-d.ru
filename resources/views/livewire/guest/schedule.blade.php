@@ -74,7 +74,7 @@
                         {{--                                </div>--}}
                         {{--                            </div>--}}
                         {{--                        </div>--}}
-                        @if($show_week > 0)
+                        @if($show_week > -1)
                             <div class="hidden sm:flex sm:items-center sm:ml-6">
                                 <div class="relative">
                                     <div class="relative">
@@ -134,7 +134,7 @@
             </div>
         </header>
     </div>
-    @if($show_week > 0)
+    @if($show_week > -1)
         <div class="px-2 md:px-10 mt-4 lg:hidden">
             <div
                 class="block w-full shadow-lg bg-indigo-900 bg-opacity-40 items-center h-6 rounded-md z-38 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5">
@@ -193,18 +193,18 @@
         </div>
     @endif
 
-    <div class="px-2 md:px-10 mt-4">
-        <div
-            class="block w-full shadow-lg bg-indigo-900 items-center h-6 rounded-md z-38 ring-2 ring-offset-2 ring-offset-yellow-600 ring-yellow-500 mt-5 ">
-            <div>
-                <div class="flex flex items-center justify-center">
-                    <div class="text-md font-semibold text-gray-100">
-                        Расписание не актуально, идёт сессия!
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--    <div class="px-2 md:px-10 mt-4">--}}
+{{--        <div--}}
+{{--            class="block w-full shadow-lg bg-indigo-900 items-center h-6 rounded-md z-38 ring-2 ring-offset-2 ring-offset-yellow-600 ring-yellow-500 mt-5 ">--}}
+{{--            <div>--}}
+{{--                <div class="flex flex items-center justify-center">--}}
+{{--                    <div class="text-md font-semibold text-gray-100">--}}
+{{--                        Расписание не актуально, идёт сессия!--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     @if(env('IS_DISTANT'))
         <div class="px-2 md:px-10 mt-4">
             <div

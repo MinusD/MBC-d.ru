@@ -628,7 +628,7 @@
                     Text 3 A
                 </h2>
                 <h1 class="font-bold text-xl lg:text-2xl font-heading ">
-                    Higher Education in Russia
+                    The History of Russia
                 </h1>
             </div>
 

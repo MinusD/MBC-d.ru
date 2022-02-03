@@ -84,18 +84,18 @@
             </div>
         </header>
 
-        <div class="px-1 my-2">
-            <div
-                class="block w-full shadow-lg bg-indigo-900 items-center h-6 rounded-md z-38 ring-2 bg-gradient-to-r from-yellow-600 ">
-                <div>
-                    <div class="flex flex items-center justify-center">
-                        <div class="text-md font-semibold text-white">
-                            Расписание не актуально, идёт сессия!
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--        <div class="px-1 my-2">--}}
+{{--            <div--}}
+{{--                class="block w-full shadow-lg bg-indigo-900 items-center h-6 rounded-md z-38 ring-2 bg-gradient-to-r from-yellow-600 ">--}}
+{{--                <div>--}}
+{{--                    <div class="flex flex items-center justify-center">--}}
+{{--                        <div class="text-md font-semibold text-white">--}}
+{{--                            Расписание не актуально, идёт сессия!--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div class="mx-0 mb-10 mt-1 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 md:gap-4 gap-y-4">
             @forelse($lessons as $key => $les)
                 <div
