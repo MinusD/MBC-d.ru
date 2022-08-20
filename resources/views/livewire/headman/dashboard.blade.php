@@ -222,7 +222,7 @@
                         <a href="{{ route('headman.services') . "?act=fast-group" }}">
                             <button type="button"
                                     class="mbc-headman-spec-btn">
-                                Быстрое добавление
+                                Быстрое добавление
                             </button>
                         </a>
                     </div>
@@ -245,7 +245,7 @@
                         <a href="{{ route('headman.homeworks-applications') }}">
                             <button type="button"
                                     class="mbc-headman-spec-btn @if($homeworks_applications_counter > 0) mbc-headman-spec-btn-isset  @endif">
-                                Предложения ДЗ ({{$homeworks_applications_counter}})
+                                Предложения ДЗ ({{$homeworks_applications_counter}})
                             </button>
                         </a>
                     </div>
