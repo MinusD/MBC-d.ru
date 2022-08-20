@@ -153,11 +153,60 @@
     @apply flex items-center justify-center text-center bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between h-auto;
 }
 
+.mbc-dashboard-header {
+    @apply md:text-2xl font-bold text-gray-900 dark:text-gray-100;
+}
+
+.mbc-headman-spec-btn {
+    @apply w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-blue-400 to-blue-600 transform transition hover:scale-105;
+}
+
+.mbc-headman-spec-btn-isset {
+    @apply bg-gradient-to-r from-yellow-400 to-yellow-600;
+}
+
+.mbc-dashboard-card-title {
+    @apply font-bold text-2xl text-black dark:text-white ml-2;
+}
+
+.mbc-dashboard-label {
+    @apply block text-sm font-medium text-secondary-700 dark:text-gray-400;
+}
+
+.mbc-dashboard-label-extra {
+    @apply text-xs text-gray-500;
+}
+
+.mbc-dashboard-modal-card-container {
+    @apply relative rounded-md shadow-sm;
+}
+
+.mbc-dashboard-cards-grid {
+    @apply overflow-auto pb-24 pt-2 pr-2 pl-2 md:pt-0 md:pr-0 md:pl-0 flex flex-wrap items-stretch;
+}
+
+.mbc-dashboard-card-base {
+    @apply flex-initial mb-4 w-full xl:pr-3 self-auto;
+}
+
+.mbc-dashboard-card-base-in {
+    @apply shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-700 w-full;
+}
+
+.mbc-dashboard-table-svg-denied {
+    @apply h-5 w-5 text-red-500;
+}
+.mbc-dashboard-table-svg-wait {
+    @apply h-5 w-5 text-yellow-500;
+}
+
+.mbc-dashboard-table-svg-ok {
+    @apply h-5 w-5 text-green-500;
+}
+
+/*.mbc-dashboard-table-cell-*/
 
 
-
-
-/*.mbc*/
 
 /*@media (prefers-color-scheme: dark) {*/
 /*    .apexcharts-text.apexcharts-yaxis-label {*/

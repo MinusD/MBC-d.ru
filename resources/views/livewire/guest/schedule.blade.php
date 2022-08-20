@@ -158,17 +158,17 @@
             </div>
         </div>
     @endif
-    <div class="mbc-near-header-card-out">
-        <a
-            href="{{ route('guest.new-schedule') }}"
-            class="mbc-schedule-near-header-card-base ring-offset-yellow-600 ring-yellow-500">
-            <div>
-                <div class="mbc-schedule-near-header-card-text">
-                    Попробуй новый дизайн расписания!
-                </div>
-            </div>
-        </a>
-    </div>
+{{--    <div class="mbc-near-header-card-out">--}}
+{{--        <a--}}
+{{--            href="{{ route('guest.new-schedule') }}"--}}
+{{--            class="mbc-schedule-near-header-card-base ring-offset-yellow-600 ring-yellow-500">--}}
+{{--            <div>--}}
+{{--                <div class="mbc-schedule-near-header-card-text">--}}
+{{--                    Попробуй новый дизайн расписания!--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </a>--}}
+{{--    </div>--}}
     @if(env('IS_DISTANT'))
         <div class="mbc-near-header-card-out">
             <div
