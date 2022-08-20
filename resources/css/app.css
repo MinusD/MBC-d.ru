@@ -34,6 +34,131 @@
     @apply hidden sm:block sm:absolute right-3 bottom-1 font-semibold text-blue-400;
 }
 
+.mbc-header-cyan-ring {
+    @apply block w-full shadow-lg bg-indigo-900 bg-opacity-40 items-center h-16 rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800;
+}
+
+.mbc-header-ring-flex {
+    @apply relative z-20 flex flex-col justify-center h-full px-3 mx-auto ;
+}
+
+.mbc-header-ring-flex-in {
+    @apply relative items-center pl-1 flex w-full sm:pr-2 sm:ml-0;
+}
+
+.mbc-header-logo {
+    @apply container relative z-50 left-0 flex w-3/4 lg:w-1/2 h-auto;
+}
+
+.mbc-header-schedule-group-name {
+    @apply container relative z-50 hidden lg:flex text-center justify-center h-auto text-3xl dark:text-gray-100 text-white font-bold;
+    font-family: 'Lobster', cursive;
+}
+
+.mbc-header-schedule-gear {
+    @apply flex relative p-1 items-center justify-end w-3/4 lg:w-1/2 ml-5 mr-4 sm:mr-0 sm:right-auto;
+}
+
+.mbc-header-mobile-week-picker {
+    @apply block sm:hidden shadow-lg bg-indigo-900 bg-opacity-40 items-center  rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 mx-2 mt-4;
+}
+
+.mbc-header-mobile-week-picker-component {
+    @apply mx-1 py-1 cursor-pointer flex items-center justify-center;
+}
+
+.mbc-near-header-card-out {
+    @apply px-2 md:px-10 mt-4;
+}
+
+.mbc-schedule-api-error-card {
+    @apply block w-full shadow-lg bg-indigo-900 bg-opacity-40 items-center h-14 rounded-2xl z-30 ring-2 ring-offset-2 ring-offset-blue-800 mt-5;
+}
+
+.mbc-schedule-near-header-card-base {
+    @apply block w-full shadow-lg bg-indigo-900 items-center h-6 rounded-md z-30 ring-2 ring-offset-2;
+}
+
+.mbc-schedule-near-header-card-text {
+    @apply flex items-center justify-center font-semibold text-gray-100;
+}
+
+.mbc-schedule-grid {
+    @apply mx-2 md:mx-10 mb-10 mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-4 gap-y-4;
+}
+
+.mbc-schedule-day-card-base {
+    @apply block w-full shadow-lg items-center rounded-2xl z-40 ring-2 ring-offset-2 ring-offset-blue-800 p-4 w-full bg-indigo-900 bg-opacity-40;
+}
+
+.mbc-schedule-day-card-current {
+    @apply bg-gradient-to-br from-indigo-700 to-green-600;
+}
+
+.mbc-flex-center {
+    @apply flex items-center;
+}
+
+.mbc-flex-col {
+    @apply flex flex-col;
+}
+
+.mbc-schedule-gradient-day-name {
+    @apply font-bold text-2xl text-white ml-2 capitalize;
+}
+
+.mbc-schedule-gradient-date {
+    @apply text-sm text-gray-200;
+}
+
+.mbc-schedule-gradient-lesson-card {
+    @apply bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between;
+}
+
+.mbc-schedule-gradient-lesson-card-time {
+    @apply flex-initial text-gray-200 text-xs md:text-sm flex items-center justify-center py-1 pr-3 font-semibold;
+}
+
+.mbc-schedule-gradient-lesson-card-subject {
+    @apply text-white text-xs md:text-base space-y-1 md:space-y-2;
+}
+
+.mbc-schedule-gradient-lesson-card-tuter {
+    @apply text-gray-200 text-xs md:text-sm text-sm underline;
+}
+
+.mbc-schedule-gradient-lesson-card-place {
+    @apply flex-initial order-last flex items-center justify-center;
+}
+
+.mbc-schedule-gradient-lesson-card-place-icon {
+    @apply px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 text-white rounded-xl md:rounded-full transition ease-in duration-300;
+}
+
+.mbc-schedule-gradient-lesson-card-place-icon-green {
+    @apply bg-green-500 hover:bg-green-500 border-green-300 hover:border-green-500;
+}
+
+
+.mbc-schedule-gradient-lesson-card-place-icon-red {
+    @apply bg-red-500 hover:bg-red-600 border-red-400 hover:border-red-500;
+}
+
+.mbc-schedule-gradient-lesson-card-place-icon-indigo {
+    @apply bg-indigo-500 hover:bg-indigo-600 border-indigo-400 hover:border-indigo-500;
+}
+
+
+.mbc-schedule-gradient-lesson-card-empty {
+    @apply flex items-center justify-center text-center bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between h-auto;
+}
+
+
+
+
+
+/*.mbc*/
+
 /*@media (prefers-color-scheme: dark) {*/
 /*    .apexcharts-text.apexcharts-yaxis-label {*/
 /*        @apply text-gray-300;*/
