@@ -196,6 +196,7 @@
 .mbc-dashboard-table-svg-denied {
     @apply h-5 w-5 text-red-500;
 }
+
 .mbc-dashboard-table-svg-wait {
     @apply h-5 w-5 text-yellow-500;
 }
@@ -204,8 +205,13 @@
     @apply h-5 w-5 text-green-500;
 }
 
-/*.mbc-dashboard-table-cell-*/
+.mbc-landing-bg {
+    @apply flex justify-center bg-gradient-to-br from-indigo-900 min-h-screen to-green-900;
+}
 
+
+
+/*.mbc-dashboard-table-cell-*/
 
 
 /*@media (prefers-color-scheme: dark) {*/
