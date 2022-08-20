@@ -10,7 +10,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Cookie;
 use WireUi\Traits\Actions;
 
-class Schedule extends Component
+class NewSchedule extends Component
 {
     use Actions;
 
@@ -261,6 +261,6 @@ class Schedule extends Component
 
     public function render()
     {
-        return view('livewire.guest.schedule')->layout('layouts.guest');
+        return view('livewire.guest.new-schedule')->layout('layouts.guest');
     }
 }

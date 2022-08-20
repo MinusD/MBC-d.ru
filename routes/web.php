@@ -86,6 +86,8 @@ Route::group([
 });
 
 Route::get('schedule', \App\Http\Livewire\Guest\Schedule::class)->name('guest.schedule');
+Route::get('new-schedule', \App\Http\Livewire\Guest\NewSchedule::class)->name('guest.new-schedule');
+Route::get('couples-schedule', \App\Http\Livewire\Guest\CouplesSchedule::class)->name('guest.couples-schedule');
 
 
 Route::get('/', \App\Http\Livewire\Landing\Home::class)->name('landing.home');

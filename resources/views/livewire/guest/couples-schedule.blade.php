@@ -5,14 +5,12 @@
             <div class="grid grid-cols-1  gap-4">
 
 
-                <x-input label="Имя группы" wire:model.lazy="modal_group_name" wire:keydown.enter="save"/>
+                <x-input label="Имя первой группы" wire:model.lazy="modal_group_name" wire:keydown.enter="save"/>
+                <x-input label="Имя второй группы" wire:model.lazy="modal_group_name2" wire:keydown.enter="save"/>
                 @if($search_error)
                     <span class="text-red-600">Ошибка поиска группы</span>
                 @endif
-                @if(mb_strlen($previous_group > 3))
-                    <x-button info wire:click="get_previous_group">Вернуть расписание
-                        группы {{ $previous_group ?? "не найдено"}}</x-button>
-                @endif
+
                 <p><span class="font-bold">Важно! </span>Название группы должно быть в таком же формате, как и в
                     расаписании (Например: <code>ИКБО-30-21</code>)</p>
 
@@ -192,20 +190,19 @@
             </div>
         </div>
     @endif
-        <div class="px-2 md:px-10 mt-4">
 
-            <a
-                href="{{ route('guest.new-schedule') }}"
-                class="block w-full shadow-lg bg-indigo-900 items-center h-6 rounded-md z-38 ring-2 ring-offset-2 ring-offset-yellow-600 ring-yellow-500 mt-5 ">
-                <div>
-                    <div class="flex flex items-center justify-center">
-                        <div class="text-md font-semibold text-gray-100">
-                            Попробуй новый дизайн расписания!
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
+    {{--    <div class="px-2 md:px-10 mt-4">--}}
+    {{--        <div--}}
+    {{--            class="block w-full shadow-lg bg-indigo-900 items-center h-6 rounded-md z-38 ring-2 ring-offset-2 ring-offset-yellow-600 ring-yellow-500 mt-5 ">--}}
+    {{--            <div>--}}
+    {{--                <div class="flex flex items-center justify-center">--}}
+    {{--                    <div class="text-md font-semibold text-gray-100">--}}
+    {{--                        Расписание не актуально, идёт сессия!--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
     @if(env('IS_DISTANT'))
         <div class="px-2 md:px-10 mt-4">
             <div

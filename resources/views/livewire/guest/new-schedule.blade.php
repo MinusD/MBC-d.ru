@@ -192,20 +192,20 @@
             </div>
         </div>
     @endif
-        <div class="px-2 md:px-10 mt-4">
+    {{--    <div class="px-2 md:px-10 mt-4">--}}
 
-            <a
-                href="{{ route('guest.new-schedule') }}"
-                class="block w-full shadow-lg bg-indigo-900 items-center h-6 rounded-md z-38 ring-2 ring-offset-2 ring-offset-yellow-600 ring-yellow-500 mt-5 ">
-                <div>
-                    <div class="flex flex items-center justify-center">
-                        <div class="text-md font-semibold text-gray-100">
-                            Попробуй новый дизайн расписания!
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
+    {{--        <a--}}
+    {{--            href="{{ route('guest.new-schedule') }}"--}}
+    {{--            class="block w-full shadow-lg bg-indigo-900 items-center h-6 rounded-md z-38 ring-2 ring-offset-2 ring-offset-yellow-600 ring-yellow-500 mt-5 ">--}}
+    {{--            <div>--}}
+    {{--                <div class="flex flex items-center justify-center">--}}
+    {{--                    <div class="text-md font-semibold text-gray-100">--}}
+    {{--                        Попробуй новый дизайн расписания!--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </a>--}}
+    {{--    </div>--}}
     @if(env('IS_DISTANT'))
         <div class="px-2 md:px-10 mt-4">
             <div
@@ -236,8 +236,10 @@
                 </div>
                 @php($show_date =  strtotime('+1 day', $show_date))
                 @forelse($les['data'] as $day)
+
                     <div
-                        class="bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">
+                        class="relative bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between">
+
                         {{--                        <div--}}
                         {{--                            class="hidden  text-gray-200 text-xs md:text-sm flex-initial items-center justify-center py-1 px-3 font-semibold whitespace-normal md:whitespace-nowrap">--}}
                         {{--                            {{ $lessons_time[$day['n']]}}--}}
@@ -249,7 +251,7 @@
                             {{ mb_substr($lessons_time[$day['n']],-6, -1) . '0' }}
                         </div>
                         <div class="flex-grow"><span
-                                class="text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}{{ !env('IS_DISTANT') ? (', ' . $day['place'] ?? '') : '' }}</span>
+                                class="text-white text-xs md:text-base space-y-1 md:space-y-2">{{ $day['name'] }}</span>
                             <br>
                             <a href="{{ route('landing.services.teachers_info') . '?t=' . $day['tuter']}}"
                                target="_blank">
@@ -257,25 +259,81 @@
                                 class="text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>
                             </a>
                         </div>
-                        <div class="flex-initial order-last flex items-center justify-center">
+                        {{--                        <div class="flex-initial order-last flex items-center justify-center">--}}
+                        {{--                            @if($day['type'] == 'пр')--}}
+                        {{--                                <button--}}
+                        {{--                                    class="flex-no-shrink bg-green-500 hover:bg-green-500 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">--}}
+                        {{--                                    <span class="font-normal md:font-bold md:uppercase">пр</span>--}}
+                        {{--                                </button>--}}
+                        {{--                            @elseif($day['type'] == 'лк')--}}
+                        {{--                                <button--}}
+                        {{--                                    class="flex-no-shrink bg-red-500 hover:bg-red-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-red-400 hover:border-red-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">--}}
+                        {{--                                    <span class="font-normal md:font-bold md:uppercase">лк</span>--}}
+                        {{--                                </button>--}}
+                        {{--                            @else--}}
+                        {{--                                <button--}}
+                        {{--                                    class="flex-no-shrink bg-indigo-500 hover:bg-indigo-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-indigo-400 hover:border-indigo-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">--}}
+                        {{--                                    <span class="font-normal md:font-bold md:uppercase">лаб</span>--}}
+                        {{--                                </button>--}}
+                        {{--                            @endif--}}
+                        {{--                        </div>--}}
+{{--                        <div class="absolute left-0 bottom-0 w-full">--}}
+{{--                            <div--}}
+{{--                                class=" bg-gradient-to-br from-red-500 to-red-800  text-sm  text-white rounded-lg px-1.5 -ml-1.5 w-1/3 text-center">--}}
+{{--                                {{ $lessons_time[$day['n']] }}--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+                        <div class="absolute right-0 bottom-0">
+                            <div
+                                class="bg-gradient-to-br from-pink-500 to-pink-800  text-sm text-white rounded-lg px-1.5 inline rounded-r-none -mr-1.5">{{ !env('IS_DISTANT') ? ($day['place'] ?? '') : '' }}</div>
                             @if($day['type'] == 'пр')
-                                <button
-                                    class="flex-no-shrink bg-green-500 hover:bg-green-500 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
-                                    <span class="font-normal md:font-bold md:uppercase">пр</span>
-                                </button>
+                                <div
+                                    class="inline bg-gradient-to-br from-red-500 to-red-800   text-sm  text-white rounded-lg px-1.5 rounded-l-none">
+                                    Практика
+                                </div>
+
                             @elseif($day['type'] == 'лк')
-                                <button
-                                    class="flex-no-shrink bg-red-500 hover:bg-red-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-red-400 hover:border-red-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
-                                    <span class="font-normal md:font-bold md:uppercase">лк</span>
-                                </button>
+                                <div
+                                    class="inline bg-gradient-to-br from-green-500 to-green-800   text-sm  text-white rounded-lg px-1.5 rounded-l-none">
+                                    Лекция
+                                </div>
+
+                            @elseif($day['type'] == 'лаб')
+                                <div
+                                    class="inline bg-gradient-to-br from-indigo-500 to-indigo-800   text-sm text-white rounded-lg px-1.5 rounded-l-none">
+                                    Лабораторная
+                                </div>
                             @else
-                                <button
-                                    class="flex-no-shrink bg-indigo-500 hover:bg-indigo-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-indigo-400 hover:border-indigo-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
-                                    <span class="font-normal md:font-bold md:uppercase">лаб</span>
-                                </button>
+                                <div
+                                    class="inline bg-gradient-to-br from-blue-500 to-blue-800   text-sm text-white rounded-lg px-1.5 rounded-l-none">
+                                    {{ $day['type']  }}
+                                </div>
                             @endif
+                            {{--                            <div--}}
+                            {{--                                class="bg-gradient-to-br from-red-500 to-red-800  text-xs text-white rounded-lg px-1.5 inline rounded-l-none">--}}
+                            {{--                                Практика--}}
+                            {{--                            </div>--}}
                         </div>
+
+                        {{--                            @if($day['type'] == 'пр')--}}
+                        {{--                            <div class="bg-gradient-to-br from-red-500 to-red-800  absolute text-xs right-0 bottom-0 text-white rounded-lg px-1.5">Практика</div>--}}
+
+                        {{--                            @elseif($day['type'] == 'лк')--}}
+                        {{--                            <div class="bg-gradient-to-br from-green-500 to-green-800  absolute text-xs right-0 bottom-0 text-white rounded-lg px-1.5">Лекция</div>--}}
+
+                        {{--                            @elseif($day['type'] == 'лаб')--}}
+                        {{--                            <div class="bg-gradient-to-br from-indigo-500 to-indigo-800  absolute text-xs right-0 bottom-0 text-white rounded-lg px-1.5">Лабораторная</div>--}}
+                        {{--                        @else--}}
+                        {{--                            <div class="bg-gradient-to-br from-green-500 to-green-800  absolute text-xs right-0 bottom-0 text-white rounded-lg px-1.5">Лекция</div>--}}
+                        {{--                                <button--}}
+                        {{--                                    class="flex-no-shrink bg-indigo-500 hover:bg-indigo-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-indigo-400 hover:border-indigo-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">--}}
+                        {{--                                    <span class="font-normal md:font-bold md:uppercase">лаб1</span>--}}
+                        {{--                                </button>--}}
+                        {{--                            @endif--}}
+
+                        {{--                        <div class="bg-gradient-to-br from-green-500 to-green-800  absolute text-xs right-0 bottom-0 text-white rounded-lg px-1.5">Лекция</div>--}}
                     </div>
+
                 @empty
                     <div
                         class="flex items-center justify-center text-center bg-indigo-900 bg-opacity-40 ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 rounded-md my-3 px-3 py-2 w-full text-white flex space-x-2 justify-between h-auto">

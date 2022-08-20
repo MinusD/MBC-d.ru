@@ -10,7 +10,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Cookie;
 use WireUi\Traits\Actions;
 
-class Schedule extends Component
+class CouplesSchedule extends Component
 {
     use Actions;
 
@@ -18,13 +18,17 @@ class Schedule extends Component
 
     public $modal_set = false;
     public $group_name = '';
+    public $group_name2 = '';
     public $modal_group_name;
+    public $modal_group_name2;
     public $search_error = false;
+    public $search_error2 = false;
     public $lessons_time;
     public $current_week;
     public $lessons = [];
     public $current_day;
     public $g;
+    public $g2;
     public $show_week;
     public $timetable = [];
     public $tid;
@@ -37,6 +41,7 @@ class Schedule extends Component
 
     protected $queryString = [
         'g' => ['except' => ''],
+        'g2' => ['except' => ''],
     ];
 
     public function openSetModal()
@@ -85,38 +90,32 @@ class Schedule extends Component
     public function save()
     {
         $this->modal_group_name = trim($this->modal_group_name);
+        $this->modal_group_name2 = trim($this->modal_group_name2);
         if ($this->modal_group_name == $this->group_name) {
             $this->search_error = false;
             $this->modal_set = false;
-            return;
+            //return;
         }
         $this->get_groups();
-        $tmp = $this->groups_list;
         $key = array_search(
             $this->modal_group_name,
-            array_column($tmp, 'groupName')
+            array_column($this->groups_list, 'groupName')
         );
-        $key = array_search(
-            $this->modal_group_name,
-            array_column($tmp, 'groupName')
+        $key2 = array_search(
+            $this->modal_group_name2,
+            array_column($this->groups_list, 'groupName')
         );
         try {
-            if ($this->groups_list[$key]['groupName'] != $this->modal_group_name) {
+            if (!($this->groups_list[$key]['groupName'] == $this->modal_group_name and
+                $this->groups_list[$key2]['groupName'] == $this->modal_group_name2)) {
                 $this->search_error = true;
             } else {
                 $this->search_error = false;
                 $this->modal_set = false;
-                $this->previous_group = $this->group_name;
                 $this->group_name = $this->groups_list[$key]['groupName'];
+                $this->group_name2 = $this->groups_list[$key2]['groupName'];
                 unset($this->lessons);
                 $this->lessons = [];
-                if (Cookie::has('schedule-group-name')) {
-                    $n = false;
-                } else {
-                    $n = true;
-                }
-                Cookie::queue(Cookie::forever('schedule-group-name', $this->group_name));
-                $this->tid = PublicGroupSlug::where('group_slugs', $this->group_name)->firstOrCreate(['group_slugs' => $this->group_name], ['id'])->id;
                 $this->get_group_data();
                 $log = new logLandingSaveGroupSchedule();
                 $log->public_group_id = $this->tid;
@@ -261,6 +260,6 @@ class Schedule extends Component
 
     public function render()
     {
-        return view('livewire.guest.schedule')->layout('layouts.guest');
+        return view('livewire.guest.couples-schedule')->layout('layouts.guest');
     }
 }
