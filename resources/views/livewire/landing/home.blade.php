@@ -1,79 +1,11 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"/>
-
-<div class="bg-gradient-to-br from-indigo-900 to-green-900 min-h-screen overflow-auto">
-    <div class="hidden sm:block sm:absolute right-3 bottom-1 font-semibold text-blue-400">For students by students
+<div class="mbc-gradient-background">
+    <div class="mbc-for-student-by-students">For students by students
     </div>
     <div class="container max-w-5xl mx-auto px-4">
-
-        <style>
-            .typing {
-                margin-top: 5rem;
-                --tw-text-opacity: 1;
-                color: rgba(255, 255, 255, var(--tw-text-opacity));
-                font-size: 3.75rem;
-                line-height: 1;
-                font-weight: 700;
-            }
-
-            .text {
-                margin-top: 5rem;
-                --tw-text-opacity: 1;
-                color: rgba(255, 255, 255, var(--tw-text-opacity));
-                font-size: 3.75rem;
-                line-height: 1;
-                font-weight: 700;
-            }
-
-            .typing span {
-
-                animation: 0.5s typing-color infinite;
-            }
-        </style>
         <div class="w-4/5">
             <h1 class="mt-20 text-white text-6xl font-bold">Проект для облегчения жизни студентов
                 <br/><span class="text-blue-400">РТУ МИРЭА</span></h1>
         </div>
-
-
-        {{--        <div class="w-4/5 typing md:h-40">--}}
-        {{--            <h1 class="mt-20 text-white text-6xl font-bold text">Проект для облегчения жизни студентов МИРЭА--}}
-        {{--            </h1>--}}
-        {{--        </div>--}}
-        {{--        <script>--}}
-        {{--            const screenWidth = window.screen.width;--}}
-        {{--            const screenHeight = window.screen.height;--}}
-        {{--            console.log(screenWidth);--}}
-
-        {{--            if (screenWidth > 980){--}}
-        {{--                var wrapper = document.querySelector(".typing");--}}
-        {{--                var text = document.querySelector(".typing .text");--}}
-        {{--                var textCont = text.textContent;--}}
-        {{--                text.style.display = "none";--}}
-        {{--                for (var i = 0; i < textCont.length; i++) {--}}
-        {{--                    (function (i) {--}}
-        {{--                        setTimeout(function () {--}}
-        {{--                            var texts = document.createTextNode(textCont[i])--}}
-        {{--                            var span = document.createElement('span');--}}
-        {{--                            span.appendChild(texts);--}}
-        {{--                            wrapper.appendChild(span);--}}
-        {{--                        }, 65 * i);--}}
-        {{--                    }(i));--}}
-        {{--                }--}}
-        {{--            }--}}
-
-        {{--        </script>--}}
-
-        {{--        <div class="my-10"></div>--}}
-        {{--        <div class="w-5/6 my-10 ml-6 z-20">--}}
-        {{--            <h3 class="text-gray-200 text-2xl">--}}
-        {{--                Проект на стадии празработки! По возникшем проблемам обращайтесь  <a href="{{ route('landing.contacts') }}" class="underline positive">по данным контактам.</a>--}}
-        {{--                --}}{{--                <span class="text-blue-500">For </span> students<span--}}
-        {{--                    class="text-blue-500"> by </span>students--}}
-        {{--                <br/>--}}
-        {{--            </h3>--}}
-        {{--        </div>--}}
 
         <div class="hidden sm:block opacity-50 z-0">
             <div class="shadow-2xl w-96 h-96 rounded-full -mt-72"></div>
@@ -83,10 +15,10 @@
 
         <div class="text-white relative mt-2 md:mt-20">
             <h3 class="text-uppercase font-semibold">Страницы & Действия</h3>
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-5 mb-12 ">
+            <div class="mbc-home-minicards-grid">
                 <a href="{{ route('guest.schedule') }}">
                     <div
-                        class="group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
+                        class="mbc-home-minicard">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -94,10 +26,7 @@
                         </svg>
                         <div>
                             <span>Расписание</span>
-                            <span class="text-xs text-blue-300 block">/schedule</span>
-                        </div>
-                        <div>
-                            <i class="fa fa-chevron-right opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-0 block transition"></i>
+                            <span class="mbc-home-minicard-url-label">/schedule</span>
                         </div>
                     </div>
                 </a>
@@ -112,19 +41,15 @@
                         </svg>
                         <div>
                             <span>Сервисы</span>
-                            {{--                            <span class="text-xs text-blue-300 block">Тут интересно</span>--}}
-                            <span class="text-xs text-blue-300 block">/services</span>
+                            <span class="mbc-home-minicard-url-label">/services</span>
                         </div>
-                        <div>
-                            <i class="fa fa-chevron-right opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-0 block transition"></i>
-                        </div>
-                        <div class="absolute text-xs text-gray-200 bottom-1 right-2">Не работает</div>
+                        <div class="mbc-home-minicard-not-working-label">Не работает</div>
                     </div>
                 </a>
 
                 <a href="{{ route('landing.fastshare') }}">
                     <div
-                        class="relative group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
+                        class="relative mbc-home-minicard">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -132,37 +57,29 @@
                         </svg>
                         <div>
                             <span>FastShare</span>
-                            {{--                        <span class="text-xs text-blue-300 block">Разработчики и...</span>--}}
-                            <span class="text-xs text-blue-300 block">/fs</span>
+                            <span class="mbc-home-minicard-url-label">/fs</span>
                         </div>
-                        <div>
-                            <i class="fa fa-chevron-right opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-0 block transition"></i>
-                        </div>
-                        <div class="absolute text-xs text-gray-200 bottom-1 right-2">Не работает</div>
+                        <div class="mbc-home-minicard-not-working-label">Не работает</div>
                     </div>
 
                 </a>
                 @auth
                     <a href="{{ route('dashboard') }}">
                     <div
-                        class="group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
+                        class="mbc-home-minicard">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                         <div>
                             <span>Dashboard</span>
-                            {{--                            <span class="text-xs text-blue-300 block">Заходи быстрее</span>--}}
-                            <span class="text-xs text-blue-300 block">/dashboard</span>
-                        </div>
-                        <div>
-                            <i class="fa fa-chevron-right opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-0 block transition mt-5 sm:mt-2"></i>
+                            <span class="mbc-home-minicard-url-label">/dashboard</span>
                         </div>
                     </div>
                 </a>
                 @else
                     <a href="{{ route('login') }}">
                     <div
-                        class="group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
+                        class="mbc-home-minicard">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 rotate-180" fill="none"
                              viewBox="0 0 24 24"
                              stroke="currentColor">
@@ -171,11 +88,7 @@
                         </svg>
                         <div>
                             <span>Войти</span>
-                            {{--                            <span class="text-xs text-blue-300 block">Заходи быстрее</span>--}}
-                            <span class="text-xs text-blue-300 block">/login</span>
-                        </div>
-                        <div>
-                            <i class="fa fa-chevron-right opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-0 block transition mt-5 sm:mt-2"></i>
+                            <span class="mbc-home-minicard-url-label">/login</span>
                         </div>
                     </div>
                 </a>
@@ -191,12 +104,9 @@
                         </svg>
                         <div>
                             <span>Контакты</span>
-                            <span class="text-xs text-blue-300 block">/contacts</span>
+                            <span class="mbc-home-minicard-url-label">/contacts</span>
                         </div>
-                        <div>
-                            <i class="fa fa-chevron-right opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-0 block transition"></i>
-                        </div>
-                        <div class="absolute text-xs text-gray-200 bottom-1 right-2">Не работает</div>
+                        <div class="mbc-home-minicard-not-working-label">Не работает</div>
                     </div>
                 </a>
                 <a href="{{ route('landing.about') }}">
@@ -209,18 +119,14 @@
                         </svg>
                         <div>
                             <span>О Проекте</span>
-                            {{--                            <span class="text-xs text-blue-300 block">Тут интересно</span>--}}
-                            <span class="text-xs text-blue-300 block">/about</span>
+                            <span class="mbc-home-minicard-url-label">/about</span>
                         </div>
-                        <div>
-                            <i class="fa fa-chevron-right opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-0 block transition"></i>
-                        </div>
-                        <div class="absolute text-xs text-gray-200 bottom-1 right-2">Не работает</div>
+                        <div class="mbc-home-minicard-not-working-label">Не работает</div>
                     </div>
                 </a>
                 <a href="{{ route('landing.team') }}">
                     <div
-                        class="group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
+                        class="mbc-home-minicard">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -228,17 +134,13 @@
                         </svg>
                         <div>
                             <span>Команда</span>
-                            {{--                        <span class="text-xs text-blue-300 block">Разработчики и...</span>--}}
-                            <span class="text-xs text-blue-300 block">/team</span>
-                        </div>
-                        <div>
-                            <i class="fa fa-chevron-right opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-0 block transition"></i>
+                            <span class="mbc-home-minicard-url-label">/team</span>
                         </div>
                     </div>
                 </a>
                 <a href="{{ route('landing.register') }}">
                     <div
-                        class="group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 mt-5 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
+                        class="mbc-home-minicard">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -246,11 +148,7 @@
                         </svg>
                         <div>
                             <span>Регистрация</span>
-                            {{--                            <span class="text-xs text-blue-300 block">Заходи быстрее</span>--}}
-                            <span class="text-xs text-blue-300 block">/register</span>
-                        </div>
-                        <div>
-                            <i class="fa fa-chevron-right opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-0 block transition mt-5 sm:mt-2"></i>
+                            <span class="mbc-home-minicard-url-label">/register</span>
                         </div>
                     </div>
                 </a>

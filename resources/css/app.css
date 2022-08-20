@@ -1,6 +1,38 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+
+/*Главная страница*/
+
+.mbc-gradient-background {
+    @apply bg-gradient-to-br from-indigo-900 to-green-900 min-h-screen overflow-auto;
+}
+
+.mbc-home-minicards-grid {
+    @apply grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-5 mb-12;
+}
+
+.mbc-home-minicard {
+    @apply flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2
+    ring-offset-blue-800  cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2;
+}
+
+.mbc-home-minicard-hover-arrow {
+    @apply opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-0 block transition;
+}
+
+.mbc-home-minicard-not-working-label {
+    @apply absolute text-xs text-gray-200 bottom-1 right-2;
+}
+
+.mbc-home-minicard-url-label {
+    @apply text-xs text-blue-300 block;
+}
+
+.mbc-for-student-by-students {
+    @apply hidden sm:block sm:absolute right-3 bottom-1 font-semibold text-blue-400;
+}
 
 /*@media (prefers-color-scheme: dark) {*/
 /*    .apexcharts-text.apexcharts-yaxis-label {*/
