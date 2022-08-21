@@ -86,12 +86,10 @@ class Schedule extends Component
     {
         $this->modal_group_name = trim($this->modal_group_name);
 
-//        dd($this->group_name, $this->modal_group_name);
-        if ($this->modal_group_name == $this->group_name) {
+        if ($this->modal_group_name == $this->group_name && $this->modal_group_name == $this->g) {
             $this->search_error = false;
             $this->modal_set = false;
-//            dd($this->group_name);
-//            return;
+            return;
         }
         $this->get_groups();
         $tmp = $this->groups_list;
