@@ -30,11 +30,11 @@ Route::group([
 
 
 Route::group([
-    'prefix' => 'dashboard',
+    'prefix' => 'd', // dashboard
     'middleware' => ['auth:sanctum', 'verified'],
 ], function () {
     Route::group([
-        'prefix' => 'student',
+        'prefix' => 's', // student
         'middleware' => ['can:user-panel-access'],
     ], function () {
         Route::get('/', \App\Http\Livewire\Student\Dashboard::class)->name('student.dashboard');
@@ -45,7 +45,7 @@ Route::group([
 
     });
     Route::group([
-        'prefix' => 'headman',
+        'prefix' => 'h', //headman
         'middleware' => ['can:headman-panel-access'],
     ], function () {
         Route::get('/', \App\Http\Livewire\Headman\Dashboard::class)->name('headman.dashboard');
@@ -58,7 +58,7 @@ Route::group([
     });
 
     Route::group([
-        'prefix' => 'moderator',
+        'prefix' => 'm', // moderator
         'middleware' => ['can:mod-panel-access'],
     ], function () {
         Route::get('/', \App\Http\Livewire\Moderator\Dashboard::class)->name('moderator.dashboard');
@@ -67,7 +67,7 @@ Route::group([
 
 
     Route::group([
-        'prefix' => 'admin',
+        'prefix' => 'a', // admin
         'middleware' => ['can:admin-panel-access'],
     ], function () {
         Route::get('/', \App\Http\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
@@ -139,6 +139,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Co
 Route::get('import/{token}', \App\Http\Livewire\Admin\Import::class);
 
 Route::get('r/{key}', [\App\Http\Controllers\MainController::class, 'CustomRedirect']);
+
+Route::fallback([\App\Http\Controllers\MainController::class, 'OldLinkRedirect']);
 //Route::get('t', [\App\Http\Controllers\MainController::class, 'test']);
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Controllers\MainController::class, 'DashboardRedirect'])->name('dashboard');
 //Route::get('/', \App\Http\Livewire\Landing\Home::class)->name('landing.home');

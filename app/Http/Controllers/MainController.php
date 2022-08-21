@@ -39,7 +39,12 @@ class MainController extends Controller
     }
 
     public function OldLinkRedirect($link){
-
+        $link = preg_replace("(dashboard)", "d", $link);
+        $link = preg_replace("(student)", "s", $link);
+        $link = preg_replace("(headman)", "h", $link);
+        $link = preg_replace("(moderator)", "m", $link);
+        $link = preg_replace("(admin)", "a", $link);
+        return  redirect($link);
     }
 
     public function test()
