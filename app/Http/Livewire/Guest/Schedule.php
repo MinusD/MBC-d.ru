@@ -75,7 +75,8 @@ class Schedule extends Component
         $this->load_data();
     }
 
-    public function get_previous_group(){
+    public function get_previous_group()
+    {
         $tmp = $this->modal_group_name;
         $this->modal_group_name = $this->previous_group;
         $this->previous_group = $tmp;
@@ -85,7 +86,7 @@ class Schedule extends Component
     public function save()
     {
         $this->modal_group_name = trim($this->modal_group_name);
-
+        $this->previous_group = $this->group_name;
         if ($this->modal_group_name == $this->group_name && $this->modal_group_name == $this->g) {
             $this->search_error = false;
             $this->modal_set = false;
