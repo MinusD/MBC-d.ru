@@ -8,7 +8,7 @@
                 @if($search_error)
                     <span class="text-red-600">Ошибка поиска группы</span>
                 @endif
-                @if(mb_strlen($previous_group > 3))
+                @if(mb_strlen($previous_group > 3) && $previous_group != $group_name)
                     <x-button info wire:click="get_previous_group">Вернуть расписание
                         группы {{ $previous_group ?? "не найдено"}}</x-button>
                 @endif
