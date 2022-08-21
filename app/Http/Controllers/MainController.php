@@ -38,6 +38,10 @@ class MainController extends Controller
         }
     }
 
+    public function OldLinkRedirect($link){
+
+    }
+
     public function test()
     {
 //        $d = User::find(2);

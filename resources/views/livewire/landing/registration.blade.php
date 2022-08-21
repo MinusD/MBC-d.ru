@@ -97,7 +97,7 @@
                                   transform="translate(-227.576 -76.46149)" fill="#2f2e41"/>
                         </svg>
                     </div>
-                    <div class="w-full md:w-1/2 py-10 px-5 md:px-10 relative">
+                    <div class="w-full md:w-1/2 pb-24 py-10 md:pb-10 px-5 md:px-10 relative">
                         <div class="text-center mb-10">
                             <h1 class="font-bold text-3xl text-gray-900">Регистрация</h1>
                             <p>Уже зарегистрированы? <a class="text-blue-700" href="{{ route('login') }}">Заходи!</a>
@@ -266,18 +266,19 @@
                             </div>
 
                             {{-- Кнопки  Далее,  На главную,  Назад --}}
-                            <div class="absolute bottom-0 mb-5 w-full" x-show="step != 'complete'">
-                                <div class="flex space-x-4 w-10/12">
-                                    <x-button md primary class="w-1/4 flex-1 transform transition"
-                                              @click="document.location.href = '{{ route('landing.home') }}'">На главную
-                                    </x-button>
-                                    <x-button md warning class="w-1/4 flex-1 transform transition" x-show="step > 1"
-                                              @click="step--" x-cloak>Назад
-                                    </x-button>
-                                    <x-button md positive class="w-1/4 flex-1 transform transition" @click="step++"
-                                              x-show="step < 4">
-                                        Далее
-                                    </x-button>
+                            <div class="absolute bottom-0 mb-5 w-full -mr-10 pr-10 md:-mr-0 md:pr-0 " x-show="step != 'complete'">
+
+                                    <div class="flex space-x-4  w-auto md:w-10/12">
+                                        <x-button md primary class="w-1/4 flex-1 transform transition"
+                                                  @click="document.location.href = '{{ route('landing.home') }}'">Главная
+                                        </x-button>
+                                        <x-button md warning class="w-1/4 flex-1 transform transition" x-show="step > 1"
+                                                  @click="step--" x-cloak>Назад
+                                        </x-button>
+                                        <x-button md positive class="w-1/4 flex-1 transform transition" @click="step++"
+                                                  x-show="step < 4">
+                                            Далее
+                                        </x-button>
                                 </div>
                                 {{--                                <x-button md primary class="w-1/3 inline">На главную</x-button>--}}
 
