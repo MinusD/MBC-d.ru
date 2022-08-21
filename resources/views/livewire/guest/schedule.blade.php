@@ -8,10 +8,13 @@
                 @if($search_error)
                     <span class="text-red-600">Ошибка поиска группы</span>
                 @endif
-                @if(mb_strlen($previous_group > 3) && $previous_group != $group_name)
-                    <x-button info wire:click="get_previous_group">Вернуть расписание
-                        группы {{ $previous_group ?? "не найдено"}}</x-button>
+                @if($previous_group)
+                    @if($previous_group != $group_name)
+                        <x-button info wire:click="get_previous_group">Вернуть расписание
+                            группы {{ $previous_group ?? "не найдено"}}</x-button>
+                    @endif
                 @endif
+                {{--                {{ $previous_group ?? "не найдено"}} 1 {{ $previous_group != $group_name}}--}}
                 <p><span class="font-bold">Важно! </span>Название группы должно быть в таком же формате, как и в
                     расписании (Например: <code>ИКБО-30-21</code>)</p>
 
@@ -158,17 +161,17 @@
             </div>
         </div>
     @endif
-{{--    <div class="mbc-near-header-card-out">--}}
-{{--        <a--}}
-{{--            href="{{ route('guest.new-schedule') }}"--}}
-{{--            class="mbc-schedule-near-header-card-base ring-offset-yellow-600 ring-yellow-500">--}}
-{{--            <div>--}}
-{{--                <div class="mbc-schedule-near-header-card-text">--}}
-{{--                    Попробуй новый дизайн расписания!--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </a>--}}
-{{--    </div>--}}
+    {{--    <div class="mbc-near-header-card-out">--}}
+    {{--        <a--}}
+    {{--            href="{{ route('guest.new-schedule') }}"--}}
+    {{--            class="mbc-schedule-near-header-card-base ring-offset-yellow-600 ring-yellow-500">--}}
+    {{--            <div>--}}
+    {{--                <div class="mbc-schedule-near-header-card-text">--}}
+    {{--                    Попробуй новый дизайн расписания!--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </a>--}}
+    {{--    </div>--}}
     @if(env('IS_DISTANT'))
         <div class="mbc-near-header-card-out">
             <div
