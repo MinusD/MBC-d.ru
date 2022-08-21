@@ -2,8 +2,6 @@
     <div class="mbc-near-header-card-out">
         <x-modal.card title="Выбор группы" class="z-50" blur wire:model="modal_set">
             <div class="grid grid-cols-1  gap-4">
-
-
                 <x-input label="Имя группы" wire:model.lazy="modal_group_name" wire:keydown.enter="save"/>
                 @if($search_error)
                     <span class="text-red-600">Ошибка поиска группы</span>

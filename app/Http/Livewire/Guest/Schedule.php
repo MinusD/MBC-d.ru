@@ -9,6 +9,7 @@ use Exception;
 use Livewire\Component;
 use Illuminate\Support\Facades\Cookie;
 use WireUi\Traits\Actions;
+use function Symfony\Component\String\u;
 
 class Schedule extends Component
 {
@@ -144,6 +145,9 @@ class Schedule extends Component
 //            $timetable = json_decode(file_get_contents($path), true)[0];
             $this->timetable = json_decode(file_get_contents($path), true)[0];
             $this->current_week = json_decode(file_get_contents($path2), true);
+            if ($this->current_week > 25) {
+                $this->current_week = 1;
+            }
             $this->show_week = $this->current_week;
 
             $this->lessons_time = $this->timetable['lessonsTimes'][0];
