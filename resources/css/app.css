@@ -204,6 +204,58 @@
     @apply h-5 w-5 text-green-500;
 }
 
+.mbc-services-service {
+    @apply h-full overflow-auto transition-all;
+}
+
+.mbc-services-service {
+    @apply h-full overflow-auto transition-all;
+}
+
+
+.mbc-services-book-text-main {
+    @apply w-full flex items-center text-base md:text-lg font-semibold;
+}
+
+.mbc-services-book-section {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12;
+}
+
+.mbc-services-book-section-title {
+    @apply flex flex-col items-center pb-6;
+}
+
+.mbc-services-book-section-title-number {
+    @apply text-base font-bold text-indigo-300;
+}
+
+.mbc-services-book-section-title-name {
+    @apply font-bold text-xl lg:text-2xl;
+}
+
+.mbc-services-link-to-footer {
+    @apply fixed z-10 p-3 bg-indigo-600 bg-opacity-40 rounded-full shadow-md bottom-5 right-5 md:bottom-10 md:right-10 rotate-180;
+}
+
+.mbc-services-footer {
+    @apply px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8;
+}
+
+.mbc-services-footer-internal-links {
+    @apply flex flex-wrap justify-center -mx-5 -my-2;
+}
+
+.mbc-services-footer-internal-link {
+    @apply px-5 py-2 text-base leading-6 text-gray-500 hover:text-gray-900;
+}
+
+.mbc-services-footer-link-picture {
+    @apply text-gray-400 hover:text-gray-500;
+}
+
+.mbc-services-footer-all-rights-reserved {
+    @apply mt-8 text-base leading-6 text-center text-gray-400;
+}
 /*.mbc-dashboard-table-cell-*/
 
 
