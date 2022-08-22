@@ -1,5 +1,4 @@
-<div class="h-full overflow-auto transition-all" id="journal-scroll" x-data="{font: 1, theme: 1}">
-
+<div class="mbc-services-service" id="journal-scroll" x-data="{font: 1, theme: 1}">
     <style>
         html {
             scroll-behavior: smooth;
@@ -8,12 +7,11 @@
 
 
     <div
-        class="flex transition duration-500 flex-wrap justify-center bg-gradient-to-br from-indigo-900 to-green-900  min-h-screen "
+        class="mbc-services-book"
         :class="{'font-sans': font == 1, 'font-serif': font == 2, 'font-mono': font == 3,
          'bg-gradient-to-br from-indigo-900 to-green-900': theme == 1,
          'bg-gray-50': theme == 2,  'bg-gray-900': theme == 3
-         }"
-    >
+         }">
         <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-6 w-full transition duration-500 ">
             <div
                 class="w-full shadow-lg bg-indigo-900 bg-opacity-40 items-center h-32 md:h-16 rounded-2xl z-40 ring-2 ring-offset-blue-800 ring-cyan-700">
@@ -98,19 +96,18 @@
                 </div>
             </div>
         </section>
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
-                 :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
-        >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+        <section class="mbc-services-book-section"
+                 :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 1 A
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name">
                     Higher Education in Russia
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Russia’s higher education system started with
                         the
@@ -172,19 +169,19 @@
                 </div>
             </div>
         </section>
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 1 B
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     The 300th Anniversary of Technical Education in Russia
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Engineering education in Russia started with
                         organization in Moscow of School for Mathematical and Navigational Crafts. The date of the
@@ -274,19 +271,19 @@
                 </div>
             </div>
         </section>
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 1 C
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     Russia’s Top Universities
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Russia’s top universities have very competitive
                         entry requirements, and special entry exams are held each year. Students must apply for studies
@@ -306,19 +303,19 @@
             </div>
         </section>
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 1 D
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     Moscow State University
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lomonosov Moscow State University is the oldest
                         and the most prestigious university of Russia. Moscow University was founded in 1755 on Saint
@@ -377,19 +374,19 @@
         </section>
 
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 2 A
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     Higher Education in Great Britain
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Higher education in Great Britain is provided by
                         three main types of institutions: universities, colleges and institutions of higher education,
@@ -423,19 +420,19 @@
         </section>
 
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 2 B
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     Entrance Procedures
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A bachelor’s degree (BA, BSc, etc.) can be
                         obtained by a minimum of three year’s study at one of the more than 200 universities or
@@ -474,19 +471,19 @@
             </div>
         </section>
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 2 C
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     Higher Education in the USA
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Education in the United States is provided mainly
                         by the
@@ -546,19 +543,19 @@
             </div>
         </section>
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 2 D
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     Post-Secondary Education in the United States
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Post-secondary education in the United States is
                         known as college or
@@ -620,19 +617,19 @@
         </section>
 
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 3 A
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     The History of Russia
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The history of Russia is a long and complex
                         story. It all begins with that of the East Slavs, the
@@ -693,19 +690,19 @@
         </section>
 
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 3 B
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     Geography of Russia
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The modern Russian state is geographically
                         isolated. It is enclosed,
@@ -789,19 +786,19 @@
         </section>
 
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 3 C
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     Modern Russia’s Economy and Industries
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Russia has a complete range of mining and
                         extractive industries
@@ -845,19 +842,19 @@
         </section>
 
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 3 D
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     Moscow
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Moscow is the capital of Russia, its
                         administrative, economic,
@@ -926,19 +923,19 @@
         </section>
 
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 4 A
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     The United States of America
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The story of the American people is a
                         story of immigration and diversity. The
@@ -1013,19 +1010,19 @@
             </div>
         </section>
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 4 B
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     Washington and New York
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Washington is the capital of the United States.
                         The city was founded
@@ -1070,19 +1067,19 @@
             </div>
         </section>
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 4 C
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     British Parliament
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. What does the term “constitutional monarchy”
                         mean?</p>
@@ -1201,19 +1198,19 @@
             </div>
         </section>
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 4 D
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     London
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;London is the capital city of the United Kingdom.
                         The capital of the
@@ -1272,19 +1269,19 @@
         </section>
 
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"
+        <section class="mbc-services-book-section"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 5 A
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     “To Learn or Not to Learn Foreign Languages?”
                 </h1>
             </div>
 
-            <div class="w-full flex items-center text-base md:text-lg font-semibold ">
+            <div class="mbc-services-book-text-main ">
                 <div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Have you noticed that universal craziness about
                         foreign languages?
@@ -1362,19 +1359,19 @@
         </section>
 
 
-        {{--        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"--}}
+        {{--        <section class="mbc-services-book-section"--}}
         {{--                 :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"--}}
         {{--        >--}}
-        {{--            <div class="text-center pb-6">--}}
-        {{--                <h2 class="text-base font-bold text-indigo-300">--}}
+        {{--            <div class="mbc-services-book-section-title">--}}
+        {{--                <h2 class="mbc-services-book-section-title-number">--}}
         {{--                    Text 5 B--}}
         {{--                </h2>--}}
-        {{--                <h1 class="font-bold text-xl lg:text-2xl font-heading ">--}}
+        {{--                <h1 class="mbc-services-book-section-title-name ">--}}
         {{--                    Tourism--}}
         {{--                </h1>--}}
         {{--            </div>--}}
 
-        {{--            <div class="w-full flex items-center text-base md:text-lg font-semibold ">--}}
+        {{--            <div class="mbc-services-text-main ">--}}
         {{--                <div>--}}
         {{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tourism is the act of travel for the purpose of recreation and--}}
         {{--                        business, and the provision of services for this act. Tourists are persons--}}
@@ -1402,38 +1399,38 @@
         {{--        </section>--}}
 
 
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200 w-full"
+        <section class="mbc-services-book-section w-full"
                  :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"
         >
-            <div class="text-center pb-6">
-                <h2 class="text-base font-bold text-indigo-300">
+            <div class="mbc-services-book-section-title">
+                <h2 class="mbc-services-book-section-title-number">
                     Text 5 B
                 </h2>
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+                <h1 class="mbc-services-book-section-title-name ">
                     Tourism
                 </h1>
             </div>
-            <div class="text-center pb-6 w-full">
-                <h1 class="font-bold text-xl lg:text-2xl font-heading ">
+            <div class="mbc-services-book-section-title ">
+                <h1 class="mbc-services-book-section-title-name ">
                     Скоро...
                 </h1>
             </div>
         </section>
 
 
-        {{--        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"--}}
+        {{--        <section class="mbc-services-book-section"--}}
         {{--                 :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"--}}
         {{--        >--}}
-        {{--            <div class="text-center pb-6">--}}
-        {{--                <h2 class="text-base font-bold text-indigo-300">--}}
+        {{--            <div class="mbc-services-book-section-title">--}}
+        {{--                <h2 class="mbc-services-book-section-title-number">--}}
         {{--                    Text 1 A--}}
         {{--                </h2>--}}
-        {{--                <h1 class="font-bold text-xl lg:text-2xl font-heading ">--}}
+        {{--                <h1 class="mbc-services-book-section-title-name ">--}}
         {{--                    Higher Education in Russia--}}
         {{--                </h1>--}}
         {{--            </div>--}}
 
-        {{--            <div class="w-full flex items-center text-base md:text-lg font-semibold ">--}}
+        {{--            <div class="mbc-services-text-main ">--}}
         {{--                <div>--}}
         {{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
         {{--                </div>--}}
@@ -1441,19 +1438,19 @@
         {{--        </section>--}}
 
 
-        {{--        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 text-gray-200"--}}
+        {{--        <section class="mbc-services-book-section"--}}
         {{--                 :class="{'text-gray-200': theme == 1, 'text-gray-800': theme == 2, 'text-gray-300': theme == 3 }"--}}
         {{--        >--}}
-        {{--            <div class="text-center pb-6">--}}
-        {{--                <h2 class="text-base font-bold text-indigo-300">--}}
+        {{--            <div class="mbc-services-book-section-title">--}}
+        {{--                <h2 class="mbc-services-book-section-title-number">--}}
         {{--                    Text 1 A--}}
         {{--                </h2>--}}
-        {{--                <h1 class="font-bold text-xl lg:text-2xl font-heading ">--}}
+        {{--                <h1 class="mbc-services-book-section-title-name ">--}}
         {{--                    Higher Education in Russia--}}
         {{--                </h1>--}}
         {{--            </div>--}}
 
-        {{--            <div class="w-full flex items-center text-base md:text-lg font-semibold ">--}}
+        {{--            <div class="mbc-services-text-main ">--}}
         {{--                <div>--}}
         {{--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>--}}
         {{--                </div>--}}
@@ -1508,7 +1505,7 @@
         {{--        </div>--}}
 
         <a href="#footer"
-           class="fixed z-10 p-3 bg-indigo-600 bg-opacity-40 rounded-full shadow-md bottom-5 right-5 md:bottom-10 md:right-10 rotate-180">
+           class="mbc-services-link-to-footer">
             <svg class="w-4 h-4 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                  xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18">
@@ -1519,35 +1516,28 @@
 
     <!-- Foooter -->
     <section class="" id="footer">
-        <div class=" px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
-            <nav class="flex flex-wrap justify-center -mx-5 -my-2">
-                <div class="px-5 py-2">
-                    <a href="{{ route('landing.home') }}" class="text-base leading-6 text-gray-500 hover:text-gray-900">
-                        Главная
-                    </a>
-                </div>
-                <div class="px-5 py-2">
-                    <a href="{{ route('landing.about') }}"
-                       class="text-base leading-6 text-gray-500 hover:text-gray-900">
-                        О нас
-                    </a>
-                </div>
-                <div class="px-5 py-2">
-                    <a href="{{ route('landing.contacts') }}"
-                       class="text-base leading-6 text-gray-500 hover:text-gray-900">
-                        Контакты
-                    </a>
-                </div>
-                <div class="px-5 py-2">
-                    <a href="{{ route('guest.schedule') }}"
-                       class="text-base leading-6 text-gray-500 hover:text-gray-900">
-                        Раcписание
-                    </a>
-                </div>
+        <div class="mbc-services-footer">
+            <nav class="mbc-services-footer-internal-links">
+                <a href="{{ route('landing.home') }}"
+                   class="mbc-services-footer-internal-link">
+                    Главная
+                </a>
+                <a href="{{ route('landing.about') }}"
+                   class="mbc-services-footer-internal-link">
+                    О нас
+                </a>
+                <a href="{{ route('landing.contacts') }}"
+                   class="mbc-services-footer-internal-link">
+                    Контакты
+                </a>
+                <a href="{{ route('guest.schedule') }}"
+                   class="mbc-services-footer-internal-link">
+                    Раcписание
+                </a>
             </nav>
 
-            <div class="flex justify-center mt-8 space-x-6">
-                <a href="https://vk.com/maybecompany" target="_blank" class="text-gray-400 hover:text-gray-500">
+            <div class="mbc-services-footer-external-links">
+                <a href="https://vk.com/maybecompany" target="_blank" class="mbc-services-footer-link-picture">
                     <span class="sr-only">Vk</span>
                     <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
@@ -1589,8 +1579,7 @@
                         </g>
 </svg>
                 </a>
-                <a href="https://www.instagram.com/maybe_company/" target="_blank"
-                   class="text-gray-400 hover:text-gray-500">
+                <a href="https://www.instagram.com/maybe_company/" target="_blank" class="mbc-services-footer-link-picture">
                     <span class="sr-only">Instagram</span>
                     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
                         <path fill-rule="evenodd"
@@ -1598,7 +1587,7 @@
                               clip-rule="evenodd"></path>
                     </svg>
                 </a>
-                <a href="https://github.com/MinusD" target="_blank" class="text-gray-400 hover:text-gray-500">
+                <a href="https://github.com/MinusD" target="_blank" class="mbc-services-footer-link-picture">
                     <span class="sr-only">GitHub</span>
                     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
                         <path fill-rule="evenodd"
@@ -1606,7 +1595,7 @@
                               clip-rule="evenodd"></path>
                     </svg>
                 </a>
-                <a href="https://discord.gg/aJh8b6X" target="_blank" class="text-gray-400 hover:text-gray-500">
+                <a href="https://discord.gg/aJh8b6X" target="_blank" class="mbc-services-footer-link-picture">
                     <span class="sr-only">Discord</span>
                     <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="71" height="55"
                          viewBox="0 0 71 55">
@@ -1623,7 +1612,7 @@
                     </svg>
                 </a>
             </div>
-            <p class="mt-8 text-base leading-6 text-center text-gray-400">
+            <p class="mbc-services-footer-all-rights-reserved">
                 © 2019-2021 MayBe Company. Все права защищены.
             </p>
         </div>
