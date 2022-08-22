@@ -2,7 +2,8 @@
     <div class="mbc-near-header-card-out">
         <x-modal.card title="Выбор группы" class="z-50" blur wire:model="modal_set">
             <div class="grid grid-cols-1  gap-4">
-                <x-input label="Имя группы" wire:model.lazy="modal_group_name" wire:keydown.enter="save"/>
+                <x-input label="Имя группы" wire:model.lazy="modal_group_name" wire:keydown.enter="save"
+                         class="uppercase"/>
                 @if($search_error)
                     <span class="text-red-600">Ошибка поиска группы</span>
                 @endif
@@ -13,8 +14,8 @@
                     @endif
                 @endif
                 {{--                {{ $previous_group ?? "не найдено"}} 1 {{ $previous_group != $group_name}}--}}
-                <p><span class="font-bold">Важно! </span>Название группы должно быть в таком же формате, как и в
-                    расписании (Например: <code>ИКБО-30-21</code>)</p>
+                {{--                <p><span class="font-bold">Важно! </span>Название группы должно быть в таком же формате, как и в--}}
+                {{--                    расписании (Например: <code>ИКБО-30-21</code>)</p>--}}
 
             </div>
 

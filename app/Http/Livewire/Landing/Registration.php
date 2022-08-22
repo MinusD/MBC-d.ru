@@ -122,6 +122,7 @@ class Registration extends Component
 
     public function search_group_by_student()
     {
+        $this->group_slug = mb_strtoupper($this->group_slug);
         $this->confirm_group_id = 0;
         $groups = Group::where('group_name', $this->group_slug)->get();
         $this->isset_groups_list = [];
@@ -145,6 +146,8 @@ class Registration extends Component
 
     public function search_group_by_headman()
     {
+        $this->group_slug = mb_strtoupper($this->group_slug);
+
         $path = env('API_SERVER') . 'groups/all';
         $this->groups = json_decode(file_get_contents($path));
         $tmp = $this->groups;

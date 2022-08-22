@@ -142,6 +142,7 @@
                                      x-transition:enter-end="transform opacity-100 scale-100">
                                     <x-input label="Группа" wire:model.defer="group_slug"
                                              placeholder="Например: ИКБО-21-21"
+                                             class="uppercase"
                                         {{--                                    wire:keydown.enter="search_group"--}}
                                     >
                                         <x-slot name="append">
@@ -266,19 +267,20 @@
                             </div>
 
                             {{-- Кнопки  Далее,  На главную,  Назад --}}
-                            <div class="absolute bottom-0 mb-5 w-full -mr-10 pr-10 md:-mr-0 md:pr-0 " x-show="step != 'complete'">
+                            <div class="absolute bottom-0 mb-5 w-full -mr-10 pr-10 md:-mr-0 md:pr-0 "
+                                 x-show="step != 'complete'">
 
-                                    <div class="flex space-x-4  w-auto md:w-10/12">
-                                        <x-button md primary class="w-1/4 flex-1 transform transition"
-                                                  @click="document.location.href = '{{ route('landing.home') }}'">Главная
-                                        </x-button>
-                                        <x-button md warning class="w-1/4 flex-1 transform transition" x-show="step > 1"
-                                                  @click="step--" x-cloak>Назад
-                                        </x-button>
-                                        <x-button md positive class="w-1/4 flex-1 transform transition" @click="step++"
-                                                  x-show="step < 4">
-                                            Далее
-                                        </x-button>
+                                <div class="flex space-x-4  w-auto md:w-10/12">
+                                    <x-button md primary class="w-1/4 flex-1 transform transition"
+                                              @click="document.location.href = '{{ route('landing.home') }}'">Главная
+                                    </x-button>
+                                    <x-button md warning class="w-1/4 flex-1 transform transition" x-show="step > 1"
+                                              @click="step--" x-cloak>Назад
+                                    </x-button>
+                                    <x-button md positive class="w-1/4 flex-1 transform transition" @click="step++"
+                                              x-show="step < 4">
+                                        Далее
+                                    </x-button>
                                 </div>
                                 {{--                                <x-button md primary class="w-1/3 inline">На главную</x-button>--}}
 

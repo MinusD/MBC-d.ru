@@ -66,6 +66,9 @@ class Schedule extends Component
         $path2 = env('API_SERVER') . 'time/week';
         $this->timetable = json_decode(file_get_contents($path), true)[0];
         $this->current_week = json_decode(file_get_contents($path2), true);
+//        if ($this->current_week > 25) {
+//            $this->current_week = 1;
+//        }
         $this->lessons_time = $this->timetable['lessonsTimes'][0];
         $this->show_week = $this->current_week;
         $this->load_data();

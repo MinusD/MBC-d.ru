@@ -86,7 +86,8 @@ class Schedule extends Component
 
     public function save()
     {
-        $this->modal_group_name = trim($this->modal_group_name);
+        $this->modal_group_name = mb_strtoupper(trim($this->modal_group_name));
+//        dd(strtoupper(trim($this->modal_group_name)));
         $this->previous_group = $this->group_name;
         if ($this->modal_group_name == $this->group_name && $this->modal_group_name == $this->g) {
             $this->search_error = false;
@@ -145,9 +146,10 @@ class Schedule extends Component
 //            $timetable = json_decode(file_get_contents($path), true)[0];
             $this->timetable = json_decode(file_get_contents($path), true)[0];
             $this->current_week = json_decode(file_get_contents($path2), true);
-            if ($this->current_week > 25) {
-                $this->current_week = 1;
-            }
+//            if ($this->current_week > 25) {
+//                $this->current_week = 1;
+//
+//            }
             $this->show_week = $this->current_week;
 
             $this->lessons_time = $this->timetable['lessonsTimes'][0];
