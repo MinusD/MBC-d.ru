@@ -265,7 +265,7 @@
                         <th class="hidden md:table-cell py-3 px-6 text-left rounded-tl-md">Фамилия</th>
                         <th class="hidden md:table-cell py-3 px-6 text-left">Имя</th>
                         <th class="hidden md:table-cell py-3 px-6 text-center">Отчество</th>
-                        <th class="py-3 text-center">Статус</th>
+                        <th class="py-3 text-center" title="{{$status_counter_text}}">Статус</th>
                         <th class="py-3 px-6 text-center rounded-tr-md">Действия</th>
                     </tr>
                     </thead>

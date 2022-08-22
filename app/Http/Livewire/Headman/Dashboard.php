@@ -9,6 +9,7 @@ use App\Models\StudentGroupInvite;
 use App\Models\User;
 use Livewire\Component;
 use WireUi\Traits\Actions;
+use function Livewire\str;
 
 class Dashboard extends Component
 {
@@ -21,7 +22,7 @@ class Dashboard extends Component
     public $delete_user_confirm_modal_is_open = false;
     public $edit_user_modal_is_open = false;
     public $add_student_modal_is_open = false;
-
+    public $status_counter_text = "";
 
     public $deleted_user_data;
     public $new_stunent_name = "";
@@ -64,6 +65,17 @@ class Dashboard extends Component
     public function get_students()
     {
         $this->students = User::where('group_id', $this->group->id)->get()->sortBy('sname');
+        $counter = 0;
+        foreach ($this->students as $student) {
+            if ($student->email){
+                $counter++;
+            }
+        }
+//        $this->status_counter_text = "Активировали аккаунт: " + $counter + "/" + count($this->students);
+        $len_st = count($this->students);
+        $this->status_counter_text = "Активировали аккаунт: $counter/$len_st";
+
+
     }
 
     public function open_add_student_modal()
