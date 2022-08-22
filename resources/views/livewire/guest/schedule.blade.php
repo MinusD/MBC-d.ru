@@ -160,6 +160,7 @@
             </div>
         </div>
     @endif
+
     {{--    <div class="mbc-near-header-card-out">--}}
     {{--        <a--}}
     {{--            href="{{ route('guest.new-schedule') }}"--}}
@@ -171,6 +172,7 @@
     {{--            </div>--}}
     {{--        </a>--}}
     {{--    </div>--}}
+
     @if(env('IS_DISTANT'))
         <div class="mbc-near-header-card-out">
             <div
