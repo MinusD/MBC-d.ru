@@ -218,12 +218,12 @@
                             </a>
                         </div>
                         <div class="mbc-schedule-gradient-lesson-card-place">
-                            @if($day['type'] == 'пр')
+                            @if($day['type'] == 'П')
                                 <button
                                     class="mbc-schedule-gradient-lesson-card-place-icon mbc-schedule-gradient-lesson-card-place-icon-green">
                                     <span class="font-normal md:font-bold md:uppercase">пр</span>
                                 </button>
-                            @elseif($day['type'] == 'лк')
+                            @elseif($day['type'] == 'Л')
                                 <button
                                     class="mbc-schedule-gradient-lesson-card-place-icon mbc-schedule-gradient-lesson-card-place-icon-red">
                                     <span class="font-normal md:font-bold md:uppercase">лк</span>
