@@ -75,6 +75,7 @@ Route::group([
         Route::get('export', \App\Http\Livewire\Admin\Export::class)->name('admin.export');
         Route::get('short-links', \App\Http\Livewire\Admin\ShortLinks::class)->name('admin.short-links');
         Route::get('logs', \App\Http\Livewire\Admin\Logs::class)->name('admin.logs');
+        Route::get('groups', \App\Http\Livewire\Admin\Groups::class)->name('admin.groups');
 
         Route::group([
             'prefix' => 'logs'
