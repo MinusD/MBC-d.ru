@@ -74,7 +74,7 @@
                                     </svg>
 
                                     <div>
-                                        <span>Приавтное облако</span>
+                                        <span>Приватное облако</span>
                                         <span class="text-xs text-blue-300 block">/ikbo-files</span>
                                     </div>
                                 </div>
