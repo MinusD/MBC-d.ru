@@ -58,7 +58,7 @@
                 <div class="grid grid-cols-1 justify-center">
                     <div class="flex w-full">
                         <input placeholder="FS code" wire:model.defer="fs_code" wire:change="checker"
-                               wire:keydown.enter="checker" maxlength="6" class="w-64"/>
+                               wire:keydown.enter="checker" maxlength="6" @if($is_custom) class="w-64" @endif/>
                     </div>
 
                     @if($fs_is_correct)

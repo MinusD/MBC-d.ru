@@ -4109,6 +4109,8 @@ video {
 		margin-top: 0.25rem;
 	}.sm\:block{
 		display: block;
+	}.sm\:inline{
+		display: inline;
 	}.sm\:flex{
 		display: flex;
 	}.sm\:hidden{
