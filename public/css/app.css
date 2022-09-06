@@ -1150,6 +1150,8 @@ video {
 	margin-left: -2.5rem;
 }.ml-10{
 	margin-left: 2.5rem;
+}.-ml-5{
+	margin-left: -1.25rem;
 }.block{
 	display: block;
 }.inline-block{
@@ -1284,6 +1286,10 @@ video {
 	width: 0.75rem;
 }.w-3\.5{
 	width: 0.875rem;
+}.w-\[62\]{
+	width: 62;
+}.w-64{
+	width: 16rem;
 }.min-w-0{
 	min-width: 0px;
 }.min-w-max{

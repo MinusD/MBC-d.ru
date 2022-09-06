@@ -11,6 +11,7 @@ class Fastshare extends Component
     public $fs_code;
     public $fs_pass;
     public $fs_is_correct = false;
+    public $is_custom = false;
 
 
     public function checker()
@@ -56,10 +57,19 @@ class Fastshare extends Component
         } elseif ($this->fs_code == "012113") {
             return $this->redirect('https://mbc-d.ru/r/ikbo-files');
         }
+        return;
+    }
+
+    public function mount(){
+        if (\Auth::check()){
+            if (\Auth::user()->group_id == 21){
+                $this->is_custom = true;
+            }
+        }
     }
 
     public function render()
-    {
-        return view('livewire.landing.fastshare')->layout('layouts.landing');
-    }
+{
+    return view('livewire.landing.fastshare')->layout('layouts.landing');
+}
 }

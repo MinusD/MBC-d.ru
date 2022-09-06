@@ -55,13 +55,32 @@
         </style>
         <div class="flex items-center justify-center h-screen w-full">
             <div class="flex">
-                <div class="grid grid-cols-1">
-                    <input placeholder="FS code" wire:model.defer="fs_code" wire:change="checker"
-                           wire:keydown.enter="checker" maxlength="6"/>
+                <div class="grid grid-cols-1 justify-center">
+                    <div class="flex w-full">
+                        <input placeholder="FS code" wire:model.defer="fs_code" wire:change="checker"
+                               wire:keydown.enter="checker" maxlength="6" class="w-64"/>
+                    </div>
+
                     @if($fs_is_correct)
                         <input placeholder="Pin" wire:model.defer="fs_pass" wire:change="checker"
                                wire:keydown.enter="checker" maxlength="5" autofocus/>
                     @endif
+                    @if($is_custom)
+
+                            <a href="https://mbc-d.ru/r/ikbo-files" class="text-gray-200 mt-6">
+                                <div class="group flex items-center bg-indigo-900 bg-opacity-40 shadow-xl gap-5 px-6 py-5 rounded-lg ring-2 ring-offset-2 ring-offset-blue-800 ring-cyan-700 cursor-pointer hover:bg-blue-900 hover:bg-opacity-100 transition mt-5 sm:mt-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-9 h-9">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75v6.75m0 0l-3-3m3 3l3-3m-8.25 6a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                                    </svg>
+
+                                    <div>
+                                        <span>Приавтное облако</span>
+                                        <span class="text-xs text-blue-300 block">/ikbo-files</span>
+                                    </div>
+                                </div>
+                            </a>
+                    @endif
+
                 </div>
                 {{--                <a href="#test" class="btn btn-block btn-warning">Go to form</a>--}}
             </div>
