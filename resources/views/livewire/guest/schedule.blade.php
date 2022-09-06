@@ -184,6 +184,7 @@
                 </div>
             </div>
         </div>
+    @endif
         {{--    <div class="mbc-near-header-card-out hidden sm:block">--}}
         {{--        <div--}}
         {{--            class="mbc-schedule-near-header-card-base ring-offset-blue-800 ring-cyan-700">--}}
@@ -209,7 +210,7 @@
         {{--            </div>--}}
         {{--        </div>--}}
         {{--    </div>--}}
-    @endif
+
     @if(env('IS_DISTANT'))
         <div class="mbc-near-header-card-out">
             <div

@@ -133,7 +133,6 @@ class Schedule extends Component
             $this->api_error = true;
             $this->modal_set = false;
         }
-
     }
 
     public function get_group_data()
@@ -144,7 +143,6 @@ class Schedule extends Component
         $this->date = strtotime('monday this week');
         $this->show_date = $this->date;
         try {
-//            $timetable = json_decode(file_get_contents($path), true)[0];
             $this->timetable = json_decode(file_get_contents($path), true)[0];
             $this->current_week = json_decode(file_get_contents($path2), true);
 //            if ($this->current_week > 25) {
@@ -187,7 +185,6 @@ class Schedule extends Component
 
     public function load_data()
     {
-
         $this->lessons = [];
         $timetable = $this->timetable;
         $this->lessons_time = $timetable['lessonsTimes'][0];
@@ -225,7 +222,6 @@ class Schedule extends Component
             } catch (Exception $e) {
                 $this->api_error = true;
             }
-
         }
     }
 
