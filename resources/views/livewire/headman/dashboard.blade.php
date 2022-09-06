@@ -249,6 +249,13 @@
                             </button>
                         </a>
                     </div>
+{{--                    <div class="p-2 col-span-2">--}}
+{{--                        <button type="button"--}}
+{{--                                wire:click=""--}}
+{{--                                class="mbc-headman-spec-btn">--}}
+{{--                            О группе--}}
+{{--                        </button>--}}
+{{--                    </div>--}}
                 </div>
 
             </div>

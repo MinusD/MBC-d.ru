@@ -160,7 +160,6 @@
             </div>
         </div>
     @endif
-
     {{--    <div class="mbc-near-header-card-out">--}}
     {{--        <a--}}
     {{--            href="{{ route('guest.new-schedule') }}"--}}
@@ -172,6 +171,45 @@
     {{--            </div>--}}
     {{--        </a>--}}
     {{--    </div>--}}
+    @if(env('SHOW_SHEDULE_LAST_UPDATE'))
+        <div class="mbc-near-header-card-out hidden sm:block">
+            <div
+                class="mbc-schedule-near-header-card-base ring-offset-blue-800 ring-cyan-700">
+                <div>
+                    <div class="flex flex items-center justify-center">
+                        <div class="text-md font-semibold text-gray-100">
+                            Проследнее обновление: <span class="font-bold">{{ $last_update ?? "" }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+        {{--    <div class="mbc-near-header-card-out hidden sm:block">--}}
+        {{--        <div--}}
+        {{--            class="mbc-schedule-near-header-card-base ring-offset-blue-800 ring-cyan-700">--}}
+        {{--            <div>--}}
+        {{--                <div class="flex flex items-center justify-center">--}}
+        {{--                    <div class="text-md font-semibold text-gray-100">--}}
+        {{--                        Расписание обновляется раз в 30 минут.--}}
+        {{--                      <span class="hidden sm:inline">  Проследнее обновление:  {{ $last_update ?? "" }}--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--        </div>--}}
+        {{--    </div>--}}
+        {{--    <div class="mbc-near-header-card-out block sm:hidden">--}}
+        {{--        <div--}}
+        {{--            class="mbc-schedule-near-header-card-base ring-offset-blue-800 ring-cyan-700">--}}
+        {{--            <div>--}}
+        {{--                <div class="flex flex items-center justify-center">--}}
+        {{--                    <div class="text-md font-semibold text-gray-100">--}}
+        {{--                        Проследнее обновление: <span class="font-semibold">{{ $last_update ?? "" }}</span>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--        </div>--}}
+        {{--    </div>--}}
 
     @if(env('IS_DISTANT'))
         <div class="mbc-near-header-card-out">
@@ -220,12 +258,12 @@
                             </a>
                         </div>
                         <div class="mbc-schedule-gradient-lesson-card-place">
-                            @if($day['type'] == 'пр')
+                            @if($day['type'] == 'П')
                                 <button
                                     class="mbc-schedule-gradient-lesson-card-place-icon mbc-schedule-gradient-lesson-card-place-icon-green">
                                     <span class="font-normal md:font-bold md:uppercase">пр</span>
                                 </button>
-                            @elseif($day['type'] == 'лк')
+                            @elseif($day['type'] == 'Л')
                                 <button
                                     class="mbc-schedule-gradient-lesson-card-place-icon mbc-schedule-gradient-lesson-card-place-icon-red">
                                     <span class="font-normal md:font-bold md:uppercase">лк</span>

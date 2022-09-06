@@ -120,12 +120,12 @@
                                         <span class="text-gray-600 dark:text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>
                                     </div>
                                     <div class="flex-initial order-last flex items-center justify-center">
-                                        @if($day['type'] == 'пр')
+                                        @if($day['type'] == 'П')
                                             <button
                                                 class="flex-no-shrink bg-green-500 hover:bg-green-500 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
                                                 <span class="font-normal md:font-bold md:uppercase">пр</span>
                                             </button>
-                                        @elseif($day['type'] == 'лк')
+                                        @elseif($day['type'] == 'Л')
                                             <button
                                                 class="flex-no-shrink bg-red-500 hover:bg-red-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-red-400 hover:border-red-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
                                                 <span class="font-normal md:font-bold md:uppercase">лк</span>

@@ -33,6 +33,7 @@ class Schedule extends Component
     public $date;
     public $show_date;
     public $previous_group = "";
+    public $last_update = "";
 
     protected $groups_list = [];
 
@@ -132,7 +133,6 @@ class Schedule extends Component
             $this->api_error = true;
             $this->modal_set = false;
         }
-
     }
 
     public function get_group_data()
@@ -143,13 +143,13 @@ class Schedule extends Component
         $this->date = strtotime('monday this week');
         $this->show_date = $this->date;
         try {
-//            $timetable = json_decode(file_get_contents($path), true)[0];
             $this->timetable = json_decode(file_get_contents($path), true)[0];
             $this->current_week = json_decode(file_get_contents($path2), true);
 //            if ($this->current_week > 25) {
 //                $this->current_week = 1;
 //
 //            }
+            $this->last_update = date("h:i", strtotime($this->timetable['updatedDate']));
             $this->show_week = $this->current_week;
 
             $this->lessons_time = $this->timetable['lessonsTimes'][0];
@@ -185,7 +185,6 @@ class Schedule extends Component
 
     public function load_data()
     {
-
         $this->lessons = [];
         $timetable = $this->timetable;
         $this->lessons_time = $timetable['lessonsTimes'][0];
@@ -223,7 +222,6 @@ class Schedule extends Component
             } catch (Exception $e) {
                 $this->api_error = true;
             }
-
         }
     }
 
