@@ -149,7 +149,7 @@ class Schedule extends Component
 //                $this->current_week = 1;
 //
 //            }
-            $this->last_update = date("h:i", strtotime($this->timetable['updatedDate']));
+            $this->last_update = date("H:i", strtotime($this->timetable['updatedDate']));
             $this->show_week = $this->current_week;
 
             $this->lessons_time = $this->timetable['lessonsTimes'][0];
