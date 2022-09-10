@@ -78,6 +78,14 @@
                     Текст задания
                     <p class=" -mt-4 text-gray-800 dark:text-gray-300 whitespace-pre-line">
                         {{ $show_homework->text ?? "" }}
+                        @if(count($show_homeworks_links) > 0)
+                            <br>
+                            <span class="font-semibold">Ссылки:</span>
+                            @foreach($show_homeworks_links[1] as $show_homeworks_link)
+                                <a class="text-indigo-500" href="{{$show_homeworks_link}}"
+                                   target="_blank"> {{substr($show_homeworks_link, 0, 50)}}</a>
+                            @endforeach
+                        @endif
                     </p>
                 </label>
                 <label

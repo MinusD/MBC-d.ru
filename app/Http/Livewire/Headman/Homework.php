@@ -58,7 +58,6 @@ class Homework extends Component
         $this->show_homework_modal_is_open = true;
         $this->show_homework = $this->homeworks[$key];
 //        dd(preg_replace('\[/([https://|http://]+.*\..*/\]', "ссылка '$1'", $this->show_homework->text));
-        $tmp = [];
         preg_match_all("/\[([https:\/\/|http:\/\/]?[^ ]+\.[^ ]+)\]/", $this->show_homework->text, $this->show_homeworks_links);
         $this->show_homework_subject = Subject::find($this->show_homework->subject_id, ['title'])->title;
         //'<a class="text-indigo-500" href=\"https:" target="_blank">$1<\a>',

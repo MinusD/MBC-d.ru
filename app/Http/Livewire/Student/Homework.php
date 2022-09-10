@@ -32,6 +32,7 @@ class Homework extends Component
     public $show_homework;
     public $show_homework_subject;
     public $show_hw;
+    public $show_homeworks_links = [];
 
     protected $rules = [
         'homework_to_date' => 'required',
@@ -50,6 +51,7 @@ class Homework extends Component
         $this->show_homework_modal_is_open = true;
         $this->show_homework = $this->homeworks[$key];
         $this->show_homework_subject = Subject::find($this->show_homework->subject_id, ['title'])->title;
+        preg_match_all("/\[([https:\/\/|http:\/\/]?[^ ]+\.[^ ]+)\]/", $this->show_homework->text, $this->show_homeworks_links);
     }
 
     public function show_unc()
@@ -97,6 +99,7 @@ class Homework extends Component
             }
             $this->homeworks[$key]->setAttribute('subject', Subject::find($homework->subject_id, ['title'])->title);
         }
+
     }
 
     public function mount()
@@ -125,6 +128,7 @@ class Homework extends Component
             $this->reload_subjects();
         }
         $this->subjects = Subject::where('group_id', $this->group_id)->get();
+
     }
 
     public function reload_subjects()
