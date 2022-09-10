@@ -172,7 +172,7 @@
     {{--        </a>--}}
     {{--    </div>--}}
     @if(env('SHOW_SHEDULE_LAST_UPDATE'))
-        <div class="mbc-near-header-card-out hidden sm:block">
+        <div class="mbc-near-header-card-out">
             <div
                 class="mbc-schedule-near-header-card-base ring-offset-blue-800 ring-cyan-700">
                 <div>
