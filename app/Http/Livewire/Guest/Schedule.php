@@ -105,6 +105,10 @@ class Schedule extends Component
             $this->modal_group_name,
             array_column($tmp, 'groupName')
         );
+        $key = array_search(
+            $this->modal_group_name,
+            array_column($tmp, 'groupName')
+        );
         try {
             if ($this->groups_list[$key]['groupName'] != $this->modal_group_name) {
                 $this->search_error = true;
