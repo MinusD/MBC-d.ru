@@ -120,21 +120,27 @@
                                         <span class="text-gray-600 dark:text-gray-200 text-xs md:text-sm text-sm underline">{{ $day['tuter'] }}</span>
                                     </div>
                                     <div class="flex-initial order-last flex items-center justify-center">
-                                        @if($day['type'] == 'П')
+                                        @if($day['type'] == 'ПР')
                                             <button
                                                 class="flex-no-shrink bg-green-500 hover:bg-green-500 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
                                                 <span class="font-normal md:font-bold md:uppercase">пр</span>
                                             </button>
-                                        @elseif($day['type'] == 'Л')
+                                        @elseif($day['type'] == 'ЛК')
                                             <button
                                                 class="flex-no-shrink bg-red-500 hover:bg-red-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-red-400 hover:border-red-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
                                                 <span class="font-normal md:font-bold md:uppercase">лк</span>
                                             </button>
-                                        @else
+                                        @elseif($day['type'] == 'ЛАБ')
                                             <button
                                                 class="flex-no-shrink bg-indigo-500 hover:bg-indigo-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-indigo-400 hover:border-indigo-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
                                                 <span class="font-normal md:font-bold md:uppercase">лаб</span>
                                             </button>
+                                        @else
+                                            <button
+                                                class="flex-no-shrink bg-indigo-500 hover:bg-indigo-600 px-1 md:px-2 bg-opacity-75 ml-4 py-0.5 text-xs shadow-sm hover:shadow-lg tracking-wider border-2 border-indigo-400 hover:border-indigo-500 text-white rounded-xl md:rounded-full transition ease-in duration-300">
+                                                <span class="font-normal md:font-bold md:uppercase">{{ $day['type'] }}</span>
+                                            </button>
+
                                         @endif
                                     </div>
                                 </div>
